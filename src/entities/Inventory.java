@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
+    """ Inventories store items in a list of items items.
+    """
+
     private List<Item> items;
 
     public Inventory() {
