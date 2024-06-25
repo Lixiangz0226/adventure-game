@@ -9,12 +9,14 @@ public class State{
     stores the special effact of the state.
     """
     private int rounds;
-    public String description;
+    private String description;
 
     public State(int rounds, string description){
         this.description = description;
         this.rounds = rounds;
     }
 
-    public count(){this.rounds -= 1}
+    public count(){this.rounds -= 1;}
+
+    public getdesc(){return this.description;}
 }
