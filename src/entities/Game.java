@@ -14,7 +14,7 @@ public class Game{
     public Game(){
 
         window = new JFrame();
-        window.setsize(1200,  900);
+        window.setsize(1200, 900);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
