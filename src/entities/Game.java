@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Container;
 
-import java.swing.JFrame;
+import javax.swing.JFrame;
 
 public class Game{
     JFrame window;
