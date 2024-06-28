@@ -17,17 +17,14 @@ import javax.swing.JTextArea;
 public class Game{
 
     Container con;
-    JPanel newButtonPanel;
-    JButton newButton;
-    JPanel loadButtonPanel;
-    JButton loadButton;
+    JPanel newButtonPanel;JButton newButton;
+    JPanel loadButtonPanel;JButton loadButton;
     JPanel titleNamePanel; JLabel titleNameLabel;
     JFrame window;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     TitleScreenHandler tsHandler = new TitleScreenHandler();
-    JPanel mainTextPanel;
-    JTextArea mainTextArea;
+    JPanel mainTextPanel;JTextArea mainTextArea;
     JPanel choiceButtonPanel;
     JButton choice1;JButton choice2;JButton choice3;JButton choice4;
     ActionListener choiceHandler;
@@ -55,14 +52,14 @@ public class Game{
         con = window.getContentPane();
 
         titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 600, 150);
+        titleNamePanel.setBounds(300, 100, 600, 150);
         titleNamePanel.setBackground(Color.black);
         titleNameLabel = new JLabel("ADVENTURER");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titleFont);
 
         newButtonPanel = new JPanel();
-        newButtonPanel.setBounds(300, 400, 200, 100);
+        newButtonPanel.setBounds(500, 400, 200, 100);
         newButtonPanel.setBackground(Color.black);
 
         newButton = new JButton("NEW");
@@ -73,7 +70,7 @@ public class Game{
         newButton.addActionListener(tsHandler);
 
         loadButtonPanel = new JPanel();
-        loadButtonPanel.setBounds(300, 500, 200, 100);
+        loadButtonPanel.setBounds(500, 500, 200, 100);
         loadButtonPanel.setBackground(Color.black);
 
         loadButton = new JButton("LOAD");
@@ -122,7 +119,7 @@ public class Game{
         mainTextPanel.add(mainTextArea);
 
         choiceButtonPanel = new JPanel();
-        choiceButtonPanel.setBounds(250, 350, 300, 150);
+        choiceButtonPanel.setBounds(450, 600, 300, 150);
         choiceButtonPanel.setBackground(Color.black);
         choiceButtonPanel.setLayout(new GridLayout(4,1));//Buttons separated vertically.
         con.add(choiceButtonPanel);
