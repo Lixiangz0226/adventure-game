@@ -1,3 +1,4 @@
+package entities;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -12,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class Game {
+public class Game_example {
 
     JFrame window;
     Container con;
@@ -34,10 +35,10 @@ public class Game {
 
     public static void main(String[] args) {
 
-        new Game();
+        new Game_example();
     }
 
-    public Game(){
+    public Game_example(){
 
         window = new JFrame();
         window.setSize(800, 600);
@@ -433,4 +434,3 @@ public class Game {
     }
 
 }
-
