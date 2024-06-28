@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends Character {
-    """ A Player is the only controllable character for the user.
-    A Player has a string name, an int health, a list of State state_set,
-    an Inventory inventory and a list of Skill skill_set.
-    """
+    /**
+     * A Player is the only controllable character for the user.
+     *     A Player has a string name, an int health, a list of State state_set,
+     *     an Inventory inventory and a list of Skill skill_set.
+      */
+
     private Inventory inventory;
     private List<Skill> skills;
     private List<State> states;

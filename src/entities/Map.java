@@ -1,12 +1,14 @@
 package entities;
 
-import java.util;
+import java.util.*;
 
 class Map{
-    """A Map is a 2 dimensional plane that contains List
-    of List of <rooms> and indicates either daytime or
-    nightime <day>.
-    """
+    /**
+     * A Map is a 2-dimensional plane that contains a List
+     *     of Lists of <rooms> and indicates either daytime or
+     *     nightime <day>.
+     */
+
     private List<List<Room>> rooms;
     private boolean day;
 

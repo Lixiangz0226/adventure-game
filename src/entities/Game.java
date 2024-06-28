@@ -1,3 +1,5 @@
+package entities;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -14,16 +16,35 @@ import javax.swing.JTextArea;
 
 public class Game{
 
+    Container con;
+    JPanel newButtonPanel;
+    JButton newButton;
+    JPanel loadButtonPanel;
+    JButton loadButton;
+    JPanel titleNamePanel; JLabel titleNameLabel;
+    JFrame window;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     TitleScreenHandler tsHandler = new TitleScreenHandler();
+    JPanel mainTextPanel;
+    JTextArea mainTextArea;
+    JPanel choiceButtonPanel;
+    JButton choice1;JButton choice2;JButton choice3;JButton choice4;
+    ActionListener choiceHandler;
+
+
+
 
     public static void main(String[] args) {
         new Game();
     }
 
     public Game(){
-        """The Main Manu"""
+
+        /*
+          The Main Manu
+         */
+
 
         window = new JFrame();
         window.setSize(1200, 900);
@@ -59,7 +80,7 @@ public class Game{
         loadButton.setBackground(Color.black);
         loadButton.setForeground(Color.white);
         loadButton.setFont(normalFont);
-        loadButton.FocusPainted(false);
+        loadButton.setFocusPainted(false);
 
         titleNamePanel.add(titleNameLabel);
         newButtonPanel.add(newButton);
@@ -73,7 +94,8 @@ public class Game{
     }
 
     public void createGameScreen(){
-        """A new game"""
+
+        /*A new game*/
 
         titleNamePanel.setVisible(false);
         newButtonPanel.setVisible(false);
@@ -110,6 +132,7 @@ public class Game{
         choice1.setForeground(Color.white);
         choice1.setFont(normalFont);
         choice1.setFocusPainted(false);
+
         choice1.addActionListener(choiceHandler);
         choice1.setActionCommand("c1");
         choiceButtonPanel.add(choice1);
@@ -142,7 +165,7 @@ public class Game{
     }
 
     public class TitleScreenHandler implements ActionListener{
-        """This handles the action of clicking the new button in the main screen"""
+        /*This handles the action of clicking the new button in the main screen*/
 
         public void actionPerformed(ActionEvent event){
 

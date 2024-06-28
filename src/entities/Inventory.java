@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
-    """ Inventories store items in a list of items items.
-    """
+    /**
+    Inventories store items in a list of Item items.
+    */
 
     private List<Item> items;
 
@@ -24,4 +25,6 @@ public class Inventory {
     public void removeItem(Item item) {
         this.items.remove(item);
     }
-}
+
+    }
+
