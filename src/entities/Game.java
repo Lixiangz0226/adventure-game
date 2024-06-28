@@ -128,8 +128,7 @@ public class Game{
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.white);
         choice1.setFont(normalFont);
-        choice1.setFocusPainted(false);
-
+        choice1.setFocusPainted(false);// Remove the focus.
         choice1.addActionListener(choiceHandler);
         choice1.setActionCommand("c1");
         choiceButtonPanel.add(choice1);
