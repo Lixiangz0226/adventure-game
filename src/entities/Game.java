@@ -59,7 +59,7 @@ public class Game{
         titleNameLabel.setFont(titleFont);
 
         newButtonPanel = new JPanel();
-        newButtonPanel.setBounds(500, 400, 200, 100);
+        newButtonPanel.setBounds(450, 400, 300, 100);
         newButtonPanel.setBackground(Color.black);
 
         newButton = new JButton("NEW");
@@ -70,7 +70,7 @@ public class Game{
         newButton.addActionListener(tsHandler);
 
         loadButtonPanel = new JPanel();
-        loadButtonPanel.setBounds(500, 500, 200, 100);
+        loadButtonPanel.setBounds(450, 500, 300, 100);
         loadButtonPanel.setBackground(Color.black);
 
         loadButton = new JButton("LOAD");
