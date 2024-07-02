@@ -14,6 +14,7 @@ public class Player extends Character {
     private List<Skill> skills;
     private List<State> states;
     private int money;
+    private int num_key;
 
     public Player(String name, int health) {
         super(name, health);
@@ -21,6 +22,7 @@ public class Player extends Character {
         this.skills = new ArrayList<>();
         this.money = 0;
         this.states = new ArrayList<>();
+        this.num_key = 0;
     }
 
     public Inventory getInventory() {
@@ -38,4 +40,6 @@ public class Player extends Character {
     public void setMoney(int money) {
         this.money = money;
     }
+
+    public void add_key(){num_key += 1;}
 }
