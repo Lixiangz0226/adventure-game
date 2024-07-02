@@ -29,16 +29,17 @@ class Flame_Crossbow extends Item{
     public int get_damage(){return this.damage;}
 }
 
-class Life_Potion extends Item{
+class Life_Potion extends Item {
     private int health;
 
-    public Life_Potion(){
+    public Life_Potion() {
         super("Life Potion");
         this.health = 10;
     }
+}
 
-class Key extends Item{
-        public Key(){super("Key");}
+class Golden_Key extends Item{
+        public Golden_Key(){super("Golden key");}
 }
-}
+
 
