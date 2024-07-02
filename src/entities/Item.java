@@ -37,6 +37,8 @@ class Life_Potion extends Item{
         this.health = 10;
     }
 
-
+class Key extends Item{
+        public Key(){super("Key");}
+}
 }
 
