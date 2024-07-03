@@ -1,9 +1,17 @@
 package entities;
 
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 
@@ -22,6 +30,7 @@ class Shop_Event0 extends Event{
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
     private String position;
+    CHandler choiceHandler = new CHandler();
 
     public Shop_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
                        Player player) {
@@ -30,6 +39,10 @@ class Shop_Event0 extends Event{
         this.choice4 = choice4;
         this.player = player;
         this.position = "justarrived";
+        choice1.addActionListener(choiceHandler);
+        choice2.addActionListener(choiceHandler);
+        choice3.addActionListener(choiceHandler);
+        choice4.addActionListener(choiceHandler);
     }
 
     public void run_shop(){///////////////////////////////////////////////////////////////Joseph, run this event here!
@@ -138,7 +151,7 @@ class Shop_Event0 extends Event{
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
     }
 
-    public class ChoiceHandler implements ActionListener{
+    public class CHandler implements ActionListener{
         public void actionPerformed(ActionEvent event){
 
             String yourChoice = event.getActionCommand();
@@ -261,6 +274,45 @@ class Shop_Event0 extends Event{
                     }
                 case "bought123":rebuy();break;
             }
+        }
+    }
+}
+
+class Battle_Event0 extends Event{
+    private JTextArea mainTextArea;
+    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+    private Player player;
+    private Monster monster;
+    private String position;
+    CHandler choiceHandler = new CHandler();
+
+
+    public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
+                       Player player) {
+        this.mainTextArea = mainTextArea;
+        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
+        this.choice4 = choice4;
+        this.player = player;
+        this.monster = new Goblin();
+        this.position = "";
+        choice1.addActionListener(choiceHandler);
+        choice2.addActionListener(choiceHandler);
+        choice3.addActionListener(choiceHandler);
+        choice4.addActionListener(choiceHandler);
+        start();
+    }
+
+    private void start(){
+        mainTextArea.setText("Suddenly, a goblin jumped out from nowhere!");
+
+    }
+
+    public static class CHandler implements ActionListener{
+        public void actionPerformed(ActionEvent event) {
+
+            String yourChoice = event.getActionCommand();
+
+
         }
     }
 }

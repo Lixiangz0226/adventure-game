@@ -12,11 +12,20 @@ public class Monster extends Character {
 
 
     private List<State> states;
-    public String description;
 
     public Monster(String name, int health) {
         super(name, health);
-        this.states = new ArrayList<>();
-        this.description = "";
+        this.states = new ArrayList<State>();
+    }
+}
+
+class Goblin extends Monster{
+    String name;
+    int health;
+    List<State> states;
+
+    public Goblin() {
+        super("Goblin", 24);
+
     }
 }

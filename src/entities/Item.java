@@ -34,7 +34,7 @@ class Life_Potion extends Item {
 
     public Life_Potion() {
         super("Life Potion");
-        this.health = 10;
+        this.health = 20;
     }
 }
 
@@ -42,4 +42,11 @@ class Golden_Key extends Item{
         public Golden_Key(){super("Golden key");}
 }
 
+class Knife extends Item{
+    private final int damage;
 
+    public Knife(){
+        super("Knife");
+        this.damage = 6;
+    }
+}
