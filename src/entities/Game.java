@@ -156,8 +156,6 @@ public class Game{
         choice4.addActionListener(choiceHandler);
         choice4.setActionCommand("c4");
         choiceButtonPanel.add(choice4);
-
-
     }
 
     public class TitleScreenHandler implements ActionListener{

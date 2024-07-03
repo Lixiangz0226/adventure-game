@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
 class Event{
     /*
       An event takes place in rooms, and can be
@@ -284,27 +283,70 @@ class Battle_Event0 extends Event{
     private Player player;
     private Monster monster;
     private String position;
+    private boolean firsttime;
     CHandler choiceHandler = new CHandler();
+    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
 
     public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player) {
+                       Player player, Container con) {
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
         this.choice4 = choice4;
         this.player = player;
         this.monster = new Goblin();
         this.position = "";
+        this.firsttime = true;
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
-        start();
+
+        JPanel playerPanel = new JPanel();
+        playerPanel.setBounds(100, 15, 600, 50);
+        playerPanel.setBackground(Color.black);
+        playerPanel.setLayout(new GridLayout(1,4));
+        con.add(playerPanel);
+        JLabel hpLabel = new JLabel("HP:");
+        hpLabel.setFont(normalFont);
+        hpLabel.setForeground(Color.white);
+        playerPanel.add(hpLabel);
+        JLabel hpLabelNumber = new JLabel();
+        hpLabelNumber.setFont(normalFont);
+        hpLabelNumber.setForeground(Color.white);
+        hpLabelNumber.setText("" + player.getHealth());
+        playerPanel.add(hpLabelNumber);
+        JLabel enemylabel = new JLabel(monster.getName() + " HP:");
+        enemylabel.setFont(normalFont);
+        enemylabel.setForeground(Color.white);
+        enemylabel.setBackground(Color.red);
+        playerPanel.add(enemylabel);
+        JLabel enemyhp = new JLabel();
+        enemyhp.setFont(normalFont);
+        enemyhp.setForeground(Color.white);
+        enemyhp.setText("" + monster.getHealth());
+        playerPanel.add(enemyhp);
+    }
+
+    public void run_battle_event(){
+        if(firsttime){start();}
+        else {finished();}
     }
 
     private void start(){
+        position = "start";
         mainTextArea.setText("Suddenly, a goblin jumped out from nowhere!");
 
+    }
+
+    private void finished(){
+        firsttime = false;
+        position = "finished";
+        mainTextArea.setText("The goblin you defeated never moved");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("Leave");
     }
 
     public static class CHandler implements ActionListener{
