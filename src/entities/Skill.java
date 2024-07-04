@@ -1,8 +1,5 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Skill {
     /**
      * Skills are special attacks that have different effects
@@ -12,32 +9,33 @@ public class Skill {
 
     private String name;
     private final int duration;
-    private int use;
+    private int times;
 
-
-    public Skill(String name){
+    public Skill(String name, int duration, int times){
         this.name = name;
-        this.duration = 0;
-        this.use = 0;
+        this.duration = duration;
+        this.times = times;
     }
 
     public String getName(){return name;}
+
+    public int getDuration(){return duration;}
+
+    public int getTimes(){return times;}
 }
 
 class Defend extends Skill{
-    private final int duration;
-
-    public Defend(){
-        super("Defend");
-        this.duration = 2;
-        this.use = 2;
-    }
+    public Defend(){super("Defend", 2, 2);}
 }
 
 class Double_Edge extends Skill{
-    public Double_Edge(){super("Double_Edge");}
+    public Double_Edge(){
+        super("Double_Edge", 0, 1);
+    }
 }
 
 class Charge extends Skill{
-    public Charge(){super("Charge");}
+    public Charge(){
+        super("Charge", 1, 1);
+    }
 }

@@ -15,20 +15,6 @@ public class Item {
 
 }
 
-class Flame_Crossbow extends Item{
-    private int damage;
-    private String name;
-    //private State effect;
-
-    public Flame_Crossbow() {
-        super("Flame crossbow");
-        this.damage = 10;
-        //this.effect = new Burn();
-
-    }
-    public int get_damage(){return this.damage;}
-}
-
 class Life_Potion extends Item {
     private int health;
 
@@ -42,11 +28,4 @@ class Golden_Key extends Item{
     public Golden_Key(){super("Golden key");}
 }
 
-class Knife extends Item{
-    private final int damage;
 
-    public Knife(){
-        super("Knife");
-        this.damage = 6;
-    }
-}

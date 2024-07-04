@@ -39,4 +39,8 @@ public class Player extends Character {
     public void add_key(){num_key += 1;}
 
     public int get_key(){return num_key;}
+
+    public void use_item(int index){
+
+    }
 }

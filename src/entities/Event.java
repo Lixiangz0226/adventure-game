@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import java.math.*;
+
 class Event{
     /*
       An event takes place in rooms, and can be
@@ -281,15 +283,13 @@ class Battle_Event0 extends Event{
     private Player player;
     private Monster monster;
     private static String position;
-    private boolean firsttime, used1, used2, used3;
-    private int inv; private int current;
+    private boolean firsttime;
+    private int m; private int current, used1, used2, used3;
     JLabel hpLabel; JLabel enemyhp; JPanel backPanel;
 
     cHandler choiceHandler = new cHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     int index = 0;
-
-
 
     public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
                        Player player, Container con) {
@@ -299,8 +299,10 @@ class Battle_Event0 extends Event{
         this.player = player;
         this.monster = new Goblin();
         this.position = "";
-        this.firsttime = true; this.used1 = false; this.used2 = false; this.used3 = false;
-        this.inv = player.getInventory().get_length() / 2;
+        this.firsttime = true;
+        this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
+        this.used3 = player.getSkills().get(2).getTimes();
+        this.m = player.getInventory().get_length() / 2;
         this.current = 0;
 
         choice1.addActionListener(choiceHandler);
@@ -348,7 +350,7 @@ class Battle_Event0 extends Event{
         backPanel.setVisible(false);
     }
 
-    public void run_battle_event(){
+    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////////////
         if(firsttime){start();}
         else {finished();}
     }
@@ -365,10 +367,22 @@ class Battle_Event0 extends Event{
     private void items(){
         position = "items";
         mainTextArea.setText("Choose the item you wanna use:");
-        choice1.setText("-");
-        choice2.setText("-");
+        choice1.setText(player.getInventory().getItem(current).get_name());
+        if (player.getInventory().get_length() % 2 == 1){
+            if (current < 2 * m){choice2.setText(player.getInventory().getItem(current + 1).get_name());}
+            else {choice2.setText("-");}
+        }
+        else{choice2.setText(player.getInventory().getItem(current + 1).get_name());}
         choice3.setText("Previous Page");
         choice4.setText("Next Page");
+    }
+
+    private void top_items(){
+        mainTextArea.setText("You are already at the top of your inventory.\nChoose the item you wanna use:");
+    }
+
+    private void bot_items(){
+        mainTextArea.setText("You are already at the bottom of your inventory.\nChoose the item you wanna use:");
     }
 
     private void attack(){
@@ -400,11 +414,35 @@ class Battle_Event0 extends Event{
                     switch(yourChoice){
                         case "c1":
                             backPanel.setVisible(true);
-                            attack();
+                            attack(); break;
+                        case "c2":
+                            backPanel.setVisible(true);
+                            items(); break;
+                        case "c4": //////////////////////////////////////////////////////////////////////////////Runaway
                     }
                 case "items":
                     switch(yourChoice){
+                        case "c1":
+                        case "c2":
+                        case "c3":
+                            if (current - 2 < 0){
+                                top_items(); break;
+                            }
+                            else{
+                                current -= 2;
+                                items(); break;
+                            }
+                        case "c4":
+                            if (player.getInventory().get_length() % 2 == 1){
+                                if (current + 2 > 2 * m){bot_items(); break;}
+                                else {current += 2; items(); break;}
+                            }
+                            else {
+                                if (current + 2 >= 2 * m){bot_items(); break;}
+                                else {current += 2; items(); break;}
+                            }
 
+                        case "c5": backPanel.setVisible(false); start(); break;
                     }
                 case "attack":
                 case "finished":
