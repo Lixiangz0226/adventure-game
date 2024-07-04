@@ -16,22 +16,31 @@ public class Room {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
 
+    private List<Item> items;
+    private List<Character> characters;
+    private List<Interactable_object> interactable_objects;
+    private Event events;
     private String name;
-    private Event event;
     private Room up;
     private Room down;
     private Room left;
     private Room right;
 
-    public Room(String name, Event event, Room up, Room down, Room left, Room right, JTextArea mainTextArea,
-                JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                Player player) {
+    public Room(String name, Room up, Room down, Room left, Room right, List<Item> items, List<Character> characters,
+                List<Interactable_object> interactable_objects,
+                JTextArea mainTextArea,
+                JButton choice1, JButton choice2, JButton choice3, JButton choice4) {
+
+        this.name = name;
+        this.characters = characters;
+        this.interactable_objects = interactable_objects;
+        this.items = items;
+        this.mainTextArea = mainTextArea;
+        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3; this.choice4 = choice4;
         this.up = up;
         this.down = down;
         this.left = left;
         this.right = right;
-        this.event = event;
-        this.name = name;
     }
 }
 
