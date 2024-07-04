@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Inventory {
     /**
@@ -14,17 +15,14 @@ public class Inventory {
         this.items = new ArrayList<>();
     }
 
-    public List<Item> getItems() {
-        return items;
-    }
+    public List<Item> getItems() {return items;}
 
-    public void addItem(Item item) {
-        this.items.add(item);
-    }
+    public Item getItem(int id) {return items.get(id);}
 
-    public void removeItem(Item item) {
-        this.items.remove(item);
-    }
+    public void addItem(Item item) {this.items.add(item);}
 
+    public void removeItem(Item o) {this.items.remove(o);}
+
+    public int get_length(){return this.items.size();}
     }
 

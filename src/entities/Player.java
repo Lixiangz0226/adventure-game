@@ -21,6 +21,7 @@ public class Player extends Character {
         super(name, health);
         this.inventory = new Inventory();
         this.skills = new ArrayList<>();
+        skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
         this.money = 0;
         this.states = new ArrayList<>();
         this.num_key = 0;

@@ -39,7 +39,7 @@ class Life_Potion extends Item {
 }
 
 class Golden_Key extends Item{
-        public Golden_Key(){super("Golden key");}
+    public Golden_Key(){super("Golden key");}
 }
 
 class Knife extends Item{

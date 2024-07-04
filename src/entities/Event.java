@@ -7,9 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -282,10 +280,15 @@ class Battle_Event0 extends Event{
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
     private Monster monster;
-    private String position;
-    private boolean firsttime;
-    CHandler choiceHandler = new CHandler();
+    private static String position;
+    private boolean firsttime, used1, used2, used3;
+    private int inv; private int current;
+    JLabel hpLabel; JLabel enemyhp; JPanel backPanel;
+
+    cHandler choiceHandler = new cHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+    int index = 0;
+
 
 
     public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
@@ -296,7 +299,10 @@ class Battle_Event0 extends Event{
         this.player = player;
         this.monster = new Goblin();
         this.position = "";
-        this.firsttime = true;
+        this.firsttime = true; this.used1 = false; this.used2 = false; this.used3 = false;
+        this.inv = player.getInventory().get_length() / 2;
+        this.current = 0;
+
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
@@ -326,6 +332,20 @@ class Battle_Event0 extends Event{
         enemyhp.setForeground(Color.white);
         enemyhp.setText("" + monster.getHealth());
         playerPanel.add(enemyhp);
+
+        JPanel backPanel = new JPanel();
+        backPanel.setBounds(100, 500, 100, 50);
+        backPanel.setBackground(Color.black);
+        JButton backButton = new JButton("Back");
+        backButton.setBackground(Color.black);
+        backButton.setForeground(Color.white);
+        backButton.setFont(normalFont);
+        backButton.setFocusPainted(false);
+        backButton.addActionListener(choiceHandler);
+        backButton.setActionCommand("c5");
+        backPanel.add(backButton);
+        con.add(backPanel);
+        backPanel.setVisible(false);
     }
 
     public void run_battle_event(){
@@ -335,26 +355,60 @@ class Battle_Event0 extends Event{
 
     private void start(){
         position = "start";
-        mainTextArea.setText("Suddenly, a goblin jumped out from nowhere!");
+        mainTextArea.setText("Suddenly, a goblin leaped out from nowhere!");
+        choice1.setText("Attack");
+        choice2.setText("Items");
+        choice3.setText("-");
+        choice4.setText("Run");
+    }
 
+    private void items(){
+        position = "items";
+        mainTextArea.setText("Choose the item you wanna use:");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("Previous Page");
+        choice4.setText("Next Page");
+    }
+
+    private void attack(){
+        position = "attack";
+        mainTextArea.setText("Put it in action!");
+        choice1.setText("Basic attack");
+        choice2.setText(player.getSkills().get(0).getName());
+        choice3.setText(player.getSkills().get(1).getName());
+        choice4.setText(player.getSkills().get(2).getName());
     }
 
     private void finished(){
         firsttime = false;
         position = "finished";
-        mainTextArea.setText("The goblin you defeated never moved");
+        mainTextArea.setText("The goblin you defeated never moved again");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("-");
         choice4.setText("Leave");
     }
 
-    public static class CHandler implements ActionListener{
+    public class cHandler implements ActionListener{
         public void actionPerformed(ActionEvent event) {
 
             String yourChoice = event.getActionCommand();
 
+            switch(position){
+                case "start":
+                    switch(yourChoice){
+                        case "c1":
+                            backPanel.setVisible(true);
+                            attack();
+                    }
+                case "items":
+                    switch(yourChoice){
 
+                    }
+                case "attack":
+                case "finished":
+            }
         }
     }
 }
