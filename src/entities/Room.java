@@ -1,5 +1,6 @@
 package entities;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,20 +12,28 @@ public class Room {
     List of Characters <characters>, Event <event> and
     List of Interactable_objects <interactable_objects>.
     */
+    private JTextArea mainTextArea;
+    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+    private Player player;
 
     private String name;
-    private List<Item> items;
-    private List<Character> characters;
     private Event event;
-    private List<Interactable_object> interactable_objects;
+    private Room up;
+    private Room down;
+    private Room left;
+    private Room right;
 
-    public Room(String name, Event event, List<Interactable_object> interactable_objects,
-                List<Character> characters, List<Item> items) {
-
-        this.characters = characters;
+    public Room(String name, Event event, Room up, Room down, Room left, Room right, JTextArea mainTextArea,
+                JButton choice1, JButton choice2, JButton choice3, JButton choice4,
+                Player player) {
+        this.up = up;
+        this.down = down;
+        this.left = left;
+        this.right = right;
         this.event = event;
-        this.interactable_objects = interactable_objects;
         this.name = name;
-        this.items = items;
     }
 }
+
+
+
