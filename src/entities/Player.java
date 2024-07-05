@@ -40,7 +40,20 @@ public class Player extends Character {
 
     public int get_key(){return num_key;}
 
-    public void use_item(int index){
-
+    public boolean use_item(int index){
+        if (inventory.getItem(index) instanceof Weapon){
+            Item pre_weapon = weapon;
+            inventory.addItem(pre_weapon);
+            weapon = inventory.getItem(index);
+            inventory.removeItem(inventory.getItem(index));
+            return true;
+        }
+        else{
+            if (inventory.getItem(index).get_name() == "Life Potion"){
+                setHealth(getHealth() + inventory.getItem(index).health);
+                inventory.removeItem(inventory.getItem(index));
+            }
+            return false;
+        }
     }
 }

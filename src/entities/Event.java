@@ -377,6 +377,17 @@ class Battle_Event0 extends Event{
         choice4.setText("Next Page");
     }
 
+    private void empty_inventory(){
+        position = "items";
+        mainTextArea.setText("Your inventory is empty!");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("Previous Page");
+        choice4.setText("Next Page");
+
+    }
+
+
     private void top_items(){
         mainTextArea.setText("You are already at the top of your inventory.\nChoose the item you wanna use:");
     }
@@ -417,12 +428,15 @@ class Battle_Event0 extends Event{
                             attack(); break;
                         case "c2":
                             backPanel.setVisible(true);
+                            if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
                         case "c4": //////////////////////////////////////////////////////////////////////////////Runaway
                     }
                 case "items":
                     switch(yourChoice){
                         case "c1":
+                            if(player.use_item(current)){items();break;}
+                            else{current = 0; items();break;}
                         case "c2":
                         case "c3":
                             if (current - 2 < 0){

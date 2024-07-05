@@ -2,6 +2,7 @@ package entities;
 
 public class Item {
 
+    public int health;
     /**
      * An Item with a unique use.
      */
@@ -16,7 +17,7 @@ public class Item {
 }
 
 class Life_Potion extends Item {
-    private int health;
+    public int health;
 
     public Life_Potion() {
         super("Life Potion");
