@@ -17,7 +17,6 @@ public class Player extends Character {
     private int num_key;
     private Weapon weapon;
     private List<State> states;
-    private List<List<Effect>> effects;
     private int dmg_dealt_ratio;
     private int dmg_received_ratio;
 
@@ -30,31 +29,23 @@ public class Player extends Character {
         this.states = new ArrayList<>();
         this.num_key = 0;
         this.weapon = new Knife();
-        this.effects = new ArrayList<>();
-        for (int i = 0; i < 10; i++){effects.add(new ArrayList<>());}
         this.dmg_dealt_ratio = 1;
         this.dmg_received_ratio = 1;
     }
 
-    private void add_state(State state){
-        states.add(state);
-        for (int i = 0; i < state.getrounds(); i++){effects.get(i).add(state.getEffect());}
-    }
+    private void add_state(State state){states.add(state);}
 
     private void count_effects(){
-        List<Effect> lst= effects.getFirst();
         dmg_received_ratio = 1;
         dmg_dealt_ratio = 1;
-        for (Effect effect : lst) {
-            String name = effect.getdescription();
-            if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
-            else if (Objects.equals(name, "Charging")) {dmg_dealt_ratio *= 2;}
-        }
         for (State state : states) {
             state.count();
+            String name = state.getdescription();
+            if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
+            else if (Objects.equals(name, "Charging")) {dmg_dealt_ratio *= 2;}
+
             if (state.getrounds() == 0){states.remove(state);}
         }
-        effects.removeFirst(); effects.add(new ArrayList<Effect>());
     }
 
     public List<Integer> hit(Monster monster, Skill skill){
@@ -68,8 +59,8 @@ public class Player extends Character {
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
 
-        count_effects();
         dmg *= dmg_dealt_ratio; dmg_received *= dmg_received_ratio;
+        count_effects();
         setHealth(getHealth() - dmg_received);
         monster.setHealth(monster.getHealth() - dmg);
         result.add(dmg); result.add(dmg_received);
