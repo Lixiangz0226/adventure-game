@@ -22,10 +22,23 @@ public class State{
     public void count(){this.rounds -= 1;}
 
     public String getdescription(){return this.description;}
+
+    public int getrounds(){return this.rounds;}
+
+    public Effect getEffect(){return this.effect;}
 }
 
+class Defensive extends State {public Defensive(){super(2, "Defensive");}}
+
+class Charging extends State {public Charging(){super(1, "Charging");}}
+
 class Effect {
+
     private String description;
+
     public Effect(String description){this.description = description;}
+
     public String getdescription(){return this.description;}
 }
+
+
