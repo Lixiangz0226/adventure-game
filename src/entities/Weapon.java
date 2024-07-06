@@ -1,7 +1,7 @@
 package entities;
 
 public class Weapon extends Item{
-    int damage;
+    private int damage;
 
     public Weapon(String name, int damage){
         super(name);

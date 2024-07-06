@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import java.math.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 class Event{
     /*
@@ -285,7 +288,8 @@ class Battle_Event0 extends Event{
     private static String position;
     private boolean firsttime;
     private int m; private int current, used1, used2, used3;
-    JLabel hpLabel; JLabel enemyhp; JPanel backPanel;
+    JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
+    private List<Integer> dmg_result;
 
     cHandler choiceHandler = new cHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
@@ -304,6 +308,7 @@ class Battle_Event0 extends Event{
         this.used3 = player.getSkills().get(2).getTimes();
         this.m = player.getInventory().get_length() / 2;
         this.current = 0;
+        this.dmg_result = new ArrayList<Integer>();
 
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
@@ -356,6 +361,7 @@ class Battle_Event0 extends Event{
     }
 
     private void start(){
+        backPanel.setVisible(false);
         position = "start";
         mainTextArea.setText("Suddenly, a goblin leaped out from nowhere!");
         choice1.setText("Attack");
@@ -365,6 +371,7 @@ class Battle_Event0 extends Event{
     }
 
     private void items(){
+        backPanel.setVisible(true);
         position = "items";
         mainTextArea.setText("Choose the item you wanna use:");
         choice1.setText(player.getInventory().getItem(current).get_name());
@@ -378,15 +385,14 @@ class Battle_Event0 extends Event{
     }
 
     private void empty_inventory(){
-        position = "items";
+        backPanel.setVisible(true);
+        position = "empty_inventory";
         mainTextArea.setText("Your inventory is empty!");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("Previous Page");
         choice4.setText("Next Page");
-
     }
-
 
     private void top_items(){
         mainTextArea.setText("You are already at the top of your inventory.\nChoose the item you wanna use:");
@@ -397,6 +403,7 @@ class Battle_Event0 extends Event{
     }
 
     private void attack(){
+        backPanel.setVisible(true);
         position = "attack";
         mainTextArea.setText("Put it in action!");
         choice1.setText("Basic attack");
@@ -405,7 +412,18 @@ class Battle_Event0 extends Event{
         choice4.setText(player.getSkills().get(2).getName());
     }
 
+    private void attacked(){
+        position = "attack";
+        mainTextArea.setText("You dealt " +dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        choice1.setText("Basic attack");
+        choice2.setText(player.getSkills().get(0).getName());
+        choice3.setText(player.getSkills().get(1).getName());
+        choice4.setText(player.getSkills().get(2).getName());
+    }
+
     private void finished(){
+        backPanel.setVisible(false);
         firsttime = false;
         position = "finished";
         mainTextArea.setText("The goblin you defeated never moved again");
@@ -424,10 +442,8 @@ class Battle_Event0 extends Event{
                 case "start":
                     switch(yourChoice){
                         case "c1":
-                            backPanel.setVisible(true);
                             attack(); break;
                         case "c2":
-                            backPanel.setVisible(true);
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
                         case "c4": //////////////////////////////////////////////////////////////////////////////Runaway
@@ -436,16 +452,25 @@ class Battle_Event0 extends Event{
                     switch(yourChoice){
                         case "c1":
                             if(player.use_item(current)){items();break;}
-                            else{current = 0; items();break;}
+                            else {
+                                if (player.getInventory().get_length() == 0) {empty_inventory();break;}
+                                else {
+                                    current = 0;
+                                    m = player.getInventory().get_length() / 2;
+                                    hpLabelNumber.setText("" + player.getHealth());
+                                    items();break;}
+                            }
                         case "c2":
+                            if (current + 1>=player.getInventory().get_length()){break;}
+                            if(player.use_item(current + 1)){items();break;}
+                            else {
+                                current = 0;
+                                m = player.getInventory().get_length() / 2;
+                                hpLabelNumber.setText("" + player.getHealth());
+                                items();break;}
                         case "c3":
-                            if (current - 2 < 0){
-                                top_items(); break;
-                            }
-                            else{
-                                current -= 2;
-                                items(); break;
-                            }
+                            if (current - 2 < 0){top_items(); break;}
+                            else{current -= 2;items(); break;}
                         case "c4":
                             if (player.getInventory().get_length() % 2 == 1){
                                 if (current + 2 > 2 * m){bot_items(); break;}
@@ -455,10 +480,20 @@ class Battle_Event0 extends Event{
                                 if (current + 2 >= 2 * m){bot_items(); break;}
                                 else {current += 2; items(); break;}
                             }
-
-                        case "c5": backPanel.setVisible(false); start(); break;
+                        case "c5": start(); break;
                     }
+                case "empty_inventory":
+                    if (Objects.equals(yourChoice, "c5")){start();}
+                    break;
                 case "attack":
+                    switch (yourChoice){
+                        case "c1":
+                        case "c2":
+
+                        case "c3":
+                        case "c4":
+                        case "c5":start();break;
+                }
                 case "finished":
             }
         }
