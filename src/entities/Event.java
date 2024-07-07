@@ -35,7 +35,7 @@ class Shop_Event0 extends Event{
     CHandler choiceHandler = new CHandler();
 
     public Shop_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player) {
+                       Player player) {/////////////////////////////////////////////////////////////////Create shop here
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
         this.choice4 = choice4;
@@ -47,7 +47,7 @@ class Shop_Event0 extends Event{
         choice4.addActionListener(choiceHandler);
     }
 
-    public void run_shop(){///////////////////////////////////////////////////////////////Joseph, run this event here!
+    public void run_shop(){////////////////////////////////////////////////////////////////////////////////Run shop here
         switch (position) {
             case "justarrived" -> justarrived();
             case "bought1" -> bought1();
@@ -56,7 +56,7 @@ class Shop_Event0 extends Event{
             case "bought12" -> bought12();
             case "bought13" -> bought13();
             case "bought23" -> bought23();
-            case null, default -> bought123();
+            case "bought123" -> bought123();
         }
     }
 
@@ -159,7 +159,7 @@ class Shop_Event0 extends Event{
             String yourChoice = event.getActionCommand();
 
             if (yourChoice.equals("c4")) {
-                return Room_shop();///////////////////////////////////////////Joseph, it turns back to room class here
+                return;////////////////////////////////////////////////////////////////////////////////Back to room here
             }
 
             switch(position){
@@ -296,7 +296,7 @@ class Battle_Event0 extends Event{
     int index = 0;
 
     public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player, Container con) {
+                       Player player, Container con) {///////////////////////////////////////////////////////Create here
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
         this.choice4 = choice4;
@@ -355,7 +355,7 @@ class Battle_Event0 extends Event{
         backPanel.setVisible(false);
     }
 
-    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////////////
+    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////Run here
         if(firsttime){start();}
         else {finished();}
     }
@@ -414,12 +414,34 @@ class Battle_Event0 extends Event{
 
     private void attacked(){
         position = "attack";
-        mainTextArea.setText("You dealt " +dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
+        mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
         choice4.setText(player.getSkills().get(2).getName());
+    }
+
+    private void won(){
+        position = "won";
+        mainTextArea.setText("You won!");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("Next");
+    }
+
+    private void lost(){
+        position = "lost";
+        mainTextArea.setText("YOU DIED");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("Leave");
+    }
+
+    private void skill_not_available(){
+        mainTextArea.setText("You have used the maximum times of this skill.");
     }
 
     private void finished(){
@@ -446,7 +468,7 @@ class Battle_Event0 extends Event{
                         case "c2":
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4": //////////////////////////////////////////////////////////////////////////////Runaway
+                        case "c4": ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                 case "items":
                     switch(yourChoice){
@@ -488,13 +510,36 @@ class Battle_Event0 extends Event{
                 case "attack":
                     switch (yourChoice){
                         case "c1":
+                            dmg_result = player.hit(monster, new Basic_attack());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
                         case "c2":
-
+                            if (used1 == 0){skill_not_available();break;}
+                            used1 -= 1;
+                            dmg_result = player.hit(monster, new Defend());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
                         case "c3":
+                            if (used2 == 0){skill_not_available();break;}
+                            used2 -= 1;
+                            dmg_result = player.hit(monster, new Double_Edge());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
                         case "c4":
+                            if (used3 == 0){skill_not_available();break;}
+                            used3 -= 1;
+                            dmg_result = player.hit(monster, new Charge());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
                         case "c5":start();break;
                 }
-                case "finished":
+                case "lost":if (Objects.equals(yourChoice, "c4")){new Game();break;}
+                case "won":if (Objects.equals(yourChoice, "c4")){finished();break;}
+                case "finished": if (Objects.equals(yourChoice, "c4")){;break;}//////////////////////////Back to room
             }
         }
     }
