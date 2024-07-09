@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import java.math.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 class Event{
     /*
@@ -32,7 +35,7 @@ class Shop_Event0 extends Event{
     CHandler choiceHandler = new CHandler();
 
     public Shop_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player) {
+                       Player player) {/////////////////////////////////////////////////////////////////Create shop here
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
         this.choice4 = choice4;
@@ -44,7 +47,7 @@ class Shop_Event0 extends Event{
         choice4.addActionListener(choiceHandler);
     }
 
-    public void run_shop(){///////////////////////////////////////////////////////////////Joseph, run this event here!
+    public void run_shop(){////////////////////////////////////////////////////////////////////////////////Run shop here
         switch (position) {
             case "justarrived" -> justarrived();
             case "bought1" -> bought1();
@@ -53,7 +56,7 @@ class Shop_Event0 extends Event{
             case "bought12" -> bought12();
             case "bought13" -> bought13();
             case "bought23" -> bought23();
-            case null, default -> bought123();
+            case "bought123" -> bought123();
         }
     }
 
@@ -156,7 +159,7 @@ class Shop_Event0 extends Event{
             String yourChoice = event.getActionCommand();
 
             if (yourChoice.equals("c4")) {
-                return Room_shop();///////////////////////////////////////////Joseph, it turns back to room class here
+                return;////////////////////////////////////////////////////////////////////////////////Back to room here
             }
 
             switch(position){
@@ -285,14 +288,15 @@ class Battle_Event0 extends Event{
     private static String position;
     private boolean firsttime;
     private int m; private int current, used1, used2, used3;
-    JLabel hpLabel; JLabel enemyhp; JPanel backPanel;
+    JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
+    private List<Integer> dmg_result;
 
     cHandler choiceHandler = new cHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     int index = 0;
 
     public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player, Container con) {
+                       Player player, Container con) {///////////////////////////////////////////////////////Create here
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
         this.choice4 = choice4;
@@ -304,6 +308,7 @@ class Battle_Event0 extends Event{
         this.used3 = player.getSkills().get(2).getTimes();
         this.m = player.getInventory().get_length() / 2;
         this.current = 0;
+        this.dmg_result = new ArrayList<Integer>();
 
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
@@ -350,12 +355,13 @@ class Battle_Event0 extends Event{
         backPanel.setVisible(false);
     }
 
-    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////////////
+    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////Run here
         if(firsttime){start();}
         else {finished();}
     }
 
     private void start(){
+        backPanel.setVisible(false);
         position = "start";
         mainTextArea.setText("Suddenly, a goblin leaped out from nowhere!");
         choice1.setText("Attack");
@@ -365,6 +371,7 @@ class Battle_Event0 extends Event{
     }
 
     private void items(){
+        backPanel.setVisible(true);
         position = "items";
         mainTextArea.setText("Choose the item you wanna use:");
         choice1.setText(player.getInventory().getItem(current).get_name());
@@ -378,15 +385,14 @@ class Battle_Event0 extends Event{
     }
 
     private void empty_inventory(){
-        position = "items";
+        backPanel.setVisible(true);
+        position = "empty_inventory";
         mainTextArea.setText("Your inventory is empty!");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("Previous Page");
         choice4.setText("Next Page");
-
     }
-
 
     private void top_items(){
         mainTextArea.setText("You are already at the top of your inventory.\nChoose the item you wanna use:");
@@ -397,6 +403,7 @@ class Battle_Event0 extends Event{
     }
 
     private void attack(){
+        backPanel.setVisible(true);
         position = "attack";
         mainTextArea.setText("Put it in action!");
         choice1.setText("Basic attack");
@@ -405,7 +412,40 @@ class Battle_Event0 extends Event{
         choice4.setText(player.getSkills().get(2).getName());
     }
 
+    private void attacked(){
+        position = "attack";
+        mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        choice1.setText("Basic attack");
+        choice2.setText(player.getSkills().get(0).getName());
+        choice3.setText(player.getSkills().get(1).getName());
+        choice4.setText(player.getSkills().get(2).getName());
+    }
+
+    private void won(){
+        position = "won";
+        mainTextArea.setText("You won!");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("Next");
+    }
+
+    private void lost(){
+        position = "lost";
+        mainTextArea.setText("YOU DIED");
+        choice1.setText("-");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("Leave");
+    }
+
+    private void skill_not_available(){
+        mainTextArea.setText("You have used the maximum times of this skill.");
+    }
+
     private void finished(){
+        backPanel.setVisible(false);
         firsttime = false;
         position = "finished";
         mainTextArea.setText("The goblin you defeated never moved again");
@@ -424,28 +464,35 @@ class Battle_Event0 extends Event{
                 case "start":
                     switch(yourChoice){
                         case "c1":
-                            backPanel.setVisible(true);
                             attack(); break;
                         case "c2":
-                            backPanel.setVisible(true);
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4": //////////////////////////////////////////////////////////////////////////////Runaway
+                        case "c4": ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                 case "items":
                     switch(yourChoice){
                         case "c1":
                             if(player.use_item(current)){items();break;}
-                            else{current = 0; items();break;}
+                            else {
+                                if (player.getInventory().get_length() == 0) {empty_inventory();break;}
+                                else {
+                                    current = 0;
+                                    m = player.getInventory().get_length() / 2;
+                                    hpLabelNumber.setText("" + player.getHealth());
+                                    items();break;}
+                            }
                         case "c2":
+                            if (current + 1>=player.getInventory().get_length()){break;}
+                            if(player.use_item(current + 1)){items();break;}
+                            else {
+                                current = 0;
+                                m = player.getInventory().get_length() / 2;
+                                hpLabelNumber.setText("" + player.getHealth());
+                                items();break;}
                         case "c3":
-                            if (current - 2 < 0){
-                                top_items(); break;
-                            }
-                            else{
-                                current -= 2;
-                                items(); break;
-                            }
+                            if (current - 2 < 0){top_items(); break;}
+                            else{current -= 2;items(); break;}
                         case "c4":
                             if (player.getInventory().get_length() % 2 == 1){
                                 if (current + 2 > 2 * m){bot_items(); break;}
@@ -455,11 +502,44 @@ class Battle_Event0 extends Event{
                                 if (current + 2 >= 2 * m){bot_items(); break;}
                                 else {current += 2; items(); break;}
                             }
-
-                        case "c5": backPanel.setVisible(false); start(); break;
+                        case "c5": start(); break;
                     }
+                case "empty_inventory":
+                    if (Objects.equals(yourChoice, "c5")){start();}
+                    break;
                 case "attack":
-                case "finished":
+                    switch (yourChoice){
+                        case "c1":
+                            dmg_result = player.hit(monster, new Basic_attack());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
+                        case "c2":
+                            if (used1 == 0){skill_not_available();break;}
+                            used1 -= 1;
+                            dmg_result = player.hit(monster, new Defend());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
+                        case "c3":
+                            if (used2 == 0){skill_not_available();break;}
+                            used2 -= 1;
+                            dmg_result = player.hit(monster, new Double_Edge());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
+                        case "c4":
+                            if (used3 == 0){skill_not_available();break;}
+                            used3 -= 1;
+                            dmg_result = player.hit(monster, new Charge());
+                            if (player.getHealth()<=0){lost(); break;}
+                            else if (monster.getHealth()<=0){won(); break;}
+                            attacked(); break;
+                        case "c5":start();break;
+                }
+                case "lost":if (Objects.equals(yourChoice, "c4")){new Game();break;}
+                case "won":if (Objects.equals(yourChoice, "c4")){finished();break;}
+                case "finished": if (Objects.equals(yourChoice, "c4")){;break;}//////////////////////////Back to room
             }
         }
     }

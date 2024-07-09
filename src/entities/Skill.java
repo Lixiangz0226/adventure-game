@@ -24,6 +24,10 @@ public class Skill {
     public int getTimes(){return times;}
 }
 
+class Basic_attack extends Skill{
+    public Basic_attack(){super("Basic_Attack", 0, 999);}
+}
+
 class Defend extends Skill{
     public Defend(){super("Defend", 2, 2);}
 }

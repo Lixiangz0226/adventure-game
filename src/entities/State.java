@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.*;
-
 public class State{
     /**
      * A state of a character that affect the character
@@ -13,13 +11,34 @@ public class State{
 
     private int rounds;
     private String description;
+    private Effect effect;
 
     public State(int rounds, String description){
         this.description = description;
         this.rounds = rounds;
+        this.effect = new Effect(description);
     }
 
     public void count(){this.rounds -= 1;}
 
     public String getdescription(){return this.description;}
+
+    public int getrounds(){return this.rounds;}
+
+    public Effect getEffect(){return this.effect;}
 }
+
+class Defensive extends State {public Defensive(){super(2, "Defensive");}}
+
+class Charging extends State {public Charging(){super(1, "Charging");}}
+
+class Effect {
+
+    private String description;
+
+    public Effect(String description){this.description = description;}
+
+    public String getdescription(){return this.description;}
+}
+
+

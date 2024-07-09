@@ -15,6 +15,9 @@ public abstract class Character {
         this.health = health;
     }
 
+    protected Character() {
+    }
+
     public String getName() {
         return name;
     }

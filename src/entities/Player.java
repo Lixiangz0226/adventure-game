@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Player extends Character {
     /**
@@ -12,10 +13,12 @@ public class Player extends Character {
 
     private Inventory inventory;
     private List<Skill> skills;
-    private List<State> states;
     private int money;
     private int num_key;
-    private Item weapon;
+    private Weapon weapon;
+    private List<State> states;
+    private int dmg_dealt_ratio;
+    private int dmg_received_ratio;
 
     public Player(String name, int health) {
         super(name, health);
@@ -26,8 +29,60 @@ public class Player extends Character {
         this.states = new ArrayList<>();
         this.num_key = 0;
         this.weapon = new Knife();
+        this.dmg_dealt_ratio = 1;
+        this.dmg_received_ratio = 1;
     }
 
+    private void add_state(State state){states.add(state);}
+
+    private void count_effects(){
+        dmg_received_ratio = 1;
+        dmg_dealt_ratio = 1;
+        for (State state : states) {
+            state.count();
+            String name = state.getdescription();
+            if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
+            else if (Objects.equals(name, "Charging")) {dmg_dealt_ratio *= 2;}
+
+            if (state.getrounds() == 0){states.remove(state);}
+        }
+    }
+
+    public List<Integer> hit(Monster monster, Skill skill){
+        ArrayList<Integer> result = new ArrayList<>();
+        String name = skill.getName();
+        int dmg = 0;
+        int dmg_received = 0;
+
+        if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
+        else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
+        else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
+        else if (Objects.equals(name, "Charge")){add_state(new Charging());}
+
+        dmg *= dmg_dealt_ratio; dmg_received *= dmg_received_ratio;
+        count_effects();
+        setHealth(getHealth() - dmg_received);
+        monster.setHealth(monster.getHealth() - dmg);
+        result.add(dmg); result.add(dmg_received);
+        return result;
+    }
+
+    public boolean use_item(int index){
+        if (inventory.getItem(index) instanceof Weapon){
+            Item pre_weapon = weapon;
+            inventory.addItem(pre_weapon);
+            weapon = (Weapon)inventory.getItem(index);
+            inventory.removeItem(inventory.getItem(index));
+            return true;
+        }
+        else{
+            if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
+                setHealth(getHealth() + inventory.getItem(index).health);
+            }
+            inventory.removeItem(inventory.getItem(index));
+            return false;
+        }
+    }
     public Inventory getInventory() {return inventory;}
 
     public List<Skill> getSkills() {return skills;}
@@ -39,21 +94,4 @@ public class Player extends Character {
     public void add_key(){num_key += 1;}
 
     public int get_key(){return num_key;}
-
-    public boolean use_item(int index){
-        if (inventory.getItem(index) instanceof Weapon){
-            Item pre_weapon = weapon;
-            inventory.addItem(pre_weapon);
-            weapon = inventory.getItem(index);
-            inventory.removeItem(inventory.getItem(index));
-            return true;
-        }
-        else{
-            if (inventory.getItem(index).get_name() == "Life Potion"){
-                setHealth(getHealth() + inventory.getItem(index).health);
-                inventory.removeItem(inventory.getItem(index));
-            }
-            return false;
-        }
-    }
 }
