@@ -10,6 +10,6 @@ class Interactable_object extends Item{
     private String name;
 
     public Interactable_object(String name){
-        this.name = name;
+        super(name);
     }
 }

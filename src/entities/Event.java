@@ -424,7 +424,7 @@ class Battle_Event0 extends Event{
 
     private void won(){
         position = "won";
-        mainTextArea.setText("You won!");
+        mainTextArea.setText("You won! You found 50$ and a golden key!");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("-");
@@ -538,7 +538,9 @@ class Battle_Event0 extends Event{
                         case "c5":start();break;
                 }
                 case "lost":if (Objects.equals(yourChoice, "c4")){new Game();break;}
-                case "won":if (Objects.equals(yourChoice, "c4")){finished();break;}
+                case "won":if (Objects.equals(yourChoice, "c4")){
+                    player.add_key(); player.setMoney(player.getMoney() + 50);
+                    finished();break;}
                 case "finished": if (Objects.equals(yourChoice, "c4")){;break;}//////////////////////////Back to room
             }
         }
