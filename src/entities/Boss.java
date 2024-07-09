@@ -14,8 +14,8 @@ public class Boss extends Monster {
 
     private List<Skill> skills;
 
-    public Boss(String name, int health) {
-        super(name, health);
+    public Boss(String name, int health, int damage) {
+        super(name, health, damage);
         this.skills = new ArrayList<>();
     }
 

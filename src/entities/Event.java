@@ -137,8 +137,8 @@ class Shop_Event0 extends Event{
         this.position = "bought123";
         this.mainTextArea.setText("Thanks for your patronage!\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("_");
-        this.choice2.setText("_");
+        this.choice1.setText("-");
+        this.choice2.setText("-");
         this.choice3.setText("-");
         this.choice4.setText("Leave");
     }
@@ -187,6 +187,7 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 30);
                             bought3();break;
                     }
+                    break;
                 case "bought1":
                     switch (yourChoice){
                         case "c1": rebuy();break;
@@ -205,6 +206,7 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 30);
                             bought13();break;
                     }
+                    break;
                 case "bought2":
                     switch (yourChoice){
                         case "c1":
@@ -223,6 +225,7 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 30);
                             bought23();break;
                     }
+                    break;
                 case "bought3":
                     switch (yourChoice){
                         case "c1":
@@ -241,6 +244,7 @@ class Shop_Event0 extends Event{
                             bought23();break;
                         case "c3": rebuy();break;
                     }
+                    break;
                 case "bought12":
                     switch (yourChoice){
                         case "c1", "c2": rebuy(); break;
@@ -252,6 +256,7 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 30);
                             bought123();break;
                     }
+                    break;
                 case "bought13":
                     switch (yourChoice){
                         case "c1", "c3": rebuy();break;
@@ -263,6 +268,7 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 15);
                             bought123();break;
                     }
+                    break;
                 case "bought23":
                     switch (yourChoice){
                         case "c2", "c3": rebuy();break;
@@ -274,7 +280,8 @@ class Shop_Event0 extends Event{
                             player.setMoney(player.getMoney() - 40);
                             bought123();break;
                     }
-                case "bought123":rebuy();break;
+                    break;
+                case "bought123": rebuy();break;
             }
         }
     }
@@ -353,6 +360,7 @@ class Battle_Event0 extends Event{
         backPanel.add(backButton);
         con.add(backPanel);
         backPanel.setVisible(false);
+        this.backPanel = backPanel; this.hpLabelNumber = hpLabelNumber; this.enemyhp = enemyhp;
     }
 
     public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////Run here
@@ -416,6 +424,7 @@ class Battle_Event0 extends Event{
         position = "attack";
         mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
@@ -424,6 +433,7 @@ class Battle_Event0 extends Event{
 
     private void won(){
         position = "won";
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("You won! You found 50$ and a golden key!");
         choice1.setText("-");
         choice2.setText("-");
@@ -433,6 +443,7 @@ class Battle_Event0 extends Event{
 
     private void lost(){
         position = "lost";
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("YOU DIED");
         choice1.setText("-");
         choice2.setText("-");
@@ -468,45 +479,50 @@ class Battle_Event0 extends Event{
                         case "c2":
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4": ////////////////////////////////////////////////////////////////Runaway, back to room
+                        case "c4": break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
+                    break;
                 case "items":
                     switch(yourChoice){
                         case "c1":
-                            if(player.use_item(current)){items();break;}
+                            if(player.use_item(current)){items();}
                             else {
-                                if (player.getInventory().get_length() == 0) {empty_inventory();break;}
+                                if (player.getInventory().get_length() == 0) {empty_inventory();}
                                 else {
                                     current = 0;
                                     m = player.getInventory().get_length() / 2;
                                     hpLabelNumber.setText("" + player.getHealth());
-                                    items();break;}
+                                    items();}
                             }
+                            break;
                         case "c2":
                             if (current + 1>=player.getInventory().get_length()){break;}
-                            if(player.use_item(current + 1)){items();break;}
+                            if(player.use_item(current + 1)){items();}
                             else {
                                 current = 0;
                                 m = player.getInventory().get_length() / 2;
                                 hpLabelNumber.setText("" + player.getHealth());
-                                items();break;}
+                                items();}
+                            break;
                         case "c3":
-                            if (current - 2 < 0){top_items(); break;}
-                            else{current -= 2;items(); break;}
+                            if (current - 2 < 0){top_items(); }
+                            else{current -= 2;items(); }
+                            break;
                         case "c4":
                             if (player.getInventory().get_length() % 2 == 1){
-                                if (current + 2 > 2 * m){bot_items(); break;}
-                                else {current += 2; items(); break;}
+                                if (current + 2 > 2 * m){bot_items();}
+                                else {current += 2; items(); }
                             }
                             else {
-                                if (current + 2 >= 2 * m){bot_items(); break;}
-                                else {current += 2; items(); break;}
+                                if (current + 2 >= 2 * m){bot_items(); }
+                                else {current += 2; items(); }
                             }
+                            break;
                         case "c5": start(); break;
                     }
-                case "empty_inventory":
-                    if (Objects.equals(yourChoice, "c5")){start();}
                     break;
+                case "empty_inventory":
+                    if (Objects.equals(yourChoice, "c5")){start();}break;
                 case "attack":
                     switch (yourChoice){
                         case "c1":
@@ -537,11 +553,15 @@ class Battle_Event0 extends Event{
                             attacked(); break;
                         case "c5":start();break;
                 }
-                case "lost":if (Objects.equals(yourChoice, "c4")){new Game();break;}
-                case "won":if (Objects.equals(yourChoice, "c4")){
-                    player.add_key(); player.setMoney(player.getMoney() + 50);
-                    finished();break;}
-                case "finished": if (Objects.equals(yourChoice, "c4")){;break;}//////////////////////////Back to room
+                break;
+                case "lost":if (Objects.equals(yourChoice, "c4")){new Game();}break;
+                case "won":
+                    if (Objects.equals(yourChoice, "c4")){
+                        player.add_key(); player.setMoney(player.getMoney() + 50);
+                        finished();
+                    }
+                    break;
+                case "finished": if (Objects.equals(yourChoice, "c4")){;}break;//////////////////////////Back to room
             }
         }
     }

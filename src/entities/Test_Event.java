@@ -48,8 +48,6 @@ public class Test_Event {
         mainTextArea.setFont(normalFont);
         mainTextArea.setLineWrap(true);
         mainTextArea.setWrapStyleWord(true);
-        mainTextArea.setEditable(false);
-
         mainTextPanel.add(mainTextArea);
 
         choiceButtonPanel = new JPanel();
@@ -86,10 +84,31 @@ public class Test_Event {
         choice4.setActionCommand("c4");
         choiceButtonPanel.add(choice4);
 
+        window.setVisible(true);
+
+        test_battle(mainTextArea, choice1, choice2, choice3, choice4, con);
+
+        //test_shop0(mainTextArea, choice1, choice2, choice3, choice4);
+
+
+
+    }
+
+    public void test_shop0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4){
         Player player = new Player("Vergil", 100);
-
+        player.setMoney(99999);
         Shop_Event0 shop = new Shop_Event0(mainTextArea, choice1, choice2, choice3, choice4, player);
-
         shop.run_shop();
     }
+
+    public void test_battle(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
+                             Container con){
+        Player player = new Player("Vergil", 25);
+        Battle_Event0 battle = new Battle_Event0(mainTextArea, choice1, choice2, choice3, choice4,player, con);
+        battle.run_battle_event();
+    }
+
+
+
+
 }

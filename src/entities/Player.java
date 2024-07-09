@@ -3,6 +3,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Player extends Character {
     /**
@@ -19,6 +20,7 @@ public class Player extends Character {
     private List<State> states;
     private int dmg_dealt_ratio;
     private int dmg_received_ratio;
+    Random rand = new Random();
 
     public Player(String name, int health) {
         super(name, health);
@@ -55,10 +57,11 @@ public class Player extends Character {
         int dmg_received = 0;
 
         if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
-        else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
+        else if (Objects.equals(name, "Defend")){add_state(new Defensive()); dmg_received_ratio = 0;}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
 
+        dmg_received = monster.getDamage() - 2 + rand.nextInt(5);
         dmg *= dmg_dealt_ratio; dmg_received *= dmg_received_ratio;
         count_effects();
         setHealth(getHealth() - dmg_received);
