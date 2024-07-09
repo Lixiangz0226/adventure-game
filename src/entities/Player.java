@@ -41,11 +41,12 @@ public class Player extends Character {
         dmg_received_ratio = 1;
         dmg_dealt_ratio = 1;
         for (State state : states) {
-            state.count();
+
             String name = state.getdescription();
             if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
-            else if (Objects.equals(name, "Charging")) {dmg_dealt_ratio *= 2;}
+            else if (Objects.equals(name, "Charging") && state.getrounds() == 1) {dmg_dealt_ratio *= 2;}
 
+            state.count();
             if (state.getrounds() == 0){states.remove(state);}
         }
     }
@@ -57,13 +58,12 @@ public class Player extends Character {
         int dmg_received = 0;
 
         if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
-        else if (Objects.equals(name, "Defend")){add_state(new Defensive()); dmg_received_ratio = 0;}
+        else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
 
-        dmg_received = monster.getDamage() - 2 + rand.nextInt(5);
-        dmg *= dmg_dealt_ratio; dmg_received *= dmg_received_ratio;
         count_effects();
+        dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.getDamage() - 2 + rand.nextInt(5));
         setHealth(getHealth() - dmg_received);
         monster.setHealth(monster.getHealth() - dmg);
         result.add(dmg); result.add(dmg_received);

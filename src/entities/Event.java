@@ -297,6 +297,7 @@ class Battle_Event0 extends Event{
     private int m; private int current, used1, used2, used3;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
     private List<Integer> dmg_result;
+    Basic_attack basic_attack = new Basic_attack();
 
     cHandler choiceHandler = new cHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
@@ -424,7 +425,6 @@ class Battle_Event0 extends Event{
         position = "attack";
         mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
-
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
@@ -526,34 +526,33 @@ class Battle_Event0 extends Event{
                 case "attack":
                     switch (yourChoice){
                         case "c1":
-                            dmg_result = player.hit(monster, new Basic_attack());
+                            dmg_result = player.hit(monster, basic_attack);
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
                         case "c2":
                             if (used1 == 0){skill_not_available();break;}
                             used1 -= 1;
-                            dmg_result = player.hit(monster, new Defend());
+                            dmg_result = player.hit(monster, player.getSkills().get(0));
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
                         case "c3":
                             if (used2 == 0){skill_not_available();break;}
                             used2 -= 1;
-                            dmg_result = player.hit(monster, new Double_Edge());
+                            dmg_result = player.hit(monster, player.getSkills().get(1));
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
                         case "c4":
                             if (used3 == 0){skill_not_available();break;}
                             used3 -= 1;
-                            dmg_result = player.hit(monster, new Charge());
+                            dmg_result = player.hit(monster, player.getSkills().get(2));
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
                         case "c5":start();break;
-                }
-                break;
+                } break;
                 case "lost":if (Objects.equals(yourChoice, "c4")){new Game();}break;
                 case "won":
                     if (Objects.equals(yourChoice, "c4")){
