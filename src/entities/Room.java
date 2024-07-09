@@ -11,6 +11,8 @@ public class Room {
     List of Characters <characters>, Event <event> and
     List of Interactable_objects <interactable_objects>.
     */
+
+    /**
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
@@ -19,14 +21,17 @@ public class Room {
     private List<Character> characters;
     private List<Interactable_object> interactable_objects;
     private Event events;
+
+     */
     private String name;
     private String description;
-    private int n;
-    private int s;
-    private int w;
-    private int e;
+    private String n;
+    private String s;
+    private String w;
+    private String e;
 
-    public Room(String name, String description, int n, int s, int w, int e) {
+
+    public Room(String name, String description, String n, String s, String w, String e) {
 /**
         this.name = name;
         this.characters = characters;
@@ -40,31 +45,31 @@ public class Room {
         this.w = w;
         this.e = e;
     }
-    public int getN() {
+    public String getN() {
         return n;
     }
-    public void setN(int n) {
+    public void setN(String n) {
         this.n = n;
     }
 
-    public int getS() {
+    public String getS() {
         return s;
     }
-    public void setS(int s) {
+    public void setS(String s) {
         this.s = s;
     }
 
-    public int getW() {
+    public String getW() {
         return w;
     }
-    public void setW(int w) {
+    public void setW(String w) {
         this.w = w;
     }
 
-    public int getE() {
+    public String getE() {
         return e;
     }
-    public void setE(int e) {
+    public void setE(String e) {
         this.e = e;
     }
 }
