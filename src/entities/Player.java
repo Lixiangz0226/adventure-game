@@ -44,7 +44,7 @@ public class Player extends Character {
 
             String name = state.getdescription();
             if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
-            else if (Objects.equals(name, "Charging") && state.getrounds() == 1) {dmg_dealt_ratio *= 2;}
+            else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
 
             state.count();
             if (state.getrounds() == 0){states.remove(state);}

@@ -533,7 +533,7 @@ class Battle_Event0 extends Event{
                         case "c2":
                             if (used1 == 0){skill_not_available();break;}
                             used1 -= 1;
-                            dmg_result = player.hit(monster, player.getSkills().get(0));
+                            dmg_result = player.hit(monster, player.getSkills().getFirst());
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
