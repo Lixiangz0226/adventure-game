@@ -10,17 +10,17 @@ class Map{
      *     nighttime <day>.
      */
 
-    public static HashMap<Room, HashMap<String, Room>> world_map = new HashMap<>();
+    public static HashMap<Room, HashMap<String, String>> world_map = new HashMap<>();
     private  boolean day;
     private Room startRoom;
     private Room playerRoom;
 
     public void addRoom(Room room) {
-        HashMap<String, Room> adjacent_rooms = new HashMap<>();
-        adjacent_rooms.put("Up", room.up);
-        adjacent_rooms.put("Down", room.down);
-        adjacent_rooms.put("Right",room.right);
-        adjacent_rooms.put("Left",room.left);
+        HashMap<String, String> adjacent_rooms = new HashMap<>();
+        adjacent_rooms.put("North", room.n);
+        adjacent_rooms.put("South", room.s);
+        adjacent_rooms.put("West",room.w);
+        adjacent_rooms.put("East",room.e);
         Map.world_map.put(room, adjacent_rooms);
     }
 
