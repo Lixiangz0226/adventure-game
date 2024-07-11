@@ -98,7 +98,7 @@ public class Test_Event {
         Player player = new Player("Vergil", 100);
         player.setMoney(99999);
         Shop_Event0 shop = new Shop_Event0(mainTextArea, choice1, choice2, choice3, choice4, player);
-        shop.run_shop();
+        shop.run_event();
     }
 
     public void test_battle(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
@@ -108,7 +108,7 @@ public class Test_Event {
         player.getInventory().addItem(new Life_Potion());
 
         Battle_Event0 battle = new Battle_Event0(mainTextArea, choice1, choice2, choice3, choice4,player, con);
-        battle.run_battle_event();
+        battle.run_event();
     }
 
 

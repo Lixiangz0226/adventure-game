@@ -1,7 +1,21 @@
 package entities;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import java.math.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Room {
     /**
@@ -25,13 +39,17 @@ public class Room {
      */
     private String name;
     private String description;
-    private String n;
-    private String s;
-    private String w;
-    private String e;
+    private Room n;
+    private Room s;
+    private Room w;
+    private Room e;
+    private Event event;
+    private JButton c1, c2, c3, c4;
+    private JTextArea mainTextArea;
+    private Container con;
 
-
-    public Room(String name, String description, String n, String s, String w, String e) {
+    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event, JButton c1, JButton c2,
+                JButton c3, JButton c4, JTextArea mainTextArea, Container con) {
 /**
         this.name = name;
         this.characters = characters;
@@ -44,34 +62,36 @@ public class Room {
         this.s = s;
         this.w = w;
         this.e = e;
+        this.event = event;
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
+        this.c4 = c4;
+        this.name = name;
+        this.description = description;
+        this.mainTextArea = mainTextArea;
+        this.con = con;
     }
-    public String getN() {
+
+    public void run_room(){event.run_event();}
+
+    public Room getN() {
         return n;
     }
-    public void setN(String n) {
-        this.n = n;
-    }
 
-    public String getS() {
+    public Room getS() {
         return s;
     }
-    public void setS(String s) {
-        this.s = s;
-    }
 
-    public String getW() {
+    public Room getW() {
         return w;
     }
-    public void setW(String w) {
-        this.w = w;
-    }
 
-    public String getE() {
+    public Room getE() {
         return e;
     }
-    public void setE(String e) {
-        this.e = e;
-    }
+
+
 }
 
 

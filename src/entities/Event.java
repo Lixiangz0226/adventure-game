@@ -22,6 +22,7 @@ class Event{
       An event takes place in rooms, and can be
     encountered by Players.
     */
+    public void run_event(){}
 }
 
 class Shop_Event0 extends Event{
@@ -47,7 +48,7 @@ class Shop_Event0 extends Event{
         choice4.addActionListener(choiceHandler);
     }
 
-    public void run_shop(){////////////////////////////////////////////////////////////////////////////////Run shop here
+    public void run_event(){////////////////////////////////////////////////////////////////////////////////Run shop here
         switch (position) {
             case "justarrived" -> justarrived();
             case "bought1" -> bought1();
@@ -364,7 +365,7 @@ class Battle_Event0 extends Event{
         this.backPanel = backPanel; this.hpLabelNumber = hpLabelNumber; this.enemyhp = enemyhp;
     }
 
-    public void run_battle_event(){/////////////////////////////////////////////////////////////////////////////Run here
+    public void run_event(){/////////////////////////////////////////////////////////////////////////////Run here
         if(firsttime){start();}
         else {finished();}
     }
