@@ -16,17 +16,8 @@ public class Item {
 
 }
 
-class Life_Potion extends Item {
-    public int health;
+class Life_Potion extends Item { public Life_Potion() {super("Life Potion");}}
 
-    public Life_Potion() {
-        super("Life Potion");
-        this.health = 20;
-    }
-}
-
-class Golden_Key extends Item{
-    public Golden_Key(){super("Golden key");}
-}
+class Golden_Key extends Item{ public Golden_Key(){super("Golden key");}}
 
 

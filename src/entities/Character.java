@@ -26,7 +26,7 @@ public abstract class Character {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setHealth(int hp) {
+        this.health = hp;
     }
 }

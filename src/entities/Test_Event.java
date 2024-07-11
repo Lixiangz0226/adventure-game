@@ -88,7 +88,7 @@ public class Test_Event {
 
         test_battle(mainTextArea, choice1, choice2, choice3, choice4, con);
 
-        //test_shop0(mainTextArea, choice1, choice2, choice3, choice4);
+//        test_shop0(mainTextArea, choice1, choice2, choice3, choice4);
 
 
 
@@ -104,6 +104,9 @@ public class Test_Event {
     public void test_battle(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
                              Container con){
         Player player = new Player("Vergil", 25);
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Life_Potion());
+
         Battle_Event0 battle = new Battle_Event0(mainTextArea, choice1, choice2, choice3, choice4,player, con);
         battle.run_battle_event();
     }

@@ -40,15 +40,17 @@ public class Player extends Character {
     private void count_effects(){
         dmg_received_ratio = 1;
         dmg_dealt_ratio = 1;
+        ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
             String name = state.getdescription();
-            if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
+            if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
             else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
 
-            state.count();
-            if (state.getrounds() == 0){states.remove(state);}
+            if (state.getrounds() == 0){removing_states.add(state);}
+            else{state.count();}
         }
+        for (State state : removing_states) {states.remove(state);}
     }
 
     public List<Integer> hit(Monster monster, Skill skill){
@@ -80,7 +82,7 @@ public class Player extends Character {
         }
         else{
             if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
-                setHealth(getHealth() + inventory.getItem(index).health);
+                this.setHealth(this.getHealth() + 20);
             }
             inventory.removeItem(inventory.getItem(index));
             return false;
