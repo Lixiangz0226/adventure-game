@@ -107,15 +107,6 @@ public class Map{
         player.add_map(this);
     }
 
-//    public void addRoom(Room room) {
-//        HashMap<String, Room> adjacent_rooms = new HashMap<>();
-//        adjacent_rooms.put("Up", room.up);
-//        adjacent_rooms.put("Down", room.down);
-//        adjacent_rooms.put("Right",room.right);
-//        adjacent_rooms.put("Left",room.left);
-//        Map.world_map.put(room, adjacent_rooms);
-//    }
-
     public boolean getDay () {return day;}
 
     public void changeDay () {this.day = !this.day;}
