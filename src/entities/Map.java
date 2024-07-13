@@ -55,7 +55,7 @@ public class Map{
         c1.setFont(normalFont);
         c1.setFocusPainted(false);
         c1.addActionListener(mapHandler);
-        c1.setActionCommand("c1");
+        c1.setActionCommand("c1m");
         choiceButtonPanel.add(c1);
         JButton c2 = new JButton("Choice 2");
         c2.setBackground(Color.black);
@@ -63,7 +63,7 @@ public class Map{
         c2.setFont(normalFont);
         c2.setFocusPainted(false);
         c2.addActionListener(mapHandler);
-        c2.setActionCommand("c2");
+        c2.setActionCommand("c2m");
         choiceButtonPanel.add(c2);
         JButton c3 = new JButton("Choice 3");
         c3.setBackground(Color.black);
@@ -71,7 +71,7 @@ public class Map{
         c3.setFont(normalFont);
         c3.setFocusPainted(false);
         c3.addActionListener(mapHandler);
-        c3.setActionCommand("c3");
+        c3.setActionCommand("c3m");
         choiceButtonPanel.add(c3);
         JButton c4 = new JButton("Choice 4");
         c4.setBackground(Color.black);
@@ -79,7 +79,7 @@ public class Map{
         c4.setFont(normalFont);
         c4.setFocusPainted(false);
         c4.addActionListener(mapHandler);
-        c4.setActionCommand("c4");
+        c4.setActionCommand("c4m");
         choiceButtonPanel.add(c4);
         this.c1 = c1;this.c2 = c2;this.c3 = c3;this.c4 = c4;
         this.day = true;
@@ -126,21 +126,25 @@ public class Map{
 
             String yourChoice = event.getActionCommand();
             switch (yourChoice){
-                case "c1":
+                case "c1m":
                     if (Objects.equals(c1.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getN();choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getN();
+                        choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
-                case "c2":
+                case "c2m":
                     if (Objects.equals(c2.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getS();choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getS();
+                        choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
-                case "c3":
+                case "c3m":
                     if (Objects.equals(c3.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getW();choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getW();
+                        choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
-                case "c4":
+                case "c4m":
                     if (Objects.equals(c4.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getE();choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getE();
+                        choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
             }
         }

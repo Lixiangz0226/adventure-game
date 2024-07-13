@@ -49,35 +49,34 @@ class Shop_Event0 extends Event{
         choiceButtonPanel.setBackground(Color.black);
         choiceButtonPanel.setLayout(new GridLayout(4,1));
         con.add(choiceButtonPanel);
-        this.choiceButtonPanel = choiceButtonPanel;
 
         choice1 = new JButton("Choice 1");
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.white);
         choice1.setFont(normalFont);
         choice1.setFocusPainted(false);
-        choice1.setActionCommand("c1");
+        choice1.setActionCommand("c1se");
         choiceButtonPanel.add(choice1);
         choice2 = new JButton("Choice 2");
         choice2.setBackground(Color.black);
         choice2.setForeground(Color.white);
         choice2.setFont(normalFont);
         choice2.setFocusPainted(false);
-        choice2.setActionCommand("c2");
+        choice2.setActionCommand("c2se");
         choiceButtonPanel.add(choice2);
         choice3 = new JButton("Choice 3");
         choice3.setBackground(Color.black);
         choice3.setForeground(Color.white);
         choice3.setFont(normalFont);
         choice3.setFocusPainted(false);
-        choice3.setActionCommand("c3");
+        choice3.setActionCommand("c3se");
         choiceButtonPanel.add(choice3);
         choice4 = new JButton("Choice 4");
         choice4.setBackground(Color.black);
         choice4.setForeground(Color.white);
         choice4.setFont(normalFont);
         choice4.setFocusPainted(false);
-        choice4.setActionCommand("c4");
+        choice4.setActionCommand("c4se");
         choiceButtonPanel.add(choice4);
         this.con = con;
         this.player = player;
@@ -202,7 +201,7 @@ class Shop_Event0 extends Event{
 
             String yourChoice = event.getActionCommand();
 
-            if (yourChoice.equals("c4")) {
+            if (yourChoice.equals("c4se")) {
                 choiceButtonPanel.setVisible(false);
                 player.leave();
                 return;}///////////////////////////////////////////////////////
@@ -210,21 +209,21 @@ class Shop_Event0 extends Event{
             switch(position){
                 case "justarrived":
                     switch (yourChoice){
-                        case "c1":
+                        case "c1se":
                             if (player.getMoney() < 40){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Flame_Crossbow());
                             player.setMoney(player.getMoney() - 40);
                             bought1();break;
-                        case "c2":
+                        case "c2se":
                             if (player.getMoney() < 15){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Life_Potion());
                             player.setMoney(player.getMoney() - 15);
                             bought2();break;
-                        case "c3":
+                        case "c3se":
                             if (player.getMoney() < 30){
                                 lackofmoney();break;
                             }
@@ -235,15 +234,15 @@ class Shop_Event0 extends Event{
                     break;
                 case "bought1":
                     switch (yourChoice){
-                        case "c1": rebuy();break;
-                        case "c2":
+                        case "c1se": rebuy();break;
+                        case "c2se":
                             if (player.getMoney() < 15){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Life_Potion());
                             player.setMoney(player.getMoney() - 15);
                             bought12();break;
-                        case "c3":
+                        case "c3se":
                             if (player.getMoney() < 30){
                                 lackofmoney();break;
                             }
@@ -254,15 +253,15 @@ class Shop_Event0 extends Event{
                     break;
                 case "bought2":
                     switch (yourChoice){
-                        case "c1":
+                        case "c1se":
                             if (player.getMoney() < 40){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Flame_Crossbow());
                             player.setMoney(player.getMoney() - 40);
                             bought12();break;
-                        case "c2": rebuy();break;
-                        case "c3":
+                        case "c2se": rebuy();break;
+                        case "c3se":
                             if (player.getMoney() < 30){
                                 lackofmoney();break;
                             }
@@ -273,27 +272,27 @@ class Shop_Event0 extends Event{
                     break;
                 case "bought3":
                     switch (yourChoice){
-                        case "c1":
+                        case "c1se":
                             if (player.getMoney() < 40){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Flame_Crossbow());
                             player.setMoney(player.getMoney() - 40);
                             bought13();break;
-                        case "c2":
+                        case "c2se":
                             if (player.getMoney() < 15){
                                 lackofmoney();break;
                             }
                             player.getInventory().addItem(new Life_Potion());
                             player.setMoney(player.getMoney() - 15);
                             bought23();break;
-                        case "c3": rebuy();break;
+                        case "c3se": rebuy();break;
                     }
                     break;
                 case "bought12":
                     switch (yourChoice){
-                        case "c1", "c2": rebuy(); break;
-                        case "c3":
+                        case "c1se", "c2se": rebuy(); break;
+                        case "c3se":
                             if (player.getMoney() < 30){
                                 lackofmoney();break;
                             }
@@ -304,8 +303,8 @@ class Shop_Event0 extends Event{
                     break;
                 case "bought13":
                     switch (yourChoice){
-                        case "c1", "c3": rebuy();break;
-                        case "c2":
+                        case "c1se", "c3se": rebuy();break;
+                        case "c2se":
                             if (player.getMoney() < 15){
                                 lackofmoney();break;
                             }
@@ -316,8 +315,8 @@ class Shop_Event0 extends Event{
                     break;
                 case "bought23":
                     switch (yourChoice){
-                        case "c2", "c3": rebuy();break;
-                        case "c1":
+                        case "c2se", "c3se": rebuy();break;
+                        case "c1se":
                             if (player.getMoney() < 40){
                                 lackofmoney();break;
                             }
@@ -365,7 +364,7 @@ class Battle_Event0 extends Event{
         choice1.setFont(normalFont);
         choice1.setFocusPainted(false);
         choice1.addActionListener(choiceHandler);
-        choice1.setActionCommand("c1");
+        choice1.setActionCommand("c1be");
         choiceButtonPanel.add(choice1);
         choice2 = new JButton("Choice 2");
         choice2.setBackground(Color.black);
@@ -373,7 +372,7 @@ class Battle_Event0 extends Event{
         choice2.setFont(normalFont);
         choice2.setFocusPainted(false);
         choice2.addActionListener(choiceHandler);
-        choice2.setActionCommand("c2");
+        choice2.setActionCommand("c2be");
         choiceButtonPanel.add(choice2);
         choice3 = new JButton("Choice 3");
         choice3.setBackground(Color.black);
@@ -381,7 +380,7 @@ class Battle_Event0 extends Event{
         choice3.setFont(normalFont);
         choice3.setFocusPainted(false);
         choice3.addActionListener(choiceHandler);
-        choice3.setActionCommand("c3");
+        choice3.setActionCommand("c3be");
         choiceButtonPanel.add(choice3);
         choice4 = new JButton("Choice 4");
         choice4.setBackground(Color.black);
@@ -389,7 +388,7 @@ class Battle_Event0 extends Event{
         choice4.setFont(normalFont);
         choice4.setFocusPainted(false);
         choice4.addActionListener(choiceHandler);
-        choice4.setActionCommand("c4");
+        choice4.setActionCommand("c4be");
         choiceButtonPanel.add(choice4);
 
         this.player = player;
@@ -561,12 +560,12 @@ class Battle_Event0 extends Event{
             switch(position){
                 case "start":
                     switch(yourChoice){
-                        case "c1":
+                        case "c1be":
                             attack(); break;
-                        case "c2":
+                        case "c2be":
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4":
+                        case "c4be":
                             choiceButtonPanel.setVisible(false);
                             playerPanel.setVisible(false);
                             player.leave();
@@ -575,7 +574,7 @@ class Battle_Event0 extends Event{
                     break;
                 case "items":
                     switch(yourChoice){
-                        case "c1":
+                        case "c1be":
                             if(player.use_item(current)){items();}
                             else {
                                 if (player.getInventory().get_length() == 0) {empty_inventory();}
@@ -586,7 +585,7 @@ class Battle_Event0 extends Event{
                                     items();}
                             }
                             break;
-                        case "c2":
+                        case "c2be":
                             if (current + 1>=player.getInventory().get_length()){break;}
                             if(player.use_item(current + 1)){items();}
                             else {
@@ -595,11 +594,11 @@ class Battle_Event0 extends Event{
                                 hpLabelNumber.setText("" + player.getHealth());
                                 items();}
                             break;
-                        case "c3":
+                        case "c3be":
                             if (current - 2 < 0){top_items(); }
                             else{current -= 2;items(); }
                             break;
-                        case "c4":
+                        case "c4be":
                             if (player.getInventory().get_length() % 2 == 1){
                                 if (current + 2 > 2 * m){bot_items();}
                                 else {current += 2; items(); }
@@ -616,26 +615,26 @@ class Battle_Event0 extends Event{
                     if (Objects.equals(yourChoice, "c5")){start();}break;
                 case "attack":
                     switch (yourChoice){
-                        case "c1":
+                        case "c1be":
                             dmg_result = player.hit(monster, basic_attack);
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
-                        case "c2":
+                        case "c2be":
                             if (used1 == 0){skill_not_available();break;}
                             used1 -= 1;
                             dmg_result = player.hit(monster, player.getSkills().getFirst());
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
-                        case "c3":
+                        case "c3be":
                             if (used2 == 0){skill_not_available();break;}
                             used2 -= 1;
                             dmg_result = player.hit(monster, player.getSkills().get(1));
                             if (player.getHealth()<=0){lost(); break;}
                             else if (monster.getHealth()<=0){won(); break;}
                             attacked(); break;
-                        case "c4":
+                        case "c4be":
                             if (used3 == 0){skill_not_available();break;}
                             used3 -= 1;
                             dmg_result = player.hit(monster, player.getSkills().get(2));
@@ -644,15 +643,15 @@ class Battle_Event0 extends Event{
                             attacked(); break;
                         case "c5":start();break;
                 } break;
-                case "lost":if (Objects.equals(yourChoice, "c4")){new Game();}break;
+                case "lost":if (Objects.equals(yourChoice, "c4be")){new Game();}break;
                 case "won":
-                    if (Objects.equals(yourChoice, "c4")){
+                    if (Objects.equals(yourChoice, "c4be")){
                         player.add_key(); player.setMoney(player.getMoney() + 50);
                         finished();
                     }
                     break;
                 case "finished":
-                    if (Objects.equals(yourChoice, "c4")){
+                    if (Objects.equals(yourChoice, "c4be")){
                         choiceButtonPanel.setVisible(false);
                         playerPanel.setVisible(false);
                         player.leave();
