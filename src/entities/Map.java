@@ -40,22 +40,9 @@ public class Map{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     String info;
 
-    public Map(Container con, Room startRoom,Player player){
-        JPanel mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.black);
+    public Map(Container con, Room startRoom,Player player, JTextArea mainTextArea){
 
-        con.add(mainTextPanel);
-        mainTextArea = new JTextArea("Fix this bug!");
-        mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(normalFont);
-        mainTextArea.setLineWrap(true);
-        mainTextArea.setWrapStyleWord(true);
-        mainTextArea.setEditable(false);
-
-        mainTextPanel.add(mainTextArea);
+        this.mainTextArea = mainTextArea;
 
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
@@ -112,7 +99,7 @@ public class Map{
     public void changeDay () {this.day = !this.day;}
 
     public void displayMap () {
-        mainTextArea.setVisible(true);choiceButtonPanel.setVisible(true);
+        choiceButtonPanel.setVisible(true);
         choose();
     }
 
@@ -141,23 +128,19 @@ public class Map{
             switch (yourChoice){
                 case "c1":
                     if (Objects.equals(c1.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getN();
-                        mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getN();choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
                 case "c2":
                     if (Objects.equals(c2.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getS();
-                        mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getS();choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
                 case "c3":
                     if (Objects.equals(c3.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getW();
-                        mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getW();choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
                 case "c4":
                     if (Objects.equals(c4.getText(), "-")){break;}
-                    else{ playerRoom = playerRoom.getE();
-                        mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                    else{ playerRoom = playerRoom.getE();choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
             }
         }
@@ -175,24 +158,24 @@ class Map0 extends Map{
     private Container con;
     Room startRoom, playerRoom, boss, desert, shop, forest, forestmiddle, forestleft, forestright, hallway;
 
-    public Map0(Container con, Player player) {
-        Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con), player, con);
-        Room hallway = new Room("Hallway", "It's a long path", new Shop_Event0(player,con),
+    public Map0(Container con, Player player, JTextArea mainTextArea) {
+        Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con,mainTextArea), player, con);
+        Room hallway = new Room("Hallway", "It's a long path", new Shop_Event0(player,con,mainTextArea),
                  player,con);
-        Room startRoom = new Room("Start", "We started here", new Shop_Event0(player, con), player, con);
-        Room shop = new Room("Shop", "There's a business man called Frank.", new Shop_Event0(player, con), player,con);
-        Room desert = new Room("Desert", "Desert", new Battle_Event0(player,con), player,con);
-        Room forest = new Room("Forest", "You are surrounded by trees.", new Shop_Event0(player,con), player, con);
+        Room startRoom = new Room("Start", "We started here", new Shop_Event0(player, con,mainTextArea), player, con);
+        Room shop = new Room("Shop", "There's a business man called Frank.", new Shop_Event0(player, con,mainTextArea), player,con);
+        Room desert = new Room("Desert", "Desert", new Battle_Event0(player,con,mainTextArea), player,con);
+        Room forest = new Room("Forest", "You are surrounded by trees.", new Shop_Event0(player,con,mainTextArea), player, con);
         Room forestmiddle = new Room("Forest Centre", "It's hard to find the way out.", new Shop_Event0(
-                player, con), player, con);
-        Room forestleft = new Room("Forest Left", "Dead end.", new Battle_Event0(player,con), player,con);
-        Room forestright = new Room("Forest Right", "Dead end", new Shop_Event0(player, con), player,con);
+                player, con,mainTextArea), player, con);
+        Room forestleft = new Room("Forest Left", "Dead end.", new Battle_Event0(player,con,mainTextArea), player,con);
+        Room forestright = new Room("Forest Right", "Dead end", new Shop_Event0(player, con,mainTextArea), player,con);
         hallway.setN(Boss); hallway.setS(startRoom);
         startRoom.setW(shop);startRoom.setE(desert);
         forest.setN(startRoom); forest.setS(forestmiddle);
         forestmiddle.setW(forestleft); forestmiddle.setE(forestright);
 
-        super(con, startRoom, player);
+        super(con, startRoom, player,mainTextArea);
     }
 
 }

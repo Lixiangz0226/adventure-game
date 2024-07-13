@@ -98,9 +98,25 @@ public class Game{
         newButtonPanel.setVisible(false);
         loadButtonPanel.setVisible(false);
 
+        JPanel mainTextPanel = new JPanel();
+        mainTextPanel.setBounds(100, 100, 600, 250);
+        mainTextPanel.setBackground(Color.black);
+
+        con.add(mainTextPanel);
+        this.mainTextArea = new JTextArea("Fix this bug!");
+        mainTextArea.setBounds(100, 100, 600, 250);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(normalFont);
+        mainTextArea.setLineWrap(true);
+        mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setEditable(false);
+
+        mainTextPanel.add(mainTextArea);
+
         Player player = new Player("Vergil", 50);
 
-        Map map = new Map0(con,player);
+        Map map = new Map0(con,player,mainTextArea);
 
         map.displayMap();
     }

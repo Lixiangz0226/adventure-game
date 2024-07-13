@@ -39,6 +39,22 @@ public class Test_Event {
 
         window.setVisible(true);
 
+        JPanel mainTextPanel = new JPanel();
+        mainTextPanel.setBounds(100, 100, 600, 250);
+        mainTextPanel.setBackground(Color.black);
+
+        con.add(mainTextPanel);
+        this.mainTextArea = new JTextArea("Fix this bug!");
+        mainTextArea.setBounds(100, 100, 600, 250);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(normalFont);
+        mainTextArea.setLineWrap(true);
+        mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setEditable(false);
+
+        mainTextPanel.add(mainTextArea);
+
 //        test_battle(con);
 
         test_shop0(con);
@@ -50,7 +66,7 @@ public class Test_Event {
     public void test_shop0(Container con){
         Player player = new Player("Vergil", 100);
         player.setMoney(99999);
-        Shop_Event0 shop = new Shop_Event0(player,con);
+        Shop_Event0 shop = new Shop_Event0(player,con, mainTextArea);
         shop.run_event();
     }
 
@@ -59,7 +75,7 @@ public class Test_Event {
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
 
-        Battle_Event0 battle = new Battle_Event0(player, con);
+        Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
         battle.run_event();
     }
 

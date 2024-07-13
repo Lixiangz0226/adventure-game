@@ -38,22 +38,11 @@ class Shop_Event0 extends Event{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
 
-    public Shop_Event0(Player player, Container con) {/////////////////////////////////////////////////////////////////Create shop here
+    public Shop_Event0(Player player, Container con, JTextArea mainTextArea) {/////////////////////////////////////////////////////////////////Create shop here
         this.con = con;
         JPanel mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.black);
-        con.add(mainTextPanel);
-        mainTextArea = new JTextArea("This is the main text are. This game is going to be great. I'm sure of it!!!!!!!");
-        mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(normalFont);
-        mainTextArea.setLineWrap(true);
-        mainTextArea.setWrapStyleWord(true);
-        mainTextArea.setEditable(false);
 
-        mainTextPanel.add(mainTextArea);
+        this.mainTextArea = mainTextArea;
 
         this.choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
@@ -99,13 +88,10 @@ class Shop_Event0 extends Event{
         choice4.addActionListener(cHandler);
 
         choiceButtonPanel.setVisible(false);
-        mainTextArea.setVisible(false);
-
     }
 
     public void run_event(){////////////////////////////////////////////////////////////////////////////////Run shop here
         choiceButtonPanel.setVisible(true);
-        mainTextArea.setVisible(true);
         switch (position) {
             case "justarrived" -> justarrived();
             case "bought1" -> bought1();
@@ -217,7 +203,7 @@ class Shop_Event0 extends Event{
             String yourChoice = event.getActionCommand();
 
             if (yourChoice.equals("c4")) {
-                mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                choiceButtonPanel.setVisible(false);
                 player.leave();
                 return;}///////////////////////////////////////////////////////
 
@@ -365,21 +351,8 @@ class Battle_Event0 extends Event{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     int index = 0;
 
-    public Battle_Event0(Player player, Container con) {///////////////////////////////////////////////////////Create here
-        JPanel mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.black);
-        con.add(mainTextPanel);
-        mainTextArea = new JTextArea("This is the main text are. This game is going to be great. I'm sure of it!!!!!!!");
-        mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(normalFont);
-        mainTextArea.setLineWrap(true);
-        mainTextArea.setWrapStyleWord(true);
-        mainTextArea.setEditable(false);
-
-        mainTextPanel.add(mainTextArea);
+    public Battle_Event0(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
+        this.mainTextArea = mainTextArea;
 
         this.choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);
@@ -476,13 +449,11 @@ class Battle_Event0 extends Event{
 
         playerPanel.setVisible(false);
         choiceButtonPanel.setVisible(false);
-        mainTextArea.setVisible(false);
     }
 
     public void run_event(){/////////////////////////////////////////////////////////////////////////////Run here
         playerPanel.setVisible(true);
         choiceButtonPanel.setVisible(true);
-        mainTextArea.setVisible(true);
         if(firsttime){start();}
         else {finished();}
     }
@@ -569,9 +540,7 @@ class Battle_Event0 extends Event{
         choice4.setText("Leave");
     }
 
-    private void skill_not_available(){
-        mainTextArea.setText("You have used the maximum times of this skill.");
-    }
+    private void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}
 
     private void finished(){
         backPanel.setVisible(false);
@@ -598,7 +567,6 @@ class Battle_Event0 extends Event{
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
                         case "c4":
-                            mainTextArea.setVisible(false);
                             choiceButtonPanel.setVisible(false);
                             playerPanel.setVisible(false);
                             player.leave();
@@ -683,12 +651,12 @@ class Battle_Event0 extends Event{
                         finished();
                     }
                     break;
-                case "finished": if (Objects.equals(yourChoice, "c4")){
-                    mainTextArea.setVisible(false);
-                    choiceButtonPanel.setVisible(false);
-                    playerPanel.setVisible(false);
-                    player.leave();
-                }break;//////////////////////////Back to map
+                case "finished":
+                    if (Objects.equals(yourChoice, "c4")){
+                        choiceButtonPanel.setVisible(false);
+                        playerPanel.setVisible(false);
+                        player.leave();
+                    }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }
     }
