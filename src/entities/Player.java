@@ -21,6 +21,7 @@ public class Player extends Character {
     private int dmg_dealt_ratio;
     private int dmg_received_ratio;
     Random rand = new Random();
+    private Map map;
 
     public Player(String name, int health) {
         super(name, health);
@@ -33,6 +34,7 @@ public class Player extends Character {
         this.weapon = new Knife();
         this.dmg_dealt_ratio = 1;
         this.dmg_received_ratio = 1;
+        this.map = null;
     }
 
     private void add_state(State state){states.add(state);}
@@ -88,6 +90,11 @@ public class Player extends Character {
             return false;
         }
     }
+
+    public void add_map(Map map){this.map = map;}
+
+    public void leave(){map.displayMap();}
+
     public Inventory getInventory() {return inventory;}
 
     public List<Skill> getSkills() {return skills;}

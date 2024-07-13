@@ -44,12 +44,12 @@ public class Room {
     private Room w;
     private Room e;
     private Event event;
-    private JButton c1, c2, c3, c4;
-    private JTextArea mainTextArea;
-    private Container con;
+    JButton c1, c2, c3, c4;
+    JTextArea mainTextArea;
+    Container con;
+    private Player player;
 
-    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event, JButton c1, JButton c2,
-                JButton c3, JButton c4, JTextArea mainTextArea, Container con) {
+    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event,  Player player, Container con) {
 /**
         this.name = name;
         this.characters = characters;
@@ -63,36 +63,51 @@ public class Room {
         this.w = w;
         this.e = e;
         this.event = event;
-        this.c1 = c1;
-        this.c2 = c2;
-        this.c3 = c3;
-        this.c4 = c4;
         this.name = name;
         this.description = description;
-        this.mainTextArea = mainTextArea;
+        this.con = con;
+
+    }
+
+    public Room(String name, String description, Event event, Player player, Container con) {
+        this.name = name;
+        this.description = description;
+        this.event = event;
+        this.n = null;
+        this.s = null;
+        this.w = null;
+        this.e = null;
+        this.player = player;
         this.con = con;
     }
 
     public void run_room(){event.run_event();}
 
-    public Room getN() {
-        return n;
-    }
+    public Room getN() {return n;}
 
-    public Room getS() {
-        return s;
-    }
+    public Room getS() {return s;}
 
-    public Room getW() {
-        return w;
-    }
+    public Room getW() {return w;}
 
-    public Room getE() {
-        return e;
-    }
+    public Room getE() {return e;}
 
+    public void setN(Room n) {this.n = n; if (!this.equals(n.getS())){n.setS(this);}}
+
+    public void setS(Room s) {this.s = s; if (!this.equals(s.getN())){s.setN(this);}}
+
+    public void setW(Room w) {this.w = w; if (!this.equals(w.getE())){w.setE(this);}}
+
+    public void setE(Room e) {this.e = e; if (!this.equals(e.getW())){e.setW(this);}}
+
+    public String getName(){return name;}
 
 }
+
+
+
+
+
+
 
 
 

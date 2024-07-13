@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,22 +32,80 @@ class Shop_Event0 extends Event{
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
     private String position;
-    CHandler choiceHandler = new CHandler();
+    private Container con;
+    private JPanel choiceButtonPanel;
+    CHandler cHandler = new CHandler();
+    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
-    public Shop_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player) {/////////////////////////////////////////////////////////////////Create shop here
-        this.mainTextArea = mainTextArea;
-        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
-        this.choice4 = choice4;
+
+    public Shop_Event0(Player player, Container con) {/////////////////////////////////////////////////////////////////Create shop here
+        this.con = con;
+        JPanel mainTextPanel = new JPanel();
+        mainTextPanel.setBounds(100, 100, 600, 250);
+        mainTextPanel.setBackground(Color.black);
+        con.add(mainTextPanel);
+        mainTextArea = new JTextArea("This is the main text are. This game is going to be great. I'm sure of it!!!!!!!");
+        mainTextArea.setBounds(100, 100, 600, 250);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(normalFont);
+        mainTextArea.setLineWrap(true);
+        mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setEditable(false);
+
+        mainTextPanel.add(mainTextArea);
+
+        this.choiceButtonPanel = new JPanel();
+        choiceButtonPanel.setBounds(250, 350, 300, 150);
+        choiceButtonPanel.setBackground(Color.black);
+        choiceButtonPanel.setLayout(new GridLayout(4,1));
+        con.add(choiceButtonPanel);
+        this.choiceButtonPanel = choiceButtonPanel;
+
+        choice1 = new JButton("Choice 1");
+        choice1.setBackground(Color.black);
+        choice1.setForeground(Color.white);
+        choice1.setFont(normalFont);
+        choice1.setFocusPainted(false);
+        choice1.setActionCommand("c1");
+        choiceButtonPanel.add(choice1);
+        choice2 = new JButton("Choice 2");
+        choice2.setBackground(Color.black);
+        choice2.setForeground(Color.white);
+        choice2.setFont(normalFont);
+        choice2.setFocusPainted(false);
+        choice2.setActionCommand("c2");
+        choiceButtonPanel.add(choice2);
+        choice3 = new JButton("Choice 3");
+        choice3.setBackground(Color.black);
+        choice3.setForeground(Color.white);
+        choice3.setFont(normalFont);
+        choice3.setFocusPainted(false);
+        choice3.setActionCommand("c3");
+        choiceButtonPanel.add(choice3);
+        choice4 = new JButton("Choice 4");
+        choice4.setBackground(Color.black);
+        choice4.setForeground(Color.white);
+        choice4.setFont(normalFont);
+        choice4.setFocusPainted(false);
+        choice4.setActionCommand("c4");
+        choiceButtonPanel.add(choice4);
+        this.con = con;
         this.player = player;
         this.position = "justarrived";
-        choice1.addActionListener(choiceHandler);
-        choice2.addActionListener(choiceHandler);
-        choice3.addActionListener(choiceHandler);
-        choice4.addActionListener(choiceHandler);
+        choice1.addActionListener(cHandler);
+        choice2.addActionListener(cHandler);
+        choice3.addActionListener(cHandler);
+        choice4.addActionListener(cHandler);
+
+        choiceButtonPanel.setVisible(false);
+        mainTextArea.setVisible(false);
+
     }
 
     public void run_event(){////////////////////////////////////////////////////////////////////////////////Run shop here
+        choiceButtonPanel.setVisible(true);
+        mainTextArea.setVisible(true);
         switch (position) {
             case "justarrived" -> justarrived();
             case "bought1" -> bought1();
@@ -160,8 +217,9 @@ class Shop_Event0 extends Event{
             String yourChoice = event.getActionCommand();
 
             if (yourChoice.equals("c4")) {
-                return;////////////////////////////////////////////////////////////////////////////////Back to room here
-            }
+                mainTextArea.setVisible(false);choiceButtonPanel.setVisible(false);
+                player.leave();
+                return;}///////////////////////////////////////////////////////
 
             switch(position){
                 case "justarrived":
@@ -298,17 +356,69 @@ class Battle_Event0 extends Event{
     private int m; private int current, used1, used2, used3;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
     private List<Integer> dmg_result;
+    private Container con;
+    private JPanel choiceButtonPanel;
+    private JPanel playerPanel;
     Basic_attack basic_attack = new Basic_attack();
 
-    cHandler choiceHandler = new cHandler();
+    ChoiceHandler choiceHandler = new ChoiceHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     int index = 0;
 
-    public Battle_Event0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                       Player player, Container con) {///////////////////////////////////////////////////////Create here
-        this.mainTextArea = mainTextArea;
-        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
-        this.choice4 = choice4;
+    public Battle_Event0(Player player, Container con) {///////////////////////////////////////////////////////Create here
+        JPanel mainTextPanel = new JPanel();
+        mainTextPanel.setBounds(100, 100, 600, 250);
+        mainTextPanel.setBackground(Color.black);
+        con.add(mainTextPanel);
+        mainTextArea = new JTextArea("This is the main text are. This game is going to be great. I'm sure of it!!!!!!!");
+        mainTextArea.setBounds(100, 100, 600, 250);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(normalFont);
+        mainTextArea.setLineWrap(true);
+        mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setEditable(false);
+
+        mainTextPanel.add(mainTextArea);
+
+        this.choiceButtonPanel = new JPanel();
+        choiceButtonPanel.setBounds(250, 350, 300, 150);
+        choiceButtonPanel.setBackground(Color.black);
+        choiceButtonPanel.setLayout(new GridLayout(4,1));
+        con.add(choiceButtonPanel);
+        choice1 = new JButton("Choice 1");
+        choice1.setBackground(Color.black);
+        choice1.setForeground(Color.white);
+        choice1.setFont(normalFont);
+        choice1.setFocusPainted(false);
+        choice1.addActionListener(choiceHandler);
+        choice1.setActionCommand("c1");
+        choiceButtonPanel.add(choice1);
+        choice2 = new JButton("Choice 2");
+        choice2.setBackground(Color.black);
+        choice2.setForeground(Color.white);
+        choice2.setFont(normalFont);
+        choice2.setFocusPainted(false);
+        choice2.addActionListener(choiceHandler);
+        choice2.setActionCommand("c2");
+        choiceButtonPanel.add(choice2);
+        choice3 = new JButton("Choice 3");
+        choice3.setBackground(Color.black);
+        choice3.setForeground(Color.white);
+        choice3.setFont(normalFont);
+        choice3.setFocusPainted(false);
+        choice3.addActionListener(choiceHandler);
+        choice3.setActionCommand("c3");
+        choiceButtonPanel.add(choice3);
+        choice4 = new JButton("Choice 4");
+        choice4.setBackground(Color.black);
+        choice4.setForeground(Color.white);
+        choice4.setFont(normalFont);
+        choice4.setFocusPainted(false);
+        choice4.addActionListener(choiceHandler);
+        choice4.setActionCommand("c4");
+        choiceButtonPanel.add(choice4);
+
         this.player = player;
         this.monster = new Goblin();
         this.position = "";
@@ -318,13 +428,14 @@ class Battle_Event0 extends Event{
         this.m = player.getInventory().get_length() / 2;
         this.current = 0;
         this.dmg_result = new ArrayList<Integer>();
+        this.con = con;
 
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
 
-        JPanel playerPanel = new JPanel();
+        this.playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 50);
         playerPanel.setBackground(Color.black);
         playerPanel.setLayout(new GridLayout(1,4));
@@ -333,7 +444,7 @@ class Battle_Event0 extends Event{
         hpLabel.setFont(normalFont);
         hpLabel.setForeground(Color.white);
         playerPanel.add(hpLabel);
-        JLabel hpLabelNumber = new JLabel();
+        this.hpLabelNumber = new JLabel();
         hpLabelNumber.setFont(normalFont);
         hpLabelNumber.setForeground(Color.white);
         hpLabelNumber.setText("" + player.getHealth());
@@ -343,13 +454,13 @@ class Battle_Event0 extends Event{
         enemylabel.setForeground(Color.white);
         enemylabel.setBackground(Color.red);
         playerPanel.add(enemylabel);
-        JLabel enemyhp = new JLabel();
+        this.enemyhp = new JLabel();
         enemyhp.setFont(normalFont);
         enemyhp.setForeground(Color.white);
         enemyhp.setText("" + monster.getHealth());
         playerPanel.add(enemyhp);
 
-        JPanel backPanel = new JPanel();
+        this.backPanel = new JPanel();
         backPanel.setBounds(100, 500, 100, 50);
         backPanel.setBackground(Color.black);
         JButton backButton = new JButton("Back");
@@ -362,10 +473,16 @@ class Battle_Event0 extends Event{
         backPanel.add(backButton);
         con.add(backPanel);
         backPanel.setVisible(false);
-        this.backPanel = backPanel; this.hpLabelNumber = hpLabelNumber; this.enemyhp = enemyhp;
+
+        playerPanel.setVisible(false);
+        choiceButtonPanel.setVisible(false);
+        mainTextArea.setVisible(false);
     }
 
     public void run_event(){/////////////////////////////////////////////////////////////////////////////Run here
+        playerPanel.setVisible(true);
+        choiceButtonPanel.setVisible(true);
+        mainTextArea.setVisible(true);
         if(firsttime){start();}
         else {finished();}
     }
@@ -467,7 +584,7 @@ class Battle_Event0 extends Event{
         choice4.setText("Leave");
     }
 
-    public class cHandler implements ActionListener{
+    public class ChoiceHandler implements ActionListener{
         public void actionPerformed(ActionEvent event) {
 
             String yourChoice = event.getActionCommand();
@@ -480,7 +597,12 @@ class Battle_Event0 extends Event{
                         case "c2":
                             if (player.getInventory().get_length() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4": break; ////////////////////////////////////////////////////////////////Runaway, back to room
+                        case "c4":
+                            mainTextArea.setVisible(false);
+                            choiceButtonPanel.setVisible(false);
+                            playerPanel.setVisible(false);
+                            player.leave();
+                            break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                     break;
                 case "items":
@@ -561,7 +683,12 @@ class Battle_Event0 extends Event{
                         finished();
                     }
                     break;
-                case "finished": if (Objects.equals(yourChoice, "c4")){;}break;//////////////////////////Back to room
+                case "finished": if (Objects.equals(yourChoice, "c4")){
+                    mainTextArea.setVisible(false);
+                    choiceButtonPanel.setVisible(false);
+                    playerPanel.setVisible(false);
+                    player.leave();
+                }break;//////////////////////////Back to map
             }
         }
     }

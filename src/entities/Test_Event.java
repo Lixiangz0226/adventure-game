@@ -37,77 +37,29 @@ public class Test_Event {
         window.setLayout(null);
         con = window.getContentPane();
 
-        mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.black);
-        con.add(mainTextPanel);
-        mainTextArea = new JTextArea("This is the main text are. This game is going to be great. I'm sure of it!!!!!!!");
-        mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(normalFont);
-        mainTextArea.setLineWrap(true);
-        mainTextArea.setWrapStyleWord(true);
-        mainTextPanel.add(mainTextArea);
-
-        choiceButtonPanel = new JPanel();
-        choiceButtonPanel.setBounds(250, 350, 300, 150);
-        choiceButtonPanel.setBackground(Color.black);
-        choiceButtonPanel.setLayout(new GridLayout(4,1));
-        con.add(choiceButtonPanel);
-        choice1 = new JButton("Choice 1");
-        choice1.setBackground(Color.black);
-        choice1.setForeground(Color.white);
-        choice1.setFont(normalFont);
-        choice1.setFocusPainted(false);
-        choice1.setActionCommand("c1");
-        choiceButtonPanel.add(choice1);
-        choice2 = new JButton("Choice 2");
-        choice2.setBackground(Color.black);
-        choice2.setForeground(Color.white);
-        choice2.setFont(normalFont);
-        choice2.setFocusPainted(false);
-        choice2.setActionCommand("c2");
-        choiceButtonPanel.add(choice2);
-        choice3 = new JButton("Choice 3");
-        choice3.setBackground(Color.black);
-        choice3.setForeground(Color.white);
-        choice3.setFont(normalFont);
-        choice3.setFocusPainted(false);
-        choice3.setActionCommand("c3");
-        choiceButtonPanel.add(choice3);
-        choice4 = new JButton("Choice 4");
-        choice4.setBackground(Color.black);
-        choice4.setForeground(Color.white);
-        choice4.setFont(normalFont);
-        choice4.setFocusPainted(false);
-        choice4.setActionCommand("c4");
-        choiceButtonPanel.add(choice4);
-
         window.setVisible(true);
 
-        test_battle(mainTextArea, choice1, choice2, choice3, choice4, con);
+//        test_battle(con);
 
-//        test_shop0(mainTextArea, choice1, choice2, choice3, choice4);
+        test_shop0(con);
 
 
 
     }
 
-    public void test_shop0(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4){
+    public void test_shop0(Container con){
         Player player = new Player("Vergil", 100);
         player.setMoney(99999);
-        Shop_Event0 shop = new Shop_Event0(mainTextArea, choice1, choice2, choice3, choice4, player);
+        Shop_Event0 shop = new Shop_Event0(player,con);
         shop.run_event();
     }
 
-    public void test_battle(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                             Container con){
+    public void test_battle(Container con){
         Player player = new Player("Vergil", 25);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
 
-        Battle_Event0 battle = new Battle_Event0(mainTextArea, choice1, choice2, choice3, choice4,player, con);
+        Battle_Event0 battle = new Battle_Event0(player, con);
         battle.run_event();
     }
 
