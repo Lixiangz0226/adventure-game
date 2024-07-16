@@ -9,7 +9,7 @@ public class Player extends Character {
     /**
      * A Player is the only controllable character for the user.
      *     A Player has a string name, an int health, a list of State state_set,
-     *     an Inventory inventory and a list of Skill skill_set.
+     *     an Inventory and a list of Skill skill_set.
       */
 
     private Inventory inventory;
@@ -46,9 +46,9 @@ public class Player extends Character {
         for (State state : states) {
 
             String name = state.getdescription();
-            if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
+            if (Objects.equals(name, "Defensive")) {dmg_received_ratio = 0;}
             else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
-
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////State effect
             if (state.getrounds() == 0){removing_states.add(state);}
             else{state.count();}
         }
@@ -61,10 +61,11 @@ public class Player extends Character {
         int dmg = 0;
         int dmg_received = 0;
 
-        if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
+        if (Objects.equals(name, "Basic_Attack")){dmg += weapon.get_damage();}
         else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////Skill effect
 
         count_effects();
         dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.getDamage() - 2 + rand.nextInt(5));
@@ -86,6 +87,7 @@ public class Player extends Character {
             if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
                 this.setHealth(this.getHealth() + 20);
             }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////usable item
             inventory.removeItem(inventory.getItem(index));
             return false;
         }
