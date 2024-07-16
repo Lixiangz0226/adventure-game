@@ -182,7 +182,6 @@ class Map0 extends Map{
     Room startRoom, playerRoom, boss, desert, shop, forest, forestmiddle, forestleft, forestright, hallway;
 
     public Map0(Container con, Player player, JTextArea mainTextArea) {
-        super(con, null, player, mainTextArea);
         Room Boss = new Room("Boss", "This is the boss room", new Shop_Event0(player,con,mainTextArea), player,con);
         Room hallway = new Room("Hallway", "It's a long path", new Shop_Event0(player,con,mainTextArea),
                 player,con);
@@ -199,6 +198,7 @@ class Map0 extends Map{
         forest.setN(startRoom); forest.setS(forestmiddle);
         forestmiddle.setW(forestleft); forestmiddle.setE(forestright);
 
+        super(con, startRoom, player, mainTextArea);
     }
 
 }
