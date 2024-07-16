@@ -92,7 +92,6 @@ public class Map{
         c3.addActionListener(mapHandler);
         c4.addActionListener(mapHandler);
         player.add_map(this);
-        choiceButtonPanel.setVisible(false);
     }
 
     public boolean getDay () {return day;}
@@ -103,8 +102,6 @@ public class Map{
         choiceButtonPanel.setVisible(true);
         choose();
     }
-
-    public Room get_playerroom(){return playerRoom;}
 
     private void choose(){
         info = "";
@@ -133,8 +130,7 @@ public class Map{
                     if (Objects.equals(c1.getText(), "-")){break;}
                     else{ playerRoom = playerRoom.getN();
                         choiceButtonPanel.setVisible(false);
-                        playerRoom.run_room();break;
-                    }
+                        playerRoom.run_room();break;}
                 case "c2m":
                     if (Objects.equals(c2.getText(), "-")){break;}
                     else{ playerRoom = playerRoom.getS();
@@ -167,7 +163,7 @@ class Map0 extends Map{
     Room startRoom, playerRoom, boss, desert, shop, forest, forestmiddle, forestleft, forestright, hallway;
 
     public Map0(Container con, Player player, JTextArea mainTextArea) {
-        Room Boss = new Room("Boss", "This is the boss room", new Shop_Event0(player,con,mainTextArea), player,con);
+        Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con,mainTextArea), player, con);
         Room hallway = new Room("Hallway", "It's a long path", new Shop_Event0(player,con,mainTextArea),
                  player,con);
         Room startRoom = new Room("Start", "We started here", new Shop_Event0(player, con,mainTextArea), player, con);
@@ -183,7 +179,7 @@ class Map0 extends Map{
         forest.setN(startRoom); forest.setS(forestmiddle);
         forestmiddle.setW(forestleft); forestmiddle.setE(forestright);
 
-        super(con, startRoom, player, mainTextArea);
+        super(con, startRoom, player,mainTextArea);
     }
 
 }

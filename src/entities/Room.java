@@ -20,21 +20,21 @@ import java.util.Objects;
 public class Room {
     /**
      * A Room is separate parts in a map. Players can
-    travel between different rooms. Each room has different
-    string <name>, possible List of items <items>,
-    List of Characters <characters>, Event <event> and
-    List of Interactable_objects <interactable_objects>.
-    */
+     travel between different rooms. Each room has different
+     string <name>, possible List of items <items>,
+     List of Characters <characters>, Event <event> and
+     List of Interactable_objects <interactable_objects>.
+     */
 
     /**
-    private JTextArea mainTextArea;
-    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private Player player;
+     private JTextArea mainTextArea;
+     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+     private Player player;
 
-    private List<Item> items;
-    private List<Character> characters;
-    private List<Interactable_object> interactable_objects;
-    private Event events;
+     private List<Item> items;
+     private List<Character> characters;
+     private List<Interactable_object> interactable_objects;
+     private Event events;
 
      */
     private String name;
@@ -51,12 +51,12 @@ public class Room {
 
     public Room(String name, String description, Room n, Room s, Room w, Room e, Event event,  Player player, Container con) {
 /**
-        this.name = name;
-        this.characters = characters;
-        this.interactable_objects = interactable_objects;
-        this.items = items;
-        this.mainTextArea = mainTextArea;
-        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3; this.choice4 = choice4;
+ this.name = name;
+ this.characters = characters;
+ this.interactable_objects = interactable_objects;
+ this.items = items;
+ this.mainTextArea = mainTextArea;
+ this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3; this.choice4 = choice4;
  */
         this.n = n;
         this.s = s;
@@ -102,15 +102,3 @@ public class Room {
     public String getName(){return name;}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
