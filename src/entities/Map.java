@@ -153,16 +153,19 @@ public class Map{
                 case "c2m":
                     if (Objects.equals(c2.getText(), "-")){break;}
                     else{ playerRoom = playerRoom.getS();
+                        locationTextArea.setText(playerRoom.getName());
                         choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
                 case "c3m":
                     if (Objects.equals(c3.getText(), "-")){break;}
                     else{ playerRoom = playerRoom.getW();
+                        locationTextArea.setText(playerRoom.getName());
                         choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
                 case "c4m":
                     if (Objects.equals(c4.getText(), "-")){break;}
                     else{ playerRoom = playerRoom.getE();
+                        locationTextArea.setText(playerRoom.getName());
                         choiceButtonPanel.setVisible(false);
                         playerRoom.run_room();break;}
             }
