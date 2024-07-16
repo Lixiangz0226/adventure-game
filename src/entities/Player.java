@@ -1,109 +1,212 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import javax.imageio.ImageIO;
 
-public class Player extends Character {
-    /**
-     * A Player is the only controllable character for the user.
-     *     A Player has a string name, an int health, a list of State state_set,
-     *     an Inventory inventory and a list of Skill skill_set.
-      */
+import main.GamePanel;
+import main.KeyHandler;
 
-    private Inventory inventory;
-    private List<Skill> skills;
-    private int money;
-    private int num_key;
-    private Weapon weapon;
-    private List<State> states;
-    private int dmg_dealt_ratio;
-    private int dmg_received_ratio;
-    Random rand = new Random();
-    private Map map;
 
-    public Player(String name, int health) {
-        super(name, health);
-        this.inventory = new Inventory();
-        this.skills = new ArrayList<>();
-        skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
-        this.money = 0;
-        this.states = new ArrayList<>();
-        this.num_key = 0;
-        this.weapon = new Knife();
-        this.dmg_dealt_ratio = 1;
-        this.dmg_received_ratio = 1;
-        this.map = null;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+public class Player extends Entity {
+
+    GamePanel gp;
+    KeyHandler keyH;
+
+    public final int screenX;
+    public final int screenY;
+
+    int hasKey = 0;
+
+    public Player(GamePanel gp, KeyHandler keyH) {
+        this.gp = gp;
+        this.keyH = keyH;
+
+        screenX = gp.screenWidth/2;
+        screenY = gp.screenHeight/2;
+
+        solidArea = new Rectangle();
+        solidArea.x = 8;
+        solidArea.y = 16;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+        solidArea.width = 32;
+        solidArea.height = 32;
+
+        setDefaultValue();
+        getPlayerImage();
     }
 
-    private void add_state(State state){states.add(state);}
+    public void setDefaultValue() {
 
-    private void count_effects(){
-        dmg_received_ratio = 1;
-        dmg_dealt_ratio = 1;
-        ArrayList<State> removing_states = new ArrayList<State>();
-        for (State state : states) {
+        x = 100;
+        y = 100;
+        speed = 4;
+        direction = "down";
+    }
 
-            String name = state.getdescription();
-            if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
-            else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
+    public void getPlayerImage () {
+        try {
+            up1 = ImageIO.read(getClass().getResourceAsStream("/player/Back_1.png.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Back_2.png.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Front_1.png.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Front_2.png.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Lside_1.png.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Lside_2.png.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Rside_1.png.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Rside_2.png.png"));
 
-            if (state.getrounds() == 0){removing_states.add(state);}
-            else{state.count();}
+        }catch(IOException e) {
+            e.printStackTrace();
         }
-        for (State state : removing_states) {states.remove(state);}
     }
 
-    public List<Integer> hit(Monster monster, Skill skill){
-        ArrayList<Integer> result = new ArrayList<>();
-        String name = skill.getName();
-        int dmg = 0;
-        int dmg_received = 0;
+    public void update () {
 
-        if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
-        else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
-        else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
-        else if (Objects.equals(name, "Charge")){add_state(new Charging());}
+        if(keyH.upPressed == true || keyH.downPressed == true ||
+                keyH.rightPressed == true || keyH.leftPressed == true) {
 
-        count_effects();
-        dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.getDamage() - 2 + rand.nextInt(5));
-        setHealth(getHealth() - dmg_received);
-        monster.setHealth(monster.getHealth() - dmg);
-        result.add(dmg); result.add(dmg_received);
-        return result;
-    }
-
-    public boolean use_item(int index){
-        if (inventory.getItem(index) instanceof Weapon){
-            Item pre_weapon = weapon;
-            inventory.addItem(pre_weapon);
-            weapon = (Weapon)inventory.getItem(index);
-            inventory.removeItem(inventory.getItem(index));
-            return true;
-        }
-        else{
-            if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
-                this.setHealth(this.getHealth() + 20);
+            if(keyH.upPressed == true) {
+                direction = "up";
             }
-            inventory.removeItem(inventory.getItem(index));
-            return false;
+            else if(keyH.downPressed == true) {
+                direction = "down";
+            }
+            else if(keyH.leftPressed == true) {
+                direction = "left";
+            }
+            else if(keyH.rightPressed == true) {
+                direction = "right";
+            }
+
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
+
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+
+
+
+            if (collisionOn == false) {
+
+                switch (direction) {
+                    case "up":
+                        y  -= speed;
+                        break;
+
+                    case "down":
+                        y += speed;
+                        break;
+
+                    case "left":
+                        x -= speed;
+                        break;
+
+                    case "right":
+                        x += speed;
+                        break;
+                }
+            }
+            else {
+                collisionOn = true;
+            }
+
+            spriteCounter++;
+            if(spriteCounter > 12) {
+                if(spriteNumber == 1) {
+                    spriteNumber = 2;
+                }
+                else if(spriteNumber == 2) {
+                    spriteNumber = 1;
+                }
+                spriteCounter = 0;
+
+            }
+
         }
+
     }
 
-    public void add_map(Map map){this.map = map;}
+    public void pickUpObject(int i) {
 
-    public void leave(){map.displayMap();}
+        if(i != 999) {
 
-    public Inventory getInventory() {return inventory;}
+            String objectName = gp.obj[i].name;
 
-    public List<Skill> getSkills() {return skills;}
+            switch (objectName) {
+                case "Key":
+                    gp.obj[i] = null;
+                    hasKey++;
+                    break;
+                case "Door":
+                    if(hasKey > 0) {
+                        gp.obj[i] = null;
+                        hasKey--;
+                    }
+                    break;
+                case "Teleporter":
+                    gp.obj[i] = null;
+                    gp.setUpGame();
 
-    public int getMoney() {return money;}
 
-    public void setMoney(int money) {this.money = money;}
 
-    public void add_key(){num_key += 1;}
 
-    public int get_key(){return num_key;}
+
+
+
+            }
+        }
+
+
+    }
+
+    public void draw(Graphics2D g2) {
+
+        BufferedImage image = null;
+
+        switch (direction) {
+            case "right":
+                if(spriteNumber == 1) {
+                    image = right1;
+                }
+                if(spriteNumber == 2) {
+                    image = right2;
+                }
+                break;
+
+            case "left":
+                if(spriteNumber == 1) {
+                    image = left1;
+                }
+                if(spriteNumber == 2) {
+                    image = left2;
+                }
+                break;
+
+            case "down":
+                if(spriteNumber == 1) {
+                    image = down1;
+                }
+                if(spriteNumber == 2) {
+                    image = down2;
+                }
+                break;
+
+            case "up":
+                if(spriteNumber == 1) {
+                    image = up1;
+                }
+                if(spriteNumber == 2) {
+                    image = up2;
+                }
+                break;
+        };
+
+        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+
+
+
+    }
 }
