@@ -1,4 +1,4 @@
-package entities;
+package TextGame.entities;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -8,16 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import java.math.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-
-import static java.util.function.Predicate.not;
 
 public class Map{
     /**

@@ -1,4 +1,4 @@
-package entities;
+package TextGame.entities;
 
 public class Weapon extends Item{
     private int damage;

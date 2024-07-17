@@ -1,6 +1,4 @@
-package entities;
-
-import com.sun.source.tree.AssertTree;
+package TextGame.entities;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package entities;
+package TextGame.entities;
 
 public class Item {
 

@@ -1,5 +1,5 @@
 
-package entities;
+package TextGame.entities;
 
 public abstract class Character {
     private String name;

@@ -1,4 +1,4 @@
-package entities;
+package TextGame.entities;
 
 import java.awt.Color;
 import java.awt.Container;
