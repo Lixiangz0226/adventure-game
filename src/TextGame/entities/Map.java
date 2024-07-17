@@ -82,10 +82,6 @@ public class Map{
         this.startRoom = startRoom;
         this.playerRoom = startRoom;
         this.player = player;
-        c1.addActionListener(mapHandler);
-        c2.addActionListener(mapHandler);
-        c3.addActionListener(mapHandler);
-        c4.addActionListener(mapHandler);
         player.add_map(this);
 
         JPanel locationPanel = new JPanel();
