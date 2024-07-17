@@ -1,5 +1,5 @@
 
-package entities;
+Visual_Game/package entities;
 
 public abstract class Character {
     private String name;
@@ -14,4 +14,4 @@ public abstract class Character {
     public void setHealth(int hp) { health = hp; }
 }
 
-/Visual_Game
+
