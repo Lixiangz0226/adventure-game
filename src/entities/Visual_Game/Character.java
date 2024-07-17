@@ -1,5 +1,4 @@
-
-Visual_Game/package entities;
+package entities;
 
 public abstract class Character {
     private String name;
