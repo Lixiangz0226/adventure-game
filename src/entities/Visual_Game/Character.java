@@ -1,4 +1,3 @@
-
 package entities;
 
 public abstract class Character {
@@ -13,3 +12,5 @@ public abstract class Character {
 
     public void setHealth(int hp) { health = hp; }
 }
+
+
