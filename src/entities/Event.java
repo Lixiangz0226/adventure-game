@@ -40,7 +40,6 @@ class Shop_Event0 extends Event{
 
     public Shop_Event0(Player player, Container con, JTextArea mainTextArea) {/////////////////////////////////////////////////////////////////Create shop here
         this.con = con;
-        JPanel mainTextPanel = new JPanel();
 
         this.mainTextArea = mainTextArea;
 
@@ -348,7 +347,6 @@ class Battle_Event0 extends Event{
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-    int index = 0;
 
     public Battle_Event0(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
         this.mainTextArea = mainTextArea;

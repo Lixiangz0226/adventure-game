@@ -1,4 +1,5 @@
 package entities;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -55,9 +56,9 @@ public class Test_Event {
 
         mainTextPanel.add(mainTextArea);
 
-//        test_battle(con);
+        test_battle(con);
 
-        test_shop0(con);
+//        test_shop0(con);
 
 
 
@@ -74,6 +75,15 @@ public class Test_Event {
         Player player = new Player("Vergil", 25);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Knife());
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Knife());
+
+
 
         Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
         battle.run_event();
