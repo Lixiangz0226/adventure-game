@@ -1,4 +1,4 @@
-
+../Visual_Game
 package entities;
 
 public abstract class Character {
