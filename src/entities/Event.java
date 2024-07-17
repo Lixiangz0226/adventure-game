@@ -402,11 +402,6 @@ class Battle_Event0 extends Event{
         this.dmg_result = new ArrayList<Integer>();
         this.con = con;
 
-        choice1.addActionListener(choiceHandler);
-        choice2.addActionListener(choiceHandler);
-        choice3.addActionListener(choiceHandler);
-        choice4.addActionListener(choiceHandler);
-
         this.playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 50);
         playerPanel.setBackground(Color.black);
