@@ -31,6 +31,12 @@ public class Game{
 
 
     public static void main(String[] args) {
+        try {
+            UIManager UIManager = null;
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         new Game();
     }
 
