@@ -1,4 +1,4 @@
-package main;
+package Visual_Game.entities;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

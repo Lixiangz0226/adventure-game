@@ -1,6 +1,5 @@
-package main;
+package Visual_Game.entities;
 
-import objects.TeleporterObject;
 
 import javax.swing.*;
 

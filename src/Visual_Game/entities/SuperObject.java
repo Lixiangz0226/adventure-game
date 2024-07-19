@@ -1,10 +1,8 @@
-package objects;
+package Visual_Game.entities;
 
-import main.GamePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Collection;
 
 public class SuperObject {
 

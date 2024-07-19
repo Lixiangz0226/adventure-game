@@ -1,6 +1,5 @@
-package tiles;
+package Visual_Game.entities;
 
-import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -29,14 +28,12 @@ public class TileManager {
 
         try {
             tile[0] = new Tile ();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Forest_barrier.png.png"));
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Forest_barrier.png.png"));
             tile[0].collision = true;
 
             tile[1] = new Tile ();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Forest_ground.png.png"));
+            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/Forest_ground.png.png"));
 
-            tile[2] = new Tile ();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("New Piskel-1.png.png"));
 
         } catch(IOException e) {
             e.printStackTrace();
@@ -46,7 +43,7 @@ public class TileManager {
     public void loadMap () {
 
         try {
-            InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
+            InputStream is = getClass().getResourceAsStream("/Resoures/testmap.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int col = 0;

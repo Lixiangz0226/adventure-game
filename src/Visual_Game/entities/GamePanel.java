@@ -1,8 +1,4 @@
-package main;
-
-import entities.Player;
-import objects.SuperObject;
-import tiles.TileManager;
+package Visual_Game.entities;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,4 @@
-package main;
-
-import entities.Entity;
+package Visual_Game.entities;
 
 public class CollisionChecker {
 

@@ -1,4 +1,4 @@
-package objects;
+package Visual_Game.entities;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;

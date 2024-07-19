@@ -1,4 +1,4 @@
-package tiles;
+package Visual_Game.entities;
 
 import java.awt.image.BufferedImage;
 
