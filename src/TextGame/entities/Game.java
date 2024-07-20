@@ -116,6 +116,16 @@ public class Game{
 
         Player player = new Player("Vergil", 50);
 
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Knife());
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Knife());
+
         Map map = new Map0(con,player,mainTextArea);
 
         map.displayMap();
