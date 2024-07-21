@@ -2,6 +2,8 @@ HELLO!! This is the adventure game designed by Random1
 
 This README will briefly explain the game, how it was coded, as well as some instructions on using the codes to play for yourself
 
+_____________________________________________________________________________________________________________________________________________________________________
+
 ---IMPORTANT---How to use/play the game---
 1. To use the code, clone this resipotory to your computer via the URL link.
 
@@ -13,10 +15,14 @@ This README will briefly explain the game, how it was coded, as well as some ins
 
    For the Visual gamee: Go to the ssecond ource folder src2, then click on the package "main", finally click on the class "Main" and run the code
 
+_____________________________________________________________________________________________________________________________________________________________________
+
 ---Description of the game---
 This is a retro pixel turn-based RPG where the YOU as the player will traverse through a 2D landscape filled with interactable objects, enemies, and npcs. 
 Some basic play features include collecting keys to open up doors, talking to npc with various dialogues and events, fighting with enemies to gain
 items, gold, and exp. The goal is to collect all the seven Super Keys and beat the final boss that awaits you in the boss chamber.
+
+_____________________________________________________________________________________________________________________________________________________________________
 
 ---Some details regarding the game's code---
 In the current development stage of the game, we have decided to split the game into the visual based, and text based games. Both are independently runnable
