@@ -85,7 +85,7 @@ public class Map{
         player.add_map(this);
 
         JPanel locationPanel = new JPanel();
-        locationPanel.setBounds(600, 500, 100, 50);
+        locationPanel.setBounds(600, 450, 200, 100);
         locationPanel.setBackground(Color.black);
         locationTextArea = new JTextArea(playerRoom.getName());
         locationTextArea.setBackground(Color.black);
@@ -94,6 +94,9 @@ public class Map{
         locationPanel.add(locationTextArea);
         con.add(locationPanel);
         locationPanel.setVisible(true);
+        locationTextArea.setLineWrap(true);
+        locationTextArea.setWrapStyleWord(true);
+        locationTextArea.setEditable(false);
 
         choiceButtonPanel.setVisible(false);
 
