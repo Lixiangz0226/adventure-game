@@ -5,15 +5,15 @@ This README will briefly explain the game, how it was coded, as well as some ins
 _____________________________________________________________________________________________________________________________________________________________________
 
 ---IMPORTANT---How to use/play the game---
-1. To use the code, clone this resipotory to your computer via the URL link.
+1. To use the code, clone this repository to your computer via the URL link.
 
 2. Depending on which game you want to play (visual or text)
 
    For the Text game: Go to the source folder src, then click on the package "TextGame.entities", finally click on the class "Game" and run the code
    NOTE: You might encounter a bug when running for the first time, simply check the console and locate the error message (In Game class, line 197).
-   Then follwing the auto action and set the "language level to 22".
+   Then following the auto action and set the "language level to 22".
 
-   For the Visual gamee: Go to the ssecond ource folder src2, then click on the package "main", finally click on the class "Main" and run the code
+   For the Visual game: Go to the second source folder src2, then click on the package "main", finally click on the class "Main" and run the code
 
 _____________________________________________________________________________________________________________________________________________________________________
 
