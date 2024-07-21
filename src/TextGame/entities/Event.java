@@ -36,9 +36,16 @@ class Shop_Event0 extends Event{
     private JPanel choiceButtonPanel;
     CHandler cHandler = new CHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+    private boolean bought1 = false, bought2 = false, bought3 = false;
+    private Item item1 = new Flame_Crossbow();
+    private Item item2 = new Life_Potion();
+    private Item item3 = new Golden_Key();
 
 
-    public Shop_Event0(Player player, Container con, JTextArea mainTextArea) {/////////////////////////////////////////////////////////////////Create shop here
+    public Shop_Event0(Player player, Container con, JTextArea mainTextArea) {/////////////////////////Create shop here
+        /*
+        Initializer of the event.
+         */
         this.con = con;
 
         this.mainTextArea = mainTextArea;
@@ -79,7 +86,6 @@ class Shop_Event0 extends Event{
         choiceButtonPanel.add(choice4);
         this.con = con;
         this.player = player;
-        this.position = "justarrived";
         choice1.addActionListener(cHandler);
         choice2.addActionListener(cHandler);
         choice3.addActionListener(cHandler);
@@ -89,114 +95,46 @@ class Shop_Event0 extends Event{
     }
 
     public void run_event(){////////////////////////////////////////////////////////////////////////////////Run shop here
+        /*
+        Run this event with the buying history saved.
+         */
         choiceButtonPanel.setVisible(true);
-        switch (position) {
-            case "justarrived" -> justarrived();
-            case "bought1" -> bought1();
-            case "bought2" -> bought2();
-            case "bought3" -> bought3();
-            case "bought12" -> bought12();
-            case "bought13" -> bought13();
-            case "bought23" -> bought23();
-            case "bought123" -> bought123();
-        }
+        shop();
     }
 
-    private void justarrived(){
-        this.position = "justarrived";
+    private void shop(){
+        /*
+        The scene of the shop.
+         */
         this.mainTextArea.setText("Frank: Welcome to my store! I wish I have something you want:\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("Buy flame crossbow");
-        this.choice2.setText("Buy life potion");
-        this.choice3.setText("Buy golden key");
+        this.choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.get_name());}
+        this.choice2.setText("-");if (!bought2){choice2.setText("Buy " + item2.get_name());}
+        this.choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.get_name());}
         this.choice4.setText("Leave");
     }
 
-    private void bought1(){
-        this.position = "bought1";
-        player.getInventory().addItem(new Flame_Crossbow());
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("-");
-        this.choice2.setText("Buy life potion");
-        this.choice3.setText("Buy golden key");
-        this.choice4.setText("Leave");
-    }
-
-    private void bought2(){
-        this.position = "bought2";
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("Buy flame crossbow");
-        this.choice2.setText("_");
-        this.choice3.setText("Buy golden key");
-        this.choice4.setText("Leave");
-
-    }
-
-    private void bought3(){
-        this.position = "bought3";
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("Buy flame crossbow");
-        this.choice2.setText("Buy life potion");
-        this.choice3.setText("-");
-        this.choice4.setText("Leave");
-    }
-
-    private void bought12() {
-        this.position = "bought12";
-        player.getInventory().addItem(new Flame_Crossbow());
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("-");
-        this.choice2.setText("-");
-        this.choice3.setText("Buy golden key");
-        this.choice4.setText("Leave");
-    }
-
-    private void bought13(){
-        this.position = "bought13";
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                    "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("_");
-        this.choice2.setText("Buy life potion");
-        this.choice3.setText("-");
-        this.choice4.setText("Leave");
-    }
-
-    private void bought23(){
-        this.position = "bought23";
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("Buy flame crossbow");
-        this.choice2.setText("_");
-        this.choice3.setText("-");
-        this.choice4.setText("Leave");
-    }
-
-    private void bought123(){
-        this.position = "bought123";
-        this.mainTextArea.setText("Thanks for your patronage!\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("-");
-        this.choice2.setText("-");
-        this.choice3.setText("-");
-        this.choice4.setText("Leave");
-    }
-
-    private void rebuy(){
+        private void rebuy(){
+        /*
+        The scene that notices the player which has already bought the item player has chosen.
+         */
         this.mainTextArea.setText("You've already bought this one.\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
     }
 
     private void lackofmoney(){
+        /*
+        The scene that notices the player which is lack of money.
+         */
         this.mainTextArea.setText("I'm afraid you don't have enough money.\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
     }
 
     public class CHandler implements ActionListener{
         public void actionPerformed(ActionEvent event){
+            /*
+            Listens to the choice button actions and then take actions.
+             */
 
             String yourChoice = event.getActionCommand();
 
@@ -205,126 +143,28 @@ class Shop_Event0 extends Event{
                 player.leave();
                 return;}///////////////////////////////////////////////////////
 
-            switch(position){
-                case "justarrived":
-                    switch (yourChoice){
-                        case "c1se":
-                            if (player.getMoney() < 40){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Flame_Crossbow());
-                            player.setMoney(player.getMoney() - 40);
-                            bought1();break;
-                        case "c2se":
-                            if (player.getMoney() < 15){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Life_Potion());
-                            player.setMoney(player.getMoney() - 15);
-                            bought2();break;
-                        case "c3se":
-                            if (player.getMoney() < 30){
-                                lackofmoney();break;
-                            }
-                            player.add_key();
-                            player.setMoney(player.getMoney() - 30);
-                            bought3();break;
-                    }
-                    break;
-                case "bought1":
-                    switch (yourChoice){
-                        case "c1se": rebuy();break;
-                        case "c2se":
-                            if (player.getMoney() < 15){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Life_Potion());
-                            player.setMoney(player.getMoney() - 15);
-                            bought12();break;
-                        case "c3se":
-                            if (player.getMoney() < 30){
-                                lackofmoney();break;
-                            }
-                            player.add_key();
-                            player.setMoney(player.getMoney() - 30);
-                            bought13();break;
-                    }
-                    break;
-                case "bought2":
-                    switch (yourChoice){
-                        case "c1se":
-                            if (player.getMoney() < 40){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Flame_Crossbow());
-                            player.setMoney(player.getMoney() - 40);
-                            bought12();break;
-                        case "c2se": rebuy();break;
-                        case "c3se":
-                            if (player.getMoney() < 30){
-                                lackofmoney();break;
-                            }
-                            player.add_key();
-                            player.setMoney(player.getMoney() - 30);
-                            bought23();break;
-                    }
-                    break;
-                case "bought3":
-                    switch (yourChoice){
-                        case "c1se":
-                            if (player.getMoney() < 40){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Flame_Crossbow());
-                            player.setMoney(player.getMoney() - 40);
-                            bought13();break;
-                        case "c2se":
-                            if (player.getMoney() < 15){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Life_Potion());
-                            player.setMoney(player.getMoney() - 15);
-                            bought23();break;
-                        case "c3se": rebuy();break;
-                    }
-                    break;
-                case "bought12":
-                    switch (yourChoice){
-                        case "c1se", "c2se": rebuy(); break;
-                        case "c3se":
-                            if (player.getMoney() < 30){
-                                lackofmoney();break;
-                            }
-                            player.add_key();
-                            player.setMoney(player.getMoney() - 30);
-                            bought123();break;
-                    }
-                    break;
-                case "bought13":
-                    switch (yourChoice){
-                        case "c1se", "c3se": rebuy();break;
-                        case "c2se":
-                            if (player.getMoney() < 15){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Life_Potion());
-                            player.setMoney(player.getMoney() - 15);
-                            bought123();break;
-                    }
-                    break;
-                case "bought23":
-                    switch (yourChoice){
-                        case "c2se", "c3se": rebuy();break;
-                        case "c1se":
-                            if (player.getMoney() < 40){
-                                lackofmoney();break;
-                            }
-                            player.getInventory().addItem(new Flame_Crossbow());
-                            player.setMoney(player.getMoney() - 40);
-                            bought123();break;
-                    }
-                    break;
-                case "bought123": rebuy();break;
+            switch (yourChoice){
+                case "c1se":
+                    if (Objects.equals(choice1.getText(), "-")){rebuy();break;}
+                    else if (player.getMoney() < 40){lackofmoney();break;}
+                    player.getInventory().addItem(item1);
+                    player.setMoney(player.getMoney() - 40);
+                    bought1 = true;
+                    shop();break;
+                case "c2se":
+                    if (Objects.equals(choice2.getText(), "-")){rebuy();break;}
+                    else if (player.getMoney() < 15){lackofmoney();break;}
+                    player.getInventory().addItem(item2);
+                    player.setMoney(player.getMoney() - 15);
+                    bought2 = true;
+                    shop();break;
+                case "c3se":
+                    if (Objects.equals(choice3.getText(), "-")){rebuy();break;}
+                    else if (player.getMoney() < 30){lackofmoney();break;}
+                    player.add_key();
+                    player.setMoney(player.getMoney() - 30);
+                    bought3 = true;
+                    shop();break;
             }
         }
     }
@@ -349,6 +189,9 @@ class Battle_Event0 extends Event{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
     public Battle_Event0(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
+        /*
+        Initializer of the event.
+         */
         this.mainTextArea = mainTextArea;
 
         this.choiceButtonPanel = new JPanel();
@@ -444,6 +287,11 @@ class Battle_Event0 extends Event{
     }
 
     public void run_event(){/////////////////////////////////////////////////////////////////////////////Run here
+        /*
+          Run this event.
+          If the player hasn't defeated the monster, fight the monster; if yes, then show the
+          finished slide to the player.
+         */
         playerPanel.setVisible(true);
         choiceButtonPanel.setVisible(true);
         if(firsttime){start();}
@@ -451,6 +299,9 @@ class Battle_Event0 extends Event{
     }
 
     private void start(){
+        /*
+        The start scene.
+         */
         backPanel.setVisible(false);
         position = "start";
         mainTextArea.setText("Suddenly, a goblin leaped out from nowhere!");
@@ -461,6 +312,9 @@ class Battle_Event0 extends Event{
     }
 
     private void items(){
+        /*
+        The scene where the player can use items or equip weapons from player's inventory.
+         */
         backPanel.setVisible(true);
         position = "items";
         mainTextArea.setText("Choose the item you wanna use:");
@@ -475,6 +329,9 @@ class Battle_Event0 extends Event{
     }
 
     private void empty_inventory(){
+        /*
+        The scene when player trys to use item from player's empty inventory.
+         */
         backPanel.setVisible(true);
         position = "empty_inventory";
         mainTextArea.setText("Your inventory is empty!");
@@ -485,14 +342,23 @@ class Battle_Event0 extends Event{
     }
 
     private void top_items(){
+        /*
+        The scene tells the player that the top of the inventory has already been reached.
+         */
         mainTextArea.setText("You are already at the top of your inventory.\nChoose the item you wanna use:");
     }
 
     private void bot_items(){
+        /*
+        The scene tells the player that the bottom of the inventory has already been reached.
+         */
         mainTextArea.setText("You are already at the bottom of your inventory.\nChoose the item you wanna use:");
     }
 
     private void attack(){
+        /*
+        The scene after where the player pressed the Attack button from the start().
+         */
         backPanel.setVisible(true);
         position = "attack";
         mainTextArea.setText("Put it in action!");
@@ -503,6 +369,9 @@ class Battle_Event0 extends Event{
     }
 
     private void attacked(){
+        /*
+        The scene where player is in a battle.
+         */
         position = "attack";
         mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
@@ -513,6 +382,9 @@ class Battle_Event0 extends Event{
     }
 
     private void won(){
+        /*
+        The scene after the player has won.
+         */
         position = "won";
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("You won! You found 50$ and a golden key!");
@@ -523,6 +395,9 @@ class Battle_Event0 extends Event{
     }
 
     private void lost(){
+        /*
+        The scene after the player's lost.
+         */
         position = "lost";
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("YOU DIED");
@@ -535,6 +410,9 @@ class Battle_Event0 extends Event{
     private void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}
 
     private void finished(){
+        /*
+        The scene after the monster is defeated and the player is able to leave the event.
+         */
         backPanel.setVisible(false);
         firsttime = false;
         position = "finished";
@@ -547,6 +425,9 @@ class Battle_Event0 extends Event{
 
     public class ChoiceHandler implements ActionListener{
         public void actionPerformed(ActionEvent event) {
+            /*
+            Listens to the choice button actions and then take actions.
+             */
 
             String yourChoice = event.getActionCommand();
 

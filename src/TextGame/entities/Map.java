@@ -15,10 +15,7 @@ import java.util.Objects;
 
 public class Map{
     /**
-     * A Map is a hashmap of rooms as nodes of a graph and the values will
-     * be the room to go to from one room. The graph will
-     * be bidirectional. The map indicates either daytime or
-     *     nighttime <day>.
+     * A Map is an iterator-like class that let the player choose which conjoint room of the current room to move to.
      */
 
     //public static HashMap<Room, HashMap<String, Room>> world_map = new HashMap<>();

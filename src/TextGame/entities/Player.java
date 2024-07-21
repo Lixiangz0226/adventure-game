@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class Player extends Character {
     /**
-     * A Player is the only controllable character for the user.
-     *     A Player has a string name, an int health, a list of State state_set,
-     *     an Inventory inventory and a list of Skill skill_set.
+     * A Player is the controllable character for the user.
+     *     A Player has a string name, int health, a list of State state_set,
+     *     an inventory and a list of Skill skill_set.
       */
 
     private Inventory inventory;
@@ -24,6 +24,7 @@ public class Player extends Character {
     private Map map;
 
     public Player(String name, int health) {
+        /* Initializer */
         super(name, health);
         this.inventory = new Inventory();
         this.skills = new ArrayList<>();
@@ -37,9 +38,10 @@ public class Player extends Character {
         this.map = null;
     }
 
-    private void add_state(State state){states.add(state);}
+    private void add_state(State state){/* Add a state */states.add(state);}
 
     private void count_effects(){
+        /* Counts all the states */
         dmg_received_ratio = 1;
         dmg_dealt_ratio = 1;
         ArrayList<State> removing_states = new ArrayList<State>();
@@ -57,6 +59,7 @@ public class Player extends Character {
     }
 
     public List<Integer> hit(Monster monster, Skill skill){
+        /* Player hits the monster using the skill */
         ArrayList<Integer> result = new ArrayList<>();
         String name = skill.getName();
         int dmg = 0;
@@ -76,6 +79,7 @@ public class Player extends Character {
     }
 
     public boolean use_item(int index){
+        /* the player either uses the consumable item or equips equipment at the index of the inventory.*/
         if (inventory.getItem(index) instanceof Weapon){
             Item pre_weapon = weapon;
             inventory.addItem(pre_weapon);
@@ -84,19 +88,20 @@ public class Player extends Character {
             return true;
         }
         else{
-            ////////////////////////////////////////////////////////////////////////////////////////////consumable item
             if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
                 this.setHealth(this.getHealth() + 20);
             }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////consumable item
 
             inventory.removeItem(inventory.getItem(index));
             return false;
         }
     }
 
-    public void add_map(Map map){this.map = map;}
+    public void add_map(Map map){/* Gives the player the map currently in */this.map = map;}
 
-    public void leave(){map.displayMap();}
+    public void leave(){/* The Player leaves the event and goes back to the map */map.displayMap();}
 
     public Inventory getInventory() {return inventory;}
 

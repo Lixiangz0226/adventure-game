@@ -52,9 +52,9 @@ public class Test_Event {
 
         mainTextPanel.add(mainTextArea);
 
-        test_battle(con);
+//        test_battle(con);
 
-//        test_shop0(con);
+        test_shop0(con);
 
 
 
@@ -62,7 +62,7 @@ public class Test_Event {
 
     public void test_shop0(Container con){
         Player player = new Player("Vergil", 100);
-        player.setMoney(99999);
+        player.setMoney(50);
         Shop_Event0 shop = new Shop_Event0(player,con, mainTextArea);
         shop.run_event();
     }
