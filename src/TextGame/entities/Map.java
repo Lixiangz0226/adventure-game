@@ -13,12 +13,12 @@ import javax.swing.JTextArea;
 
 import java.util.Objects;
 
+//The map creates and connects multiple rooms that branch out from the starting room
+//The map uses buttons and panels to display directions and let players move north, south, east, and west
+//The map indicates whether it's daytime or nighttime
 public class Map{
-    /**
-     * A Map is an iterator-like class that let the player choose which conjoint room of the current room to move to.
-     */
 
-    //public static HashMap<Room, HashMap<String, Room>> world_map = new HashMap<>();
+    //Map attributes
     private boolean day;
     private Room startRoom;
     private Room playerRoom;
