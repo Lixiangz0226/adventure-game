@@ -1,4 +1,6 @@
-package TextGame.entities;
+package TextGame.app;
+
+import TextGame.entities.*;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -112,16 +114,6 @@ public class Game{
 
         //Created player and gives items
         Player player = new Player("Vergil", 50);
-
-        player.getInventory().addItem(new Flame_Crossbow());
-        player.getInventory().addItem(new Life_Potion());
-        player.getInventory().addItem(new Life_Potion());
-        player.getInventory().addItem(new Life_Potion());
-        player.getInventory().addItem(new Life_Potion());
-        player.getInventory().addItem(new Life_Potion());
-        player.getInventory().addItem(new Knife());
-        player.getInventory().addItem(new Flame_Crossbow());
-        player.getInventory().addItem(new Knife());
 
         //Creates the map of the game
         Map map = new Map0(con,player,mainTextArea);

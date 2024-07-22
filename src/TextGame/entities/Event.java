@@ -1,5 +1,7 @@
 package TextGame.entities;
 
+import TextGame.app.Game;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -320,6 +322,7 @@ class Battle_Event0 extends Event{
         mainTextArea.setText("Choose the item you wanna use:");
         choice1.setText(player.getInventory().getItem(current).get_name());
         if (player.getInventory().get_length() % 2 == 1){
+            m = player.getInventory().get_length() / 2;
             if (current < 2 * m){choice2.setText(player.getInventory().getItem(current + 1).get_name());}
             else {choice2.setText("-");}
         }
