@@ -1,6 +1,10 @@
 package TextGame.entities;
 
 public class Weapon extends Item{
+    /**
+     * Represents a weapon that can be used by characters in the game.
+     * A weapon has a name and a certain amount of damage it can inflict.
+     */
     private int damage;
 
     public Weapon(String name, int damage){
