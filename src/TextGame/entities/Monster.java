@@ -6,7 +6,7 @@ import java.util.List;
 public class Monster extends Character {
     /**
      * A Monster is the enemy of players, which can suffer from
-     *     different states. A Monster can't take any action if  it's
+     *     different states. A Monster can't take any action if it's
      *     health <= 0.
      */
 
@@ -28,8 +28,5 @@ class Goblin extends Monster{
     int health;
     List<State> states;
 
-    public Goblin() {
-        super("Goblin", 24, 6);
-
-    }
+    public Goblin() {super("Goblin", 24, 6);}
 }

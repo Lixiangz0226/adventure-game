@@ -25,20 +25,22 @@ public class Skill {
 }
 
 class Basic_attack extends Skill{
+    /* The skill that can be used for infinite times. */
     public Basic_attack(){super("Basic_Attack", 0, 999);}
 }
 
 class Defend extends Skill{
+    /* The skill that makes player invincible for two rounds, and can be used twice. */
     public Defend(){super("Defend", 2, 2);}
 }
 
 class Double_Edge extends Skill{
-    public Double_Edge(){
-        super("Double_Edge", 0, 1);
-    }
+    /* The skill deals 30 to the enemy but receives 10 damage. */
+    public Double_Edge(){super("Double_Edge", 0, 1);}
 }
 
 class Charge extends Skill{
+    /* The skill doubles the damage dealt in the next round. */
     public Charge(){
         super("Charge", 1, 1);
     }

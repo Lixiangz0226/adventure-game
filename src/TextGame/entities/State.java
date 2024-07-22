@@ -13,11 +13,12 @@ public class State{
     private String description;
 
     public State(int rounds, String description){
+        /* Initializer */
         this.description = description;
         this.rounds = rounds;
     }
 
-    public void count(){this.rounds -= 1;}
+    public void count(){/* Count down the rounds. */this.rounds -= 1;}
 
     public String getdescription(){return this.description;}
 

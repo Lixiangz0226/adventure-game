@@ -2,6 +2,7 @@
 package TextGame.entities;
 
 public abstract class Character {
+    /* An abstract class of characters. */
     private String name;
     private int health;
 

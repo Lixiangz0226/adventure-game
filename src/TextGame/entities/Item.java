@@ -16,8 +16,8 @@ public class Item {
 
 }
 
-class Life_Potion extends Item { public Life_Potion() {super("Life Potion");}}
+class Life_Potion extends Item {/* Recovers the player. */public Life_Potion() {super("Life Potion");}}
 
-class Golden_Key extends Item{ public Golden_Key(){super("Golden key");}}
+class Golden_Key extends Item{/* The key of defeating the boss. */public Golden_Key(){super("Golden key");}}
 
 

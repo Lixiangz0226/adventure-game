@@ -1,6 +1,9 @@
 package TextGame.entities;
 
 public class Weapon extends Item{
+    /**
+     * A weapon is an item that has different damage and can be equipped by player.
+     */
     private int damage;
 
     public Weapon(String name, int damage){
@@ -13,9 +16,11 @@ public class Weapon extends Item{
 }
 
 class Flame_Crossbow extends Weapon{
-    private int damage;
-    private String name;
-    //private State effect;
+    /*
+    The weapon has a special effect that can add a burning state to the enemy.
+     */
+
+    //Private State effect;
 
     public Flame_Crossbow() {
         super("Flame crossbow", 10);
@@ -25,6 +30,8 @@ class Flame_Crossbow extends Weapon{
 }
 
 class Knife extends Weapon{
-
+    /*
+    The initial weapon of player.
+     */
     public Knife(){super("Knife", 6);}
 }

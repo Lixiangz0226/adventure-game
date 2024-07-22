@@ -175,6 +175,7 @@ class Map0 extends Map{
     Room startRoom, playerRoom, boss, desert, shop, forest, forestmiddle, forestleft, forestright, hallway;
 
     public Map0(Container con, Player player, JTextArea mainTextArea) {
+        /* An example map */
         Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con,mainTextArea), player,con);
         Room hallway = new Room("Hallway", "It's a long path", new Shop_Event0(player,con,mainTextArea),
                 player,con);
