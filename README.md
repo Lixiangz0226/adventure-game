@@ -9,11 +9,11 @@ ________________________________________________________________________________
 
 2. Depending on which game you want to play (visual or text)
 
-   For the Text game: Go to the source folder src, then click on the package "TextGame.entities", finally click on the class "Game" and run the code
+   For the Text game: Go to the source folder "src", click on the package "TextGame", then click on the package "app", finally click on the class "Game" and run the code
    NOTE: When running for the first time, you might encounter a bug; simply check the console and locate the error message (In Game class, line 197).
    Then, following the auto action, set the "language level to 22".
 
-   For the Visual game: Go to the second source folder src2, then click on the package "main", finally click on the class "Main" and run the code
+   For the Visual game: Go to the second source folder "src2", then click on the package "app", finally click on the class "Main2" and run the code
 
 _____________________________________________________________________________________________________________________________________________________________________
 
