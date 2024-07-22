@@ -321,8 +321,8 @@ class Battle_Event0 extends Event{
         position = "items";
         mainTextArea.setText("Choose the item you wanna use:");
         choice1.setText(player.getInventory().getItem(current).get_name());
-        if (player.getInventory().get_length() % 2 == 1){
-            m = player.getInventory().get_length() / 2;
+        if (player.getInventory().getLength() % 2 == 1){
+            m = player.getInventory().getLength() / 2;
             if (current < 2 * m){choice2.setText(player.getInventory().getItem(current + 1).get_name());}
             else {choice2.setText("-");}
         }
@@ -440,7 +440,7 @@ class Battle_Event0 extends Event{
                         case "c1be":
                             attack(); break;
                         case "c2be":
-                            if (player.getInventory().get_length() == 0){empty_inventory();break;}
+                            if (player.getInventory().getLength() == 0){empty_inventory();break;}
                             items(); break;
                         case "c4be":
                             choiceButtonPanel.setVisible(false);
@@ -454,20 +454,20 @@ class Battle_Event0 extends Event{
                         case "c1be":
                             if(player.use_item(current)){items();}
                             else {
-                                if (player.getInventory().get_length() == 0) {empty_inventory();}
+                                if (player.getInventory().getLength() == 0) {empty_inventory();}
                                 else {
                                     current = 0;
-                                    m = player.getInventory().get_length() / 2;
+                                    m = player.getInventory().getLength() / 2;
                                     hpLabelNumber.setText("" + player.getHealth());
                                     items();}
                             }
                             break;
                         case "c2be":
-                            if (current + 1>=player.getInventory().get_length()){break;}
+                            if (current + 1>=player.getInventory().getLength()){break;}
                             if(player.use_item(current + 1)){items();}
                             else {
                                 current = 0;
-                                m = player.getInventory().get_length() / 2;
+                                m = player.getInventory().getLength() / 2;
                                 hpLabelNumber.setText("" + player.getHealth());
                                 items();}
                             break;
@@ -476,7 +476,7 @@ class Battle_Event0 extends Event{
                             else{current -= 2;items(); }
                             break;
                         case "c4be":
-                            if (player.getInventory().get_length() % 2 == 1){
+                            if (player.getInventory().getLength() % 2 == 1){
                                 if (current + 2 > 2 * m){bot_items();}
                                 else {current += 2; items(); }
                             }
