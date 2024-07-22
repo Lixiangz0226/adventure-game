@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class Game{
 
+    //Game attributes
     Container con;
     JPanel newButtonPanel;JButton newButton;
     JPanel loadButtonPanel;JButton loadButton;
@@ -25,7 +26,7 @@ public class Game{
 
 
 
-
+    //Exception test for UIManager
     public static void main(String[] args) {
         try {
             UIManager UIManager = null;
@@ -36,13 +37,10 @@ public class Game{
         new Game();
     }
 
+    //Game constructor
     public Game(){
 
-        /*
-          The Main Manu
-         */
-
-
+        //The Main Manu
         window = new JFrame();
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +49,7 @@ public class Game{
         //window.setIconImage(logo.getImage());
         con = window.getContentPane();
 
+        //Title
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100, 100, 600, 150);
         titleNamePanel.setBackground(Color.black);
@@ -62,6 +61,7 @@ public class Game{
         newButtonPanel.setBounds(300, 300, 200, 100);
         newButtonPanel.setBackground(Color.black);
 
+        //Button to start a new game
         newButton = new JButton("NEW");
         newButton.setBackground(Color.black);
         newButton.setForeground(Color.white);
@@ -73,6 +73,7 @@ public class Game{
         loadButtonPanel.setBounds(300, 400, 200, 100);
         loadButtonPanel.setBackground(Color.black);
 
+        //Button to load a previous game (not implemented yet)
         loadButton = new JButton("LOAD");
         loadButton.setBackground(Color.black);
         loadButton.setForeground(Color.white);
@@ -92,8 +93,7 @@ public class Game{
 
     public void createGameScreen(){
 
-        /*A new game*/
-
+        //Creates a new game
         titleNamePanel.setVisible(false);
         newButtonPanel.setVisible(false);
         loadButtonPanel.setVisible(false);
@@ -114,6 +114,7 @@ public class Game{
 
         mainTextPanel.add(mainTextArea);
 
+        //Created player and gives items
         Player player = new Player("Vergil", 50);
 
         player.getInventory().addItem(new Flame_Crossbow());
@@ -126,20 +127,21 @@ public class Game{
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Knife());
 
+        //Creates the map of the game
         Map map = new Map0(con,player,mainTextArea);
 
         map.displayMap();
     }
 
+    //Handles the action of clicking the new button in the main screen
     public class TitleScreenHandler implements ActionListener{
-        /*This handles the action of clicking the new button in the main screen*/
-
+        
         public void actionPerformed(ActionEvent event){
-
             createGameScreen();
         }
     }
 
+    //Class to test the functionality of the map
     public static class Test_Map {
 
         public static void main(String[] args) {
@@ -158,8 +160,10 @@ public class Game{
         }
     }
 
+    //Class to test the functionality of the battle or shop event in rooms
     public static class Test_Event {
 
+        //Test event attributes
         JFrame window;
         Container con;
         JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
@@ -175,6 +179,7 @@ public class Game{
             new Test_Event();
         }
 
+        //Creates the screen for the events
         public Test_Event() {
             window = new JFrame();
             window.setSize(800, 600);
@@ -200,15 +205,11 @@ public class Game{
             mainTextArea.setEditable(false);
 
             mainTextPanel.add(mainTextArea);
-
             //        test_battle(con);
-
             test_shop0(con);
-
-
-
         }
 
+        //Simulation of a shop event with 99999 money
         public void test_shop0(Container con){
             Player player = new Player("Vergil", 100);
             player.setMoney(99999);
@@ -216,6 +217,7 @@ public class Game{
             shop.run_event();
         }
 
+        //Simulation of a battle event with weapons and potions
         public void test_battle(Container con){
             Player player = new Player("Vergil", 500);
             player.getInventory().addItem(new Flame_Crossbow());
@@ -227,9 +229,5 @@ public class Game{
             Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
             battle.run_event();
         }
-
-
-
-
     }
 }
