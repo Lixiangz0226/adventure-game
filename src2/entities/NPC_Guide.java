@@ -1,6 +1,6 @@
 package entities;
 
-import main.GamePanel;
+import use_case.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,14 +24,14 @@ public class NPC_Guide extends Entity {
     //Load in npc sprite from the png files in resources
     public void getNPCImage () {
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Back_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Back_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Front_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Front_2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Lside_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Lside_2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Rside_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/resource/NPC/NPC_Rside_2.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Back_1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Back_2.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Front_1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Front_2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Lside_1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Lside_2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Rside_1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/NPC/NPC_Rside_2.png"));
 
         }catch(IOException e) {
             e.printStackTrace();

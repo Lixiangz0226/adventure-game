@@ -1,6 +1,6 @@
 package objects;
 
-import main.GamePanel;
+import use_case.GamePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

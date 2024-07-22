@@ -11,7 +11,7 @@ public class TeleporterObject extends SuperObject{
         name = "Teleporter";
 
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Key.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Key.png"));
 
 
         } catch(IOException e) {

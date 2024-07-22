@@ -2,8 +2,8 @@ package entities;
 
 import javax.imageio.ImageIO;
 
-import main.GamePanel;
-import main.KeyHandler;
+import use_case.GamePanel;
+import use_case.KeyHandler;
 
 
 import java.awt.*;
@@ -47,14 +47,14 @@ public class Player extends Entity {
     //Load player sprites from the resource package
     public void getPlayerImage () {
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Back_1.png.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Back_2.png.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Front_1.png.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Front_2.png.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Lside_1.png.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Lside_2.png.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Rside_1.png.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/resource/player/Rside_2.png.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/player/Back_1.png.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Back_2.png.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Front_1.png.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Front_2.png.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Lside_1.png.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Lside_2.png.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Rside_1.png.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Rside_2.png.png"));
 
         }catch(IOException e) {
             e.printStackTrace();

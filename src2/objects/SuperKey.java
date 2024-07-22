@@ -10,7 +10,7 @@ public class SuperKey extends SuperObject{
         name = "Super_Key";
 
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Super_Key.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/Super_Key.png"));
 
 
         } catch(IOException e) {
