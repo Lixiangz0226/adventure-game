@@ -2,8 +2,8 @@ package entities;
 
 import javax.imageio.ImageIO;
 
-import main.GamePanel;
-import main.KeyHandler;
+import use_case.GamePanel;
+import use_case.KeyHandler;
 
 
 import java.awt.*;

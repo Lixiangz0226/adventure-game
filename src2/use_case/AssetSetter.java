@@ -1,4 +1,4 @@
-package main;
+package use_case;
 
 import entities.NPC_Guide;
 import objects.*;

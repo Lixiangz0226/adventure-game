@@ -1,10 +1,9 @@
-package main;
+package use_case;
 
 import entities.Entity;
-import entities.NPC_Guide;
 import entities.Player;
 import objects.SuperObject;
-import tiles.TileManager;
+import view.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //System Manager
-    TileManager tileA = new TileManager(this);
+    public TileManager tileA = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);

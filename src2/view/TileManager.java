@@ -1,6 +1,7 @@
-package tiles;
+package view;
 
-import main.GamePanel;
+
+import use_case.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -31,17 +32,17 @@ public class TileManager {
 
         try {
             tile[0] = new Tile ();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/resource/tiles/Forest_barrier.png.png"));
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Forest_barrier.png.png"));
             tile[0].collision = true;
 
             tile[1] = new Tile ();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/resource/tiles/Forest_ground.png.png"));
+            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Forest_ground.png.png"));
 
             tile[2] = new Tile ();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/resource/tiles/Room_Floor.png"));
+            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Room_Floor.png"));
 
             tile[3] = new Tile ();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/resource/tiles/Room_Wall.png"));
+            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Room_Wall.png"));
             tile[3].collision = true;
 
         } catch(IOException e) {
