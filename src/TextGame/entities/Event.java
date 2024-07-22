@@ -240,7 +240,7 @@ class Battle_Event0 extends Event{
         this.firsttime = true;
         this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
         this.used3 = player.getSkills().get(2).getTimes();
-        this.m = player.getInventory().get_length() / 2;
+        this.m = player.getInventory().getLength() / 2;
         this.current = 0;
         this.dmg_result = new ArrayList<Integer>();
         this.con = con;
