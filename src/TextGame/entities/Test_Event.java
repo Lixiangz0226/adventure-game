@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+//Tests the functionality of the battle or shop event in rooms
 public class Test_Event {
 
     JFrame window;
@@ -26,6 +28,7 @@ public class Test_Event {
         new Test_Event();
     }
 
+    //Creates the event screen
     public Test_Event() {
         window = new JFrame();
         window.setSize(800, 600);
@@ -53,13 +56,10 @@ public class Test_Event {
         mainTextPanel.add(mainTextArea);
 
 //        test_battle(con);
-
         test_shop0(con);
-
-
-
     }
-
+    
+    //Simulates a shop event with 99999 money
     public void test_shop0(Container con){
         Player player = new Player("Vergil", 100);
         player.setMoney(50);
@@ -67,6 +67,7 @@ public class Test_Event {
         shop.run_event();
     }
 
+    //Simulates a battle event with weapons and potions
     public void test_battle(Container con){
         Player player = new Player("Vergil", 25);
         player.getInventory().addItem(new Flame_Crossbow());
@@ -78,8 +79,6 @@ public class Test_Event {
         player.getInventory().addItem(new Knife());
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Knife());
-
-
 
         Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
         battle.run_event();
