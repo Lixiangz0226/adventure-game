@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 class PlayerTest {
     /**
-    * Unit tests for the Player class.
+    * Unit tests for Player.
     */
 
     private Player player;
