@@ -1,9 +1,20 @@
 package TextGame.entities;
 
+import TextGame.Items.Item;
+import TextGame.Monsters.Monster;
+import TextGame.Skills.Charge;
+import TextGame.Skills.Defend;
+import TextGame.Skills.Double_Edge;
+import TextGame.Skills.Skill;
+import TextGame.States.Charging;
+import TextGame.States.Defensive;
+import TextGame.States.State;
+import TextGame.Weapons.Knife;
+import TextGame.Weapons.Weapon;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class Player extends Character {
     /**

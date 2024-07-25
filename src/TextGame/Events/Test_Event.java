@@ -1,4 +1,9 @@
-package TextGame.entities;
+package TextGame.Events;
+
+import TextGame.Items.Life_Potion;
+import TextGame.Weapons.Flame_Crossbow;
+import TextGame.Weapons.Knife;
+import TextGame.entities.Player;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -9,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import TextGame.Items.*;
+
 
 //Tests the functionality of the battle or shop event in rooms
 public class Test_Event {

@@ -1,5 +1,7 @@
 package TextGame.entities;
 
+import TextGame.Events.Event;
+
 import java.awt.Container;
 
 import javax.swing.JButton;

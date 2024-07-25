@@ -1,4 +1,4 @@
-package TextGame.entities;
+package TextGame.States;
 
 public class State{
     /**
@@ -24,12 +24,6 @@ public class State{
 
     public int getrounds(){return this.rounds;}
 }
-
-class Defensive extends State {public Defensive(){super(2, "Defensive");}}
-
-class Charging extends State {public Charging(){super(1, "Charging");}}
-
-class Burning extends State {public Burning(){super(3, "Burning");}}
 
 
 

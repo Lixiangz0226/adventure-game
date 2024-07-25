@@ -1,7 +1,7 @@
-package TextGame.entities;
+package TextGame.Events;
 
 
-class Event{
+public class Event{
     /*
       An event takes place in rooms, and can be
     encountered by Players.

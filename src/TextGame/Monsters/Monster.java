@@ -1,4 +1,7 @@
-package TextGame.entities;
+package TextGame.Monsters;
+
+import TextGame.entities.Character;
+import TextGame.States.State;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +37,3 @@ public class Monster extends Character {
     public Integer hit() {return getDamage() - 2 + rand.nextInt(5);}
 }
 
-class Goblin extends Monster{
-    String name;
-    int health;
-    List<State> states;
-
-    public Goblin() {
-        super("Goblin", 24, 6);
-        setMessage("The goblin stabbed you with a knife, dealt ");}
-}

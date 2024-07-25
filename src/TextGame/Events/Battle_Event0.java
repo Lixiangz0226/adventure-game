@@ -1,6 +1,10 @@
-package TextGame.entities;
+package TextGame.Events;
 
 import TextGame.app.Game;
+import TextGame.Skills.Basic_attack;
+import TextGame.Monsters.Goblin;
+import TextGame.Monsters.Monster;
+import TextGame.entities.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Battle_Event0 extends Event{
+public class Battle_Event0 extends TextGame.Events.Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;

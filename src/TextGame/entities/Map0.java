@@ -1,5 +1,11 @@
 package TextGame.entities;
 
+import TextGame.Events.Battle_Event0;
+import TextGame.Events.Shop_Event0;
+import TextGame.Items.Life_Potion;
+import TextGame.Weapons.Flame_Crossbow;
+import TextGame.Weapons.Knife;
+
 import javax.swing.*;
 import java.awt.*;
 

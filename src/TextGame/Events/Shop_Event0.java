@@ -1,4 +1,8 @@
-package TextGame.entities;
+package TextGame.Events;
+
+import TextGame.Items.*;
+import TextGame.Weapons.*;
+import TextGame.entities.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class Shop_Event0 extends Event{
+public class Shop_Event0 extends TextGame.Events.Event {
     /**
      * One shop with three items on sell.
      */
