@@ -55,13 +55,13 @@ public class Test_Event {
 
         mainTextPanel.add(mainTextArea);
 
-//        test_battle(con);
-        test_shop0(con);
+        test_battle(con);
+//        test_shop0(con);
     }
     
     //Simulates a shop event with 99999 money
     public void test_shop0(Container con){
-        Player player = new Player("Vergil", 100);
+        Player player = new Player("Vergil", 25);
         player.setMoney(50);
         Shop_Event0 shop = new Shop_Event0(player,con, mainTextArea);
         shop.run_event();
@@ -69,7 +69,7 @@ public class Test_Event {
 
     //Simulates a battle event with weapons and potions
     public void test_battle(Container con){
-        Player player = new Player("Vergil", 25);
+        Player player = new Player("Vergil", 100);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());

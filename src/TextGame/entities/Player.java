@@ -20,7 +20,6 @@ public class Player extends Character {
     private List<State> states;
     private int dmg_dealt_ratio;
     private int dmg_received_ratio;
-    Random rand = new Random();
     private Map map;
 
     public Player(String name, int health) {
@@ -58,9 +57,9 @@ public class Player extends Character {
         for (State state : removing_states) {states.remove(state);}
     }
 
-    public List<Integer> hit(Monster monster, Skill skill){
+    public List<String> hit(Monster monster, Skill skill){
         /* Player hits the monster using the skill */
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<String> result = new ArrayList<>();
         String name = skill.getName();
         int dmg = 0;
         int dmg_received = 0;
@@ -71,10 +70,11 @@ public class Player extends Character {
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
         //////////////////////////////////////////////////////////////////////////////////////////////////////////skills
         count_effects();
-        dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.getDamage() - 2 + rand.nextInt(5));
+        dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.hit());
         setHealth(getHealth() - dmg_received);
         monster.setHealth(monster.getHealth() - dmg);
-        result.add(dmg); result.add(dmg_received);
+        result.add("You used " + skill.getName() + " and dealt " + dmg + " damage.");
+        result.add(monster.getMessage() + dmg_received + " damage.");
         return result;
     }
 
