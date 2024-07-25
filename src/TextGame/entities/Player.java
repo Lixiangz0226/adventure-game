@@ -1,16 +1,17 @@
 package TextGame.entities;
 
-import TextGame.Items.Item;
-import TextGame.Monsters.Monster;
-import TextGame.Skills.Charge;
-import TextGame.Skills.Defend;
-import TextGame.Skills.Double_Edge;
-import TextGame.Skills.Skill;
-import TextGame.States.Charging;
-import TextGame.States.Defensive;
-import TextGame.States.State;
-import TextGame.Weapons.Knife;
-import TextGame.Weapons.Weapon;
+import TextGame.entities.Items.Item;
+import TextGame.entities.Monsters.Monster;
+import TextGame.entities.Skills.Charge;
+import TextGame.entities.Skills.Defend;
+import TextGame.entities.Skills.Double_Edge;
+import TextGame.entities.Skills.Skill;
+import TextGame.entities.States.Charging;
+import TextGame.entities.States.Defensive;
+import TextGame.entities.States.State;
+import TextGame.entities.Weapons.Knife;
+import TextGame.entities.Weapons.Weapon;
+import TextGame.view.Map;
 
 import java.util.ArrayList;
 import java.util.List;

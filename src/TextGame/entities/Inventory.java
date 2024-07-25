@@ -1,6 +1,6 @@
 package TextGame.entities;
 
-import TextGame.Items.Item;
+import TextGame.entities.Items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

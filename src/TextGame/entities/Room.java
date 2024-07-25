@@ -1,6 +1,6 @@
 package TextGame.entities;
 
-import TextGame.Events.Event;
+import TextGame.use_case.Events.Event;
 
 import java.awt.Container;
 

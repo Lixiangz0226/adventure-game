@@ -1,6 +1,8 @@
 package TextGame.app;
 
 import TextGame.entities.*;
+import TextGame.view.Map;
+import TextGame.view.Map0;
 
 import java.awt.Color;
 import java.awt.Container;
