@@ -4,8 +4,7 @@ import TextGame.entities.Items.Life_Potion;
 import TextGame.entities.Weapons.Flame_Crossbow;
 import TextGame.entities.Weapons.Knife;
 import TextGame.entities.Player;
-import TextGame.use_case.Events.Battle_Event0;
-import TextGame.use_case.Events.Shop_Event0;
+import TextGame.use_case.Events.*;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -63,8 +62,9 @@ public class Test_Event {
 
         mainTextPanel.add(mainTextArea);
 
-        test_battle(con);
+//        test_battle(con);
 //        test_shop0(con);
+        test_Queen_Slime_event(con);
     }
     
     //Simulates a shop event with 99999 money
@@ -73,6 +73,12 @@ public class Test_Event {
         player.setMoney(50);
         Shop_Event0 shop = new Shop_Event0(player,con, mainTextArea);
         shop.run_event();
+    }
+
+    public void test_Queen_Slime_event(Container con){
+        Player player = new Player("Vergil", 25);
+        Queen_Slime_Event queen = new Queen_Slime_Event(player, con, mainTextArea);
+        queen.run_event();
     }
 
     //Simulates a battle event with weapons and potions

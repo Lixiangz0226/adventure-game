@@ -71,7 +71,6 @@ public class Shop_Event0 extends Event{
         choice4.setFocusPainted(false);
         choice4.setActionCommand("c4se");
         choiceButtonPanel.add(choice4);
-        this.con = con;
         this.player = player;
         choice1.addActionListener(cHandler);
         choice2.addActionListener(cHandler);
