@@ -1,13 +1,13 @@
 package app;
 
-import use_case.GamePanel;
+import controller.GamePanel;
 
 import javax.swing.*;
 
 public class Main2 {
     public static void main(String[] args) {
 
-        //Create game window
+        //Create a game window
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);

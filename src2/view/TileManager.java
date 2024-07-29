@@ -1,7 +1,7 @@
 package view;
 
 
-import use_case.GamePanel;
+import controller.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

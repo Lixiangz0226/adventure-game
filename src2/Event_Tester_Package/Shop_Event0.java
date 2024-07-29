@@ -1,16 +1,17 @@
-package TextGame.use_case.Events;
-
-import TextGame.entities.*;
-import TextGame.entities.Items.*;
-import TextGame.entities.Weapons.*;
+package Event_Tester_Package;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
+import OutsideEntities.*;
+import OutsideEntities.Items.Golden_Key;
+import OutsideEntities.Items.Item;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Weapons.Flame_Crossbow;
 
-public class Shop_Event0 extends Event {
+public class Shop_Event0 extends Event{
     /**
      * One shop with three items on sell.
      */
@@ -100,7 +101,7 @@ public class Shop_Event0 extends Event {
         this.choice4.setText("Leave");
     }
 
-        private void rebuy(){
+    private void rebuy(){
         /*
         The scene that notices the player which has already bought the item player has chosen.
          */

@@ -1,15 +1,12 @@
 package entities;
 
-import use_case.GamePanel;
+import controller.GamePanel;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Random;
 
-public class NPC_Guide extends Entity {
+public class NPC_Guide extends AbstractEntity {
 
 
     public NPC_Guide(GamePanel gp) {

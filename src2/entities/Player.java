@@ -1,21 +1,29 @@
 package entities;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
-import use_case.GamePanel;
-import use_case.KeyHandler;
+import controller.GamePanel;
+import controller.KeyHandler;
 
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Player extends Entity {
+
+public class Player extends AbstractEntity {
 
     //Player attributes
     KeyHandler keyH;
     int hasKey = 0;
     int hasSuperKey = 0;
+
+    //text code, delete after test
+    JFrame window;
+    Container con;
+    JTextArea mainTextArea;
+    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
     //Player constructor
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -134,15 +142,24 @@ public class Player extends Entity {
 
     }
 
-
     //Incomplete method, need to be integrated with other code
     private void interactNPC(int i) {
-        if(i != 999) {
-            System.out.println("You hit an NPC");
+        if (i != 999) {
+            System.out.println("hit NPC");
+            if (gp.keyH.eventTrigger) {
+                gp.gameState = gp.dialogueState;
+                System.out.println("dialogueState triggered");
+            }
+            if (gp.keyH.shopTrigger) {
+                gp.gameState = gp.shopState;
+                System.out.println("dialogueState triggered");
 
+
+            }
+            gp.keyH.eventTrigger = false;
         }
-
     }
+
 
     //Depending on the name of the object, set object to null (to simulate pick up) and update the object's affect
     public void pickUpObject(int i) {
