@@ -11,29 +11,29 @@ public class Weapon extends Item {
      */
 
     private int damage;
-    private float accuracy;
-    private float critical_rate;
+    private double accuracy;
+    private double critical_rate;
     private boolean physical_damage;
     private boolean flying_bonus;
 
-    public Weapon(String name, int damage, float accuracy){
+    public Weapon(String name, int damage, double accuracy){
         super(name);
         this.damage = damage;
         this.accuracy = accuracy;
-        this.critical_rate = critical_rate;
+        this.critical_rate = 0.1;
         this.physical_damage = true;
         this.flying_bonus = false;
     }
 
     public int get_damage(){return this.damage;}
 
-    public float get_accuracy(){return this.accuracy;}
+    public double get_accuracy(){return this.accuracy;}
 
-    public float get_critical_rate(){return this.critical_rate;}
+    public double get_critical_rate(){return this.critical_rate;}
 
-    public boolean check_physical_damage(){return this.physical_damage;}
+    public boolean physical_damage(){return this.physical_damage;}
 
-    public boolean check_flying_bonus(){return this.flying_bonus;}
+    public boolean flying_bonus(){return this.flying_bonus;}
 
 }
 
