@@ -1,9 +1,8 @@
 package Event_Tester_Package;
 
-import OutsideEntities.Basic_attack;
-import OutsideEntities.Goblin;
-import OutsideEntities.Monster;
-import OutsideEntities.PlayerController;
+import OutsideEntities.Skills.*;
+import OutsideEntities.Monsters.*;
+import OutsideEntities.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Battle_Event0 extends Event{
+public class Battle_Event0 extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private PlayerController player;
+    private Player player;
     private Monster monster;
     private static String position;
     private boolean firsttime;
     private int m; private int current, used1, used2, used3;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
-    private List<Integer> dmg_result;
+    private List<String> message;
     private Container con;
     private JPanel choiceButtonPanel;
     private JPanel playerPanel;
@@ -31,8 +30,7 @@ public class Battle_Event0 extends Event{
     ChoiceHandler choiceHandler = new ChoiceHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
-    public Battle_Event0(PlayerController player, Container con, JTextArea mainTextArea) {
-        super();///////////////////////////////////////////////////////Create here
+    public Battle_Event0(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
@@ -84,7 +82,7 @@ public class Battle_Event0 extends Event{
         this.used3 = player.getSkills().get(2).getTimes();
         this.m = player.getInventory().getLength() / 2;
         this.current = 0;
-        this.dmg_result = new ArrayList<Integer>();
+        this.message = new ArrayList<String>();
         this.con = con;
 
         this.playerPanel = new JPanel();
@@ -217,13 +215,34 @@ public class Battle_Event0 extends Event{
         /*
         The scene where player is in a battle.
          */
+        backPanel.setVisible(true);
         position = "attack";
-        mainTextArea.setText("You dealt " + dmg_result.get(0) + " and received "+ dmg_result.get(1) + " damage.");
+        mainTextArea.setText("Continue your victorious pursuit!");
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
         choice4.setText(player.getSkills().get(2).getName());
+    }
+
+    private void player_message(){
+        backPanel.setVisible(false);
+        position = "player_message";
+        mainTextArea.setText(message.getFirst());
+        choice1.setText("Next");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("-");
+    }
+
+    private void enemy_message(){
+        backPanel.setVisible(false);
+        position = "enemy_message";
+        mainTextArea.setText(message.getLast());
+        choice1.setText("Next");
+        choice2.setText("-");
+        choice3.setText("-");
+        choice4.setText("-");
     }
 
     private void won(){
@@ -335,33 +354,37 @@ public class Battle_Event0 extends Event{
                 case "attack":
                     switch (yourChoice){
                         case "c1be":
-                            dmg_result = player.hit(monster, basic_attack);
-                            if (player.getHealth()<=0){lost(); break;}
-                            else if (monster.getHealth()<=0){won(); break;}
-                            attacked(); break;
+                            message = player.hit(monster, basic_attack);
+                            player_message(); break;
                         case "c2be":
                             if (used1 == 0){skill_not_available();break;}
                             used1 -= 1;
-                            dmg_result = player.hit(monster, player.getSkills().getFirst());
-                            if (player.getHealth()<=0){lost(); break;}
-                            else if (monster.getHealth()<=0){won(); break;}
-                            attacked(); break;
+                            message = player.hit(monster, player.getSkills().getFirst());
+                            player_message(); break;
                         case "c3be":
                             if (used2 == 0){skill_not_available();break;}
                             used2 -= 1;
-                            dmg_result = player.hit(monster, player.getSkills().get(1));
-                            if (player.getHealth()<=0){lost(); break;}
-                            else if (monster.getHealth()<=0){won(); break;}
-                            attacked(); break;
+                            message = player.hit(monster, player.getSkills().get(1));
+                            player_message(); break;
                         case "c4be":
                             if (used3 == 0){skill_not_available();break;}
                             used3 -= 1;
-                            dmg_result = player.hit(monster, player.getSkills().get(2));
-                            if (player.getHealth()<=0){lost(); break;}
-                            else if (monster.getHealth()<=0){won(); break;}
-                            attacked(); break;
+                            message = player.hit(monster, player.getSkills().get(2));
+                            player_message(); break;
                         case "c5":start();break;
-                    } break;
+                } break;
+                case "player_message":
+                    if (Objects.equals(yourChoice, "c1be")){
+                        enemy_message();
+                    }
+                    break;
+                case "enemy_message":
+                    if (Objects.equals(yourChoice, "c1be")){
+                        if (player.getHealth()<=0){lost(); break;}
+                        else if (monster.getHealth()<=0){won(); break;}
+                        attacked();
+                    }
+                    break;
                 case "lost":if (Objects.equals(yourChoice, "c4be")){new Game();}break;
                 case "won":
                     if (Objects.equals(yourChoice, "c4be")){
@@ -369,6 +392,7 @@ public class Battle_Event0 extends Event{
                         finished();
                     }
                     break;
+
                 case "finished":
                     if (Objects.equals(yourChoice, "c4be")){
                         choiceButtonPanel.setVisible(false);

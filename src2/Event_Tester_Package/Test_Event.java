@@ -1,15 +1,13 @@
 package Event_Tester_Package;
 
-import OutsideEntities.Flame_Crossbow;
-import OutsideEntities.Knife;
-import OutsideEntities.Life_Potion;
-import OutsideEntities.PlayerController;
+import OutsideEntities.*;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Weapons.Flame_Crossbow;
+import OutsideEntities.Weapons.Knife;
 
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
@@ -72,7 +70,7 @@ public class Test_Event {
 
     //Simulates a shop event with 99999 money
     public void test_shop0(Container con) {
-        PlayerController player = new PlayerController("Vergil", 100);
+        Player player = new Player("Vergil", 100);
         player.setMoney(50);
         ShopEvent0 shop = new ShopEvent0(player, con, mainTextArea);
         shop.run_event();
@@ -87,10 +85,16 @@ public class Test_Event {
         window.setVisible(false);
     }
 
+    public void test_Queen_Slime_event(Container con){
+        Player player = new Player("Vergil", 25);
+        Queen_Slime_Event queen = new Queen_Slime_Event(player, con, mainTextArea);
+        queen.run_event();
+    }
+
 
     //Simulates a battle event with weapons and potions
     public void test_battle(Container con){
-        PlayerController player = new PlayerController("Vergil", 25);
+        Player player = new Player("Vergil", 25);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());

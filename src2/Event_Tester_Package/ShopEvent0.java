@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 import OutsideEntities.*;
-import entities.Player;
+import OutsideEntities.Items.*;
+import OutsideEntities.Weapons.*;
 
 public class ShopEvent0 extends Event{
     /**
@@ -14,7 +15,7 @@ public class ShopEvent0 extends Event{
      */
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private PlayerController player;
+    private Player player;
     private String position;
     private Container con;
     private JPanel choiceButtonPanel;
@@ -31,7 +32,7 @@ public class ShopEvent0 extends Event{
 
 
 
-    public ShopEvent0(PlayerController player, Container con, JTextArea mainTextArea) {/////////////////////////Create shop here
+    public ShopEvent0(Player player, Container con, JTextArea mainTextArea) {/////////////////////////Create shop here
         /*
         Initializer of the event.
          */

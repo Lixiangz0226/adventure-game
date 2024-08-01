@@ -21,10 +21,10 @@ public class Room {
     JButton c1, c2, c3, c4;
     JTextArea mainTextArea;
     Container con;
-    private PlayerController player;
+    private Player player;
 
     //Room constructor with room designation
-    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event, PlayerController player, Container con) {
+    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event, Player player, Container con) {
 
         this.n = n;
         this.s = s;
@@ -37,7 +37,7 @@ public class Room {
     }
 
     //Default room constructor
-    public Room(String name, String description, Event event, PlayerController player, Container con) {
+    public Room(String name, String description, Event event, Player player, Container con) {
         this.name = name;
         this.description = description;
         this.event = event;

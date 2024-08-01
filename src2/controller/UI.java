@@ -1,13 +1,11 @@
 package controller;
 
 
-import Event_Tester_Package.ShopEvent0;
-import OutsideEntities.PlayerController;
+import Event_Tester_Package.*;
+import OutsideEntities.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -229,7 +227,7 @@ public class UI {
     }
 
     public void test_shop0(Container con) {
-        PlayerController player = new PlayerController("Vergil", 100);
+        Player player = new Player("Vergil", 100);
         player.setMoney(50);
         ShopEvent0 shop = new ShopEvent0(player, con, mainTextArea);
         shop.run_event();

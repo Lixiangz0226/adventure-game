@@ -25,14 +25,14 @@ public class Map{
     private JButton c1, c2, c3, c4;
     private JTextArea mainTextArea;
     private Container con;
-    private PlayerController player;
+    private Player player;
     private JPanel choiceButtonPanel;
     private JTextArea locationTextArea;
     MapHandler mapHandler  = new MapHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     String info;
 
-    public Map(Container con, Room startRoom, PlayerController player, JTextArea mainTextArea){
+    public Map(Container con, Room startRoom, Player player, JTextArea mainTextArea){
 
         this.mainTextArea = mainTextArea;
 

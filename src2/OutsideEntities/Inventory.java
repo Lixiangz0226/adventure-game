@@ -1,5 +1,7 @@
 package OutsideEntities;
 
+import OutsideEntities.Items.Item;
+
 import java.util.ArrayList;
 import java.util.List;
 

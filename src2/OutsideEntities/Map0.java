@@ -2,7 +2,8 @@ package OutsideEntities;
 
 
 import Event_Tester_Package.*;
-
+import OutsideEntities.Items.*;
+import OutsideEntities.Weapons.*;
 
 
 import javax.swing.*;
@@ -12,11 +13,11 @@ public class Map0 extends Map {
 
     private JTextArea mainTextArea;
     private JButton c1; JButton c2; JButton c3; JButton c4;
-    private PlayerController player;
+    private Player player;
     private Container con;
     Room startRoom, playerRoom, boss, desert, shop, forest, forestmiddle, forestleft, forestright, hallway;
 
-    public Map0(Container con, PlayerController player, JTextArea mainTextArea) {
+    public Map0(Container con, Player player, JTextArea mainTextArea) {
         /* An example map */
         Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con,mainTextArea), player,con);
         Room hallway = new Room("Hallway", "It's a long path", new ShopEvent0(player,con,mainTextArea),

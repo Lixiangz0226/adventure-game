@@ -113,7 +113,7 @@ public class Game{
         mainTextPanel.add(mainTextArea);
 
         //Created player and gives items
-        PlayerController player = new PlayerController("Vergil", 50);
+        Player player = new Player("Vergil", 50);
 
         //Creates the map of the game
         Map map = new Map0(con,player,mainTextArea);
