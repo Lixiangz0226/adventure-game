@@ -11,8 +11,8 @@ public class Boss extends Monster{
     private List<State> states;
 
 
-    public Boss(String name, int health, int damage) {
-        super(name, health, damage);
+    public Boss(String name, int health, int damage, double physical_def, double magical_def, boolean flying, int gold_drop) {
+        super(name, health, damage, physical_def, magical_def, flying, gold_drop);
         this.states = new ArrayList<State>();
     }
 

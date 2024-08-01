@@ -18,7 +18,7 @@ public class Cursed_Tree extends Boss{
     private int randint = 0;
 
     public Cursed_Tree(){
-        super("The Cursed Tree", 1000, 10);
+        super("The Cursed Tree", 1000, 10, 1.1, 0.9, false, 0);
     }
 
     @Override

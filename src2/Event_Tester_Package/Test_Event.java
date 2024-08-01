@@ -70,7 +70,7 @@ public class Test_Event {
 //        test_battle();
 //        test_Queen_Slime_event();
         test_boss();
-        test_battle();
+//        test_battle();
     }
 
 
