@@ -64,7 +64,10 @@ public class Test_Event {
         mainTextPanel.add(mainTextArea);
 
         window.setVisible(true);
-        test_shop0(con);
+//        test_shop0();
+//        test_battle();
+//        test_Queen_Slime_event();
+        test_boss();
     }
 
 
@@ -85,7 +88,7 @@ public class Test_Event {
         window.setVisible(false);
     }
 
-    public void test_Queen_Slime_event(Container con){
+    public void test_Queen_Slime_event(){
         Player player = new Player("Vergil", 25);
         Queen_Slime_Event queen = new Queen_Slime_Event(player, con, mainTextArea);
         queen.run_event();
@@ -93,8 +96,8 @@ public class Test_Event {
 
 
     //Simulates a battle event with weapons and potions
-    public void test_battle(Container con){
-        Player player = new Player("Vergil", 25);
+    public void test_battle(){
+        Player player = new Player("Vergil", 10);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());
@@ -107,6 +110,23 @@ public class Test_Event {
 
         Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
         battle.run_event();
+    }
+
+    public void test_boss(){
+        Player player = new Player("Vergil", 300);
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+
+        CursedTree_Event cursedTree = new CursedTree_Event(player, con, mainTextArea);
+        cursedTree.run_event();
+
     }
 
 

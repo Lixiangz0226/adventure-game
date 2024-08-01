@@ -101,9 +101,9 @@ public class ShopEvent0 extends Event{
          */
         this.mainTextArea.setText("Frank: Welcome to my store! I wish I have something you want:\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
-        this.choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.get_name());}
-        this.choice2.setText("-");if (!bought2){choice2.setText("Buy " + item2.get_name());}
-        this.choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.get_name());}
+        this.choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.getName());}
+        this.choice2.setText("-");if (!bought2){choice2.setText("Buy " + item2.getName());}
+        this.choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.getName());}
         this.choice4.setText("Leave");
     }
 

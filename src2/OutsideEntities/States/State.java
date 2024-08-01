@@ -11,11 +11,13 @@ public class State{
 
     private int rounds;
     private String description;
+    private int maxrounds;
 
     public State(int rounds, String description){
         /* Initializer */
         this.description = description;
         this.rounds = rounds;
+        this.maxrounds = rounds;
     }
 
     public void count(){/* Count down the rounds. */this.rounds -= 1;}
@@ -23,6 +25,8 @@ public class State{
     public String getdescription(){return this.description;}
 
     public int getrounds(){return this.rounds;}
+
+    public void renewRounds(){rounds = maxrounds;}
 }
 
 

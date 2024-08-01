@@ -42,7 +42,7 @@ public class Player extends AbstractCharacter {
         this.map = null;
     }
 
-    private void add_state(State state){/* Add a state */states.add(state);}
+    public void add_state(State state){/* Add a state */states.add(state);}
 
     private void count_effects(){
         /* Counts all the states */
@@ -93,7 +93,7 @@ public class Player extends AbstractCharacter {
             return true;
         }
         else{
-            if (Objects.equals(inventory.getItem(index).get_name(), "Life Potion")){
+            if (Objects.equals(inventory.getItem(index).getName(), "Life Potion")){
                 this.setHealth(this.getHealth() + 20);
             }
 
@@ -119,4 +119,6 @@ public class Player extends AbstractCharacter {
     public void add_key(){num_key += 1;}
 
     public int get_key(){return num_key;}
+
+    public String getWeaponName(){return weapon.getName();}
 }

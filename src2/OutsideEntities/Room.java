@@ -23,19 +23,6 @@ public class Room {
     Container con;
     private Player player;
 
-    //Room constructor with room designation
-    public Room(String name, String description, Room n, Room s, Room w, Room e, Event event, Player player, Container con) {
-
-        this.n = n;
-        this.s = s;
-        this.w = w;
-        this.e = e;
-        this.event = event;
-        this.name = name;
-        this.description = description;
-        this.con = con;
-    }
-
     //Default room constructor
     public Room(String name, String description, Event event, Player player, Container con) {
         this.name = name;

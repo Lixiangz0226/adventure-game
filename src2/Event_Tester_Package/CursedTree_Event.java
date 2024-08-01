@@ -3,6 +3,7 @@ package Event_Tester_Package;
 import OutsideEntities.Skills.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;
+import OutsideEntities.States.Burning;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +12,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
-public class Battle_Event0 extends Event {
+public class CursedTree_Event extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
-    private Monster monster;
+    private Cursed_Tree boss;
     private static String position;
     private boolean firsttime;
     private int m; private int current, used1, used2, used3;
@@ -25,12 +27,18 @@ public class Battle_Event0 extends Event {
     private Container con;
     private JPanel choiceButtonPanel;
     private JPanel playerPanel;
-    Basic_attack basic_attack = new Basic_attack();
+    private JPanel weaponPanel;
+    private JLabel weaponLabel;
+    private int r;
+    private Boolean binding = false;
+    private int bindingRounds = 0;
 
+    Basic_attack basic_attack = new Basic_attack();
+    Random rand = new Random();
     ChoiceHandler choiceHandler = new ChoiceHandler();
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
-    public Battle_Event0(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
+    public CursedTree_Event(Player player, Container con, JTextArea mainTextArea) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
@@ -75,7 +83,7 @@ public class Battle_Event0 extends Event {
         choiceButtonPanel.add(choice4);
 
         this.player = player;
-        this.monster = new Goblin();
+        this.boss = new Cursed_Tree();
         this.position = "";
         this.firsttime = true;
         this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
@@ -99,7 +107,7 @@ public class Battle_Event0 extends Event {
         hpLabelNumber.setForeground(Color.white);
         hpLabelNumber.setText("" + player.getHealth());
         playerPanel.add(hpLabelNumber);
-        JLabel enemylabel = new JLabel(monster.getName() + " HP:");
+        JLabel enemylabel = new JLabel("Cursed Tree:");
         enemylabel.setFont(normalFont);
         enemylabel.setForeground(Color.white);
         enemylabel.setBackground(Color.red);
@@ -107,7 +115,7 @@ public class Battle_Event0 extends Event {
         this.enemyhp = new JLabel();
         enemyhp.setFont(normalFont);
         enemyhp.setForeground(Color.white);
-        enemyhp.setText("" + monster.getHealth());
+        enemyhp.setText("" + boss.getHealth());
         playerPanel.add(enemyhp);
 
         this.backPanel = new JPanel();
@@ -123,6 +131,15 @@ public class Battle_Event0 extends Event {
         backPanel.add(backButton);
         con.add(backPanel);
         backPanel.setVisible(false);
+
+        weaponPanel = new JPanel();
+        weaponPanel.setBounds(200, 500, 400, 50);
+        weaponPanel.setBackground(Color.black);
+        con.add(weaponPanel);
+        weaponLabel = new JLabel("Weapon: " + player.getWeaponName());
+        weaponLabel.setFont(normalFont);
+        weaponLabel.setForeground(Color.white);
+        weaponPanel.add(weaponLabel);
 
         playerPanel.setVisible(false);
         choiceButtonPanel.setVisible(false);
@@ -146,11 +163,12 @@ public class Battle_Event0 extends Event {
          */
         backPanel.setVisible(false);
         position = "start";
-        mainTextArea.setText("Suddenly, a goblin leaped out from nowhere!");
+        mainTextArea.setText("You look up at it, the grey canopy of The Cursed Tree reaches the 30-meter ceiling, " +
+                "and you understand the final battle has come.");
         choice1.setText("Attack");
-        choice2.setText("Items");
+        choice2.setText("Items");if (bindingRounds > 0){choice2.setText("/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");}
         choice3.setText("-");
-        choice4.setText("Run");
+        choice4.setText("-");
     }
 
     private void items(){
@@ -204,7 +222,7 @@ public class Battle_Event0 extends Event {
          */
         backPanel.setVisible(true);
         position = "attack";
-        mainTextArea.setText("Put it in action!");
+        mainTextArea.setText("There's no way back!");
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
@@ -217,8 +235,8 @@ public class Battle_Event0 extends Event {
          */
         backPanel.setVisible(true);
         position = "attack";
-        mainTextArea.setText("Continue your victorious pursuit!");
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        mainTextArea.setText("Don't give up!");
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + boss.getHealth());
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
@@ -250,8 +268,8 @@ public class Battle_Event0 extends Event {
         The scene after the player has won.
          */
         position = "won";
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
-        mainTextArea.setText("You won! You found 50$ and a golden key!");
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + boss.getHealth());
+        mainTextArea.setText("You won! The Cursed Tree was turned to ashes and fell to the ground.");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("-");
@@ -263,7 +281,7 @@ public class Battle_Event0 extends Event {
         The scene after the player's lost.
          */
         position = "lost";
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + boss.getHealth());
         mainTextArea.setText("YOU DIED");
         choice1.setText("-");
         choice2.setText("-");
@@ -280,7 +298,7 @@ public class Battle_Event0 extends Event {
         backPanel.setVisible(false);
         firsttime = false;
         position = "finished";
-        mainTextArea.setText("The goblin you defeated never moved again");
+        mainTextArea.setText("Only ashes were left on the ground");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("-");
@@ -301,13 +319,9 @@ public class Battle_Event0 extends Event {
                         case "c1be":
                             attack(); break;
                         case "c2be":
+                            if (bindingRounds > 0){break;}
                             if (player.getInventory().getLength() == 0){empty_inventory();break;}
                             items(); break;
-                        case "c4be":
-                            choiceButtonPanel.setVisible(false);
-                            playerPanel.setVisible(false);
-                            player.leave();
-                            break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                     break;
                 case "items":
@@ -322,6 +336,7 @@ public class Battle_Event0 extends Event {
                                     hpLabelNumber.setText("" + player.getHealth());
                                     items();}
                             }
+                            weaponLabel.setText("Weapon: " + player.getWeaponName());
                             break;
                         case "c2be":
                             if (current + 1>=player.getInventory().getLength()){break;}
@@ -331,6 +346,7 @@ public class Battle_Event0 extends Event {
                                 m = player.getInventory().getLength() / 2;
                                 hpLabelNumber.setText("" + player.getHealth());
                                 items();}
+                            weaponLabel.setText("Weapon: " + player.getWeaponName());
                             break;
                         case "c3be":
                             if (current - 2 < 0){top_items(); }
@@ -354,25 +370,44 @@ public class Battle_Event0 extends Event {
                 case "attack":
                     switch (yourChoice){
                         case "c1be":
-                            message = player.hit(monster, basic_attack);
+                            if (Objects.equals(player.getWeaponName(), "Flame crossbow")){
+                                boss.add_state(new Burning());
+                            }
+                            r = rand.nextInt(10);
+                            boss.setRandint(r);
+                            if (r == 4 || r == 5){bindingRounds = 3;}
+                            bindingRounds -= 1;
+                            message = player.hit(boss, basic_attack);
                             player_message(); break;
                         case "c2be":
                             if (used1 == 0){skill_not_available();break;}
                             used1 -= 1;
-                            message = player.hit(monster, player.getSkills().getFirst());
+                            r = rand.nextInt(10);
+                            boss.setRandint(r);
+                            if (r == 4 || r == 5){bindingRounds = 3;}
+                            bindingRounds -= 1;
+                            message = player.hit(boss, player.getSkills().getFirst());
                             player_message(); break;
                         case "c3be":
                             if (used2 == 0){skill_not_available();break;}
                             used2 -= 1;
-                            message = player.hit(monster, player.getSkills().get(1));
+                            r = rand.nextInt(10);
+                            boss.setRandint(r);
+                            if (r == 4 || r == 5){bindingRounds = 3;}
+                            bindingRounds -= 1;
+                            message = player.hit(boss, player.getSkills().get(1));
                             player_message(); break;
                         case "c4be":
                             if (used3 == 0){skill_not_available();break;}
                             used3 -= 1;
-                            message = player.hit(monster, player.getSkills().get(2));
+                            r = rand.nextInt(10);
+                            boss.setRandint(r);
+                            if (r == 4 || r == 5){bindingRounds = 3;}
+                            bindingRounds -= 1;
+                            message = player.hit(boss, player.getSkills().get(2));
                             player_message(); break;
                         case "c5":start();break;
-                } break;
+                    } break;
                 case "player_message":
                     if (Objects.equals(yourChoice, "c1be")){
                         enemy_message();
@@ -381,7 +416,7 @@ public class Battle_Event0 extends Event {
                 case "enemy_message":
                     if (Objects.equals(yourChoice, "c1be")){
                         if (player.getHealth()<=0){lost(); break;}
-                        else if (monster.getHealth()<=0){won(); break;}
+                        else if (boss.getHealth()<=0){won(); break;}
                         attacked();
                     }
                     break;

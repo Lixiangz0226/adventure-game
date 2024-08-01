@@ -13,7 +13,7 @@ public class Item {
     }
 
     //Return the item name
-    public String get_name(){return this.name;}
+    public String getName(){return this.name;}
 }
 
 

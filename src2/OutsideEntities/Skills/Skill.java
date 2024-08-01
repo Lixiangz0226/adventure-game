@@ -10,6 +10,7 @@ public class Skill {
     private String name;
     private final int duration;
     private int times;
+    private String state = "";
 
     public Skill(String name, int duration, int times){
         this.name = name;
@@ -22,5 +23,9 @@ public class Skill {
     public int getDuration(){return duration;}
 
     public int getTimes(){return times;}
+
+    public String getState(){return state;}
+
+    public void setState(String state){this.state = state;}
 }
 

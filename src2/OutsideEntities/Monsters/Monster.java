@@ -15,15 +15,11 @@ public class Monster extends AbstractCharacter {
      *     health <= 0.
      */
     Random rand = new Random();
-
-
-    private List<State> states;
     private int damage;
     private String message;
 
     public Monster(String name, int health, int damage) {
         super(name, health);
-        this.states = new ArrayList<State>();
         this.damage = damage;
         message = "";
     }
