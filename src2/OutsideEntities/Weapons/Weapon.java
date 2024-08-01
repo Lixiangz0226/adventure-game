@@ -16,9 +16,10 @@ public class Weapon extends Item {
     private double burn_rate;
     private boolean physical_damage;
     private boolean flying_bonus;
+    private int sell_value;
 
     public Weapon(String name, int damage, double accuracy, double critical_rate,double burn_rate,
-                  boolean physical_damage, boolean flying_bonus){
+                  boolean physical_damage, boolean flying_bonus, int sell_value){
         super(name);
         this.damage = damage;
         this.accuracy = accuracy;
@@ -26,6 +27,7 @@ public class Weapon extends Item {
         this.burn_rate = burn_rate;
         this.physical_damage = physical_damage;
         this.flying_bonus = flying_bonus;
+        this.sell_value = sell_value;
     }
 
     public int get_damage(){return this.damage;}
@@ -39,5 +41,7 @@ public class Weapon extends Item {
     public boolean physical_damage(){return this.physical_damage;}
 
     public boolean flying_bonus(){return this.flying_bonus;}
+
+    public int get_sell_value(){return this.sell_value;}
 
 }

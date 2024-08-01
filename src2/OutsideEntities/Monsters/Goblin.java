@@ -10,6 +10,6 @@ public class Goblin extends Monster{
     List<State> states;
 
     public Goblin() {
-        super("Goblin", 24, 6);
+        super("Goblin", 24, 6, 1,1,false, 20);
         setMessage("The goblin stabbed you with a knife, dealt ");}
 }
