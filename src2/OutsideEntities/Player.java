@@ -5,6 +5,7 @@ import OutsideEntities.Weapons.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Skills.*;
 import OutsideEntities.States.*;
+import java.util.Random;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +67,7 @@ public class Player extends AbstractCharacter {
         /* Player hits the monster using the skill */
         ArrayList<String> result = new ArrayList<>();
         String name = skill.getName();
-        int dmg = 0;
+        double dmg = 0;
         int dmg_received = 0;
 
         if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
@@ -74,11 +75,29 @@ public class Player extends AbstractCharacter {
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
         //////////////////////////////////////////////////////////////////////////////////////////////////////////skills
+        //state damage multiplier
         count_effects();
-        dmg *= dmg_dealt_ratio; dmg_received += dmg_received_ratio * (monster.hit());
+        dmg *= dmg_dealt_ratio;
+
+        //flying bonus
+        if (monster.getFlying() && weapon.flying_bonus()){dmg *= 1.5;}
+
+        //weapon physical or magical type bonus
+        if (weapon.physical_damage()){dmg *= 1/monster.getPhysicalDef();}
+        else{dmg *= 1/monster.getMagicalDef();}
+
+        //Critical Check
+        double randnum_crit = Math.random();
+        if (randnum_crit < weapon.get_critical_rate()){dmg *= 1.5;}
+
+        //Accuracy check
+        double randnum_acc = Math.random();
+        if (randnum_acc > weapon.get_accuracy()){dmg *= 0;}
+
+        dmg_received += dmg_received_ratio * (monster.hit());
         setHealth(getHealth() - dmg_received);
-        monster.setHealth(monster.getHealth() - dmg);
-        result.add("You used " + skill.getName() + " and dealt " + dmg + " damage.");
+        monster.setHealth(monster.getHealth() - (int)dmg);
+        result.add("You used " + skill.getName() + " and dealt " + (int)dmg + " damage.");
         result.add(monster.getMessage() + dmg_received + " damage.");
         return result;
     }

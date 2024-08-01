@@ -4,6 +4,8 @@ import OutsideEntities.*;
 import OutsideEntities.Items.Life_Potion;
 import OutsideEntities.Weapons.Flame_Crossbow;
 import OutsideEntities.Weapons.Knife;
+import OutsideEntities.Weapons.Spear;
+import OutsideEntities.Weapons.Staff;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -68,6 +70,7 @@ public class Test_Event {
 //        test_battle();
 //        test_Queen_Slime_event();
         test_boss();
+        test_battle(con);
     }
 
 
@@ -107,6 +110,8 @@ public class Test_Event {
         player.getInventory().addItem(new Knife());
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Knife());
+        player.getInventory().addItem(new Spear());
+        player.getInventory().addItem(new Staff());
 
         Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
         battle.run_event();
