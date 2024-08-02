@@ -23,7 +23,7 @@ public class UI {
 
 
     //txt game merge
-    EventHandler eventHandler;
+//    EventHandler eventHandler;
     JFrame window;
     Container con;
     JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
@@ -229,7 +229,7 @@ public class UI {
     public void test_shop0(Container con) {
         Player player = new Player("Vergil", 100);
         player.setMoney(50);
-        ShopEvent0 shop = new ShopEvent0(player, con, mainTextArea);
+        ShopEvent0 shop = new ShopEvent0(player);
         shop.run_event();
 
         // Create a Swing Timer to check the shopOpened state periodically
