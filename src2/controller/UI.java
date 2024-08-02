@@ -1,8 +1,8 @@
 package controller;
 
 
-import Event_Tester_Package.*;
 import OutsideEntities.*;
+import controller.EventHandler.ShopEvent0;
 
 import javax.swing.*;
 import java.awt.*;

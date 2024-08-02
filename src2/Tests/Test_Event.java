@@ -1,4 +1,4 @@
-package Event_Tester_Package;
+package Tests;
 
 import OutsideEntities.*;
 import OutsideEntities.Items.Life_Potion;
@@ -7,8 +7,10 @@ import OutsideEntities.Weapons.Knife;
 import OutsideEntities.Weapons.Spear;
 import OutsideEntities.Weapons.Staff;
 import controller.EventHandler.Battle_Event0;
+import controller.EventHandler.CursedTree_Event;
+import controller.EventHandler.Queen_Slime_Event;
+import controller.EventHandler.ShopEvent0;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 

@@ -1,18 +1,16 @@
-package Event_Tester_Package;
+package controller.EventHandler;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
+
 import OutsideEntities.*;
-import OutsideEntities.Items.*;
-import OutsideEntities.Weapons.*;
 import Presenter.ShopPresenter;
 import UseCaseInteracter.ShopInteracter;
 import view.EventView.ShopViewModel;
 
-public class ShopEvent0 extends Event{
+public class ShopEvent0 extends Event {
     /**
      * One shop with three items on sell.
      */

@@ -1,7 +1,6 @@
 package controller.EventHandler;
 
-import Event_Tester_Package.Event;
-import Event_Tester_Package.Game;
+import Tests.Game;
 import OutsideEntities.Skills.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;

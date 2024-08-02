@@ -1,4 +1,4 @@
-package Event_Tester_Package;
+package Tests;
 
 
 import java.awt.Color;

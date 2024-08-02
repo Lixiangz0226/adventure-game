@@ -1,4 +1,4 @@
-package Event_Tester_Package;
+package controller.EventHandler;
 
 public class Event{
     /*

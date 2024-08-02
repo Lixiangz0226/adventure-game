@@ -4,7 +4,7 @@ import java.awt.Container;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import Event_Tester_Package.Event;
+import controller.EventHandler.Event;
 
 //Each room contains information about the rooms in its four directions
 //The rooms have a name, description, and unique event that can run when the player enters the room
