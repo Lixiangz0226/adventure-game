@@ -4,6 +4,7 @@ package OutsideEntities;
 import Event_Tester_Package.*;
 import OutsideEntities.Items.*;
 import OutsideEntities.Weapons.*;
+import controller.EventHandler.Battle_Event0;
 
 
 import javax.swing.*;
@@ -20,16 +21,16 @@ public class Map0 extends Map {
     public Map0(Container con, Player player, JTextArea mainTextArea) {
         /* An example map */
         Room Boss = new Room("Boss", "This is the boss room", new Battle_Event0(player,con,mainTextArea), player,con);
-        Room hallway = new Room("Hallway", "It's a long path", new ShopEvent0(player,con,mainTextArea),
+        Room hallway = new Room("Hallway", "It's a long path", new ShopEvent0(player),
                 player,con);
-        Room startRoom = new Room("Start", "We started here", new ShopEvent0(player, con,mainTextArea), player, con);
-        Room shop = new Room("Shop", "There's a business man called Frank.", new ShopEvent0(player, con,mainTextArea), player,con);
+        Room startRoom = new Room("Start", "We started here", new ShopEvent0(player), player, con);
+        Room shop = new Room("Shop", "There's a business man called Frank.", new ShopEvent0(player), player,con);
         Room desert = new Room("Desert", "Desert", new Battle_Event0(player,con,mainTextArea), player,con);
-        Room forest = new Room("Forest", "You are surrounded by trees.", new ShopEvent0(player,con,mainTextArea), player, con);
+        Room forest = new Room("Forest", "You are surrounded by trees.", new ShopEvent0(player), player, con);
         Room forestmiddle = new Room("Forest Centre", "It's hard to find the way out.", new ShopEvent0(
-                player, con,mainTextArea), player, con);
+                player), player, con);
         Room forestleft = new Room("Forest Left", "Dead end.", new Battle_Event0(player,con,mainTextArea), player,con);
-        Room forestright = new Room("Forest Right", "Dead end", new ShopEvent0(player, con,mainTextArea), player,con);
+        Room forestright = new Room("Forest Right", "Dead end", new ShopEvent0(player), player,con);
         hallway.setN(Boss); hallway.setS(startRoom);
         startRoom.setW(shop);startRoom.setE(desert);
         forest.setN(startRoom); forest.setS(forestmiddle);

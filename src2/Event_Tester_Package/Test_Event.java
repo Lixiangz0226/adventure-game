@@ -6,6 +6,7 @@ import OutsideEntities.Weapons.Flame_Crossbow;
 import OutsideEntities.Weapons.Knife;
 import OutsideEntities.Weapons.Spear;
 import OutsideEntities.Weapons.Staff;
+import controller.EventHandler.Battle_Event0;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -34,51 +35,19 @@ public class Test_Event {
 
     //Creates the event screen
     public Test_Event() {
-
-        try {
-            UIManager UIManager = null;
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        window = new JFrame();
-        window.setSize(800, 600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.black);
-        window.setLayout(null);
-        con = window.getContentPane();
-
-        JPanel mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
-        mainTextPanel.setBackground(Color.black);
-
-        con.add(mainTextPanel);
-        this.mainTextArea = new JTextArea("Fix this bug!");
-        mainTextArea.setBounds(100, 100, 600, 250);
-        mainTextArea.setBackground(Color.black);
-        mainTextArea.setForeground(Color.white);
-        mainTextArea.setFont(normalFont);
-        mainTextArea.setLineWrap(true);
-        mainTextArea.setWrapStyleWord(true);
-        mainTextArea.setEditable(false);
-
-        mainTextPanel.add(mainTextArea);
-
-        window.setVisible(true);
-//        test_shop0();
+        test_shop0();
 //        test_battle();
 //        test_Queen_Slime_event();
-        test_boss();
+//        test_boss();
 //        test_battle();
     }
 
 
     //Simulates a shop event with 99999 money
-    public void test_shop0(Container con) {
+    public void test_shop0() {
         Player player = new Player("Vergil", 100);
         player.setMoney(50);
-        ShopEvent0 shop = new ShopEvent0(player, con, mainTextArea);
+        ShopEvent0 shop = new ShopEvent0(player);
         shop.run_event();
         while (shop.shopOpened) {
             // Wait until shopOpened is false
@@ -88,7 +57,6 @@ public class Test_Event {
                 e.printStackTrace();
             }
         }
-        window.setVisible(false);
     }
 
     public void test_Queen_Slime_event(){
