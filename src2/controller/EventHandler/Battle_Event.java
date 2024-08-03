@@ -1,7 +1,6 @@
 package controller.EventHandler;
 
-import Presenter.BattlePresenter;
-import OutsideEntities.Skills.*;
+
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;
 import UseCaseInteracter.BattleInteracter;
@@ -11,8 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Battle_Event extends Event {
@@ -27,7 +24,6 @@ public class Battle_Event extends Event {
 
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
     public Battle_Event(Player player, Monster monster) {////////////////////////////////////////////////////////////////////Create here
         /*

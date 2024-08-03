@@ -25,7 +25,7 @@ public class ShopPresenter {
         mainTextArea.setText("Frank: Welcome to my store! I wish I have something you want:\n" +
                 "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
         choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.getName());}
-        choice2.setText("-");if (!bought2){choice2.setText("Buy " + item2.getName());}
+        choice2.setText("Buy " + item2.getName());
         choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.getName());}
         choice4.setText("Leave");
     }

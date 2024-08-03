@@ -7,10 +7,7 @@ import OutsideEntities.Weapons.Flame_Crossbow;
 import OutsideEntities.Weapons.Knife;
 import OutsideEntities.Weapons.Spear;
 import OutsideEntities.Weapons.Staff;
-import controller.EventHandler.Battle_Event;
-import controller.EventHandler.CursedTree_Event;
-import controller.EventHandler.Queen_Slime_Event;
-import controller.EventHandler.ShopEvent0;
+import controller.EventHandler.*;
 
 import java.awt.Container;
 
@@ -38,7 +35,8 @@ public class Test_Event {
 //        test_shop0();
 //        test_battle();
 //        test_Queen_Slime_event();
-        test_boss();
+//        test_boss();
+        test_guide();
     }
 
 
@@ -98,10 +96,13 @@ public class Test_Event {
 
         CursedTree_Event cursedTree = new CursedTree_Event(player);
         cursedTree.run_event();
-
     }
 
-
+    public void test_guide(){
+        Player player = new Player("Vergil", 30);
+        GuidingEvent event = new GuidingEvent(player);
+        event.run_event();
+    }
 
 
 }

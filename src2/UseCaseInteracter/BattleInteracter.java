@@ -3,7 +3,7 @@ package UseCaseInteracter;
 import OutsideEntities.Monsters.Monster;
 import OutsideEntities.Player;
 import OutsideEntities.Skills.Basic_attack;
-import Presenter.BattlePresenter;
+import Presenter.GuidingPresenter;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class BattleInteracter {
     private Monster monster;
     private boolean firsttime;
     private int m; private int current, used1, used2, used3;
-    private BattlePresenter presenter;
+    private GuidingPresenter presenter;
     private List<String> message = new ArrayList<String>();
     private JButton backButton;
     Basic_attack basic_attack = new Basic_attack();
@@ -44,7 +44,7 @@ public class BattleInteracter {
         this.hpLabelNumber = hpLabelNumber;
         this.enemyhp = enemyhp;
 
-        presenter = new BattlePresenter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
+        presenter = new GuidingPresenter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);
     }
 
@@ -154,7 +154,7 @@ public class BattleInteracter {
 
     public String won(){
         player.add_key();
-        player.setMoney(player.getMoney() + 50);
+        player.setMoney(player.getMoney() + monster.getGoldDrop());
         presenter.finished();
         return "finished";
     }
