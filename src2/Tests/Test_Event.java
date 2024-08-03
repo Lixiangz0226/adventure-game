@@ -2,17 +2,17 @@ package Tests;
 
 import OutsideEntities.*;
 import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Monsters.Bat;
 import OutsideEntities.Weapons.Flame_Crossbow;
 import OutsideEntities.Weapons.Knife;
 import OutsideEntities.Weapons.Spear;
 import OutsideEntities.Weapons.Staff;
-import controller.EventHandler.Battle_Event0;
+import controller.EventHandler.Battle_Event;
 import controller.EventHandler.CursedTree_Event;
 import controller.EventHandler.Queen_Slime_Event;
 import controller.EventHandler.ShopEvent0;
 
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.*;
 
@@ -23,8 +23,6 @@ public class Test_Event {
     Container con;
     JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
     JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     int playerHP, monsterHP, silverRing;
@@ -37,11 +35,10 @@ public class Test_Event {
 
     //Creates the event screen
     public Test_Event() {
-        test_shop0();
-//        test_battle();
+//        test_shop0();
+        test_battle();
 //        test_Queen_Slime_event();
 //        test_boss();
-//        test_battle();
     }
 
 
@@ -83,7 +80,7 @@ public class Test_Event {
         player.getInventory().addItem(new Spear());
         player.getInventory().addItem(new Staff());
 
-        Battle_Event0 battle = new Battle_Event0(player, con, mainTextArea);
+        Battle_Event battle = new Battle_Event(player, new Bat());
         battle.run_event();
     }
 

@@ -60,6 +60,8 @@ public class ShopEvent0 extends Event {
         shopInteracter.shop();
     }
 
+    public Window getWindow(){/* Get the window */return shopview.getWindow();}
+
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             /*

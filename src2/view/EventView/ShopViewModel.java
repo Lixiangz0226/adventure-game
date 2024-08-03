@@ -89,7 +89,11 @@ public class ShopViewModel {
 
     public JButton getChoice2() {return choice2;}
 
-    public JButton getChoice3() { return choice3;}
+    public JButton getChoice3() {return choice3;}
 
-    public JButton getChoice4() { return choice4;}
+    public JButton getChoice4() {return choice4;}
+
+    public Container getCon(){return con;}
+
+    public Window getWindow(){return window;}
 }
