@@ -1,19 +1,15 @@
 package controller.EventHandler;
 
 import Presenter.BossPresenter;
-import Tests.Game;
 import OutsideEntities.Skills.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;
-import OutsideEntities.States.Burning;
 import UseCaseInteracter.BossInteracter;
 import view.EventView.BossViewModel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -21,31 +17,22 @@ import java.util.Random;
 public class CursedTree_Event extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private Player player;
     private Cursed_Tree boss;
     private static String position;
     private boolean firsttime;
-    private int m;
-    private int current, used1, used2, used3;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel; JButton backButton;
-    private List<String> message;
     private JLabel weaponLabel;
-    private int r;
-    private int bindingRounds = 0;
     private BossViewModel bossViewModel;
 
     private BossPresenter presenter;
     private BossInteracter interacter;
 
-    Basic_attack basic_attack = new Basic_attack();
-    Random rand = new Random();
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public CursedTree_Event(Player player) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
-        this.player = player;
         this.boss = new Cursed_Tree();
         this.position = "";
         this.firsttime = true;

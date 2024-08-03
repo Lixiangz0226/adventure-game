@@ -18,18 +18,11 @@ import java.util.Objects;
 public class Battle_Event extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private Player player;
-    private Monster monster;
     private static String position;
     private boolean firsttime = true;
-    private int m; private int current, used1, used2, used3;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
-    private List<String> message = new ArrayList<String>();
     private JButton backButton;
     private BattleViewModel battleViewModel;
-    private BattlePresenter presenter;
-    Basic_attack basic_attack = new Basic_attack();
-
     private BattleInteracter battleInteracter;
 
 
@@ -40,12 +33,10 @@ public class Battle_Event extends Event {
         /*
         Initializer of the event.
          */
-        this.monster = monster;
 
         battleViewModel = new BattleViewModel(player, monster);
 
         mainTextArea = battleViewModel.getMainTextArea();
-        this.player = player;
         this.position = "";
         hpLabelNumber = battleViewModel.getHpLabelNumber();
         enemyhp = battleViewModel.getEnemyhp();
@@ -61,7 +52,6 @@ public class Battle_Event extends Event {
 
         backButton = battleViewModel.getBackButton();
         backButton.addActionListener(choiceHandler);
-
 
         battleInteracter = new BattleInteracter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);

@@ -16,14 +16,8 @@ public class ShopEvent0 extends Event {
      */
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private Player player;
-    private String position;
-    private Container con;
-    private JPanel choiceButtonPanel;
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     ShopInteracter shopInteracter;
-    Player playerEntity;
     ShopPresenter presenter;
     ShopViewModel shopview = new ShopViewModel();
 
@@ -41,8 +35,6 @@ public class ShopEvent0 extends Event {
         choice2 = shopview.getChoice2();
         choice3 = shopview.getChoice3();
         choice4 = shopview.getChoice4();
-
-        this.player = player;
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
