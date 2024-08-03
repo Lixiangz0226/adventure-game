@@ -96,7 +96,6 @@ public class CursedTree_Event extends Event {
                     switch(yourChoice){
                         case "c1ce": position = interacter.attack(); break;
                         case "c2ce": position = interacter.items(); break;
-                        case "c4ce": break;////////////////////////////////////////////////////////////////Boss defeated
                     }
                     break;
                 case "items":

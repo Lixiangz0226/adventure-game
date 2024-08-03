@@ -34,7 +34,7 @@ public class BossPresenter {
         The start scene.
          */
         backPanel.setVisible(false);
-        mainTextArea.setText("You look up at it, the grey canopy of The Cursed Tree reaches the 30-meter ceiling, " +
+        mainTextArea.setText("You look up at it-the grey canopy of The Cursed Tree reaches 30 meters, " +
                 "and you understand the final battle has come.");
         choice1.setText("Attack");
         choice2.setText("Items");if (bindingRounds > 0){choice2.setText("/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");}
