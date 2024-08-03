@@ -36,9 +36,9 @@ public class Test_Event {
     //Creates the event screen
     public Test_Event() {
 //        test_shop0();
-        test_battle();
+//        test_battle();
 //        test_Queen_Slime_event();
-//        test_boss();
+        test_boss();
     }
 
 
@@ -96,7 +96,7 @@ public class Test_Event {
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());
 
-        CursedTree_Event cursedTree = new CursedTree_Event(player, con, mainTextArea);
+        CursedTree_Event cursedTree = new CursedTree_Event(player);
         cursedTree.run_event();
 
     }

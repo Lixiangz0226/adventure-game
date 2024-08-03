@@ -10,7 +10,7 @@ public class Cursed_Tree extends Boss{
     private ArrayList<State> states = new ArrayList<>();
     private String message1 = "The Cursed Tree whipped you hard with the vines, dealt ";
     private String message2 = "The Cursed Tree binds your right arm with its roots, " +
-            "making you unable to use items for 3 turns, dealt";
+            "making you unable to use items for 3 turns, dealt ";
     private String message3 = "The Cursed Tree raises a big branch over its head," +
             " and then hits it hard at you, dealt ";
     private String message4 = "The Cursed Tree's branches grow hundreds of razor-sharp gray leaves " +
