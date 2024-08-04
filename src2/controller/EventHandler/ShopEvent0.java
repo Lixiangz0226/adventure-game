@@ -63,10 +63,8 @@ public class ShopEvent0 extends Event {
             String yourChoice = event.getActionCommand();
 
             if (yourChoice.equals("c4se")) {
-
                 shopOpened = false;
                 return;
-
             }///////////////////////////////////////////////////////
 
             switch (yourChoice) {

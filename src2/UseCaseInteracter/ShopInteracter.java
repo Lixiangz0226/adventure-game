@@ -50,7 +50,7 @@ public class ShopInteracter {
             presenter.lackofmoney();
             return;
         }
-        player.getInventory().addItem(item2);
+        player.getInventory().addItem(new Life_Potion());
         player.setMoney(player.getMoney() - 40);
         bought2 = true;
         presenter.shop(bought1, bought2, bought3, item1, item2, item3);

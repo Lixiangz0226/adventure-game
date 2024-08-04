@@ -11,7 +11,7 @@ public class ShopViewModel {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     JPanel choiceButtonPanel;
 
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+    Font normalFont = new Font("Times New Roman", Font.PLAIN, 24);
 
     public ShopViewModel() {
 

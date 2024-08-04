@@ -21,6 +21,7 @@ public class Battle_Event extends Event {
     private JButton backButton;
     private BattleViewModel battleViewModel;
     private BattleInteracter battleInteracter;
+    public boolean battleOpened = true;
 
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
@@ -79,6 +80,7 @@ public class Battle_Event extends Event {
                         case "c1be": position = battleInteracter.attack(); break;
                         case "c2be": position = battleInteracter.items(); break;
                         case "c4be":
+                            battleOpened = false;
                             break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                     break;
@@ -117,7 +119,7 @@ public class Battle_Event extends Event {
                     break;
                 case "finished":
                     if (Objects.equals(yourChoice, "c4be")){
-
+                        battleOpened = false;
                     }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }

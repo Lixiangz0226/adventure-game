@@ -18,28 +18,21 @@ public class Player extends AbstractCharacter {
      *     an inventory and a list of Skill skill_set.
       */
 
-    private Inventory inventory;
-    private List<Skill> skills;
-    private int money;
-    private int num_key;
-    private Weapon weapon;
-    private List<State> states;
-    private int dmg_dealt_ratio;
-    private int dmg_received_ratio;
+    private Inventory inventory = new Inventory();
+    private List<Skill> skills = new ArrayList<>();
+    private int money = 0;
+    private int num_key = 0;
+    private Weapon weapon = new Knife();
+    private List<State> states = new ArrayList<>();
+    private double dmg_dealt_ratio = 1;
+    private double dmg_received_ratio = 1;
     private Map map;
+    private Boolean piggyBankUsed = false;
 
     public Player(String name, int health) {
         /* Initializer */
         super(name, health);
-        this.inventory = new Inventory();
-        this.skills = new ArrayList<>();
         skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
-        this.money = 0;
-        this.states = new ArrayList<>();
-        this.num_key = 0;
-        this.weapon = new Knife();
-        this.dmg_dealt_ratio = 1;
-        this.dmg_received_ratio = 1;
         this.map = null;
     }
 
@@ -47,14 +40,15 @@ public class Player extends AbstractCharacter {
 
     private void count_effects(){
         /* Counts all the states */
-        dmg_received_ratio = 1;
-        dmg_dealt_ratio = 1;
+        dmg_received_ratio = 1.0;
+        dmg_dealt_ratio = 1.0;
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
             String name = state.getdescription();
             if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
             else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
+            else if (Objects.equals(name, "Piggy Banking")) {dmg_dealt_ratio *= (1 + (getMoney() * 0.01));}
             ///////////////////////////////////////////////////////////////////////////////////////////////////////State
 
             if (state.getrounds() == 0){removing_states.add(state);}
@@ -67,8 +61,8 @@ public class Player extends AbstractCharacter {
         /* Player hits the monster using the skill */
         ArrayList<String> result = new ArrayList<>();
         String name = skill.getName();
-        double dmg = 0;
-        int dmg_received = 0;
+        double dmg = 0.0;
+        double dmg_received = 0;
 
         if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
         else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
@@ -94,8 +88,8 @@ public class Player extends AbstractCharacter {
         double randnum_acc = Math.random();
         if (randnum_acc > weapon.get_accuracy()){dmg *= 0;}
 
-        dmg_received += dmg_received_ratio * (monster.hit());
-        setHealth(getHealth() - dmg_received);
+        dmg_received = (int)(dmg_received_ratio * (monster.hit()) + dmg_received);
+        setHealth(getHealth() - (int)dmg_received);
         monster.setHealth(monster.getHealth() - (int)dmg);
         result.add("You used " + skill.getName() + " and dealt " + (int)dmg + " damage.");
         result.add(monster.getMessage() + dmg_received + " damage.");
@@ -114,6 +108,12 @@ public class Player extends AbstractCharacter {
         else{
             if (Objects.equals(inventory.getItem(index).getName(), "Life Potion")){
                 this.setHealth(this.getHealth() + 20);
+            }
+            else if (Objects.equals(inventory.getItem(index).getName(), "Piggy Bank")){
+                if (!piggyBankUsed){
+                    add_state(new PiggyBanking());
+                    piggyBankUsed = true;
+                }
             }
 
             ////////////////////////////////////////////////////////////////////////////////////////////consumable item

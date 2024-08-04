@@ -23,7 +23,7 @@ public class GuidingEvent extends Event {
     private GuidingInteracter interacter;
     private JPanel playerPanel;
     private Monster monster = new Goblin0();
-    public boolean shopOpened = true;
+    public boolean guideOpened = true;
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
@@ -137,7 +137,7 @@ public class GuidingEvent extends Event {
                     }break;
                 case "talk5":
                     if (Objects.equals(yourChoice, "c1be")){
-                        shopOpened = false; break;/////////////////////////////////////////////////////////////////Leave
+                        guideOpened = false; break;/////////////////////////////////////////////////////////////////Leave
                     }break;
 
 

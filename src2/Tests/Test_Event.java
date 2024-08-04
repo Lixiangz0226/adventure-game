@@ -36,7 +36,8 @@ public class Test_Event {
 //        test_battle();
 //        test_Queen_Slime_event();
 //        test_boss();
-        test_guide();
+//        test_guide();
+        test_Mysery_Box();
     }
 
 
@@ -104,5 +105,9 @@ public class Test_Event {
         event.run_event();
     }
 
-
+    public void test_Mysery_Box(){
+        Player player = new Player("Vergil", 50);
+        MysteryBoxEvent event = new MysteryBoxEvent(player);
+        event.run_event();
+    }
 }

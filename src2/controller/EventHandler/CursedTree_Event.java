@@ -119,7 +119,7 @@ public class CursedTree_Event extends Event {
                     break;
                 case "finished":
                     if (Objects.equals(yourChoice, "c4ce")){
-                        /////////////////////////////////////////////////////////////////////////////////////Back to map
+                        ////////////////////////////////////////////////////////////////////////////////////////Game Won
                     }break;
             }
         }
