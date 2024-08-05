@@ -2,6 +2,7 @@ package Tests;
 
 import OutsideEntities.*;
 import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Monsters.Bat;
 import OutsideEntities.Weapons.Flame_Crossbow;
 import OutsideEntities.Weapons.Knife;
@@ -34,11 +35,12 @@ public class Test_Event {
     public Test_Event() {
 //        test_shop0();
 //        test_battle();
-//        test_Queen_Slime_event();
+        test_Queen_Slime_event();
 //        test_boss();
 //        test_guide();
 //        test_Mysery_Box();
-        test_Slot_Machine();
+//        test_Slot_Machine();
+//        test_Flower();
     }
 
 
@@ -60,7 +62,7 @@ public class Test_Event {
 
     public void test_Queen_Slime_event(){
         Player player = new Player("Vergil", 25);
-        QueenSlimeEvent queen = new QueenSlimeEvent(player, con, mainTextArea);
+        QueenSlimeEvent queen = new QueenSlimeEvent(player);
         queen.run_event();
     }
 
@@ -116,6 +118,13 @@ public class Test_Event {
         Player player = new Player("Vergil", 50);
         player.setMoney(500);
         SlotMachineEvent event = new SlotMachineEvent(player);
+        event.run_event();
+    }
+
+    public void test_Flower(){
+        Player player = new Player("Vergil", 50);
+        player.getInventory().addItem(new PurificationPotion());
+        CursedFlowerEvent event = new CursedFlowerEvent(player);
         event.run_event();
     }
 }
