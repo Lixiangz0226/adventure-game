@@ -4,7 +4,6 @@ import OutsideEntities.States.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Boss extends Monster{
 
@@ -23,7 +22,7 @@ public class Boss extends Monster{
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
-            String name = state.getdescription();
+            String name = state.getName();
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////State
 

@@ -10,23 +10,28 @@ public class State{
 
 
     private int rounds;
+    private String name;
     private String description;
     private int maxrounds;
 
-    public State(int rounds, String description){
+    public State(int rounds, String name){
         /* Initializer */
-        this.description = description;
+        this.name = name;
         this.rounds = rounds;
         this.maxrounds = rounds;
     }
 
     public void count(){/* Count down the rounds. */this.rounds -= 1;}
 
-    public String getdescription(){return this.description;}
+    public String getName(){return this.name;}
 
     public int getrounds(){return this.rounds;}
 
     public void renewRounds(){rounds = maxrounds;}
+
+    public String getDescription(){return this.description;}
+
+    public void setDescription(String description){this.description = description;}
 }
 
 

@@ -40,7 +40,7 @@ public class Cursed_Tree extends Boss{
     public void add_state(State state){
         /* Add a state */
         for(State s : states){
-            if (Objects.equals(s.getdescription(), state.getdescription())){
+            if (Objects.equals(s.getName(), state.getName())){
                 s.renewRounds();
             }
         }
@@ -52,7 +52,7 @@ public class Cursed_Tree extends Boss{
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
-            String name = state.getdescription();
+            String name = state.getName();
             if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 20);}
 
             if (state.getrounds() == 0){removing_states.add(state);}

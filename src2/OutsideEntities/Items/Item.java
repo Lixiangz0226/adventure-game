@@ -4,16 +4,21 @@ package OutsideEntities.Items;
 public class Item {
 
     //Item attributes
-    public int health;
     private String name;
+    private String description;
 
     //Item constructor
     public Item (String name) {
         this.name = name;
+        this.description = description;
     }
 
     //Return the item name
     public String getName(){return this.name;}
+
+    public String getDescription(){return this.description;}
+
+    public void setDescription(String description) {this.description = description;}
 }
 
 

@@ -10,7 +10,7 @@ public class Skill {
     private String name;
     private final int duration;
     private int times;
-    private String state = "";
+    private String description = "";
 
     public Skill(String name, int duration, int times){
         this.name = name;
@@ -24,8 +24,8 @@ public class Skill {
 
     public int getTimes(){return times;}
 
-    public String getState(){return state;}
+    public String getDescription(){return description;}
 
-    public void setState(String state){this.state = state;}
+    public void setDescription(String description){this.description = description;}
 }
 

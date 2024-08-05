@@ -5,7 +5,6 @@ import OutsideEntities.Weapons.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Skills.*;
 import OutsideEntities.States.*;
-import java.util.Random;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,7 @@ public class Player extends AbstractCharacter {
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
-            String name = state.getdescription();
+            String name = state.getName();
             if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
             else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
             else if (Objects.equals(name, "Piggy Banking")) {dmg_dealt_ratio *= (1 + (getMoney() * 0.01));}
