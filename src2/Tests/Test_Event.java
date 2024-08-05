@@ -37,8 +37,8 @@ public class Test_Event {
 //        test_Queen_Slime_event();
 //        test_boss();
 //        test_guide();
-        test_Mysery_Box();
-//        test_Slot_Machine();
+//        test_Mysery_Box();
+        test_Slot_Machine();
     }
 
 

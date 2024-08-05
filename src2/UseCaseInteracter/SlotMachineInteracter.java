@@ -11,13 +11,11 @@ public class SlotMachineInteracter {
     private SlotMachinePresenter presenter;
     private Player player;
     Random rand = new Random();
-    ArrayList<Integer> list = new ArrayList<Integer>();
 
     public SlotMachineInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
                                  JButton choice4, Player player) {
         presenter = new SlotMachinePresenter(mainTextArea, choice1, choice2, choice3, choice4);
         this.player = player;
-        list.add(0); list.add(30); list.add(70); list.add(100);
     }
 
     public String play(){
@@ -31,9 +29,20 @@ public class SlotMachineInteracter {
             return "play";
         }
         player.setMoney(player.getMoney() - 50);
-        int won = list.get(rand.nextInt(4));
-        player.setMoney(player.getMoney() + won);
-        presenter.result(won);
+        int r = rand.nextInt(10);
+        if (r <= 1){
+            player.setMoney(player.getMoney() + 0);
+            presenter.result(0);}
+        else if (r <= 4){
+            player.setMoney(player.getMoney() + 30);
+            presenter.result(30);}
+        else if (r <= 7){
+            player.setMoney(player.getMoney() + 70);
+            presenter.result(70);}
+        else{
+            player.setMoney(player.getMoney() + 100);
+            presenter.result(100);
+        }
         return "result";
     }
 
