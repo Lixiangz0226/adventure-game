@@ -28,8 +28,9 @@ public class MysteryBoxEvent {
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
+
         interacter = new MysteryBoxInteracter(choice1, choice2, choice3, choice4, mysteryView.getMainTextArea(),
-                player);
+                player, mysteryView.getHpLabelNumber(), mysteryView.getMoneyNumber());
     }
 
     public void run_event() {

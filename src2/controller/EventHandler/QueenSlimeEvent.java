@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class Queen_Slime_Event extends Event {
+public class QueenSlimeEvent extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Player player;
@@ -20,7 +20,7 @@ public class Queen_Slime_Event extends Event {
 
 
 
-    public Queen_Slime_Event(Player player, Container con, JTextArea mainTextArea){
+    public QueenSlimeEvent(Player player, Container con, JTextArea mainTextArea){
         /*
         Queen event
          */

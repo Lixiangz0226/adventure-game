@@ -1,19 +1,29 @@
 package Presenter;
 
+import OutsideEntities.Player;
+
 import javax.swing.*;
 
 public class MysteryBoxPresenter {
 
     private JButton choice1, choice2, choice3, choice4;
     private JTextArea mainTextArea;
+    private JLabel hpLabelNumber;
+    private JLabel moneyNumber;
+    private Player player;
 
     public MysteryBoxPresenter(JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                               JTextArea mainTextArea) {
+                               JTextArea mainTextArea, JLabel hpLabelNumber, JLabel moneyNumber, Player player) {
         this.choice1 = choice1;
         this.choice2 = choice2;
         this.choice3 = choice3;
         this.choice4 = choice4;
         this.mainTextArea = mainTextArea;
+        this.hpLabelNumber = hpLabelNumber;
+        this.moneyNumber = moneyNumber;
+        this.player = player;
+        hpLabelNumber.setText(player.getHealth() + ""); moneyNumber.setText("" + player.getMoney());
+
     }
 
     public void start(){
@@ -39,6 +49,7 @@ public class MysteryBoxPresenter {
     }
 
     public void received(String present){
+        hpLabelNumber.setText(player.getHealth() + ""); moneyNumber.setText("" + player.getMoney());
         mainTextArea.setText("You received " + present);
         choice1.setText("Next");
         choice2.setText("-");
@@ -47,6 +58,7 @@ public class MysteryBoxPresenter {
     }
 
     public void punished(String punishment){
+        hpLabelNumber.setText(player.getHealth() + ""); moneyNumber.setText("" + player.getMoney());
         mainTextArea.setText(punishment);
         choice1.setText("Next");
         choice2.setText("-");

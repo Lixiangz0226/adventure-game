@@ -13,10 +13,12 @@ public class MysteryBoxInteracter {
     private Player player;
     private Random rand = new Random();
 
+
     public MysteryBoxInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4,
-                                JTextArea mainTextArea, Player player) {
+                                JTextArea mainTextArea, Player player, JLabel hpLabelNumber, JLabel moneyNumber) {
         this.player = player;
-        this.presenter = new MysteryBoxPresenter(choice1, choice2, choice3, choice4, mainTextArea);
+        this.presenter = new MysteryBoxPresenter(choice1, choice2, choice3, choice4, mainTextArea,
+                 hpLabelNumber, moneyNumber, player);
     }
 
     public String start(){presenter.start(); return "start";}

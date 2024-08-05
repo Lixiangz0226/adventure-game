@@ -38,6 +38,7 @@ public class Test_Event {
 //        test_boss();
 //        test_guide();
         test_Mysery_Box();
+//        test_Slot_Machine();
     }
 
 
@@ -59,7 +60,7 @@ public class Test_Event {
 
     public void test_Queen_Slime_event(){
         Player player = new Player("Vergil", 25);
-        Queen_Slime_Event queen = new Queen_Slime_Event(player, con, mainTextArea);
+        QueenSlimeEvent queen = new QueenSlimeEvent(player, con, mainTextArea);
         queen.run_event();
     }
 
@@ -79,7 +80,7 @@ public class Test_Event {
         player.getInventory().addItem(new Spear());
         player.getInventory().addItem(new Staff());
 
-        Battle_Event battle = new Battle_Event(player, new Bat());
+        BattleEvent battle = new BattleEvent(player, new Bat());
         battle.run_event();
     }
 
@@ -95,7 +96,7 @@ public class Test_Event {
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());
 
-        CursedTree_Event cursedTree = new CursedTree_Event(player);
+        CursedTreeEvent cursedTree = new CursedTreeEvent(player);
         cursedTree.run_event();
     }
 
@@ -108,6 +109,13 @@ public class Test_Event {
     public void test_Mysery_Box(){
         Player player = new Player("Vergil", 50);
         MysteryBoxEvent event = new MysteryBoxEvent(player);
+        event.run_event();
+    }
+
+    public void test_Slot_Machine(){
+        Player player = new Player("Vergil", 50);
+        player.setMoney(500);
+        SlotMachineEvent event = new SlotMachineEvent(player);
         event.run_event();
     }
 }

@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class Battle_Event extends Event {
+public class BattleEvent extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private static String position;
@@ -26,7 +26,7 @@ public class Battle_Event extends Event {
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
-    public Battle_Event(Player player, Monster monster) {////////////////////////////////////////////////////////////////////Create here
+    public BattleEvent(Player player, Monster monster) {////////////////////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */

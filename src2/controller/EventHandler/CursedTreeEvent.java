@@ -1,7 +1,6 @@
 package controller.EventHandler;
 
 import Presenter.BossPresenter;
-import OutsideEntities.Skills.*;
 import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;
 import UseCaseInteracter.BossInteracter;
@@ -10,11 +9,9 @@ import view.EventView.BossViewModel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
-public class CursedTree_Event extends Event {
+public class CursedTreeEvent extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Cursed_Tree boss;
@@ -29,7 +26,7 @@ public class CursedTree_Event extends Event {
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
-    public CursedTree_Event(Player player) {///////////////////////////////////////////////////////Create here
+    public CursedTreeEvent(Player player) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */

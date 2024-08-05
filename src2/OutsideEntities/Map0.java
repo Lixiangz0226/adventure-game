@@ -5,7 +5,7 @@ import OutsideEntities.Items.*;
 import OutsideEntities.Monsters.Bat;
 import OutsideEntities.Monsters.Goblin;
 import OutsideEntities.Weapons.*;
-import controller.EventHandler.Battle_Event;
+import controller.EventHandler.BattleEvent;
 import controller.EventHandler.ShopEvent0;
 
 
@@ -22,16 +22,16 @@ public class Map0 extends Map {
 
     public Map0(Container con, Player player, JTextArea mainTextArea) {
         /* An example map */
-        Room Boss = new Room("Boss", "This is the boss room", new Battle_Event(player, new Bat()), player,con);
+        Room Boss = new Room("Boss", "This is the boss room", new BattleEvent(player, new Bat()), player,con);
         Room hallway = new Room("Hallway", "It's a long path", new ShopEvent0(player),
                 player,con);
         Room startRoom = new Room("Start", "We started here", new ShopEvent0(player), player, con);
         Room shop = new Room("Shop", "There's a business man called Frank.", new ShopEvent0(player), player,con);
-        Room desert = new Room("Desert", "Desert", new Battle_Event(player, new Goblin()), player,con);
+        Room desert = new Room("Desert", "Desert", new BattleEvent(player, new Goblin()), player,con);
         Room forest = new Room("Forest", "You are surrounded by trees.", new ShopEvent0(player), player, con);
         Room forestmiddle = new Room("Forest Centre", "It's hard to find the way out.", new ShopEvent0(
                 player), player, con);
-        Room forestleft = new Room("Forest Left", "Dead end.", new Battle_Event(player, new Bat()), player,con);
+        Room forestleft = new Room("Forest Left", "Dead end.", new BattleEvent(player, new Bat()), player,con);
         Room forestright = new Room("Forest Right", "Dead end", new ShopEvent0(player), player,con);
         hallway.setN(Boss); hallway.setS(startRoom);
         startRoom.setW(shop);startRoom.setE(desert);
