@@ -33,6 +33,8 @@ public class QueenSlimeEvent extends Event {
         interacter = new QueenSlimeInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }
 
+    public Window getWindow() {return view.getWindow();}
+
     public void run_event(){
         switch (position){
             case "start":

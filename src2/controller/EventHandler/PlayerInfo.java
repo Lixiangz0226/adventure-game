@@ -5,6 +5,7 @@ import UseCaseInteracter.PlayerInfoInteracter;
 import view.EventView.PlayerInfoViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.EventHandler;
@@ -29,6 +30,8 @@ public class PlayerInfo extends Event {
         view.getBackButton().addActionListener(choiceHandler);
         interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
     }
+
+    public Window getWindow() {return view.getWindow();}
 
     public void run_event(){position = interacter.start();}
 

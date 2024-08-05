@@ -56,6 +56,9 @@ public class GuidingEvent extends Event {
                 enemyhp, player, monster);
     }
 
+    public Window getWindow() {return viewModel.getWindow();}
+
+
     public void run_event(){////////////////////////////////////////////////////////////////////////////////////Run here
         /*
           Run this event.
