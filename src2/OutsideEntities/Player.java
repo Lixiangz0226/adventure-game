@@ -63,7 +63,12 @@ public class Player extends AbstractCharacter {
         double dmg = 0.0;
         double dmg_received = 0;
 
-        if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
+        if (Objects.equals(name, "Basic_Attack")){
+            dmg = weapon.get_damage();
+            if (Objects.equals(getWeaponName(), "Flame crossbow")){
+                monster.add_state(new Burning());
+            }
+        }
         else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}
@@ -128,7 +133,7 @@ public class Player extends AbstractCharacter {
 
     public Inventory getInventory() {return inventory;}
 
-    public List<Skill> getSkills() {return skills;}
+    public List<Skill> getSkills() {return new ArrayList<>(List.copyOf(skills));}
 
     public int getMoney() {return money;}
 
@@ -139,4 +144,8 @@ public class Player extends AbstractCharacter {
     public int get_key(){return num_key;}
 
     public String getWeaponName(){return weapon.getName();}
+
+    public List<State> getStates(){return new ArrayList<>(List.copyOf(states));}
+
+    public Weapon getWeapon(){return weapon;}
 }

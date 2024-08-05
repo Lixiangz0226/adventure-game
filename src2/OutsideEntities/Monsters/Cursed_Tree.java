@@ -18,7 +18,8 @@ public class Cursed_Tree extends Boss{
     private int randint = 0;
 
     public Cursed_Tree(){
-        super("The Cursed Tree", 1000, 10, 1.1, 0.9, false, 0);
+        super("The Cursed Tree", 1000, 10, 1.1, 0.9,
+                false, 0);
     }
 
     @Override
@@ -47,7 +48,7 @@ public class Cursed_Tree extends Boss{
         states.add(state);
     }
 
-    private void count_effects(){
+    public void count_effects(){
         /* Counts all the states */
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {

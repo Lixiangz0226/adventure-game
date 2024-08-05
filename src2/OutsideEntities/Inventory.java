@@ -17,7 +17,7 @@ public class Inventory {
     }
 
     public List<Item> getItems() {
-        return new ArrayList<>(items); // Return a copy to protect encapsulation
+        return new ArrayList<>(List.copyOf(items)); // Return a copy to protect encapsulation
     }
 
     public Item getItem(int id) {

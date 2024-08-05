@@ -1,31 +1,18 @@
 package Tests;
 
 import OutsideEntities.*;
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Monsters.Bat;
-import OutsideEntities.Weapons.Flame_Crossbow;
-import OutsideEntities.Weapons.Knife;
-import OutsideEntities.Weapons.Spear;
-import OutsideEntities.Weapons.Staff;
+import OutsideEntities.Items.*;
+import OutsideEntities.Monsters.*;
+import OutsideEntities.States.PiggyBanking;
+import OutsideEntities.Weapons.*;
 import controller.EventHandler.*;
 
 import java.awt.Container;
 
 import javax.swing.*;
 
-//Tests the functionality of the battle or shop event in rooms
+//Tests the functionality of the events in rooms
 public class Test_Event {
-
-    JFrame window;
-    Container con;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
-    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
-    JButton startButton, choice1, choice2, choice3, choice4;
-    JTextArea mainTextArea;
-    int playerHP, monsterHP, silverRing;
-    String weapon, position;
-    ShopEvent0 shop;
 
     public static void main(String[] args) {
         new Test_Event();
@@ -34,13 +21,14 @@ public class Test_Event {
     //Creates the event screen
     public Test_Event() {
 //        test_shop0();
-//        test_battle();
-        test_Queen_Slime_event();
+        test_battle();
+//        test_Queen_Slime_event();
 //        test_boss();
 //        test_guide();
 //        test_Mysery_Box();
 //        test_Slot_Machine();
 //        test_Flower();
+        test_info();
     }
 
 
@@ -125,6 +113,18 @@ public class Test_Event {
         Player player = new Player("Vergil", 50);
         player.getInventory().addItem(new PurificationPotion());
         CursedFlowerEvent event = new CursedFlowerEvent(player);
+        event.run_event();
+    }
+
+    public void test_info(){
+        Player player = new Player("Vergil", 50);
+        player.getInventory().addItem(new Flame_Crossbow());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new Life_Potion());
+        player.getInventory().addItem(new PurificationPotion());
+        player.add_state(new PiggyBanking());
+        PlayerInfo event = new PlayerInfo(player);
         event.run_event();
     }
 }

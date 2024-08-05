@@ -11,7 +11,7 @@ public class State{
 
     private int rounds;
     private String name;
-    private String description;
+    private String description = "";
     private int maxrounds;
 
     public State(int rounds, String name){
