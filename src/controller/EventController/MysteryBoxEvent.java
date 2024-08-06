@@ -1,4 +1,4 @@
-package controller.Entity_Events;
+package controller.EventController;
 
 import OutsideEntities.Player;
 import UseCaseInteracter.MysteryBoxInteracter;

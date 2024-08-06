@@ -1,4 +1,4 @@
-package controller.Entity_Events;
+package controller.EventController;
 
 import OutsideEntities.Monsters.Goblin0;
 import OutsideEntities.Monsters.Monster;

@@ -1,4 +1,4 @@
-package controller.Entity_Events;
+package controller.EventController;
 
 public class Event{
     /*

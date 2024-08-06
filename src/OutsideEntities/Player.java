@@ -130,7 +130,7 @@ public class Player extends AbstractCharacter {
 
     public Inventory getInventory() {return inventory;}
 
-    public List<Skill> getSkills() {return skills;}
+    public List<Skill> getSkills() {return new ArrayList<>(List.copyOf(skills));}
 
     public int getMoney() {return money;}
 
@@ -141,4 +141,9 @@ public class Player extends AbstractCharacter {
     public int get_key(){return num_key;}
 
     public String getWeaponName(){return weapon.getName();}
+
+    public Weapon getWeapon(){return weapon;}
+
+    public List<State> getStates(){return new ArrayList<>(List.copyOf(states));}
+
 }
