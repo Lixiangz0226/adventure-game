@@ -7,10 +7,6 @@ import OutsideEntities.States.PiggyBanking;
 import OutsideEntities.Weapons.*;
 import controller.EventHandler.*;
 
-import java.awt.Container;
-
-import javax.swing.*;
-
 //Tests the functionality of the events in rooms
 public class Test_Event {
 
@@ -20,23 +16,23 @@ public class Test_Event {
 
     //Creates the event screen
     public Test_Event() {
-//        test_shop0();
-        test_battle();
+        test_shop0();
+//        test_battle();
 //        test_Queen_Slime_event();
 //        test_boss();
 //        test_guide();
 //        test_Mysery_Box();
 //        test_Slot_Machine();
 //        test_Flower();
-        test_info();
+//        test_info();
     }
 
 
     //Simulates a shop event with 99999 money
     public void test_shop0() {
         Player player = new Player("Vergil", 100);
-        player.setMoney(50);
-        ShopEvent0 shop = new ShopEvent0(player);
+        player.setMoney(100);
+        ShopEvent shop = new ShopEvent(player);
         shop.run_event();
         while (shop.shopOpened) {
             // Wait until shopOpened is false

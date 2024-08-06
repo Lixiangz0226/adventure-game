@@ -10,7 +10,7 @@ import Presenter.ShopPresenter;
 import UseCaseInteracter.ShopInteracter;
 import view.EventView.ShopViewModel;
 
-public class ShopEvent0 extends Event {
+public class ShopEvent extends Event {
     /**
      * One shop with three items on sell.
      */
@@ -24,7 +24,7 @@ public class ShopEvent0 extends Event {
     //Open / close checker
     public boolean shopOpened;
 
-    public ShopEvent0(Player player) {//////////////////////////////////////////////////////////////////Create shop here
+    public ShopEvent(Player player) {//////////////////////////////////////////////////////////////////Create shop here
         /*
         Initializer of the event.
          */
@@ -40,9 +40,7 @@ public class ShopEvent0 extends Event {
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
 
-        presenter = new ShopPresenter(mainTextArea, choice1, choice2, choice3, choice4);
-
-        shopInteracter = new ShopInteracter(mainTextArea,presenter,choice1,choice2,choice3,choice4,player);
+        shopInteracter = new ShopInteracter(mainTextArea,choice1,choice2,choice3,choice4,player);
     }
 
     public void run_event(){///////////////////////////////////////////////////////////////////////////////Run shop here

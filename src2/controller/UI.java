@@ -2,7 +2,7 @@ package controller;
 
 
 import OutsideEntities.*;
-import controller.EventHandler.ShopEvent0;
+import controller.EventHandler.ShopEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -229,7 +229,7 @@ public class UI {
     public void test_shop0(Container con) {
         Player player = new Player("Vergil", 100);
         player.setMoney(50);
-        ShopEvent0 shop = new ShopEvent0(player);
+        ShopEvent shop = new ShopEvent(player);
         shop.run_event();
 
         // Create a Swing Timer to check the shopOpened state periodically
