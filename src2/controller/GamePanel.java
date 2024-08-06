@@ -1,6 +1,9 @@
 package controller;
 
+import OutsideEntities.Monsters.Bat;
+import OutsideEntities.Monsters.Goblin;
 import OutsideEntities.Player;
+import controller.Entity_Events.*;
 import entities.AbstractEntity;
 import entities.PlayerController;
 import use_case.AbstractObject;
@@ -45,6 +48,16 @@ public class GamePanel extends JPanel implements Runnable{
     public AbstractObject[][] obj = new AbstractObject[maxMap][10];
     public AbstractEntity[][] npc = new AbstractEntity[maxMap][10];
     public Player player = new Player("Steve", 50);
+
+    //Generate events
+    public ShopEvent shop = new ShopEvent(player);
+    public BattleEvent bat = new BattleEvent(player, new Bat());
+    public BattleEvent goblin = new BattleEvent(player, new Goblin());
+    public CursedFlowerEvent cursedFlower = new CursedFlowerEvent(player);
+    public GuidingEvent guide = new GuidingEvent(player);
+    public MysteryBoxEvent mystery = new MysteryBoxEvent(player);
+    public QueenSlimeEvent slime = new QueenSlimeEvent(player);
+    public SlotMachineEvent machine = new SlotMachineEvent(player);
 
     //Game state
     public int gameState;

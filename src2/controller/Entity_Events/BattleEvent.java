@@ -21,7 +21,7 @@ public class BattleEvent extends Event {
     private JButton backButton;
     private BattleViewModel battleViewModel;
     private BattleInteracter battleInteracter;
-    public boolean battleOpened = true;
+    public boolean opened = true;
 
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
@@ -64,7 +64,7 @@ public class BattleEvent extends Event {
         else {position = battleInteracter.finished();}
     }
 
-    public Window get_window(){/* Get the window */return battleViewModel.getWindow();}
+    public Window getWindow(){/* Get the window */return battleViewModel.getWindow();}
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
@@ -80,7 +80,7 @@ public class BattleEvent extends Event {
                         case "c1be": position = battleInteracter.attack(); break;
                         case "c2be": position = battleInteracter.items(); break;
                         case "c4be":
-                            battleOpened = false;
+                            opened = false;
                             break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                     break;
@@ -119,7 +119,7 @@ public class BattleEvent extends Event {
                     break;
                 case "finished":
                     if (Objects.equals(yourChoice, "c4be")){
-                        battleOpened = false;
+                        opened = false;
                     }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }

@@ -15,7 +15,7 @@ public class QueenSlimeEvent extends Event {
     private String position = "start";
     private QueenViewModel view = new QueenViewModel();
     private QueenSlimeInteracter interacter;
-    public Boolean queenOpened = true;
+    public Boolean opened = true;
 
 
     public QueenSlimeEvent(Player player){
@@ -58,12 +58,12 @@ public class QueenSlimeEvent extends Event {
                         case "c2qs":
                             position = interacter.killed();break;
                         case "c4qs":
-                            queenOpened = false;
+                            opened = false;
                             break;/////////////////////////////////////////////////////////////////////////////////Leave
                     }break;
                 case "saved", "killed":
                     if (Objects.equals(yourChoice, "c1qs")){
-                        queenOpened = false;
+                        opened = false;
                         ///////////////////////////////////////////////////////////////////////////////////////////Leave
                     }
                     break;

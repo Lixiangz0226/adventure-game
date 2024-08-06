@@ -14,7 +14,7 @@ public class SlotMachineEvent extends Event {
     private JButton choice1, choice2, choice3, choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
     public int times = 0;
-    public Boolean slotOpened = true;
+    public Boolean opened = true;
     private String position = "";
 
     public SlotMachineEvent(Player player) {
@@ -46,7 +46,7 @@ public class SlotMachineEvent extends Event {
                 case "play":
                     switch (yourChoice){
                         case "c1": position = interacter.result(); break;
-                        case "c4": slotOpened = false; break;
+                        case "c4": opened = false; break;
                     }break;
                 case "result":
                     times += 1;

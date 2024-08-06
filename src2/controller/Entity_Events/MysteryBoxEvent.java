@@ -15,7 +15,7 @@ public class MysteryBoxEvent {
     private MysteryBoxInteracter interacter;
     private String position = "";
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    public Boolean boxOpened = true;
+    public Boolean opened = true;
 
     public MysteryBoxEvent(Player player) {
         mysteryView = new MystereyViewModel();
@@ -56,32 +56,33 @@ public class MysteryBoxEvent {
                 case "present1":
                     switch (yourChoice){
                         case "c1mb": position = interacter.receive1(); break;
-                        case "c4mb": boxOpened = false; break;
+                        case "c4mb": opened = false; break;
                         ///////////////////////////////////////////////////////////////////////////////////////////Leave
                     }break;
                 case "receive1": if (Objects.equals(yourChoice, "c1mb")){position = interacter.present2();}break;
                 case "present2":
                     switch (yourChoice){
                         case "c1mb": position = interacter.receive2(); break;
-                        case "c4mb": boxOpened = false; break;
+                        case "c4mb": opened = false; break;
                         ///////////////////////////////////////////////////////////////////////////////////////////Leave
                     }break;
                 case "receive2": if (Objects.equals(yourChoice, "c1mb")){position = interacter.present3();}break;
                 case "present3":
                     switch (yourChoice){
                         case "c1mb": position = interacter.receive3(); break;
-                        case "c4mb": boxOpened = false; break;
+                        case "c4mb": opened = false; break;
                         ///////////////////////////////////////////////////////////////////////////////////////////Leave
                     }break;
                 case "receive3": if (Objects.equals(yourChoice, "c1mb")){position = interacter.present4();}break;
                 case "present4":
                     switch (yourChoice){
                         case "c1mb": position = interacter.receive4(); break;
-                        case "c4mb": boxOpened = false; break;
+                        case "c4mb": opened = false; break;
                         ///////////////////////////////////////////////////////////////////////////////////////////Leave
                     }break;
                 case "receive4": if (Objects.equals(yourChoice, "c1mb")){position = interacter.finish();}break;
-                case "finish": if (Objects.equals(yourChoice, "c4mb")){boxOpened = false;}break;
+                case "finish": if (Objects.equals(yourChoice, "c4mb")){
+                    opened = false;}break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////////Leave
             }
         }

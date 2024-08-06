@@ -14,7 +14,7 @@ public class CursedFlowerEvent extends Event {
     private CursedFlowerInteracter interacter;
     private JButton choice1, choice2, choice3, choice4;
     public String position;
-    public Boolean flowerOpened = true;
+    public Boolean opened = true;
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public CursedFlowerEvent(Player player) {
@@ -49,7 +49,7 @@ public class CursedFlowerEvent extends Event {
                     switch (yourChoice){
                         case "c1":
                             position = interacter.purified(); break;
-                        case "c4": flowerOpened = false; break;
+                        case "c4": opened = false; break;
 
                     }break;
                 case "purified":
@@ -66,7 +66,7 @@ public class CursedFlowerEvent extends Event {
                     }break;
                 case "finish":
                     switch (yourChoice){
-                        case "c4": flowerOpened = false; break;
+                        case "c4": opened = false; break;
                     }
             }
         }

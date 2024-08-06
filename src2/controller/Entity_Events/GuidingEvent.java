@@ -21,9 +21,8 @@ public class GuidingEvent extends Event {
     private JButton backButton;
     private GuidingViewModel viewModel;
     private GuidingInteracter interacter;
-    private JPanel playerPanel;
     private Monster monster = new Goblin0();
-    public boolean guideOpened = true;
+    public boolean opened = true;
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
@@ -50,7 +49,6 @@ public class GuidingEvent extends Event {
 
         backButton = viewModel.getBackButton();
         backButton.addActionListener(choiceHandler);
-        playerPanel = viewModel.getPlayerPanel();
 
         interacter = new GuidingInteracter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);
@@ -137,7 +135,7 @@ public class GuidingEvent extends Event {
                     }break;
                 case "talk5":
                     if (Objects.equals(yourChoice, "c1be")){
-                        guideOpened = false; break;/////////////////////////////////////////////////////////////////Leave
+                        opened = false; break;/////////////////////////////////////////////////////////////////Leave
                     }break;
 
 

@@ -86,11 +86,14 @@ public class UI {
         //shop state
         if (gp.gameState == gp.shopState) {
             System.out.println("shop active");
-            drawShopScreen();
+            drawShopWindow();
         }
 
         //battle state
+        if (gp.gameState == gp.battleState) {
+            System.out.println("battle active");
 
+        }
 
 
     }
@@ -175,36 +178,42 @@ public class UI {
 
     }
 
-    public void drawShopScreen() {
+    private void drawShopWindow() {
+        gp.shop.run_event();
 
-        drawShopWindow();
+        // Create a Swing Timer to check the shopOpened state periodically
+        Timer timer = new Timer(100, e -> {
+            if (!gp.shop.opened) {
+                ((Timer) e.getSource()).stop(); // Stop the timer
+                gp.shop.getWindow().setVisible(false);
+            }
+            else {
+                gp.shop.getWindow().setVisible(true);
+            }
+        });
+        timer.start(); // Start the timer
+
+        gp.shop.opened = true;
+        gp.gameState = gp.playState;
     }
 
-    private void drawShopWindow() {
+    private void drawGoblinWindow() {
+        gp.goblin.run_event();
 
-        if (window == null) {
-            ShopEvent shop = new ShopEvent(gp.player);
-            shop.run_event();
+        // Create a Swing Timer to check the shopOpened state periodically
+        Timer timer = new Timer(100, e -> {
+            if (!gp.goblin.opened) {
+                ((Timer) e.getSource()).stop(); // Stop the timer
+                gp.goblin.getWindow().setVisible(false);
+            }
+            else {
+                gp.goblin.getWindow().setVisible(true);
+            }
+        });
+        timer.start(); // Start the timer
 
-            // Create a Swing Timer to check the shopOpened state periodically
-            Timer timer = new Timer(100, e -> {
-                if (!shop.shopOpened) {
-                    ((Timer) e.getSource()).stop(); // Stop the timer
-                    shop.getWindow().setVisible(false);
-                }
-                else {
-                    shop.getWindow().setVisible(true);
-                }
-            });
-            timer.start(); // Start the timer
-
-            shop.shopOpened = true;
-            gp.gameState = gp.playState;
-        }
-
-
-
-
+        gp.goblin.opened = true;
+        gp.gameState = gp.playState;
     }
 
    //private void initializeEventWindow(int x, int y, int width, int height) {
