@@ -1,0 +1,183 @@
+package UseCaseInteracter;
+
+import OutsideEntities.Monsters.Cursed_Tree;
+import OutsideEntities.Player;
+import OutsideEntities.Skills.Basic_attack;
+import OutsideEntities.States.Burning;
+import Presenter.BossPresenter;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
+
+public class BossInteracter {
+
+    JLabel hpLabelNumber; JLabel enemyhp;
+    private JTextArea mainTextArea;
+    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+    private JLabel weaponLabel;
+    private JPanel backPanel;
+    private Player player; Cursed_Tree boss;
+    private BossPresenter presenter;
+    private int m;
+    private int current, used1, used2, used3;
+    private List<String> message;
+    private int bindingRounds = 0;
+    private int r;
+    Random rand = new Random();
+    Basic_attack basic_attack = new Basic_attack();
+
+    public BossInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
+                          JLabel hpLabelNumber, JLabel enemyhp, JLabel weaponLabel, JPanel backPanel, Player player,
+                          Cursed_Tree boss) {
+        this.mainTextArea = mainTextArea;
+        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
+        this.choice4 = choice4;
+        this.hpLabelNumber = hpLabelNumber;
+        this.enemyhp = enemyhp;
+        this.weaponLabel = weaponLabel;
+        this.backPanel = backPanel;
+        this.player = player;
+        this.boss = boss;
+
+        presenter = new BossPresenter(mainTextArea, choice1, choice2, choice3, choice4, hpLabelNumber, enemyhp,
+                weaponLabel, backPanel, player, boss);
+
+        this.used1 = player.getSkills().get(0).getTimes();
+        this.used2 = player.getSkills().get(1).getTimes();
+        this.used3 = player.getSkills().get(2).getTimes();
+        this.m = player.getInventory().getLength() / 2;
+        this.current = 0;
+        this.message = new ArrayList<String>();
+    }
+
+    public String start(){presenter.start(bindingRounds); return "start";}
+
+    public String attack(){presenter.attack();return "attack";}
+
+    public String items(){
+        if (bindingRounds > 0){return "start";}
+        if (player.getInventory().getLength() == 0){
+            presenter.empty_inventory();
+            return "empty_inventory";}
+        presenter.items(current,m);
+        return  "items";
+    }
+
+    public String use1(){
+        if(player.use_item(current)){presenter.items(current,m);}
+        else {
+            if (player.getInventory().getLength() == 0) {
+                presenter.empty_inventory();
+                return "empty_inventory";}
+            else {
+                current = 0;
+                m = player.getInventory().getLength() / 2;
+                hpLabelNumber.setText("" + player.getHealth());
+                presenter.items(current,m);
+                return "items";}
+        }
+        weaponLabel.setText("Weapon: " + player.getWeaponName());
+        return "items";
+    }
+
+    public String use2(){
+        if (current + 1>=player.getInventory().getLength()){return "items";}
+        if(player.use_item(current + 1)){presenter.items(current,m); return "items";}
+        else {
+            current = 0;
+            m = player.getInventory().getLength() / 2;
+            hpLabelNumber.setText("" + player.getHealth());
+            presenter.items(current,m);}
+        weaponLabel.setText("Weapon: " + player.getWeaponName());
+        return "items";
+    }
+
+    public String rollup(){
+        if (current - 2 < 0){presenter.top_items(); }
+        else{current -= 2;presenter.items(current,m); }
+        return "items";
+    }
+
+    public String rolldown(){
+        if (player.getInventory().getLength() % 2 == 1){
+            if (current + 2 > 2 * m){presenter.bot_items();}
+            else {current += 2; presenter.items(current,m); return "items";}
+        }
+        else {
+            if (current + 2 >= 2 * m){presenter.bot_items(); }
+            else {current += 2; presenter.items(current,m); return "items";}
+        }
+        return "items";
+    }
+
+    public String hit1(){
+        if (Objects.equals(player.getWeaponName(), "Flame crossbow")){
+            boss.add_state(new Burning());
+        }
+        r = rand.nextInt(10);
+        boss.setRandint(r);
+        if (r == 4 || r == 5){bindingRounds = 3;}
+        bindingRounds -= 1;
+        message = player.hit(boss, basic_attack);
+        presenter.player_message(message.getFirst());
+        return "player_message";
+    }
+
+    public String hit2(){
+        if (used1 == 0){presenter.skill_not_available(); return "attack";}
+        used1 -= 1;
+        r = rand.nextInt(10);
+        boss.setRandint(r);
+        if (r == 4 || r == 5){bindingRounds = 3;}
+        bindingRounds -= 1;
+        message = player.hit(boss, player.getSkills().getFirst());
+        presenter.player_message(message.getFirst());
+        return "player_message";
+    }
+
+    public String hit3(){
+        if (used2 == 0){presenter.skill_not_available();return "attack";}
+        used2 -= 1;
+        r = rand.nextInt(10);
+        boss.setRandint(r);
+        if (r == 4 || r == 5){bindingRounds = 3;}
+        bindingRounds -= 1;
+        message = player.hit(boss, player.getSkills().get(1));
+        presenter.player_message(message.getFirst());
+        return "player_message";
+    }
+
+    public String hit4(){
+        if (used3 == 0){presenter.skill_not_available();return "attack";}
+        used3 -= 1;
+        r = rand.nextInt(10);
+        boss.setRandint(r);
+        if (r == 4 || r == 5){bindingRounds = 3;}
+        bindingRounds -= 1;
+        message = player.hit(boss, player.getSkills().get(2));
+        presenter.player_message(message.getFirst());
+        return "player_message";
+    }
+
+    public String player_message(){
+        presenter.enemy_message(message.getLast());
+        return "enemy_message";
+    }
+
+    public String enemy_message(){
+        if (player.getHealth()<=0){presenter.lost(); return "lost";}
+        else if (boss.getHealth()<=0){presenter.won(); return "won";}
+        presenter.attacked();
+        return  "attack";
+    }
+
+    public String finished(){
+        player.add_key();
+        player.setMoney(player.getMoney() + 50);
+        presenter.finished();
+        return "finished";
+    }
+}
