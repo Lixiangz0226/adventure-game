@@ -92,7 +92,7 @@ public class UI {
         //battle state
         if (gp.gameState == gp.battleState) {
             System.out.println("battle active");
-
+            drawGoblinWindow();
         }
 
 
