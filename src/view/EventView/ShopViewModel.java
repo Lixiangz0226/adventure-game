@@ -49,7 +49,7 @@ public class ShopViewModel {
 
         mainTextPanel.add(mainTextArea);
 
-        window.setVisible(true);
+        window.setVisible(false);
 
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250, 350, 300, 150);

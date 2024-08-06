@@ -22,13 +22,12 @@ public class ShopEvent extends Event {
     ShopViewModel shopview = new ShopViewModel();
 
     //Open / close checker
-    public boolean opened;
+    public boolean opened = true;
 
     public ShopEvent(Player player) {//////////////////////////////////////////////////////////////////Create shop here
         /*
         Initializer of the event.
          */
-        opened = true;
 
         this.mainTextArea = shopview.getMainTextArea();
         choice1 = shopview.getChoice1();

@@ -179,10 +179,11 @@ public class UI {
     }
 
     private void drawShopWindow() {
+        gp.shop.getWindow().setVisible(true);
         gp.shop.run_event();
 
         // Create a Swing Timer to check the shopOpened state periodically
-        Timer timer = new Timer(100, e -> {
+        Timer timer = new Timer(20, e -> {
             if (!gp.shop.opened) {
                 ((Timer) e.getSource()).stop(); // Stop the timer
                 gp.shop.getWindow().setVisible(false);
@@ -201,7 +202,7 @@ public class UI {
         gp.goblin.run_event();
 
         // Create a Swing Timer to check the shopOpened state periodically
-        Timer timer = new Timer(100, e -> {
+        Timer timer = new Timer(20, e -> {
             if (!gp.goblin.opened) {
                 ((Timer) e.getSource()).stop(); // Stop the timer
                 gp.goblin.getWindow().setVisible(false);
