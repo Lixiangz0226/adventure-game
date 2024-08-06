@@ -79,7 +79,6 @@ public class Map{
         this.startRoom = startRoom;
         this.playerRoom = startRoom;
         this.player = player;
-        player.add_map(this);
 
         JPanel locationPanel = new JPanel();
         locationPanel.setBounds(600, 450, 200, 100);

@@ -17,22 +17,20 @@ public class Player extends AbstractCharacter {
      *     an inventory and a list of Skill skill_set.
       */
 
-    private Inventory inventory = new Inventory();
+    private Inventory inventory = new Inventory();//
     private List<Skill> skills = new ArrayList<>();
-    private int money = 0;
-    private int num_key = 0;
-    private Weapon weapon = new Knife();
-    private List<State> states = new ArrayList<>();
-    private double dmg_dealt_ratio = 1;
-    private double dmg_received_ratio = 1;
-    private Map map;
-    private Boolean piggyBankUsed = false;
+    private int money = 0;//
+    private int num_key = 0;//
+    private Weapon weapon = new Knife();//
+    private List<State> states = new ArrayList<>();//
+    private double dmg_dealt_ratio = 1;//
+    private double dmg_received_ratio = 1;//
+    private Boolean piggyBankUsed = false;//
 
     public Player(String name, int health) {
         /* Initializer */
         super(name, health);
         skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
-        this.map = null;
     }
 
     public void add_state(State state){/* Add a state */states.add(state);}
@@ -126,10 +124,6 @@ public class Player extends AbstractCharacter {
             return false;
         }
     }
-
-    public void add_map(Map map){/* Gives the player the map currently in */this.map = map;}
-
-    public void leave(){/* The Player leaves the event and goes back to the map */map.displayMap();}
 
     public Inventory getInventory() {return inventory;}
 
