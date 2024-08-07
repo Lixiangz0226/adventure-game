@@ -11,4 +11,6 @@ public class Event{
     public Boolean opened = true;
 
     public void run_event(){}
+
+    public Window getWindow (){return null;}
 }

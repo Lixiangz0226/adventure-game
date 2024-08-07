@@ -31,7 +31,6 @@ public class GuidingEvent extends Event {
         Initializer of the event.
          */
 
-        name = "Guiding";
         viewModel = new GuidingViewModel(player, monster);
 
         mainTextArea = viewModel.getMainTextArea();

@@ -20,9 +20,9 @@ public class CursedTreeEvent extends Event {
     private boolean firsttime;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel; JButton backButton;
     private JLabel weaponLabel;
-    private BossViewModel bossViewModel;
 
-    private BossPresenter presenter;
+
+    private BossViewModel bossViewModel;
     private BossInteracter interacter;
 
 
@@ -32,7 +32,6 @@ public class CursedTreeEvent extends Event {
         /*
         Initializer of the event.
          */
-        name = "CursedTree";
         this.boss = new Cursed_Tree();
         this.position = "";
         this.firsttime = true;
