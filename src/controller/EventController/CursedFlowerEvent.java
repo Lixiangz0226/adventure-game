@@ -18,6 +18,7 @@ public class CursedFlowerEvent extends Event {
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public CursedFlowerEvent(Player player) {
+        name = "CursedFlower";
         view = new CursedFlowerViewModel();
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();

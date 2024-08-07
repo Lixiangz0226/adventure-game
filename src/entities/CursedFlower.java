@@ -10,8 +10,12 @@ import java.util.Random;
 
 public class CursedFlower extends AbstractEntity {
 
+
+
+
     public BufferedImage sp1, sp2, sp3;
     int i = 0;
+
 
 
     public CursedFlower(GamePanel gp) {

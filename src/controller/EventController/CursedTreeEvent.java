@@ -24,12 +24,14 @@ public class CursedTreeEvent extends Event {
     private BossPresenter presenter;
     private BossInteracter interacter;
 
+
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public CursedTreeEvent(Player player) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
+        name = "CursedTree";
         this.boss = new Cursed_Tree();
         this.position = "";
         this.firsttime = true;

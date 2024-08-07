@@ -15,6 +15,7 @@ public class Goblin extends AbstractEntity {
         direction = "down";
         speed = 1;
         isEnemy = true;
+        name = "Goblin";
 
         setDialogue();
         getNPCImage();

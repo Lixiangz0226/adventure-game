@@ -94,6 +94,8 @@ public class UI {
         }
 
 
+
+
     }
 
     private void drawTitleScreen() {
@@ -197,6 +199,7 @@ public class UI {
     }
 
     private void drawGoblinWindow() {
+        gp.goblin.getWindow().setVisible(true);
         gp.goblin.run_event();
 
         // Create a Swing Timer to check the shopOpened state periodically

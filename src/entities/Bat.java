@@ -18,6 +18,7 @@ public class Bat extends AbstractEntity {
         setDialogue();
         getNPCImage();
         isEnemy = true;
+        name = "Bat";
 
     }
 

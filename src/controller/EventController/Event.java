@@ -7,5 +7,7 @@ public class Event{
     */
 
     public Boolean opened = true;
+    public String name;
     public void run_event(){}
+
 }

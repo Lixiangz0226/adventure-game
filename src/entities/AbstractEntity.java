@@ -26,6 +26,7 @@ public class AbstractEntity {
     int dialogueIndex = 0;
 
     public boolean isEnemy;
+    public String name;
 
     public AbstractEntity(GamePanel gp) {
         this.gp = gp;

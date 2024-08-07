@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.security.Key;
@@ -94,8 +95,13 @@ public class KeyHandler implements KeyListener {
             }
 
             if (code == KeyEvent.VK_F) {
-                gp.gameState = gp.shopState;
+                FPressed = true;
+                System.out.println("F key detected during dialogue state");
+                // Manually call interactNPC if necessary
+                int npcIndex = gp.cChecker.checkEntity(gp.playerController, gp.npc);
+                gp.playerController.interactNPC(npcIndex);
             }
+
         }
 
         //SHOP state

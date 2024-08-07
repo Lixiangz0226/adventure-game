@@ -1,10 +1,9 @@
 package controller;
 
 import entities.Bat;
-import entities.CursedFlower;
 import entities.Goblin;
 import entities.NPC_Guide;
-import use_case.*;
+import Objects.*;
 
 public class AssetSetter {
 

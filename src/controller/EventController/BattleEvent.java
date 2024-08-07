@@ -30,6 +30,7 @@ public class BattleEvent extends Event {
         /*
         Initializer of the event.
          */
+        name = "Goblin";
 
         battleViewModel = new BattleViewModel(player, monster);
 

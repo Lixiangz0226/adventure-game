@@ -1,4 +1,4 @@
-package use_case;
+package Objects;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;

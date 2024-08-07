@@ -15,6 +15,7 @@ public class NPC_Guide extends AbstractEntity {
         direction = "down";
         speed = 1;
         isEnemy = false;
+        name = "Guide";
 
         setDialogue();
         getNPCImage();

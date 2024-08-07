@@ -6,7 +6,7 @@ import OutsideEntities.Player;
 import controller.EventController.*;
 import entities.AbstractEntity;
 import entities.PlayerController;
-import use_case.AbstractObject;
+import Objects.AbstractObject;
 import view.TileManager;
 
 import javax.swing.*;
@@ -68,6 +68,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int eventState = 4;
     public final int shopState = 5;
     public final int battleState = 6;
+
 
 
     //Constructor method

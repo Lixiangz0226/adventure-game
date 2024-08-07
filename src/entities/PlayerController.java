@@ -10,6 +10,7 @@ import controller.KeyHandler;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class PlayerController extends AbstractEntity {
@@ -18,7 +19,6 @@ public class PlayerController extends AbstractEntity {
     KeyHandler keyH;
     int hasKey = 0;
     int hasSuperKey = 0;
-
 
     //text code, delete after test
     JFrame window;
@@ -146,28 +146,31 @@ public class PlayerController extends AbstractEntity {
     }
 
     //Incomplete method, need to be integrated with other code
-    private void interactNPC(int i) {
+    public void interactNPC(int i) {
         if (i != 999) {
-            if(gp.keyH.enterPressed == true) {
+            if (keyH.enterPressed) {
                 gp.gameState = gp.dialogueState;
                 gp.npc[gp.currentMap][i].speak();
             }
 
+
+            if (keyH.FPressed) {
+                System.out.println("Part 2 check");
+                switch (gp.npc[gp.currentMap][i].name) {
+                    case "Guide":
+                        System.out.println("Shop active");
+                        gp.gameState = gp.shopState;
+                        break;
+
+                    case "Goblin":
+                        gp.gameState = gp.battleState;
+                        break;
+                }
+
+            }
+            keyH.FPressed = false;
         }
-        gp.keyH.enterPressed = false;
-
-        //    if(gp.gameState == gp.dialogueState) {
-        //        if (gp.npc[gp.currentMap][i].isEnemy == false) {
-        //            gp.gameState = gp.shopState;
-        //        }
-        //        else if (gp.npc[gp.currentMap][i].isEnemy == true) {
-        //            gp.gameState = gp.battleState;
-        //        }
-        //
-        //    }
-        //gp.keyH.FPressed = false;
-
-
+        keyH.enterPressed = false;
     }
 
     //Depending on the name of the object, set object to null (to simulate pick up) and update the object's affect
