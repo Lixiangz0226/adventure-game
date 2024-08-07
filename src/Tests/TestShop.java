@@ -8,6 +8,8 @@ public class TestShop {
         Player player = new Player("Vergil", 100);
         player.setMoney(100);
         ShopEvent shop = new ShopEvent(player);
+        shop.getWindow().setVisible(true);
+
         shop.run_event();
     }
 }

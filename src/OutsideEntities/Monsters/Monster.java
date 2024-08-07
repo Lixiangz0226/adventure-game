@@ -1,7 +1,10 @@
 package OutsideEntities.Monsters;
 
 import OutsideEntities.AbstractCharacter;
+import OutsideEntities.States.State;
 
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -18,6 +21,7 @@ public class Monster extends AbstractCharacter {
     private double magical_def;
     private boolean flying;
     private int gold_drop;
+    private ArrayList<State> states = new ArrayList<>();
 
 
     public Monster(String name, int health, int damage, double physical_def, double magical_def, boolean flying, int gold_drop) {
@@ -44,6 +48,23 @@ public class Monster extends AbstractCharacter {
 
     public void setMessage(String message){this.message = message;}
 
-    public Integer hit() {return getDamage() - 2 + rand.nextInt(5);}
+    public Integer hit() {count_effects(); return getDamage() - 2 + rand.nextInt(5);}
+
+    public void add_state(State state){/* Add a state */states.add(state);}
+
+    private void count_effects(){
+        /* Counts all the states */
+        ArrayList<State> removing_states = new ArrayList<State>();
+        for (State state : states) {
+
+            String name = state.getName();
+            if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 10);}
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////State
+
+            if (state.getrounds() == 0){removing_states.add(state);}
+            else{state.count();}
+        }
+        for (State state : removing_states) {states.remove(state);}
+    }
 }
 

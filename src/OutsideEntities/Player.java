@@ -6,10 +6,7 @@ import OutsideEntities.Skills.Charge;
 import OutsideEntities.Skills.Defend;
 import OutsideEntities.Skills.Double_Edge;
 import OutsideEntities.Skills.Skill;
-import OutsideEntities.States.Charging;
-import OutsideEntities.States.Defensive;
-import OutsideEntities.States.PiggyBanking;
-import OutsideEntities.States.State;
+import OutsideEntities.States.*;
 import OutsideEntities.Weapons.Knife;
 import OutsideEntities.Weapons.Weapon;
 
@@ -68,7 +65,10 @@ public class Player extends AbstractCharacter {
         double dmg = 0.0;
         double dmg_received = 0;
 
-        if (Objects.equals(name, "Basic_Attack")){dmg = weapon.get_damage();}
+        if (Objects.equals(name, "Basic_Attack")){
+            if (Objects.equals(getWeaponName(), "Flame crossbow")){
+                monster.add_state(new Burning());
+            }dmg = weapon.get_damage();}
         else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
         else if (Objects.equals(name, "Charge")){add_state(new Charging());}

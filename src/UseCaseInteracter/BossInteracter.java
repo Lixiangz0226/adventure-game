@@ -114,9 +114,6 @@ public class BossInteracter {
     }
 
     public String hit1(){
-        if (Objects.equals(player.getWeaponName(), "Flame crossbow")){
-            boss.add_state(new Burning());
-        }
         r = rand.nextInt(10);
         boss.setRandint(r);
         if (r == 4 || r == 5){bindingRounds = 3;}

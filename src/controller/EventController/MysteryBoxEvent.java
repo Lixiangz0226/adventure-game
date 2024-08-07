@@ -5,6 +5,7 @@ import UseCaseInteracter.MysteryBoxInteracter;
 import view.EventView.MystereyViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
@@ -31,6 +32,8 @@ public class MysteryBoxEvent {
         interacter = new MysteryBoxInteracter(choice1, choice2, choice3, choice4, mysteryView.getMainTextArea(),
                 player, mysteryView.getHpLabelNumber(), mysteryView.getMoneyNumber());
     }
+
+    public Window getWindow(){return mysteryView.getWindow();}
 
     public void run_event() {
         if (Objects.equals(position, "present1")) {position = interacter.present1();}

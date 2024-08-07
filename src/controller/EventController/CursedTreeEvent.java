@@ -7,6 +7,7 @@ import UseCaseInteracter.BossInteracter;
 import view.EventView.BossViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
@@ -58,6 +59,8 @@ public class CursedTreeEvent extends Event {
         interacter = new BossInteracter(mainTextArea, choice1, choice2, choice3, choice4, hpLabelNumber, enemyhp,
                 weaponLabel, backPanel, player, boss);
     }
+
+    public Window getWindow() {return bossViewModel.getWindow();}
 
     public void run_event(){////////////////////////////////////////////////////////////////////////////////////Run here
         /*

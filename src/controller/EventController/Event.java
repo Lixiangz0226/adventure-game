@@ -1,5 +1,7 @@
 package controller.EventController;
 
+import java.awt.*;
+
 public class Event{
     /*
       An event takes place in rooms, and can be
@@ -7,7 +9,6 @@ public class Event{
     */
 
     public Boolean opened = true;
-    public String name;
-    public void run_event(){}
 
+    public void run_event(){}
 }

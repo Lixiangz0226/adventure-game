@@ -65,7 +65,7 @@ public class GuidingEvent extends Event {
         else {position = interacter.finished();}
     }
 
-    public Window get_window(){/* Get the window */return viewModel.getWindow();}
+    public Window getWindow(){/* Get the window */return viewModel.getWindow();}
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {

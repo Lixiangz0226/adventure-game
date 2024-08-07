@@ -10,8 +10,7 @@ import java.util.Objects;
 
 public class ShopInteracter {
 
-    JTextArea mainTextarea;
-    JButton choice1, choice2, choice3, choice4;
+    JButton choice1, choice3;
     Player player;
     ShopPresenter presenter;
     private Boolean bought1 = false, bought2 = false, bought3 = false;
@@ -19,15 +18,11 @@ public class ShopInteracter {
     private Item item2 = new Life_Potion();
     private Item item3 = new Golden_Key();
 
-    public ShopInteracter(JTextArea mainTextarea, ShopPresenter presenter, JButton choice1, JButton choice2,
+    public ShopInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2,
                           JButton choice3, JButton choice4, Player player) {
-
-        this.mainTextarea = mainTextarea;
-        this.presenter = presenter;
         this.choice1 = choice1;
-        this.choice2 = choice2;
         this.choice3 = choice3;
-        this.choice4 = choice4;
+        this.presenter = new ShopPresenter(mainTextArea, choice1, choice2, choice3, choice4);
         this.player = player;
     }
 

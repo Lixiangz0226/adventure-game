@@ -39,9 +39,7 @@ public class ShopEvent extends Event {
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
 
-        presenter = new ShopPresenter(mainTextArea, choice1, choice2, choice3, choice4);
-
-        shopInteracter = new ShopInteracter(mainTextArea,presenter,choice1,choice2,choice3,choice4,player);
+        shopInteracter = new ShopInteracter(mainTextArea,choice1,choice2,choice3,choice4,player);
     }
 
     public void run_event(){///////////////////////////////////////////////////////////////////////////////Run shop here

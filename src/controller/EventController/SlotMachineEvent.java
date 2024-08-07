@@ -5,6 +5,7 @@ import UseCaseInteracter.SlotMachineInteracter;
 import view.EventView.SlotViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,10 +31,11 @@ public class SlotMachineEvent extends Event {
                 player);
     }
 
+    public Window getWindow (){return slotViewModel.getWindow();}
+
     public void run_event(){
         if (times >= 10){position = interacter.finish();}
         else {position = interacter.play();}
-
     }
 
     public class ChoiceHandler implements ActionListener {

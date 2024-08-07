@@ -5,6 +5,7 @@ import UseCaseInteracter.CursedFlowerInteracter;
 import view.EventView.CursedFlowerViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
@@ -31,6 +32,8 @@ public class CursedFlowerEvent extends Event {
 
         interacter = new CursedFlowerInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }
+
+    public Window getWindow() {return view.getWindow();}
 
     public void run_event(){
         if(Objects.equals(position, "finish")){position = interacter.finish();}

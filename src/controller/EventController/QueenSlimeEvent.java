@@ -5,6 +5,7 @@ import UseCaseInteracter.QueenSlimeInteracter;
 import view.EventView.QueenViewModel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
@@ -31,6 +32,8 @@ public class QueenSlimeEvent extends Event {
 
         interacter = new QueenSlimeInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }
+
+    public Window getWindow(){return view.getWindow();}
 
     public void run_event(){
         switch (position){
