@@ -47,18 +47,13 @@ public class Cursed_Tree extends Boss{
         states.add(state);
     }
 
-    private void count_effects(){
+    public void count_effects(){
         /* Counts all the states */
-        ArrayList<State> removing_states = new ArrayList<State>();
+        super.count_effects();
         for (State state : states) {
-
             String name = state.getName();
-            if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 20);}
-
-            if (state.getrounds() == 0){removing_states.add(state);}
-            else{state.count();}
+            if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 10);}
         }
-        for (State state : removing_states) {states.remove(state);}
     }
 
     public void setRandint(int r){randint = r;}

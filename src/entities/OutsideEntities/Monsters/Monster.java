@@ -52,7 +52,7 @@ public class Monster extends AbstractCharacter {
 
     public void add_state(State state){/* Add a state */states.add(state);}
 
-    private void count_effects(){
+    public void count_effects(){
         /* Counts all the states */
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
