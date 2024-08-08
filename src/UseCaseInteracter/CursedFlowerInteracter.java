@@ -8,7 +8,7 @@ import Presenter.CursedFlowerPresenter;
 import javax.swing.*;
 import java.util.Objects;
 
-public class CursedFlowerInteracter {
+public class CursedFlowerInteracter extends EventInteracter{
     private CursedFlowerPresenter presenter;
     private Player player;
 

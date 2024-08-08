@@ -2,7 +2,7 @@ package Presenter;
 
 import javax.swing.*;
 
-public class PlayerInfoPresenter {
+public class PlayerInfoPresenter extends EventPresenter{
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;
 

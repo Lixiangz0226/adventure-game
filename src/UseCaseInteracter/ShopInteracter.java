@@ -10,7 +10,7 @@ import Presenter.ShopPresenter;
 import javax.swing.*;
 import java.util.Objects;
 
-public class ShopInteracter {
+public class ShopInteracter extends EventInteracter{
 
     JButton choice1, choice3;
     Player player;

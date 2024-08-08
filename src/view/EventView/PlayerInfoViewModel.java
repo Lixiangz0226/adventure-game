@@ -3,7 +3,7 @@ package view.EventView;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerInfoViewModel extends ShopViewModel{
+public class PlayerInfoViewModel extends EventViewModel{
 
     private JPanel backPanel;
     private JButton backButton;

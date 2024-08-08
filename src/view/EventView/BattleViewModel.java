@@ -6,7 +6,7 @@ import entities.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class BattleViewModel extends ShopViewModel{
+public class BattleViewModel extends EventViewModel{
 
     private JPanel playerPanel;
     private JLabel hpLabelNumber;

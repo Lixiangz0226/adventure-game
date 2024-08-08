@@ -5,8 +5,8 @@ import entities.Player;
 
 import javax.swing.*;
 
-public class ShopPresenter {
-    Player player; JTextArea mainTextArea;
+public class ShopPresenter extends EventPresenter{
+    JTextArea mainTextArea;
     JButton choice1, choice2, choice3, choice4;
 
     public ShopPresenter(JTextArea mainTextarea, JButton choice1, JButton choice2, JButton choice3, JButton choice4) {

@@ -2,7 +2,7 @@ package Presenter;
 
 import javax.swing.*;
 
-public class CursedFlowerPresenter {
+public class CursedFlowerPresenter extends EventPresenter{
     JTextArea mainTextArea;
     JButton choice1, choice2, choice3, choice4;
 

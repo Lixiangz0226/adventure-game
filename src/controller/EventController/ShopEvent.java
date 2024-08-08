@@ -18,17 +18,13 @@ public class ShopEvent extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
     ShopInteracter shopInteracter;
-    ShopPresenter presenter;
     ShopViewModel shopview = new ShopViewModel();
 
     //Open / close checker
     public boolean opened = true;
 
     public ShopEvent(Player player) {//////////////////////////////////////////////////////////////////Create shop here
-        /*
-        Initializer of the event.
-         */
-
+        /* Constructor of the event. */
         this.mainTextArea = shopview.getMainTextArea();
         choice1 = shopview.getChoice1();
         choice2 = shopview.getChoice2();

@@ -9,7 +9,7 @@ import Presenter.PlayerInfoPresenter;
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class PlayerInfoInteracter {
+public class PlayerInfoInteracter extends EventInteracter{
     private PlayerInfoPresenter presenter;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private int index = 0;

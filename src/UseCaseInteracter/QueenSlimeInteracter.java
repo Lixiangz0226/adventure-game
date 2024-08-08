@@ -5,7 +5,7 @@ import Presenter.QueenSlimePresenter;
 
 import javax.swing.*;
 
-public class QueenSlimeInteracter {
+public class QueenSlimeInteracter extends EventInteracter{
     private Player player;
     private QueenSlimePresenter presenter;
 

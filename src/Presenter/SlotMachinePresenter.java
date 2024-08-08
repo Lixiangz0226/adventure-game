@@ -2,7 +2,7 @@ package Presenter;
 
 import javax.swing.*;
 
-public class SlotMachinePresenter {
+public class SlotMachinePresenter extends EventPresenter{
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;
 
