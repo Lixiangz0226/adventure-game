@@ -1,10 +1,8 @@
-package Tests;
-
-import entities.OutsideEntities.Items.Life_Potion;
-import entities.OutsideEntities.Items.PurificationPotion;
-import entities.Player;
-import entities.OutsideEntities.States.PiggyBanking;
-import entities.OutsideEntities.Weapons.Flame_Crossbow;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Items.PurificationPotion;
+import OutsideEntities.Player;
+import OutsideEntities.States.PiggyBanking;
+import OutsideEntities.Weapons.Flame_Crossbow;
 import controller.EventController.PlayerInfo;
 
 public class TestPlayerInfo {
