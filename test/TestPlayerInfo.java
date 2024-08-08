@@ -1,5 +1,3 @@
-package Tests;
-
 import OutsideEntities.Items.Life_Potion;
 import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Player;

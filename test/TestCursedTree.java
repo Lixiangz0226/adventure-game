@@ -1,5 +1,3 @@
-package Tests;
-
 import OutsideEntities.Items.*;
 import OutsideEntities.Player;
 import OutsideEntities.Weapons.*;

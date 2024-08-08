@@ -1,5 +1,3 @@
-package Tests;
-
 import OutsideEntities.Player;
 import controller.EventController.ShopEvent;
 

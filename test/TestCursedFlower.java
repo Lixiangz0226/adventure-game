@@ -1,5 +1,3 @@
-package Tests;
-
 import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Player;
 import controller.EventController.CursedFlowerEvent;
