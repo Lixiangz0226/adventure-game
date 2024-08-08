@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     public PlayerController playerController = new PlayerController(this,keyH);
     public AbstractObject[][] obj = new AbstractObject[maxMap][10];
     public AbstractEntity[][] npc = new AbstractEntity[maxMap][10];
-    public Player player = new Player("Steve", 50);
+    public static Player player = new Player("Steve", 50);
 
     //Generate events
     public ShopEvent shop = new ShopEvent(player);
