@@ -4,7 +4,7 @@ import OutsideEntities.Player;
 
 import javax.swing.*;
 
-public class MysteryBoxPresenter {
+public class MysteryBoxPresenter extends EventPresenter{
 
     private JButton choice1, choice2, choice3, choice4;
     private JTextArea mainTextArea;

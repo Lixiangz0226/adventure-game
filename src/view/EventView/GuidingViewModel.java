@@ -6,7 +6,7 @@ import OutsideEntities.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class GuidingViewModel extends ShopViewModel{
+public class GuidingViewModel extends EventViewModel{
 
     private JPanel playerPanel;
     private JLabel hpLabelNumber;

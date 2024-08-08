@@ -6,7 +6,7 @@ import Presenter.SlotMachinePresenter;
 import javax.swing.*;
 import java.util.Random;
 
-public class SlotMachineInteracter {
+public class SlotMachineInteracter extends EventInteracter{
     private SlotMachinePresenter presenter;
     private Player player;
     Random rand = new Random();

@@ -1,6 +1,6 @@
 package view.EventView;
 
-public class SlotViewModel extends ShopViewModel {
+public class SlotViewModel extends EventViewModel {
 
     public SlotViewModel() {
         super();

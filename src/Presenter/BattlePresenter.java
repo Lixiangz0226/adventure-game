@@ -5,7 +5,7 @@ import OutsideEntities.Player;
 
 import javax.swing.*;
 
-public class BattlePresenter {
+public class BattlePresenter extends EventPresenter{
 
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;

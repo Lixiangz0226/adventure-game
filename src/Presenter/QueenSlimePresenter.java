@@ -2,7 +2,7 @@ package Presenter;
 
 import javax.swing.*;
 
-public class QueenSlimePresenter {
+public class QueenSlimePresenter extends EventPresenter{
     private JButton choice1, choice2, choice3, choice4;
     private JTextArea mainTextArea;
 

@@ -5,7 +5,7 @@ import OutsideEntities.Player;
 
 import javax.swing.*;
 
-public class GuidingPresenter {
+public class GuidingPresenter extends EventPresenter{
 
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;

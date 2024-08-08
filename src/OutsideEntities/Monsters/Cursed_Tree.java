@@ -47,6 +47,7 @@ public class Cursed_Tree extends Boss{
         states.add(state);
     }
 
+    @Override
     public void count_effects(){
         /* Counts all the states */
         super.count_effects();

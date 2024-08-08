@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GuidingInteracter {
+public class GuidingInteracter extends EventInteracter{
     private Player player;
     private Monster monster;
     private int m; private int current, used1, used2, used3;

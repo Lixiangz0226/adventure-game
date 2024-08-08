@@ -1,6 +1,6 @@
 package view.EventView;
 
-public class CursedFlowerViewModel extends ShopViewModel{
+public class CursedFlowerViewModel extends EventViewModel{
     public CursedFlowerViewModel() {
         super();
         getChoice1().setActionCommand("c1");

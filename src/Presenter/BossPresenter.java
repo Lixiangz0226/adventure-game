@@ -5,7 +5,7 @@ import OutsideEntities.Player;
 
 import javax.swing.*;
 
-public class BossPresenter {
+public class BossPresenter extends EventPresenter{
 
     JLabel hpLabelNumber; JLabel enemyhp;
     private JTextArea mainTextArea;

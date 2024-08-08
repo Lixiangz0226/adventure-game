@@ -3,7 +3,7 @@ package view.EventView;
 import javax.swing.*;
 import java.awt.*;
 
-public class MystereyViewModel extends ShopViewModel{
+public class MystereyViewModel extends EventViewModel{
     private JPanel playerPanel;
     private JLabel hpLabelNumber;
     private JLabel moneyNumber;
