@@ -4,6 +4,7 @@ import entities.Bat;
 import entities.Goblin;
 import entities.NPC_Guide;
 import Objects.*;
+import OutsideEntities.Items.*;
 
 public class AssetSetter {
 
