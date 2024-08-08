@@ -12,6 +12,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
+import Objects.*;
+import static controller.GamePanel.player;
+import OutsideEntities.Items.*;
 
 public class PlayerController extends AbstractEntity {
 
