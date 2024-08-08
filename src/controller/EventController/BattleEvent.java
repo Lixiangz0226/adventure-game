@@ -27,9 +27,7 @@ public class BattleEvent extends Event {
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public BattleEvent(Player player, Monster monster) {////////////////////////////////////////////////////////////////////Create here
-        /*
-        Initializer of the event.
-         */
+        /* Initializer of the event. */
         battleViewModel = new BattleViewModel(player, monster);
 
         mainTextArea = battleViewModel.getMainTextArea();

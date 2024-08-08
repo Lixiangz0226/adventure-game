@@ -1,13 +1,6 @@
 package OutsideEntities.Monsters;
 
-import OutsideEntities.States.State;
-
-import java.util.List;
-
 public class Goblin0 extends Monster{
-    String name;
-    int health;
-    List<State> states;
 
     public Goblin0() {
         super("Goblin", 10, 1, 1,1,false, 20);

@@ -112,6 +112,7 @@ public class Player extends AbstractCharacter {
         else{
             if (Objects.equals(inventory.getItem(index).getName(), "Life Potion")){
                 this.setHealth(this.getHealth() + 20);
+                inventory.removeItem(inventory.getItem(index));
             }
             else if (Objects.equals(inventory.getItem(index).getName(), "Piggy Bank")){
                 if (!piggyBankUsed){
@@ -121,12 +122,9 @@ public class Player extends AbstractCharacter {
             }
 
             ////////////////////////////////////////////////////////////////////////////////////////////consumable item
-
-            inventory.removeItem(inventory.getItem(index));
             return false;
         }
     }
-
 
     public Inventory getInventory() {return inventory;}
 

@@ -19,7 +19,9 @@ public class TestBattle {
         player.getInventory().addItem(new Spear());
         player.getInventory().addItem(new Staff());
 
-        BattleEvent battle = new BattleEvent(player, new Bat());
+//        BattleEvent battle = new BattleEvent(player, new Bat());
+        BattleEvent battle = new BattleEvent(player, new Goblin());
+
         battle.getWindow().setVisible(true);
 
         battle.run_event();

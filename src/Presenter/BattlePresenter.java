@@ -164,6 +164,6 @@ public class BattlePresenter {
 
     public void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}
 
-    public void renewhp(){hpLabelNumber.setText("" + player.getHealth());
+    public void renewHP(){hpLabelNumber.setText("" + player.getHealth());
     enemyhp.setText("" + monster.getHealth());}
 }

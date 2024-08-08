@@ -4,24 +4,17 @@ import OutsideEntities.Monsters.Monster;
 import OutsideEntities.Player;
 import OutsideEntities.Skills.Basic_attack;
 import Presenter.BattlePresenter;
-import Presenter.GuidingPresenter;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BattleInteracter {
-    private JTextArea mainTextArea;
-    private JButton choice1, choice2, choice3, choice4;
-    private JPanel backPanel;
-    private JLabel hpLabelNumber, enemyhp;
     private Player player;
     private Monster monster;
-    private boolean firsttime;
     private int m; private int current, used1, used2, used3;
     private BattlePresenter presenter;
     private List<String> message = new ArrayList<String>();
-    private JButton backButton;
     Basic_attack basic_attack = new Basic_attack();
 
     public BattleInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
@@ -29,21 +22,10 @@ public class BattleInteracter {
                             Monster monster) {
         this.monster = monster;
         this.player = player;
-        this.firsttime = true;
         this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
         this.used3 = player.getSkills().get(2).getTimes();
         this.m = player.getInventory().getLength() / 2;
         this.current = 0;
-
-        this.choice1 = choice1;
-        this.choice2 = choice2;
-        this.choice3 = choice3;
-        this.choice4 = choice4;
-        this.backPanel = backPanel;
-
-        this.mainTextArea = mainTextArea;
-        this.hpLabelNumber = hpLabelNumber;
-        this.enemyhp = enemyhp;
 
         presenter = new BattlePresenter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);
@@ -74,7 +56,7 @@ public class BattleInteracter {
                 presenter.empty_inventory();
                 return  "empty_inventory";}
             current = 0;
-            presenter.renewhp();
+            presenter.renewHP();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);
         }
@@ -86,7 +68,7 @@ public class BattleInteracter {
         if(player.use_item(current + 1)){presenter.items(current,m);}
         else {
             current = 0;
-            presenter.renewhp();
+            presenter.renewHP();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);}
         return "items";
