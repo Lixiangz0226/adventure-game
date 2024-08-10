@@ -13,12 +13,13 @@ import java.beans.EventHandler;
 public class PlayerInfo extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    private PlayerInfoViewModel view = new PlayerInfoViewModel();
+    private PlayerInfoViewModel view;
     private PlayerInfoInteracter interacter;
     private String position = "start";
     public Boolean infoOpened = true;
 
     public PlayerInfo(Player player) {
+        view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
         choice3 = view.getChoice3();

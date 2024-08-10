@@ -27,9 +27,9 @@ public class Player extends AbstractCharacter {
     private int num_key = 0;
     private Weapon weapon = new Knife();
     private List<State> states = new ArrayList<>();
-    private double dmg_dealt_ratio = 1;
-    private double dmg_received_ratio = 1;
-    private Boolean piggyBankUsed = false;
+    public double dmgDealtRatio = 1;
+    public double dmgReceivedRatio = 1;
+    public Boolean piggyBankUsed = false;
 
     public Player(String name, int health) {
         /* Initializer */
@@ -41,15 +41,18 @@ public class Player extends AbstractCharacter {
 
     private void count_effects(){
         /* Counts all the states */
-        dmg_received_ratio = 1.0;
-        dmg_dealt_ratio = 1.0;
+        dmgReceivedRatio = 1.0;
+        dmgDealtRatio = 1.0;
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
 
             String name = state.getName();
-            if (Objects.equals(name, "Defensive")) {dmg_received_ratio *= 0;}
-            else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {dmg_dealt_ratio *= 2;}
-            else if (Objects.equals(name, "Piggy Banking")) {dmg_dealt_ratio *= (1 + (getMoney() * 0.01));}
+            if (Objects.equals(name, "Defensive")) {
+                dmgReceivedRatio *= 0;}
+            else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {
+                dmgDealtRatio *= 2;}
+            else if (Objects.equals(name, "Piggy Banking")) {
+                dmgDealtRatio *= (1 + (getMoney() * 0.01));}
             ///////////////////////////////////////////////////////////////////////////////////////////////////////State
 
             if (state.getrounds() == 0){removing_states.add(state);}
@@ -75,7 +78,7 @@ public class Player extends AbstractCharacter {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////skills
         //state damage multiplier
         count_effects();
-        dmg *= dmg_dealt_ratio;
+        dmg *= dmgDealtRatio;
 
         //flying bonus
         if (monster.getFlying() && weapon.flying_bonus()){dmg *= 1.5;}
@@ -92,7 +95,7 @@ public class Player extends AbstractCharacter {
         double randnum_acc = Math.random();
         if (randnum_acc > weapon.get_accuracy()){dmg *= 0;}
 
-        dmg_received = (int)(dmg_received_ratio * (monster.hit()) + dmg_received);
+        dmg_received = (int)(dmgReceivedRatio * (monster.hit()) + dmg_received);
         setHealth(getHealth() - (int)dmg_received);
         monster.setHealth(monster.getHealth() - (int)dmg);
         result.add("You used " + skill.getName() + " and dealt " + (int)dmg + " damage.");
@@ -136,7 +139,11 @@ public class Player extends AbstractCharacter {
 
     public void add_key(){num_key += 1;}
 
-    public int get_key(){return num_key;}
+    public int getKey(){return num_key;}
+
+    public void setKey(int num_key){this.num_key = num_key;}
+
+    public void setWeapon(Weapon weapon){this.weapon = weapon;}
 
     public String getWeaponName(){return weapon.getName();}
 
