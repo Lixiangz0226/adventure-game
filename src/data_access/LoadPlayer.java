@@ -13,10 +13,7 @@ public class LoadPlayer {
 
     File myObj = new File("src\\data_access\\Player.txt");
 
-
-    public LoadPlayer() throws FileNotFoundException {
-
-    }
+    public LoadPlayer() {}
 
     public Player LoadPlayer() throws FileNotFoundException {
         Scanner myReader = new Scanner(myObj);
@@ -63,8 +60,7 @@ public class LoadPlayer {
             } else if (Objects.equals(item, "Piggy Bank")) {
                 player.getInventory().addItem(new PiggyBank());
             } else if (Objects.equals(item, "Purification Potion")) {
-                player.getInventory().addItem(new
-                        PurificationPotion());
+                player.getInventory().addItem(new PurificationPotion());
             }
         }
     }
