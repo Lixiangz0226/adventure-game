@@ -29,6 +29,8 @@ public class State{
 
     public void renewRounds(){rounds = maxrounds;}
 
+    public void setRounds(int rounds){this.rounds = rounds;}
+
     public String getDescription(){return this.description;}
 
     public void setDescription(String description){this.description = description;}

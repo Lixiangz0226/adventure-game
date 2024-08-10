@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import entities.Player;
+import OutsideEntities.Player;
 import UseCaseInteracter.PlayerInfoInteracter;
 import view.EventView.PlayerInfoViewModel;
 
@@ -8,19 +8,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.EventHandler;
 
 public class PlayerInfo extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    private PlayerInfoViewModel view = new PlayerInfoViewModel();
+    private PlayerInfoViewModel view;
     private PlayerInfoInteracter interacter;
     private String position = "start";
     public Boolean infoOpened = true;
 
     public PlayerInfo(Player player) {
-
-
-
+        view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
         choice3 = view.getChoice3();
@@ -47,7 +46,7 @@ public class PlayerInfo extends Event {
                         case "c1": position = interacter.inventory(); break;
                         case "c2": position = interacter.skills(); break;
                         case "c3": position = interacter.states(); break;
-                        case "c5": opened = false; break;
+                        case "c5": infoOpened = false; break;
                     }break;
                 case "inventory":
                     switch (yourChoice) {
