@@ -19,14 +19,14 @@ public class ShopInteracter extends EventInteracter{
     private Item item3 = new Golden_Key();
 
     public ShopInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2,
-                          JButton choice3, JButton choice4, Player player) {
+                          JButton choice3, JButton choice4, Player player) {// Constructor
         this.choice1 = choice1;
         this.choice3 = choice3;
         this.presenter = new ShopPresenter(mainTextArea, choice1, choice2, choice3, choice4);
         this.player = player;
     }
 
-    public void buy1(){
+    public void buy1(){// The use case buying the first item
         if (Objects.equals(choice1.getText(), "-")) {
             presenter.rebuy();
             return;
@@ -40,7 +40,7 @@ public class ShopInteracter extends EventInteracter{
         presenter.shop(bought1, bought2, bought3, item1, item2, item3);
     }
 
-    public void buy2(){
+    public void buy2(){// The use case buying the second item
         if (player.getMoney() < 40) {
             presenter.lackofmoney();
             return;
@@ -51,7 +51,7 @@ public class ShopInteracter extends EventInteracter{
         presenter.shop(bought1, bought2, bought3, item1, item2, item3);
     }
 
-    public void buy3(){
+    public void buy3(){// The use case buying the third item
         if (Objects.equals(choice3.getText(), "-")) {
             presenter.rebuy();
             return;
@@ -65,6 +65,7 @@ public class ShopInteracter extends EventInteracter{
         presenter.shop(bought1, bought2, bought3, item1, item2, item3);
     }
 
-    public void shop(){presenter.shop(bought1, bought2, bought3, item1, item2, item3);}
+    public void shop(){// The basic shop use case
+        presenter.shop(bought1, bought2, bought3, item1, item2, item3);}
 
 }

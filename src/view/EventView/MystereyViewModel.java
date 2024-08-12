@@ -9,7 +9,7 @@ public class MystereyViewModel extends EventViewModel{
     private JLabel moneyNumber;
 
 
-    public MystereyViewModel() {
+    public MystereyViewModel() {// Constructor
         super();
         getChoice1().setActionCommand("c1mb");
         getChoice2().setActionCommand("c2mb");
@@ -42,7 +42,7 @@ public class MystereyViewModel extends EventViewModel{
         playerPanel.add(moneyNumber);
     }
 
-    public JLabel getHpLabelNumber() {return hpLabelNumber;}
+    public JLabel getHpLabelNumber() {/* Return the hpLabelNumber */return hpLabelNumber;}
 
-    public JLabel getMoneyNumber() {return moneyNumber;}
+    public JLabel getMoneyNumber() {/* Return the moneyNumber */return moneyNumber;}
 }

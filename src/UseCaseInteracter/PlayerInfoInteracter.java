@@ -17,7 +17,7 @@ public class PlayerInfoInteracter extends EventInteracter{
     private ArrayList<State> states;
 
     public PlayerInfoInteracter(Player player, JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
-                                JButton choice4) {
+                                JButton choice4) {// Constructor
         presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4);
         inventory.addAll(player.getInventory().getItems());
         inventory.add(player.getWeapon());
@@ -25,18 +25,18 @@ public class PlayerInfoInteracter extends EventInteracter{
         states = (ArrayList) player.getStates();
     }
 
-    public String start(){
+    public String start(){// The start use case
         presenter.start();
         return "start";
     }
 
-    public String inventory(){
+    public String inventory(){// The inventory use case
         index = 0;
         presenter.describe((index + 1) + ". " + inventory.get(index).getDescription());
         return "inventory";
     }
 
-    public String upInv(){
+    public String upInv(){// The use case rolling up the inventory
         if (index <= 0){
             return "inventory";
         }
@@ -45,7 +45,7 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "inventory";
     }
 
-    public String downInv(){
+    public String downInv(){// The use case rolling down the inventory
         if (index >= inventory.size() - 1){
             return "inventory";
         }
@@ -54,13 +54,13 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "inventory";
     }
 
-    public String skills(){
+    public String skills(){// The Skills use case
         index = 0;
         presenter.describe((index + 1) + ". " + skills.get(index).getDescription());
         return "skills";
     }
 
-    public String upSkill(){
+    public String upSkill(){// The use case rolling up the skill set
         if (index <= 0){
             return "skills";
         }
@@ -69,7 +69,7 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "skills";
     }
 
-    public String downSkill(){
+    public String downSkill(){// The use case rolling down the skill set
         if (index >= skills.size() - 1){
             return "skills";
         }
@@ -78,7 +78,7 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "skills";
     }
 
-    public String states(){
+    public String states(){// The states use case
         if (states.isEmpty()){
             presenter.describe("-");
             return "states";
@@ -88,7 +88,7 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "states";
     }
 
-    public String upState(){
+    public String upState(){// The use case rolling up the state list
         if (states.isEmpty()){
             presenter.describe("-");
             return "states";
@@ -101,7 +101,7 @@ public class PlayerInfoInteracter extends EventInteracter{
         return "states";
     }
 
-    public String downState(){
+    public String downState(){// The use case rolling down the state list
         if (states.isEmpty()){
             presenter.describe("-");
             return "states";

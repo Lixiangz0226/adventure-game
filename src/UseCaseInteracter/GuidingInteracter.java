@@ -19,7 +19,7 @@ public class GuidingInteracter extends EventInteracter{
 
     public GuidingInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                             JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,
-                            Monster monster) {
+                            Monster monster) {//Constructor
         this.monster = monster;
         this.player = player;
         this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
@@ -29,15 +29,19 @@ public class GuidingInteracter extends EventInteracter{
         presenter = new GuidingPresenter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);
     }
-    public String chasing(){presenter.chasing(); return "chasing";}
+    public String chasing(){// The use case of the story
+        presenter.chasing(); return "chasing";}
 
-    public String start(){presenter.start(); return "start";}
+    public String start(){// The start use case
+        presenter.start(); return "start";}
 
-    public String finished(){presenter.finished(); return "finished";}
+    public String finished(){// The finished use case
+        presenter.finished(); return "finished";}
 
-    public String attack(){presenter.attack(); return "attack";}
+    public String attack(){// The attack use case
+        presenter.attack(); return "attack";}
 
-    public String items(){
+    public String items(){// The items use case
         if (player.getInventory().getLength() == 0){
             presenter.empty_inventory();
             return "empty_inventory";}
@@ -46,7 +50,7 @@ public class GuidingInteracter extends EventInteracter{
         return "items";
     }
 
-    public String useitem1(){
+    public String useitem1(){// The use case the player using the first item
         if(player.use_item(current)){presenter.items(current,m);}
         else {
             if (player.getInventory().getLength() == 0) {
@@ -60,7 +64,7 @@ public class GuidingInteracter extends EventInteracter{
         return "items";
     }
 
-    public String useitem2(){
+    public String useitem2(){// The use case the player using the second item
         if (current + 1>=player.getInventory().getLength()){return "items";}
         if(player.use_item(current + 1)){presenter.items(current,m);}
         else {
@@ -71,13 +75,13 @@ public class GuidingInteracter extends EventInteracter{
         return "items";
     }
 
-    public String rollup(){
+    public String rollup(){// The use case rolling up the inventory
         if (current - 2 < 0){presenter.top_items();}
         else{current -= 2; presenter.items(current,m);}
         return "items";
     }
 
-    public String rolldown(){
+    public String rolldown(){// The use case rolling down the inventory
         if (player.getInventory().getLength() % 2 == 1){
             if (current + 2 > 2 * m){presenter.bot_items();}
             else {current += 2; presenter.items(current,m);}
@@ -89,13 +93,13 @@ public class GuidingInteracter extends EventInteracter{
         return "items";
     }
 
-    public String hit1(){
+    public String hit1(){// The use case using the first skill
         message = player.hit(monster, basic_attack);
         presenter.player_message(message.getFirst());
         return "player_message";
     }
 
-    public String hit2(){
+    public String hit2(){// The use case using the second skill
         if (used1 == 0){presenter.skill_not_available(); return "attack";}
         used1 -= 1;
         message = player.hit(monster, player.getSkills().getFirst());
@@ -103,7 +107,7 @@ public class GuidingInteracter extends EventInteracter{
         return "player_message";
     }
 
-    public String hit3(){
+    public String hit3(){// The use case using the third skill
         if (used2 == 0){presenter.skill_not_available(); return "attack";}
         used2 -= 1;
         message = player.hit(monster, player.getSkills().get(1));
@@ -111,7 +115,7 @@ public class GuidingInteracter extends EventInteracter{
         return "player_message";
     }
 
-    public String hit4(){
+    public String hit4(){// The use case using the forth skill
         if (used3 == 0){presenter.skill_not_available();return "attack";}
         used3 -= 1;
         message = player.hit(monster, player.getSkills().get(2));
@@ -119,12 +123,12 @@ public class GuidingInteracter extends EventInteracter{
         return "player_message";
     }
 
-    public String playerMessage(){
+    public String playerMessage(){// The use case presenting the message
         presenter.enemy_message(message.getLast());
         return "enemy_message";
     }
 
-    public String enemyMessage(){
+    public String enemyMessage(){// The use case presenting the message
         if (player.getHealth()<=0){
             presenter.lost();
             return "lost";}
@@ -135,34 +139,34 @@ public class GuidingInteracter extends EventInteracter{
         return "attack";
     }
 
-    public String won(){
+    public String won(){// The reward use case
         player.add_key();
         player.setMoney(player.getMoney() + monster.getGoldDrop());
         presenter.finished();
         return "finished";
     }
 
-    public String talk1(){
+    public String talk1(){// The story use case
         presenter.talk1();
         return "talk1";
     }
 
-    public String talk2(){
+    public String talk2(){// The story use case
         presenter.talk2();
         return "talk2";
     }
 
-    public String talk3(){
+    public String talk3(){// The story use case
         presenter.talk3();
         return "talk3";
     }
 
-    public String talk4(){
+    public String talk4(){// The story use case
         presenter.talk4();
         return "talk4";
     }
 
-    public String talk5(){
+    public String talk5(){// The story use case
         presenter.talk5();
         return "talk5";
     }

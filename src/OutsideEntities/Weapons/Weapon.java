@@ -2,7 +2,7 @@ package OutsideEntities.Weapons;
 
 import OutsideEntities.Items.Item;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
     /**
      * Represents a weapon that can be used by characters in the game.
      * A weapon has a name, damage, accuracy, and a critical rate.

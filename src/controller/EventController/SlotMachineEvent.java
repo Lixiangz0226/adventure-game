@@ -19,6 +19,7 @@ public class SlotMachineEvent extends Event {
     private String position = "";
 
     public SlotMachineEvent(Player player) {
+        // Constructor
         choice1 = slotViewModel.getChoice1();
         choice2 = slotViewModel.getChoice2();
         choice3 = slotViewModel.getChoice3();
@@ -31,9 +32,10 @@ public class SlotMachineEvent extends Event {
                 player);
     }
 
-    public Window getWindow (){return slotViewModel.getWindow();}
+    public Window getWindow (){/* Get Game Window */return slotViewModel.getWindow();}
 
     public void run_event(){
+        // Runs the event at the start or the place the player left
         if (times >= 10){position = interacter.finish();}
         else {position = interacter.play();}
     }

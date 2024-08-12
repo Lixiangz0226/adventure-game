@@ -12,7 +12,7 @@ public class PlayerInfoViewModel extends EventViewModel{
     private JPanel backPanel;
     private JButton backButton;
 
-    public PlayerInfoViewModel(Player player) {
+    public PlayerInfoViewModel(Player player) {// Constructor
         super();
         getChoice1().setActionCommand("c1");
         getChoice2().setActionCommand("c2");
@@ -56,9 +56,9 @@ public class PlayerInfoViewModel extends EventViewModel{
         playerPanel.add(money);
     }
 
-    public JButton getBackButton() {return backButton;}
+    public JButton getBackButton() {/* Return the backButton */return backButton;}
 
-    public JLabel getHpLabelNumber() {return hpLabelNumber;}
+    public JLabel getHpLabelNumber() {/* Return the hpLabelNumber */return hpLabelNumber;}
 
-    public JLabel getMoneyLabel() {return money;}
+    public JLabel getMoneyLabel() {/* Return the money */return money;}
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Cursed_Tree extends Boss{
-
+    // The Cursed Tree Boss class
     private ArrayList<State> states = new ArrayList<>();
     private String message1 = "The Cursed Tree whipped you hard with the vines, dealt ";
     private String message2 = "The Cursed Tree binds your right arm with its roots, " +
@@ -17,12 +17,12 @@ public class Cursed_Tree extends Boss{
             "in a very short period of time, and then shoot at you at once, dealt ";
     private int randint = 0;
 
-    public Cursed_Tree(){
+    public Cursed_Tree(){// Constructor
         super("The Cursed Tree", 1000, 10, 1.1, 0.9, false, 0);
     }
 
     @Override
-    public Integer hit() {
+    public Integer hit() {// Count the states and hit the player wrt randint.
         count_effects();
         if (randint <= 3 && randint >= 0){return 10;}
         else if (randint == 4 || randint == 5){return 5;}
@@ -30,7 +30,7 @@ public class Cursed_Tree extends Boss{
         else{return 20;}
     }
 
-    public String getMessage() {
+    public String getMessage() {// Return the string message wrt randint.
         if (randint <= 3 && randint >= 0){return message1;}
         else if (randint == 4 || randint == 5){return message2;}
         else if (randint >= 6 && randint <= 8){return message3;}
@@ -57,5 +57,5 @@ public class Cursed_Tree extends Boss{
         }
     }
 
-    public void setRandint(int r){randint = r;}
+    public void setRandint(int r){/* Set randint to be r */ randint = r;}
 }

@@ -16,7 +16,7 @@ public class BattlePresenter extends EventPresenter{
 
     public BattlePresenter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                            JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,
-                           Monster monster) {
+                           Monster monster) {// Battle Presenter
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1;
         this.choice2 = choice2;
@@ -109,6 +109,7 @@ public class BattlePresenter extends EventPresenter{
     }
 
     public void player_message(String message){
+        // The updated view showing the player's attacking result
         backPanel.setVisible(false);
         mainTextArea.setText(message);
         choice1.setText("Next");
@@ -118,6 +119,7 @@ public class BattlePresenter extends EventPresenter{
     }
 
     public void enemy_message(String message){
+        // The updated view showing the monster's attacking result
         backPanel.setVisible(false);
         mainTextArea.setText(message);
         choice1.setText("Next");
@@ -162,8 +164,10 @@ public class BattlePresenter extends EventPresenter{
         choice4.setText("Leave");
     }
 
-    public void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}
+    public void skill_not_available(){// The updated view of showing the unavailable skill
+        mainTextArea.setText("You have used the maximum times of this skill.");}
 
-    public void renewHP(){hpLabelNumber.setText("" + player.getHealth());
-    enemyhp.setText("" + monster.getHealth());}
+    public void renewHP(){// Update the view of HP values of the player and the monster
+        hpLabelNumber.setText("" + player.getHealth());
+        enemyhp.setText("" + monster.getHealth());}
 }

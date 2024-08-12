@@ -15,18 +15,18 @@ public class QueenSlimeInteracter extends EventInteracter{
         presenter = new QueenSlimePresenter(mainTextArea, choice1, choice2, choice3, choice4);
     }
 
-    public String start(){
+    public String start(){// The start use case
         presenter.start();
         return  "start";
     }
 
-    public String saved(){
+    public String saved(){// The saved use case
         player.add_key();
         presenter.saved();
         return "saved";
     }
 
-    public String killed(){
+    public String killed(){// The killed use case
         player.setMoney(player.getMoney() + 200);
         presenter.killed();
         return "killed";

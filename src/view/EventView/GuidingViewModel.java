@@ -16,10 +16,9 @@ public class GuidingViewModel extends EventViewModel{
 
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
 
-
     Container con;
 
-    public GuidingViewModel(Player player, Monster monster) {
+    public GuidingViewModel(Player player, Monster monster) {// Constructor
         super();
         con = getCon();
         getChoice1().setActionCommand("c1be");
@@ -66,13 +65,11 @@ public class GuidingViewModel extends EventViewModel{
         backPanel.setVisible(false);
     }
 
-    public JButton getBackButton() {return backButton;}
+    public JButton getBackButton() {/* Return the backButton */return backButton;}
 
-    public JLabel getHpLabelNumber(){return hpLabelNumber;}
+    public JLabel getHpLabelNumber(){/* Return the hpLabelNumber */return hpLabelNumber;}
 
-    public JLabel getEnemyhp(){return enemyhp;}
+    public JLabel getEnemyhp(){/* Return the enemyhp */return enemyhp;}
 
-    public JPanel getBackPanel(){return backPanel;}
-
-    public JPanel getPlayerPanel(){return playerPanel;}
+    public JPanel getBackPanel(){/* Return the backPanel */return backPanel;}
 }

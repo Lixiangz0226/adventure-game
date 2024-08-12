@@ -16,26 +16,31 @@ public class MysteryBoxInteracter extends EventInteracter{
 
     public MysteryBoxInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4,
                                 JTextArea mainTextArea, Player player, JLabel hpLabelNumber, JLabel moneyNumber) {
+        // Constructor
         this.player = player;
         this.presenter = new MysteryBoxPresenter(choice1, choice2, choice3, choice4, mainTextArea,
                  hpLabelNumber, moneyNumber, player);
     }
 
-    public String start(){presenter.start(); return "start";}
+    public String start(){// The start use case
+        presenter.start(); return "start";}
 
-    public String talk(){presenter.talk(); return "talk";}
+    public String talk(){// The story use case
+        presenter.talk(); return "talk";}
 
-    public String present1(){presenter.present1(); return "present1";}
+    public String present1(){// The first present use case
+        presenter.present1(); return "present1";}
 
-    public String receive1(){
+    public String receive1(){// The use case randomly receiving present
         player.setMoney(player.getMoney() + 20);
         presenter.received("20$");
         return "receive1";
     }
 
-    public String present2(){presenter.present2(); return "present2";}
+    public String present2(){// The second present use case
+        presenter.present2(); return "present2";}
 
-    public String receive2(){
+    public String receive2(){// The use case randomly receiving different presents
         if (rand.nextInt(10) <= 2){
             // Unluckily
             if (rand.nextInt(2) == 0){
@@ -64,9 +69,10 @@ public class MysteryBoxInteracter extends EventInteracter{
         return "receive2";
     }
 
-    public String present3(){presenter.present3(); return "present3";}
+    public String present3(){// The third present use case
+        presenter.present3(); return "present3";}
 
-    public String receive3(){
+    public String receive3(){// The use case randomly receiving different presents
         if (rand.nextInt(10) >= 5){
             // Unluckily
             if (rand.nextInt(2) == 0){
@@ -112,9 +118,10 @@ public class MysteryBoxInteracter extends EventInteracter{
         return "receive3";
     }
 
-    public String present4(){presenter.present4(); return "present4";}
+    public String present4(){// The forth present use case
+        presenter.present4(); return "present4";}
 
-    public String receive4(){
+    public String receive4(){// The use case randomly receiving different presents
         if (rand.nextInt(10) >= 3){
             // Unluckily
             if (rand.nextInt(2) == 0){
@@ -133,16 +140,9 @@ public class MysteryBoxInteracter extends EventInteracter{
         int r = rand.nextInt(2);
         if (r == 0){
             // Got 10 Life Potions
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
-            player.getInventory().addItem(new Life_Potion());
+            for (int i = 0; i < 10; i++){
+                player.getInventory().addItem(new Life_Potion());
+            }
             presenter.received("ten Life Potions");
         }
         else{
@@ -153,7 +153,7 @@ public class MysteryBoxInteracter extends EventInteracter{
         return "receive4";
     }
 
-    public String finish(){
+    public String finish(){// The finished use case
         presenter.finish();
         return "finish";
     }

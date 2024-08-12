@@ -19,6 +19,7 @@ public class PlayerInfo extends Event {
     public Boolean infoOpened = true;
 
     public PlayerInfo(Player player) {
+        // Constructor
         view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
@@ -32,12 +33,14 @@ public class PlayerInfo extends Event {
         interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
     }
 
-    public Window getWindow() {return view.getWindow();}
+    public Window getWindow() {/* Get Game Window */return view.getWindow();}
 
-    public void run_event(){position = interacter.start();}
+    public void run_event(){// Run the player info view.
+        position = interacter.start();}
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
+            /* Listens to the choice button actions and then take actions. */
             String yourChoice = event.getActionCommand();
 
             switch (position) {

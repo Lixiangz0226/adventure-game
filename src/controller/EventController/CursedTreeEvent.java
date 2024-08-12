@@ -59,7 +59,7 @@ public class CursedTreeEvent extends Event {
                 weaponLabel, backPanel, player, boss);
     }
 
-    public Window getWindow() {return bossViewModel.getWindow();}
+    public Window getWindow() {/* Get Game Window */return bossViewModel.getWindow();}
 
     public void run_event(){////////////////////////////////////////////////////////////////////////////////////Run here
         /*

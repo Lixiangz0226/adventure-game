@@ -13,9 +13,13 @@ public class LoadPlayer {
 
     File myObj = new File("src\\data_access\\Player.txt");
 
-    public LoadPlayer() {}
+
+    public LoadPlayer() {// Constructor
+        }
 
     public Player LoadPlayer() throws FileNotFoundException {
+        // Load the player's info from the file and return the player saved
+        if (!myObj.exists()) {return new Player("Null", 10);}
         Scanner myReader = new Scanner(myObj);
         // name
         String name = myReader.nextLine();
@@ -36,6 +40,7 @@ public class LoadPlayer {
     }
 
     private void weaponHelper(String name, Player player){
+        // Set the player's weapon to the saved player's weapon
         if (Objects.equals(name, "Battle Axe")){player.setWeapon(new Battle_Axe());}
         else if (Objects.equals(name, "Flame Crossbow")){player.setWeapon(new Flame_Crossbow());}
         else if (Objects.equals(name, "Katana")) {player.setWeapon(new Katana());}
@@ -44,6 +49,7 @@ public class LoadPlayer {
     }
 
     private void inventoryHelper(String items, Player player){
+        // Add items to the player
         for (String item : items.split(",")) {
             if (Objects.equals(item, "Battle Axe")) {
                 player.getInventory().addItem(new Battle_Axe());

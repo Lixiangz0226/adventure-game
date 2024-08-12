@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ShopViewModel extends EventViewModel {
 
-    public ShopViewModel() {
+    public ShopViewModel() {// Constructor
         getChoice1().setActionCommand("c1se");
         getChoice2().setActionCommand("c2se");
         getChoice3().setActionCommand("c3se");
