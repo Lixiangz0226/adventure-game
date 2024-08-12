@@ -12,17 +12,17 @@ public class SlotMachineInteracter extends EventInteracter{
     Random rand = new Random();
 
     public SlotMachineInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
-                                 JButton choice4, Player player) {
+                                 JButton choice4, Player player) {// Constructor
         presenter = new SlotMachinePresenter(mainTextArea, choice1, choice2, choice3, choice4);
         this.player = player;
     }
 
-    public String play(){
+    public String play(){// The playing use case
         presenter.play();
         return "play";
     }
 
-    public String result(){
+    public String result(){// The use case getting random playing result
         if (player.getMoney() < 50){
             presenter.lackOfMoney();
             return "play";
@@ -45,13 +45,13 @@ public class SlotMachineInteracter extends EventInteracter{
         return "result";
     }
 
-    public String broken(){
+    public String broken(){// The story use case
         presenter.broken();
         player.setMoney(player.getMoney() + 500);
         return "broken";
     }
 
-    public String finish(){
+    public String finish(){// The finished use case
         presenter.finish();
         return "finish";
     }

@@ -15,12 +15,10 @@ public class BattleViewModel extends EventViewModel{
     JButton backButton;
 
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
-
-
     Container con;
 
     public BattleViewModel(Player player, Monster monster) {
-
+        // Constructor
 
         super();
         con = getCon();
@@ -69,11 +67,11 @@ public class BattleViewModel extends EventViewModel{
 
     }
 
-    public JButton getBackButton() {return backButton;}
+    public JButton getBackButton() {/* Return the back button */return backButton;}
 
-    public JLabel getHpLabelNumber(){return hpLabelNumber;}
+    public JLabel getHpLabelNumber(){/* Return the hpLabelNumber */return hpLabelNumber;}
 
-    public JLabel getEnemyhp(){return enemyhp;}
+    public JLabel getEnemyhp(){/* Return the enemyhp */return enemyhp;}
 
-    public JPanel getBackPanel(){return backPanel;}
+    public JPanel getBackPanel(){/* Return the backPanel */return backPanel;}
 }

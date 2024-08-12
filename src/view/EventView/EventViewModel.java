@@ -13,7 +13,7 @@ public abstract class EventViewModel {
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 24);
 
     public EventViewModel() {
-
+        // Constructor
         try {
             UIManager UIManager = null;
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -82,17 +82,17 @@ public abstract class EventViewModel {
         choiceButtonPanel.add(choice4);
     }
 
-    public JTextArea getMainTextArea() {return mainTextArea;}
+    public JTextArea getMainTextArea() {/* Return the mainTextArea */return mainTextArea;}
 
-    public JButton getChoice1() {return choice1;}
+    public JButton getChoice1() {/* Return the choice1 */return choice1;}
 
-    public JButton getChoice2() {return choice2;}
+    public JButton getChoice2() {/* Return the choice2 */return choice2;}
 
-    public JButton getChoice3() {return choice3;}
+    public JButton getChoice3() {/* Return the choice3 */return choice3;}
 
-    public JButton getChoice4() {return choice4;}
+    public JButton getChoice4() {/* Return the choice4 */return choice4;}
 
-    public Container getCon(){return con;}
+    public Container getCon(){/* Return the con */return con;}
 
-    public Window getWindow(){return window;}
+    public Window getWindow(){/* Return the window */return window;}
 }

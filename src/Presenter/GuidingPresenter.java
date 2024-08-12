@@ -16,7 +16,7 @@ public class GuidingPresenter extends EventPresenter{
 
     public GuidingPresenter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                             JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,
-                            Monster monster) {
+                            Monster monster) {// Constructor
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1;
         this.choice2 = choice2;
@@ -29,7 +29,7 @@ public class GuidingPresenter extends EventPresenter{
         this.monster = monster;
     }
 
-    public void chasing(){
+    public void chasing(){// Update the start view
         mainTextArea.setText("A Goblin is chasing a ten-year-old kid!");
         choice1.setText("Fight");
         choice2.setText("-");
@@ -37,7 +37,7 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void talk1(){
+    public void talk1(){// Update the story view
         mainTextArea.setText("The little kid: Thanks! You are so powerful! Why?");
         choice1.setText("I'm well trained.");
         choice2.setText("This doesn't matter.");
@@ -45,7 +45,7 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void talk2(){
+    public void talk2(){// Update the story view
         mainTextArea.setText("The little kid: My Grandpa was a great warrior." +
                 " I'm going to beat that evil and withered tree, just like grandpa!");
         choice1.setText("Leave it to me.");
@@ -54,7 +54,7 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void talk3(){
+    public void talk3(){// Update the story view
         mainTextArea.setText("The little kid: Really!? Can you find my grandpa's crossbow? " +
                 "It will help you, I promise!");
         choice1.setText("Why will it help?");
@@ -63,7 +63,7 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void talk4(){
+    public void talk4(){// Update the story view
         mainTextArea.setText("The little kid: It always burns and never goes out. It can burn that tree to ashes!");
         choice1.setText("I'll find that crossbow.");
         choice2.setText("Where is it?");
@@ -71,7 +71,7 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void talk5(){
+    public void talk5(){// Update the story view
         mainTextArea.setText("My dad said it was buried near a strange flower. Good luck!");
         choice1.setText("Thank you, warrior!");
         choice2.setText("-");
@@ -159,6 +159,7 @@ public class GuidingPresenter extends EventPresenter{
     }
 
     public void player_message(String message){
+        // The updated view showing the player's attacking result
         backPanel.setVisible(false);
         mainTextArea.setText(message);
         choice1.setText("Next");
@@ -168,6 +169,7 @@ public class GuidingPresenter extends EventPresenter{
     }
 
     public void enemy_message(String message){
+        // The updated view showing the monster's attacking result
         backPanel.setVisible(false);
         mainTextArea.setText(message);
         choice1.setText("Next");
@@ -212,8 +214,10 @@ public class GuidingPresenter extends EventPresenter{
         choice4.setText("Next");
     }
 
-    public void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}
+    public void skill_not_available(){// The updated view of showing the unavailable skill
+        mainTextArea.setText("You have used the maximum times of this skill.");}
 
-    public void renewhp(){hpLabelNumber.setText("" + player.getHealth());
+    public void renewhp(){// Update the view of HP values of the player and the monster
+        hpLabelNumber.setText("" + player.getHealth());
         enemyhp.setText("" + monster.getHealth());}
 }

@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import entities.Player;
+import OutsideEntities.Player;
 import UseCaseInteracter.MysteryBoxInteracter;
 import view.EventView.MystereyViewModel;
 
@@ -19,7 +19,7 @@ public class MysteryBoxEvent {
     public Boolean opened = true;
 
     public MysteryBoxEvent(Player player) {
-
+        // Constructor
         mysteryView = new MystereyViewModel();
         choice1 = mysteryView.getChoice1();
         choice2 = mysteryView.getChoice2();
@@ -34,16 +34,18 @@ public class MysteryBoxEvent {
                 player, mysteryView.getHpLabelNumber(), mysteryView.getMoneyNumber());
     }
 
-    public Window getWindow(){return mysteryView.getWindow();}
+    public Window getWindow(){/* Get Game Window */return mysteryView.getWindow();}
 
     public void run_event() {
-        if (Objects.equals(position, "present1")) {position = interacter.present1();}
-        else if (Objects.equals(position, "present2")){position = interacter.present2();}
-        else if (Objects.equals(position, "present3")){position = interacter.present3();}
-        else if (Objects.equals(position, "present4")){position = interacter.present4();}
-        else if (Objects.equals(position, "")){position = interacter.start();}
-        else {position = interacter.finish();}
-
+        // Runs the event at the start or the place the player left
+        switch (position) {
+            case "present1" -> position = interacter.present1();
+            case "present2" -> position = interacter.present2();
+            case "present3" -> position = interacter.present3();
+            case "present4" -> position = interacter.present4();
+            case "" -> position = interacter.start();
+            case null, default -> position = interacter.finish();
+        }
     }
 
     public class ChoiceHandler implements ActionListener {

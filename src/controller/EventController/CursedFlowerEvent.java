@@ -19,6 +19,7 @@ public class CursedFlowerEvent extends Event {
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
     public CursedFlowerEvent(Player player) {
+        // Constructor
         view = new CursedFlowerViewModel();
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
@@ -34,9 +35,10 @@ public class CursedFlowerEvent extends Event {
         interacter = new CursedFlowerInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }
 
-    public Window getWindow() {return view.getWindow();}
+    public Window getWindow() {/* Get Game Window */return view.getWindow();}
 
     public void run_event(){
+        // Runs event at finished page if finished, otherwise at start page.
         if(Objects.equals(position, "finish")){position = interacter.finish();}
         else {position = interacter.start();}
     }

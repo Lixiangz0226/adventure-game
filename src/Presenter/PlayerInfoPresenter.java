@@ -7,7 +7,7 @@ public class PlayerInfoPresenter extends EventPresenter{
     private JButton choice1, choice2, choice3, choice4;
 
     public PlayerInfoPresenter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
-                               JButton choice4) {
+                               JButton choice4) {// Constructor
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1;
         this.choice2 = choice2;
@@ -15,7 +15,7 @@ public class PlayerInfoPresenter extends EventPresenter{
         this.choice4 = choice4;
     }
 
-    public void start(){
+    public void start(){// Start view
         mainTextArea.setText("Player Info:");
         choice1.setText("Inventory");
         choice2.setText("Skills");
@@ -23,7 +23,7 @@ public class PlayerInfoPresenter extends EventPresenter{
         choice4.setText("-");
     }
 
-    public void describe(String description){
+    public void describe(String description){// Update the info view
         mainTextArea.setText(description);
         choice1.setText("Previous");
         choice2.setText("Next");

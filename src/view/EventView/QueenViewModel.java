@@ -1,7 +1,7 @@
 package view.EventView;
 
 public class QueenViewModel extends EventViewModel{
-    public QueenViewModel() {
+    public QueenViewModel() {// Constructor
         super();
         getChoice1().setActionCommand("c1qs");
         getChoice2().setActionCommand("c2qs");

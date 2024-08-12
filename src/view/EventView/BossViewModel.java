@@ -10,7 +10,7 @@ public class BossViewModel extends BattleViewModel{
     private JPanel weaponPanel;
     private JLabel weaponLabel;
 
-    public BossViewModel(Player player, Monster monster) {
+    public BossViewModel(Player player, Monster monster) {// Constructor
         super(player, monster);
         getChoice1().setActionCommand("c1ce");
         getChoice2().setActionCommand("c2ce");
@@ -27,5 +27,5 @@ public class BossViewModel extends BattleViewModel{
         weaponPanel.add(weaponLabel);
     }
 
-    public JLabel getWeaponLabel(){return weaponLabel;}
+    public JLabel getWeaponLabel(){/* Return the weaponLabel */return weaponLabel;}
 }

@@ -13,17 +13,17 @@ public class CursedFlowerInteracter extends EventInteracter{
     private Player player;
 
     public CursedFlowerInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
-                                  JButton choice4, Player player) {
+                                  JButton choice4, Player player) {// Constructor
         this.presenter = new CursedFlowerPresenter(mainTextArea, choice1, choice2, choice3, choice4);
         this.player = player;
     }
 
-    public String start(){
+    public String start(){// The start use case
         presenter.start();
         return "start";
     }
 
-    public String purified(){
+    public String purified(){// The use case used or not obtained a purification potion
 
         for (Item item: player.getInventory().getItems()){
             if (Objects.equals(item.getName(), "Purification Potion")){
@@ -36,18 +36,18 @@ public class CursedFlowerInteracter extends EventInteracter{
         return "start";
     }
 
-    public String dug(){
+    public String dug(){// The story use case
         presenter.dug();
         return "dug";
     }
 
-    public String gotten(){
+    public String gotten(){// The story use case
         player.getInventory().addItem(new Flame_Crossbow());
         presenter.gotten();
         return "gotten";
     }
 
-    public String finish(){
+    public String finish(){// The finished use case
         presenter.finish();
         return "finish";
     }

@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Random;
 
 
-public class Monster extends AbstractCharacter {
+public abstract class Monster extends AbstractCharacter {
     /**
      * A Monster is the enemy of players, which can suffer from
      *     different states. A Monster can't take any action if it's

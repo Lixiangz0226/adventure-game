@@ -33,7 +33,7 @@ public class QueenSlimeEvent extends Event {
         interacter = new QueenSlimeInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }
 
-    public Window getWindow(){return view.getWindow();}
+    public Window getWindow(){/* Get Game Window */return view.getWindow();}
 
     public void run_event(){
         switch (position){
@@ -51,6 +51,8 @@ public class QueenSlimeEvent extends Event {
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event){
+            /* Listens to the choice button actions and then take actions. */
+
             String yourChoice = event.getActionCommand();
 
             switch (position){

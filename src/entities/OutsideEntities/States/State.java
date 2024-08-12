@@ -1,6 +1,6 @@
 package entities.OutsideEntities.States;
 
-public class State{
+public abstract class State{
     /**
      * A state of a character that affect the character
      *     every round. A state has an integer rounds counts down

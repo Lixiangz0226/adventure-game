@@ -5,13 +5,10 @@ public class Item {
 
     //Item attributes
     private String name;
-    private String description;
+    private String description = "";
 
     //Item constructor
-    public Item (String name) {
-        this.name = name;
-        this.description = description;
-    }
+    public Item (String name) {this.name = name;}
 
     //Return the item name
     public String getName(){return this.name;}
