@@ -16,11 +16,11 @@ public class PlayerInfoPresenter extends EventPresenter{
     }
 
     public void start(){// Start view
-        mainTextArea.setText("Player Info:");
+        mainTextArea.setText("Info:");
         choice1.setText("Inventory");
         choice2.setText("Skills");
         choice3.setText("States");
-        choice4.setText("-");
+        choice4.setText("Main Menu");
     }
 
     public void describe(String description){// Update the info view

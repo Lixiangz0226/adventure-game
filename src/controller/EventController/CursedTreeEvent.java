@@ -16,7 +16,6 @@ public class CursedTreeEvent extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Cursed_Tree boss;
     private static String position;
-    private boolean firsttime;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel; JButton backButton;
     private JLabel weaponLabel;
 
@@ -33,7 +32,6 @@ public class CursedTreeEvent extends Event {
          */
         this.boss = new Cursed_Tree();
         this.position = "";
-        this.firsttime = true;
 
         status = true;
 
@@ -68,7 +66,7 @@ public class CursedTreeEvent extends Event {
           If the player hasn't defeated the monster, fight the monster; if yes, then show the
           finished slide to the player.
          */
-        if(firsttime){position = interacter.start();}
+        if(status){position = interacter.start();}
         else {position = interacter.finished();}
     }
 
@@ -116,7 +114,6 @@ public class CursedTreeEvent extends Event {
                     ///////////////////////////////////////////////////////////////////////////////////////////Game lost
                 }break;
                 case "won":
-                    firsttime = false;
                     if (Objects.equals(yourChoice, "c4ce")){position = interacter.finished();}
                     break;
                 case "finished":

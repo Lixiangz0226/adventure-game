@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
     public MysteryBoxEvent mystery = new MysteryBoxEvent(player);
     public QueenSlimeEvent slime = new QueenSlimeEvent(player);
     public SlotMachineEvent machine = new SlotMachineEvent(player);
-    public PlayerInfo playInfo = new PlayerInfo(player);
+    public PlayerInfo playInfo = new PlayerInfo(player, this);
 
     //Game state
     public int gameState;

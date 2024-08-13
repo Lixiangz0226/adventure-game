@@ -17,7 +17,7 @@ public class ShopPresenter extends EventPresenter{
         this.choice4 = choice4;
     }
 
-    public void shop(Boolean bought1, Boolean bought2, Boolean bought3, Item item1, Item item2, Item item3){
+    public void shop(Boolean bought1, Boolean bought3, Item item1, Item item2, Item item3){
         /*
         The scene of the shop.
          */

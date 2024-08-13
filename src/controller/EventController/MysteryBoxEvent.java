@@ -14,7 +14,7 @@ public class MysteryBoxEvent {
     private JButton choice1, choice2, choice3, choice4;
     private MystereyViewModel mysteryView;
     private MysteryBoxInteracter interacter;
-    private String position = "";
+    public String position = "";
     ChoiceHandler choiceHandler = new ChoiceHandler();
     public Boolean opened = true;
 

@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ShopEvent extends Event {
     /**
@@ -16,7 +17,7 @@ public class ShopEvent extends Event {
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    ShopInteracter shopInteracter;
+    ShopInteracter interacter;
     ShopViewModel shopview = new ShopViewModel();
 
     //Open / close checker
@@ -35,18 +36,24 @@ public class ShopEvent extends Event {
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
 
-        shopInteracter = new ShopInteracter(mainTextArea,choice1,choice2,choice3,choice4,player);
+        interacter = new ShopInteracter(mainTextArea,choice1,choice2,choice3,choice4,player);
     }
 
     public void run_event(){///////////////////////////////////////////////////////////////////////////////Run shop here
         /*
         Run this event with the buying history saved.
          */
-        shopInteracter.shop();
+        interacter.shop();
     }
 
     public Window getWindow(){
         /* Get the window */return shopview.getWindow();}
+
+    public ArrayList getBoughts(){// Return bought1 and bought2 from interacter
+        return interacter.getBoughts();}
+
+    public void setBoughts(ArrayList boughts){// Set bought1 and bought2
+        interacter.setBoughts(boughts);}
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
@@ -65,13 +72,13 @@ public class ShopEvent extends Event {
 
             switch (yourChoice) {
                 case "c1se":
-                    shopInteracter.buy1();
+                    interacter.buy1();
                     break;
                 case "c2se":
-                    shopInteracter.buy2();
+                    interacter.buy2();
                     break;
                 case "c3se":
-                    shopInteracter.buy3();
+                    interacter.buy3();
                     break;
             }
         }
