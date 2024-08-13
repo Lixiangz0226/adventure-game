@@ -1,46 +1,65 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
-import OutsideEntities.Skills.Basic_attack;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
+import entities.OutsideEntities.Skills.Basic_attack;
 import Presenter.BattlePresenter;
+import controller.GamePanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BattleInteracter extends EventInteracter{
+public class BattleInteracter {
+    private JTextArea mainTextArea;
+    private JButton choice1, choice2, choice3, choice4;
+    private JPanel backPanel;
+    private JLabel hpLabelNumber, enemyhp;
     private Player player;
     private Monster monster;
+    private boolean firsttime;
     private int m; private int current, used1, used2, used3;
     private BattlePresenter presenter;
     private List<String> message = new ArrayList<String>();
+    private JButton backButton;
     Basic_attack basic_attack = new Basic_attack();
+    GamePanel gp;
 
     public BattleInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                             JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,
-                            Monster monster) {// Constructor
+                            Monster monster) {
         this.monster = monster;
         this.player = player;
+        this.firsttime = true;
         this.used1 = player.getSkills().get(0).getTimes(); this.used2 = player.getSkills().get(1).getTimes();
         this.used3 = player.getSkills().get(2).getTimes();
         this.m = player.getInventory().getLength() / 2;
         this.current = 0;
 
+        this.choice1 = choice1;
+        this.choice2 = choice2;
+        this.choice3 = choice3;
+        this.choice4 = choice4;
+        this.backPanel = backPanel;
+
+        this.mainTextArea = mainTextArea;
+        this.hpLabelNumber = hpLabelNumber;
+        this.enemyhp = enemyhp;
+
         presenter = new BattlePresenter(choice1, choice2, choice3, choice4, backPanel, mainTextArea, hpLabelNumber,
                 enemyhp, player, monster);
     }
 
-    public String start(){// The start use case
+    public String start(){
         presenter.start(); return "start";}
 
-    public String finished(){// The finished use case
+    public String finished(){
         presenter.finished(); return "finished";}
 
-    public String attack(){// The attack use case
+    public String attack(){
         presenter.attack(); return "attack";}
 
-    public String items(){// The items use case
+    public String items(){
         if (player.getInventory().getLength() == 0){
             presenter.empty_inventory();
             return "empty_inventory";}
@@ -49,38 +68,38 @@ public class BattleInteracter extends EventInteracter{
         return "items";
     }
 
-    public String useitem1(){// The use case the player using the first item
+    public String useitem1(){
         if(player.use_item(current)){presenter.items(current,m);}
         else {
             if (player.getInventory().getLength() == 0) {
                 presenter.empty_inventory();
                 return  "empty_inventory";}
             current = 0;
-            presenter.renewHP();
+            presenter.renewhp();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);
         }
         return "items";
     }
 
-    public String useitem2(){// The use case the player using the second item
+    public String useitem2(){
         if (current + 1>=player.getInventory().getLength()){return "items";}
         if(player.use_item(current + 1)){presenter.items(current,m);}
         else {
             current = 0;
-            presenter.renewHP();
+            presenter.renewhp();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);}
         return "items";
     }
 
-    public String rollup(){// The use case rolling up the inventory
+    public String rollup(){
         if (current - 2 < 0){presenter.top_items();}
         else{current -= 2; presenter.items(current,m);}
         return "items";
     }
 
-    public String rolldown(){// The use case rolling down the inventory
+    public String rolldown(){
         if (player.getInventory().getLength() % 2 == 1){
             if (current + 2 > 2 * m){presenter.bot_items();}
             else {current += 2; presenter.items(current,m);}
@@ -92,13 +111,13 @@ public class BattleInteracter extends EventInteracter{
         return "items";
     }
 
-    public String hit1(){// The use case using the first skill
+    public String hit1(){
         message = player.hit(monster, basic_attack);
         presenter.player_message(message.getFirst());
         return "player_message";
     }
 
-    public String hit2(){// The use case using the second skill
+    public String hit2(){
         if (used1 == 0){presenter.skill_not_available(); return "attack";}
         used1 -= 1;
         message = player.hit(monster, player.getSkills().getFirst());
@@ -106,7 +125,7 @@ public class BattleInteracter extends EventInteracter{
         return "player_message";
     }
 
-    public String hit3(){// The use case using the third skill
+    public String hit3(){
         if (used2 == 0){presenter.skill_not_available(); return "attack";}
         used2 -= 1;
         message = player.hit(monster, player.getSkills().get(1));
@@ -114,20 +133,20 @@ public class BattleInteracter extends EventInteracter{
         return "player_message";
     }
 
-    public String hit4(){// The use case using the forth skill
-        if (used3 == 0){presenter.skill_not_available(); return "attack";}
+    public String hit4(){
+        if (used3 == 0){presenter.skill_not_available();return "attack";}
         used3 -= 1;
         message = player.hit(monster, player.getSkills().get(2));
         presenter.player_message(message.getFirst());
         return "player_message";
     }
 
-    public String playerMessage(){// The use case presenting the message
+    public String playerMessage(){
         presenter.enemy_message(message.getLast());
         return "enemy_message";
     }
 
-    public String enemyMessage(){// The use case presenting the message
+    public String enemyMessage(){
         if (player.getHealth()<=0){
             presenter.lost();
             return "lost";}
@@ -138,7 +157,7 @@ public class BattleInteracter extends EventInteracter{
         return "attack";
     }
 
-    public String won(){// The reward and finishing use case
+    public String won(){
         player.add_key();
         player.setMoney(player.getMoney() + monster.getGoldDrop());
         presenter.finished();

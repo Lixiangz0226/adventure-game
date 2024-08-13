@@ -1,6 +1,6 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Player;
+import entities.Player;
 import Presenter.QueenSlimePresenter;
 
 import javax.swing.*;

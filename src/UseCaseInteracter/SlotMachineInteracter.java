@@ -1,6 +1,6 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Player;
+import entities.Player;
 import Presenter.SlotMachinePresenter;
 
 import javax.swing.*;

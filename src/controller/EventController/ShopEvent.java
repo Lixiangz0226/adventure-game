@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.Player;
 import Presenter.ShopPresenter;
 import UseCaseInteracter.ShopInteracter;
 import view.EventView.ShopViewModel;

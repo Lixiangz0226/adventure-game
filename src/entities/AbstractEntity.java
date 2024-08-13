@@ -1,9 +1,13 @@
 package entities;
 
 import controller.GamePanel;
+import controller.UtilityTool;
 
+import javax.imageio.ImageIO;
+import javax.swing.text.Utilities;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 //Super class for all entity classes
 public class AbstractEntity {
@@ -12,7 +16,7 @@ public class AbstractEntity {
     public int x, y;
     public int speed;
 
-    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, death;
     public String direction;
 
     public int spriteCounter = 0;
@@ -93,6 +97,7 @@ public class AbstractEntity {
 
     }
 
+
     //Depending on the entity direction and spriteCounter, update the sprite of the entity
     public void draw(Graphics2D g2) {
 
@@ -135,11 +140,31 @@ public class AbstractEntity {
                     image = up2;
                 }
                 break;
+
+            case "dead":
+                image = death;
+
         }
 
 
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
 
+    }
+
+
+    public BufferedImage setup(String imagePath, int width, int height) {
+
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+
+        try {
+            image = ImageIO.read(getClass().getResourceAsStream(imagePath));
+            image = uTool.scaleImage(image, width, height);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return image;
     }
 
 }

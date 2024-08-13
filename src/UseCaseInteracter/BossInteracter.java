@@ -1,15 +1,13 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Monsters.Cursed_Tree;
-import OutsideEntities.Player;
-import OutsideEntities.Skills.Basic_attack;
-import OutsideEntities.States.Burning;
+import entities.OutsideEntities.Monsters.Cursed_Tree;
+import entities.Player;
+import entities.OutsideEntities.Skills.Basic_attack;
 import Presenter.BossPresenter;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 public class BossInteracter extends EventInteracter{

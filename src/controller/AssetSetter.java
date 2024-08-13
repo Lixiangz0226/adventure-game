@@ -1,15 +1,18 @@
 package controller;
 
-import entities.Bat;
-import entities.Goblin;
-import entities.NPC_Guide;
-import Objects.*;
-import OutsideEntities.Items.*;
+import entities.*;
+import entities.Objects.DoorObject;
+import entities.Objects.GoalDoor;
+import entities.Objects.KeyObject;
+import entities.Objects.SuperKey;
 
 public class AssetSetter {
 
     GamePanel gp;
 
+    /**
+     * @param gp
+     */
     public AssetSetter(GamePanel gp) {
         this.gp = gp;
 
@@ -43,25 +46,26 @@ public class AssetSetter {
 
         int mapNumber = 0;
 
-        gp.npc[mapNumber][0] = new NPC_Guide(gp);
-        gp.npc[mapNumber][0].x = gp.tileSize * 4;
+
+        gp.npc[mapNumber][0] = new Goblin(gp);
+        gp.npc[mapNumber][0].x = gp.tileSize * 7;
         gp.npc[mapNumber][0].y = gp.tileSize * 4;
 
-        gp.npc[mapNumber][1] = new Goblin(gp);
-        gp.npc[mapNumber][1].x = gp.tileSize * 7;
+        gp.npc[mapNumber][1] = new NPC_Guide(gp);
+        gp.npc[mapNumber][1].x = gp.tileSize * 4;
         gp.npc[mapNumber][1].y = gp.tileSize * 4;
 
 
         mapNumber = 1;
-        gp.npc[mapNumber][2] = new Bat(gp);
+        gp.npc[mapNumber][2] = new Bat1(gp);
         gp.npc[mapNumber][2].x = gp.tileSize * 9;
         gp.npc[mapNumber][2].y = gp.tileSize * 4;
 
-        gp.npc[mapNumber][3] = new Bat(gp);
+        gp.npc[mapNumber][3] = new Bat2(gp);
         gp.npc[mapNumber][3].x = gp.tileSize * 4;
         gp.npc[mapNumber][3].y = gp.tileSize * 3;
 
-        gp.npc[mapNumber][4] = new Bat(gp);
+        gp.npc[mapNumber][4] = new Bat3(gp);
         gp.npc[mapNumber][4].x = gp.tileSize * 5;
         gp.npc[mapNumber][4].y = gp.tileSize * 6;
 
@@ -69,6 +73,12 @@ public class AssetSetter {
         //gp.npc[mapNumber][5] = new CursedFlower(gp);
         //gp.npc[mapNumber][5].x = gp.tileSize * 5;
         //gp.npc[mapNumber][5].y = gp.tileSize * 6;
+
+        gp.npc[mapNumber][6] = new CursedTree(gp);
+        gp.npc[mapNumber][6].x = gp.tileSize * 3;
+        gp.npc[mapNumber][6].y = gp.tileSize * -1;
+
+
 
 
     }

@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.Player;
 import UseCaseInteracter.PlayerInfoInteracter;
 import view.EventView.PlayerInfoViewModel;
 
@@ -8,19 +8,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.EventHandler;
 
 public class PlayerInfo extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
-    private PlayerInfoViewModel view;
+    private PlayerInfoViewModel view = new PlayerInfoViewModel();
     private PlayerInfoInteracter interacter;
     private String position = "start";
     public Boolean infoOpened = true;
 
     public PlayerInfo(Player player) {
-        // Constructor
-        view = new PlayerInfoViewModel(player);
+
+
+
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
         choice3 = view.getChoice3();
@@ -33,14 +33,12 @@ public class PlayerInfo extends Event {
         interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
     }
 
-    public Window getWindow() {/* Get Game Window */return view.getWindow();}
+    public Window getWindow() {return view.getWindow();}
 
-    public void run_event(){// Run the player info view.
-        position = interacter.start();}
+    public void run_event(){position = interacter.start();}
 
     public class ChoiceHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            /* Listens to the choice button actions and then take actions. */
             String yourChoice = event.getActionCommand();
 
             switch (position) {
@@ -49,7 +47,7 @@ public class PlayerInfo extends Event {
                         case "c1": position = interacter.inventory(); break;
                         case "c2": position = interacter.skills(); break;
                         case "c3": position = interacter.states(); break;
-                        case "c5": infoOpened = false; break;
+                        case "c5": opened = false; break;
                     }break;
                 case "inventory":
                     switch (yourChoice) {

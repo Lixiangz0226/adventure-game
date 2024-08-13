@@ -1,13 +1,14 @@
 package controller;
 
-import OutsideEntities.Monsters.Bat;
-import OutsideEntities.Monsters.Goblin;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Monsters.Bat;
+import entities.OutsideEntities.Monsters.Goblin;
+import entities.Player;
 import controller.EventController.*;
 import entities.AbstractEntity;
 import entities.PlayerController;
-import Objects.AbstractObject;
+import entities.Objects.AbstractObject;
 import view.TileManager;
+import Presenter.MapPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EventHandler eHandler = new EventHandler(this);
 
     //UI
-    public UI ui = new UI(this);
+    public MapPresenter ui = new MapPresenter(this);
 
     //Entity and Object
     //Both object and entity are in an array of max 10 elements
@@ -51,13 +52,17 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Generate events
     public ShopEvent shop = new ShopEvent(player);
-    public BattleEvent bat = new BattleEvent(player, new Bat());
+    public BattleEvent bat1 = new BattleEvent(player, new Bat());
+    public BattleEvent bat2 = new BattleEvent(player, new Bat());
+    public BattleEvent bat3 = new BattleEvent(player, new Bat());
     public BattleEvent goblin = new BattleEvent(player, new Goblin());
     public CursedFlowerEvent cursedFlower = new CursedFlowerEvent(player);
+    public CursedTreeEvent cursedTree = new CursedTreeEvent(player);
     public GuidingEvent guide = new GuidingEvent(player);
     public MysteryBoxEvent mystery = new MysteryBoxEvent(player);
     public QueenSlimeEvent slime = new QueenSlimeEvent(player);
     public SlotMachineEvent machine = new SlotMachineEvent(player);
+    public PlayerInfo playInfo = new PlayerInfo(player);
 
     //Game state
     public int gameState;
@@ -68,6 +73,11 @@ public class GamePanel extends JPanel implements Runnable{
     public final int eventState = 4;
     public final int shopState = 5;
     public final int battleState = 6;
+    public final int bossState = 7;
+    public final int bat1State = 8;
+    public final int bat2State = 9;
+    public final int bat3State = 10;
+    public final int infoState = 11;
 
 
 
@@ -137,7 +147,7 @@ public class GamePanel extends JPanel implements Runnable{
             //nothing
         }
 
-        if(gameState == playState) {
+        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting) {
             for(int i = 0; i < npc[1].length; i++) {
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();
@@ -151,6 +161,11 @@ public class GamePanel extends JPanel implements Runnable{
             //call eventHandler
 
         }
+
+        if(gameState == battleState) {
+            //nothing
+        }
+
 
     }
 

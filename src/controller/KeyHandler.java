@@ -7,7 +7,7 @@ import java.security.Key;
 
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, IPressed;
 
     GamePanel gp;
 
@@ -81,6 +81,10 @@ public class KeyHandler implements KeyListener {
                 enterPressed = true;
             }
 
+            if (code == KeyEvent.VK_I) {
+                gp.gameState = gp.infoState;
+            }
+
             if (code == KeyEvent.VK_P) {
                 gp.gameState = gp.pauseState;
             }
@@ -116,6 +120,14 @@ public class KeyHandler implements KeyListener {
             if (code == KeyEvent.VK_F) {
                 gp.gameState = gp.playState;
             }
+        }
+
+        //INFO state
+        else if(gp.gameState == gp.infoState) {
+            if (code == KeyEvent.VK_I) {
+                gp.gameState = gp.playState;
+            }
+
         }
 
 
