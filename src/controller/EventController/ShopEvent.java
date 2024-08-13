@@ -1,7 +1,6 @@
 package controller.EventController;
 
-import entities.Player;
-import Presenter.ShopPresenter;
+import OutsideEntities.Player;
 import UseCaseInteracter.ShopInteracter;
 import view.EventView.ShopViewModel;
 
@@ -22,6 +21,7 @@ public class ShopEvent extends Event {
 
     //Open / close checker
     public boolean opened = true;
+    public boolean shopping = false;
 
     public ShopEvent(Player player) {//////////////////////////////////////////////////////////////////Create shop here
         /* Constructor of the event. */
@@ -58,6 +58,7 @@ public class ShopEvent extends Event {
 
             if (yourChoice.equals("c4se")) {
                 opened = false;
+                shopping = false;
                 System.out.println("Shop closed");
                 return;
             }///////////////////////////////////////////////////////

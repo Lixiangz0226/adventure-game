@@ -204,6 +204,7 @@ public class MapPresenter {
     }
 
     private void drawShopWindow() {
+        gp.shop.shopping = true;
         gp.shop.getWindow().setVisible(true);
         gp.shop.run_event();
 

@@ -1,8 +1,8 @@
 package UseCaseInteracter;
 
-import entities.OutsideEntities.Monsters.Cursed_Tree;
-import entities.Player;
-import entities.OutsideEntities.Skills.Basic_attack;
+import OutsideEntities.Monsters.Cursed_Tree;
+import OutsideEntities.Player;
+import OutsideEntities.Skills.Basic_attack;
 import Presenter.BossPresenter;
 
 import javax.swing.*;

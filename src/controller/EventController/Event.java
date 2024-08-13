@@ -13,7 +13,7 @@ public abstract class Event{
     EventViewModel viewModel;
     EventInteracter interacter;
 
-    public boolean opened;
+    public Boolean opened = true;
     public boolean status;
 
     public void run_event(){}

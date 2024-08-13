@@ -1,7 +1,7 @@
 package view.EventView;
 
-import entities.OutsideEntities.Monsters.Monster;
-import entities.Player;
+import OutsideEntities.Monsters.Monster;
+import OutsideEntities.Player;
 
 import javax.swing.*;
 import java.awt.*;

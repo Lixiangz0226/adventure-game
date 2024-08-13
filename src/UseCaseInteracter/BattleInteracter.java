@@ -1,8 +1,8 @@
 package UseCaseInteracter;
 
-import entities.OutsideEntities.Monsters.Monster;
-import entities.Player;
-import entities.OutsideEntities.Skills.Basic_attack;
+import OutsideEntities.Monsters.Monster;
+import OutsideEntities.Player;
+import OutsideEntities.Skills.Basic_attack;
 import Presenter.BattlePresenter;
 import controller.GamePanel;
 
@@ -75,7 +75,7 @@ public class BattleInteracter {
                 presenter.empty_inventory();
                 return  "empty_inventory";}
             current = 0;
-            presenter.renewhp();
+            presenter.renewHP();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);
         }
@@ -87,7 +87,7 @@ public class BattleInteracter {
         if(player.use_item(current + 1)){presenter.items(current,m);}
         else {
             current = 0;
-            presenter.renewhp();
+            presenter.renewHP();
             m = player.getInventory().getLength() / 2;
             presenter.items(current,m);}
         return "items";

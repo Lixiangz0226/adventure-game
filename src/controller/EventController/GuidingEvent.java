@@ -1,8 +1,8 @@
 package controller.EventController;
 
-import entities.OutsideEntities.Monsters.Goblin0;
-import entities.OutsideEntities.Monsters.Monster;
-import entities.Player;
+import OutsideEntities.Monsters.Goblin0;
+import OutsideEntities.Monsters.Monster;
+import OutsideEntities.Player;
 import UseCaseInteracter.GuidingInteracter;
 import view.EventView.GuidingViewModel;
 

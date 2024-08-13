@@ -1,7 +1,7 @@
 package Presenter;
 
-import entities.OutsideEntities.Monsters.Cursed_Tree;
-import entities.Player;
+import OutsideEntities.Monsters.Cursed_Tree;
+import OutsideEntities.Player;
 
 import javax.swing.*;
 

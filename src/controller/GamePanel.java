@@ -1,12 +1,12 @@
 package controller;
 
-import entities.OutsideEntities.Monsters.Bat;
-import entities.OutsideEntities.Monsters.Goblin;
-import entities.Player;
+import OutsideEntities.Monsters.Bat;
+import OutsideEntities.Monsters.Goblin;
+import OutsideEntities.Player;
 import controller.EventController.*;
 import entities.AbstractEntity;
 import entities.PlayerController;
-import entities.Objects.AbstractObject;
+import Objects.AbstractObject;
 import view.TileManager;
 import Presenter.MapPresenter;
 
@@ -147,7 +147,7 @@ public class GamePanel extends JPanel implements Runnable{
             //nothing
         }
 
-        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting) {
+        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping) {
             for(int i = 0; i < npc[1].length; i++) {
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();

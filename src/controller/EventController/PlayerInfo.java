@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.EventHandler;
 
 public class PlayerInfo extends Event {
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;

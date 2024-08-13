@@ -1,9 +1,15 @@
 package controller;
 
-import entities.Bat;
+import Objects.DoorObject;
+import Objects.GoalDoor;
+import Objects.KeyObject;
+import Objects.SuperKey;
+import entities.*;
 import entities.Goblin;
 import entities.NPC_Guide;
-import Objects.*;
+
+
+
 
 public class AssetSetter {
 
@@ -55,15 +61,15 @@ public class AssetSetter {
 
 
         mapNumber = 1;
-        gp.npc[mapNumber][2] = new Bat(gp);
+        gp.npc[mapNumber][2] = new Bat1(gp);
         gp.npc[mapNumber][2].x = gp.tileSize * 9;
         gp.npc[mapNumber][2].y = gp.tileSize * 4;
 
-        gp.npc[mapNumber][3] = new Bat(gp);
+        gp.npc[mapNumber][3] = new Bat2(gp);
         gp.npc[mapNumber][3].x = gp.tileSize * 4;
         gp.npc[mapNumber][3].y = gp.tileSize * 3;
 
-        gp.npc[mapNumber][4] = new Bat(gp);
+        gp.npc[mapNumber][4] = new Bat3(gp);
         gp.npc[mapNumber][4].x = gp.tileSize * 5;
         gp.npc[mapNumber][4].y = gp.tileSize * 6;
 

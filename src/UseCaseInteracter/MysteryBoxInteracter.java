@@ -1,11 +1,11 @@
 package UseCaseInteracter;
 
-import entities.OutsideEntities.Items.Life_Potion;
-import entities.OutsideEntities.Items.PiggyBank;
-import entities.OutsideEntities.Weapons.Katana;
-import entities.OutsideEntities.Weapons.Spear;
-import entities.OutsideEntities.Weapons.Staff;
-import entities.Player;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Items.PiggyBank;
+import OutsideEntities.Weapons.Katana;
+import OutsideEntities.Weapons.Spear;
+import OutsideEntities.Weapons.Staff;
+import OutsideEntities.Player;
 import Presenter.MysteryBoxPresenter;
 
 import javax.swing.*;

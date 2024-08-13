@@ -1,9 +1,9 @@
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Player;
-import OutsideEntities.States.PiggyBanking;
 import OutsideEntities.Weapons.Flame_Crossbow;
 import controller.EventController.PlayerInfo;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Items.PurificationPotion;
+import OutsideEntities.States.PiggyBanking;
 
 public class TestPlayerInfo {
     public static void main(String[] args) {

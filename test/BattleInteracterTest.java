@@ -1,8 +1,9 @@
-import OutsideEntities.Items.*;
-import OutsideEntities.Monsters.*;
 import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
+import OutsideEntities.Monsters.Goblin;
+import entities.*;
 import UseCaseInteracter.BattleInteracter;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Weapons.Flame_Crossbow;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import entities.Player;
+import OutsideEntities.Player;
 import UseCaseInteracter.SlotMachineInteracter;
 import view.EventView.SlotViewModel;
 

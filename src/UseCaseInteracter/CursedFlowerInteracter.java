@@ -1,8 +1,8 @@
 package UseCaseInteracter;
 
-import entities.OutsideEntities.Items.Item;
-import entities.Player;
-import entities.OutsideEntities.Weapons.Flame_Crossbow;
+import OutsideEntities.Items.Item;
+import OutsideEntities.Player;
+import OutsideEntities.Weapons.Flame_Crossbow;
 import Presenter.CursedFlowerPresenter;
 
 import javax.swing.*;

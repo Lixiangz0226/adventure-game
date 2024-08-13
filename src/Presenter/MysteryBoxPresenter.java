@@ -1,6 +1,6 @@
 package Presenter;
 
-import entities.Player;
+import OutsideEntities.Player;
 
 import javax.swing.*;
 

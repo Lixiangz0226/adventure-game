@@ -1,10 +1,10 @@
 package UseCaseInteracter;
 
-import entities.OutsideEntities.Items.Golden_Key;
-import entities.OutsideEntities.Items.Item;
-import entities.OutsideEntities.Items.Life_Potion;
-import entities.OutsideEntities.Weapons.Battle_Axe;
-import entities.Player;
+import OutsideEntities.Items.Golden_Key;
+import OutsideEntities.Items.Item;
+import OutsideEntities.Items.Life_Potion;
+import OutsideEntities.Weapons.Battle_Axe;
+import OutsideEntities.Player;
 import Presenter.ShopPresenter;
 
 import javax.swing.*;
