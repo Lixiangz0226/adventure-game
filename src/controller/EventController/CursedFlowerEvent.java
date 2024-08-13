@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.Player;
 import UseCaseInteracter.CursedFlowerInteracter;
 import view.EventView.CursedFlowerViewModel;
 
@@ -28,6 +28,8 @@ public class CursedFlowerEvent extends Event {
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
+
+        status = true;
 
         interacter = new CursedFlowerInteracter(view.getMainTextArea(), choice1, choice2, choice3, choice4, player);
     }

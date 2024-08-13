@@ -27,7 +27,8 @@ public class ShopViewModel {
 
 
         window = new JFrame();
-        window.setBounds(370, 100, 800, 600);
+        window.setBounds(480, 242, 800, 600);
+        //window.setBounds(370, 100, 800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);

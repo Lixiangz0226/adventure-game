@@ -1,7 +1,7 @@
 package Tests;
 
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Items.PurificationPotion;
+import entities.Player;
 import controller.EventController.CursedFlowerEvent;
 
 public class TestCursedFlower {

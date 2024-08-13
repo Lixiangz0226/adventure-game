@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.Player;
 import UseCaseInteracter.MysteryBoxInteracter;
 import view.EventView.MystereyViewModel;
 
@@ -19,6 +19,7 @@ public class MysteryBoxEvent {
     public Boolean opened = true;
 
     public MysteryBoxEvent(Player player) {
+
         mysteryView = new MystereyViewModel();
         choice1 = mysteryView.getChoice1();
         choice2 = mysteryView.getChoice2();

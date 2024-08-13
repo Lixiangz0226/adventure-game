@@ -1,7 +1,7 @@
 package Presenter;
 
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
 
 import javax.swing.*;
 
@@ -160,6 +160,8 @@ public class BattlePresenter {
         choice2.setText("-");
         choice3.setText("-");
         choice4.setText("Leave");
+
+
     }
 
     public void skill_not_available(){mainTextArea.setText("You have used the maximum times of this skill.");}

@@ -1,8 +1,10 @@
 package Tests;
 
-import OutsideEntities.Items.*;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
+import entities.OutsideEntities.Items.Life_Potion;
+import entities.OutsideEntities.Weapons.Battle_Axe;
+import entities.OutsideEntities.Weapons.Flame_Crossbow;
+import entities.OutsideEntities.Weapons.Spear;
+import entities.Player;
 import controller.EventController.CursedTreeEvent;
 
 public class TestCursedTree {

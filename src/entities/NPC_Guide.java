@@ -41,9 +41,9 @@ public class NPC_Guide extends AbstractEntity {
 
     public void setDialogue() {
         dialogues[0] = "Hello kid";
-        dialogues[1] = "Bye kid";
-        dialogues[2] = "Go away kid";
-        dialogues[3] = "I SAID GO AWAY";
+        dialogues[1] = "Do you want to buy something?";
+        dialogues[2] = "<Press F key to open shop>";
+        dialogues[3] = "Anything else I can do for you?";
 
 
     }
@@ -55,33 +55,38 @@ public class NPC_Guide extends AbstractEntity {
     //every 120 ticks
     public void setAction() {
 
-        actionLockCounter++;
+        if (gp.goblin.status == true && gp.gameState == gp.playState) {
 
-        if(actionLockCounter == 120) {
-            Random random = new Random();
-            int i = random.nextInt(100)+1;
+            actionLockCounter++;
 
-            if(i <= 25) {
-                direction = "up";
+            if(actionLockCounter == 120) {
+                Random random = new Random();
+                int i = random.nextInt(100)+1;
 
+                if(i <= 25) {
+                    direction = "up";
+
+                }
+
+                if(i > 25 && i <= 50) {
+                    direction = "down";
+
+                }
+
+                if(i > 50 && i <= 75) {
+                    direction = "left";
+
+                }
+
+                if(i > 75 && i <= 100) {
+                    direction = "right";
+
+                }
+
+                actionLockCounter = 0;
             }
 
-            if(i > 25 && i <= 50) {
-                direction = "down";
 
-            }
-
-            if(i > 50 && i <= 75) {
-                direction = "left";
-
-            }
-
-            if(i > 75 && i <= 100) {
-                direction = "right";
-
-            }
-
-            actionLockCounter = 0;
         }
 
     }

@@ -1,9 +1,12 @@
 package Tests;
 
-import OutsideEntities.Items.*;
-import OutsideEntities.Monsters.*;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
+import entities.OutsideEntities.Items.Life_Potion;
+import entities.OutsideEntities.Monsters.Bat;
+import entities.OutsideEntities.Weapons.Flame_Crossbow;
+import entities.OutsideEntities.Weapons.Knife;
+import entities.OutsideEntities.Weapons.Spear;
+import entities.OutsideEntities.Weapons.Staff;
+import entities.Player;
 import controller.EventController.*;
 
 public class TestBattle {

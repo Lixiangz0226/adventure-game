@@ -1,7 +1,7 @@
 package Presenter;
 
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
 
 import javax.swing.*;
 

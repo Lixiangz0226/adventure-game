@@ -1,6 +1,6 @@
 package Tests;
 
-import OutsideEntities.Player;
+import entities.Player;
 import controller.EventController.MysteryBoxEvent;
 
 public class TestMysteryBox {

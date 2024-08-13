@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.Player;
 import UseCaseInteracter.QueenSlimeInteracter;
 import view.EventView.QueenViewModel;
 

@@ -1,10 +1,10 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
-import OutsideEntities.Skills.Basic_attack;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
+import entities.OutsideEntities.Skills.Basic_attack;
 import Presenter.BattlePresenter;
-import Presenter.GuidingPresenter;
+import controller.GamePanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ public class BattleInteracter {
     private List<String> message = new ArrayList<String>();
     private JButton backButton;
     Basic_attack basic_attack = new Basic_attack();
+    GamePanel gp;
 
     public BattleInteracter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                             JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,

@@ -1,6 +1,6 @@
 package Tests;
 
-import OutsideEntities.Player;
+import entities.Player;
 import controller.EventController.GuidingEvent;
 
 public class TestGuiding {

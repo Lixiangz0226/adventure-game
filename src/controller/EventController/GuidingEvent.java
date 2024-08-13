@@ -1,8 +1,8 @@
 package controller.EventController;
 
-import OutsideEntities.Monsters.Goblin0;
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Monsters.Goblin0;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
 import UseCaseInteracter.GuidingInteracter;
 import view.EventView.GuidingViewModel;
 
@@ -32,6 +32,8 @@ public class GuidingEvent extends Event {
          */
 
         viewModel = new GuidingViewModel(player, monster);
+
+        status = true;
 
         mainTextArea = viewModel.getMainTextArea();
         this.position = "";

@@ -1,8 +1,8 @@
 package controller.EventController;
 
 
-import OutsideEntities.Monsters.*;
-import OutsideEntities.Player;
+import entities.OutsideEntities.Monsters.Monster;
+import entities.Player;
 import UseCaseInteracter.BattleInteracter;
 import view.EventView.BattleViewModel;
 
@@ -22,6 +22,7 @@ public class BattleEvent extends Event {
     private BattleViewModel battleViewModel;
     private BattleInteracter battleInteracter;
     public boolean opened = true;
+    public boolean fighting = false;
 
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
@@ -30,6 +31,8 @@ public class BattleEvent extends Event {
         /*
         Initializer of the event.
          */
+        status = true;
+
         battleViewModel = new BattleViewModel(player, monster);
 
         mainTextArea = battleViewModel.getMainTextArea();
@@ -80,6 +83,7 @@ public class BattleEvent extends Event {
                         case "c2be": position = battleInteracter.items(); break;
                         case "c4be":
                             opened = false;
+                            fighting = false;
                             break; ////////////////////////////////////////////////////////////////Runaway, back to room
                     }
                     break;
@@ -119,6 +123,10 @@ public class BattleEvent extends Event {
                 case "finished":
                     if (Objects.equals(yourChoice, "c4be")){
                         opened = false;
+                        status = false;
+                        fighting = false;
+
+
                     }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }

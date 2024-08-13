@@ -165,6 +165,21 @@ public class PlayerController extends AbstractEntity {
                     case "Goblin":
                         gp.gameState = gp.battleState;
                         break;
+
+                    case "CursedTree":
+                        gp.gameState = gp.bossState;
+
+                    case "Bat1":
+                        gp.gameState = gp.bat1State;
+                        break;
+
+                    case "Bat2":
+                        gp.gameState = gp.bat2State;
+                        break;
+
+                    case "Bat3":
+                        gp.gameState = gp.bat3State;
+                        break;
                 }
 
             }

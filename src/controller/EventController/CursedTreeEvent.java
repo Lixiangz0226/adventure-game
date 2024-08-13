@@ -1,8 +1,7 @@
 package controller.EventController;
 
-import OutsideEntities.Monsters.*;
-import OutsideEntities.Player;
-import Presenter.BossPresenter;
+import entities.OutsideEntities.Monsters.Cursed_Tree;
+import entities.Player;
 import UseCaseInteracter.BossInteracter;
 import view.EventView.BossViewModel;
 
@@ -35,6 +34,8 @@ public class CursedTreeEvent extends Event {
         this.boss = new Cursed_Tree();
         this.position = "";
         this.firsttime = true;
+
+        status = true;
 
         bossViewModel = new BossViewModel(player, boss);
         this.mainTextArea = bossViewModel.getMainTextArea();
@@ -121,6 +122,8 @@ public class CursedTreeEvent extends Event {
                 case "finished":
                     if (Objects.equals(yourChoice, "c4ce")){
                         ////////////////////////////////////////////////////////////////////////////////////////Game Won
+                        opened = false;
+                        status = false;
                     }break;
             }
         }

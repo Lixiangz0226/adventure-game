@@ -1,9 +1,9 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Items.*;
-import OutsideEntities.Player;
-import OutsideEntities.Skills.*;
-import OutsideEntities.States.*;
+import entities.OutsideEntities.Items.Item;
+import entities.OutsideEntities.Skills.Skill;
+import entities.OutsideEntities.States.State;
+import entities.Player;
 import Presenter.PlayerInfoPresenter;
 
 import javax.swing.*;

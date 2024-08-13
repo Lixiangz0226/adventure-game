@@ -1,5 +1,7 @@
 package entities;
 
+import Presenter.BattlePresenter;
+import UseCaseInteracter.BattleInteracter;
 import controller.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -34,14 +36,19 @@ public class Goblin extends AbstractEntity {
             right1 = ImageIO.read(getClass().getResourceAsStream("/resource/Goblin/Goblin_Right_1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/resource/Goblin/Goblin_Right_2.png"));
 
+            death = ImageIO.read(getClass().getResourceAsStream("/resource/Goblin/Goblin_Death.png"));
+
         }catch(IOException e) {
             e.printStackTrace();
         }
     }
 
     public void setDialogue() {
-        dialogues[0] = "You wanna fight Bitch";
-        dialogues[1] = "Okay, Let's GO";
+
+        dialogues[0] = "...";
+        dialogues[1] = "WRRAAA";
+        dialogues[2] = "FIGHT MEEEE";
+
 
 
     }
@@ -52,67 +59,80 @@ public class Goblin extends AbstractEntity {
     //for each action to last instead of switching to a new direction and action every instance. The checker updates
     //every 120 ticks
     public void setAction() {
+        if (gp.goblin.status == true) {
 
-        actionLockCounter++;
+            actionLockCounter++;
 
-        if(actionLockCounter == 120) {
-            Random random = new Random();
-            int i = random.nextInt(100)+1;
+            if(actionLockCounter == 120) {
+                Random random = new Random();
+                int i = random.nextInt(100)+1;
 
-            if(i <= 25) {
-                direction = "up";
+                if(i <= 25) {
+                    direction = "up";
+
+                }
+
+                if(i > 25 && i <= 50) {
+                    direction = "down";
+
+                }
+
+                if(i > 50 && i <= 75) {
+                    direction = "left";
+
+                }
+
+                if(i > 75 && i <= 100) {
+                    direction = "right";
+
+                }
+
+                actionLockCounter = 0;
 
             }
 
-            if(i > 25 && i <= 50) {
-                direction = "down";
 
-            }
+        }
+        else {
 
-            if(i > 50 && i <= 75) {
-                direction = "left";
-
-            }
-
-            if(i > 75 && i <= 100) {
-                direction = "right";
-
-            }
-
-            actionLockCounter = 0;
+            direction = "dead";
         }
 
     }
 
 
     public void speak() {
-        if(dialogues[dialogueIndex] == null){
-            dialogueIndex = 0;
+
+        if(gp.goblin.status) {
+            if(dialogues[dialogueIndex] == null){
+                dialogueIndex = 0;
+            }
+            gp.ui.currentDialogue = dialogues[dialogueIndex];
+            dialogueIndex++;
+
+            switch (gp.playerController.direction) {
+                case "up":
+                    direction = "down";
+                    break;
+
+                case "down":
+                    direction = "up";
+                    break;
+
+                case "left":
+                    direction = "right";
+                    break;
+
+                case "right":
+                    direction = "left";
+                    break;
+
+
+            }
         }
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
-        dialogueIndex++;
-
-        switch (gp.playerController.direction) {
-            case "up":
-                direction = "down";
-                break;
-
-            case "down":
-                direction = "up";
-                break;
-
-            case "left":
-                direction = "right";
-                break;
-
-            case "right":
-                direction = "left";
-                break;
 
 
-        }
+
     }
-
-
 
 }
