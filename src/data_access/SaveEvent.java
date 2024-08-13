@@ -20,6 +20,8 @@ public class SaveEvent {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         // Cursed Flower()
         writer.write(gp.cursedFlower.position);
+        writer.newLine();
+
 
         writer.close();
     }
