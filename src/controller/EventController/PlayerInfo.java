@@ -2,6 +2,7 @@ package controller.EventController;
 
 import OutsideEntities.Player;
 import UseCaseInteracter.PlayerInfoInteracter;
+import controller.GamePanel;
 import view.EventView.PlayerInfoViewModel;
 
 import javax.swing.*;
@@ -15,10 +16,12 @@ public class PlayerInfo extends Event {
     private PlayerInfoViewModel view;
     private PlayerInfoInteracter interacter;
     private String position = "start";
-    public Boolean infoOpened = true;
+    public Boolean opened = true;
+    public GamePanel gp;
 
-    public PlayerInfo(Player player) {
+    public PlayerInfo(Player player, GamePanel gp) {
         // Constructor
+        this.gp = gp;
         view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
@@ -48,7 +51,12 @@ public class PlayerInfo extends Event {
                         case "c1": position = interacter.inventory(); break;
                         case "c2": position = interacter.skills(); break;
                         case "c3": position = interacter.states(); break;
-                        case "c5": infoOpened = false; break;
+                        case "c4":
+                            getWindow().setVisible(false);
+                            gp.gameState = gp.titleState;
+                            opened = false;
+                            break;
+                        case "c5": opened = false; break;
                     }break;
                 case "inventory":
                     switch (yourChoice) {

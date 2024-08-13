@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class SlotMachineEvent extends Event {
     private SlotViewModel slotViewModel = new SlotViewModel();
@@ -53,15 +54,19 @@ public class SlotMachineEvent extends Event {
                         case "c4": opened = false; break;
                     }break;
                 case "result":
-                    times += 1;
-                    if (times >= 10) {
-                        position = interacter.broken();
-                        break;
-                    }
-                    position = interacter.play();
-                    break;
+                    if (Objects.equals(yourChoice, "c1")){
+                        times += 1;
+                        if (times >= 10) {
+                            position = interacter.broken();
+                            break;
+                        }
+                        position = interacter.play();
+                    }break;
                 case "broken":
-                    position = interacter.finish(); break;
+                    if (Objects.equals(yourChoice, "c1")){position = interacter.finish();}
+                    break;
+                case "finish":
+                    opened = false; break;
             }
         }
     }

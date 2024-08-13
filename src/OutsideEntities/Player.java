@@ -69,7 +69,7 @@ public class Player extends AbstractCharacter {
         double dmg_received = 0;
 
         if (Objects.equals(name, "Basic_Attack")){
-            if (Objects.equals(getWeaponName(), "Flame crossbow")){
+            if (Objects.equals(getWeaponName(), "Flame Crossbow")){
                 monster.add_state(new Burning());
             }dmg = weapon.get_damage();}
         else if (Objects.equals(name, "Defend")){add_state(new Defensive());}

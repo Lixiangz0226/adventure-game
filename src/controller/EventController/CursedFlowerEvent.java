@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class CursedFlowerEvent extends Event {
+    /**
+     * The special event where the player can obtain a Flame Crossbow
+     */
     private CursedFlowerViewModel view;
     private CursedFlowerInteracter interacter;
     private JButton choice1, choice2, choice3, choice4;

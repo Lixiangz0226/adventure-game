@@ -13,10 +13,12 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class BattleEvent extends Event {
+    /**
+     * The battle event between the player and a monster
+     */
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private static String position;
-    private boolean firsttime = true;
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel;
     private JButton backButton;
     private BattleViewModel battleViewModel;
@@ -62,7 +64,7 @@ public class BattleEvent extends Event {
           If the player hasn't defeated the monster, fight the monster; if yes, then show the
           finished slide to the player.
          */
-        if(firsttime){position = battleInteracter.start();}
+        if(status){position = battleInteracter.start();}
         else {position = battleInteracter.finished();}
     }
 
@@ -116,7 +118,6 @@ public class BattleEvent extends Event {
                 ///////////////////////////////////////////////////////////////////////////////////////////////Lost here
                 case "won":
                     if (Objects.equals(yourChoice, "c4be")){
-                        firsttime = false;
                         position = battleInteracter.won();
                     }
                     break;
@@ -125,8 +126,6 @@ public class BattleEvent extends Event {
                         opened = false;
                         status = false;
                         fighting = false;
-
-
                     }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }
