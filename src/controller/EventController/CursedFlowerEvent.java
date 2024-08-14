@@ -40,7 +40,7 @@ public class CursedFlowerEvent extends Event {
 
     public Window getWindow() {/* Get Game Window */return view.getWindow();}
 
-    public void run_event(){
+    public void runEvent(){
         // Runs event at finished page if finished, otherwise at start page.
         if(Objects.equals(position, "finish")){position = interacter.finish();}
         else {position = interacter.start();}

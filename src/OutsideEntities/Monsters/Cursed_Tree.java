@@ -23,7 +23,7 @@ public class Cursed_Tree extends Boss{
 
     @Override
     public Integer hit() {// Count the states and hit the player wrt randint.
-        count_effects();
+        countStates();
         if (randint <= 3 && randint >= 0){return 10;}
         else if (randint == 4 || randint == 5){return 5;}
         else if (randint >= 6 && randint <= 8){return 15;}
@@ -37,7 +37,7 @@ public class Cursed_Tree extends Boss{
         else{return message4;}
     }
 
-    public void add_state(State state){
+    public void addState(State state){
         /* Add a state */
         for(State s : states){
             if (Objects.equals(s.getName(), state.getName())){
@@ -48,9 +48,9 @@ public class Cursed_Tree extends Boss{
     }
 
     @Override
-    public void count_effects(){
+    public void countStates(){
         /* Counts all the states */
-        super.count_effects();
+        super.countStates();
         for (State state : states) {
             String name = state.getName();
             if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 10);}

@@ -7,6 +7,6 @@ public class TestQueenSlime {
         QueenSlimeEvent queen = new QueenSlimeEvent(player);
         queen.getWindow().setVisible(true);
 
-        queen.run_event();
+        queen.runEvent();
     }
 }

@@ -58,7 +58,7 @@ public class BattleEvent extends Event {
                 enemyhp, player, monster);
     }
 
-    public void run_event(){////////////////////////////////////////////////////////////////////////////////////Run here
+    public void runEvent(){////////////////////////////////////////////////////////////////////////////////////Run here
         /*
           Run this event.
           If the player hasn't defeated the monster, fight the monster; if yes, then show the

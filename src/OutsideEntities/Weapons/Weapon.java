@@ -30,7 +30,7 @@ public abstract class Weapon extends Item {
         this.sell_value = sell_value;
     }
 
-    public int get_damage(){return this.damage;}
+    public int getDamage(){return this.damage;}
 
     public double get_accuracy(){return this.accuracy;}
 

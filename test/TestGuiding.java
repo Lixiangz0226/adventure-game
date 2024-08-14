@@ -7,6 +7,6 @@ public class TestGuiding {
         GuidingEvent event = new GuidingEvent(player);
         event.getWindow().setVisible(true);
 
-        event.run_event();
+        event.runEvent();
     }
 }

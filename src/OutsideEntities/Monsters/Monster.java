@@ -48,11 +48,12 @@ public abstract class Monster extends AbstractCharacter {
 
     public void setMessage(String message){this.message = message;}
 
-    public Integer hit() {count_effects(); return getDamage() - 2 + rand.nextInt(5);}
+    public Integer hit() {
+        countStates(); return getDamage() - 2 + rand.nextInt(5);}
 
-    public void add_state(State state){/* Add a state */states.add(state);}
+    public void addState(State state){/* Add a state */states.add(state);}
 
-    public void count_effects(){
+    public void countStates(){
         /* Counts all the states */
         ArrayList<State> removing_states = new ArrayList<State>();
         for (State state : states) {
@@ -61,7 +62,7 @@ public abstract class Monster extends AbstractCharacter {
             if (Objects.equals(name, "Burning")) {setHealth(getHealth() - 10);}
             ///////////////////////////////////////////////////////////////////////////////////////////////////////State
 
-            if (state.getrounds() == 0){removing_states.add(state);}
+            if (state.getRounds() == 0){removing_states.add(state);}
             else{state.count();}
         }
         for (State state : removing_states) {states.remove(state);}

@@ -7,6 +7,6 @@ public class TestSlotMachine {
         player.setMoney(500);
         SlotMachineEvent event = new SlotMachineEvent(player);
         event.getWindow().setVisible(true);
-        event.run_event();
+        event.runEvent();
     }
 }

@@ -1,4 +1,3 @@
-import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Player;
 import controller.EventController.CursedFlowerEvent;
 
@@ -10,6 +9,6 @@ public class TestCursedFlower {
         CursedFlowerEvent event = new CursedFlowerEvent(player);
         event.getWindow().setVisible(true);
 
-        event.run_event();
+        event.runEvent();
     }
 }

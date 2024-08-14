@@ -37,7 +37,7 @@ public class PlayerInfo extends Event {
 
     public Window getWindow() {/* Get Game Window */return view.getWindow();}
 
-    public void run_event(){// Run the player info view.
+    public void runEvent(){// Run the player info view.
         position = interacter.start();}
 
     public class ChoiceHandler implements ActionListener {

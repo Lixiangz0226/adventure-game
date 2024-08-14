@@ -1,6 +1,6 @@
 package OutsideEntities.Skills;
 
-public class Skill {
+public abstract class Skill {
     /**
      * Skills are special attacks that have different effects
      *  that can be used by players and bosses. Each has a string

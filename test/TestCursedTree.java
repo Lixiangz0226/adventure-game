@@ -19,6 +19,6 @@ public class TestCursedTree {
         CursedTreeEvent cursedTree = new CursedTreeEvent(player);
         cursedTree.getWindow().setVisible(true);
 
-        cursedTree.run_event();
+        cursedTree.runEvent();
     }
 }

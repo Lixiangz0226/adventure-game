@@ -1,7 +1,7 @@
 package OutsideEntities.Items;
 
 //Items that players can use in puzzles or battles
-public class Item {
+public abstract class Item {
 
     //Item attributes
     private String name;

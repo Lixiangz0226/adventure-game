@@ -7,6 +7,6 @@ public class TestMysteryBox {
         MysteryBoxEvent event = new MysteryBoxEvent(player);
         event.getWindow().setVisible(true);
 
-        event.run_event();
+        event.runEvent();
     }
 }
