@@ -12,7 +12,7 @@ public abstract class State{
     private int rounds;
     private String name;
     private String description;
-    private final int maxrounds;
+    private int maxrounds;
 
     public State(int rounds, String name){
         /* Initializer */
