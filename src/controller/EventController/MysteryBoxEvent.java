@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class MysteryBoxEvent {
+public class MysteryBoxEvent extends Event{
     private JButton choice1, choice2, choice3, choice4;
     private MystereyViewModel mysteryView;
     private MysteryBoxInteracter interacter;
@@ -36,7 +36,7 @@ public class MysteryBoxEvent {
 
     public Window getWindow(){/* Get Game Window */return mysteryView.getWindow();}
 
-    public void run_event() {
+    public void runEvent() {
         // Runs the event at the start or the place the player left
         switch (position) {
             case "present1" -> position = interacter.present1();

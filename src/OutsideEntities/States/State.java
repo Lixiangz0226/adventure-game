@@ -12,7 +12,7 @@ public abstract class State{
     private int rounds;
     private String name;
     private String description;
-    private int maxrounds;
+    private final int maxrounds;
 
     public State(int rounds, String name){
         /* Initializer */
@@ -25,7 +25,7 @@ public abstract class State{
 
     public String getName(){return this.name;}
 
-    public int getrounds(){return this.rounds;}
+    public int getRounds(){return this.rounds;}
 
     public void renewRounds(){rounds = maxrounds;}
 

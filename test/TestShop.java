@@ -8,6 +8,6 @@ public class TestShop {
         ShopEvent shop = new ShopEvent(player);
         shop.getWindow().setVisible(true);
 
-        shop.run_event();
+        shop.runEvent();
     }
 }

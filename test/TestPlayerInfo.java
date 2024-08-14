@@ -15,9 +15,9 @@ public class TestPlayerInfo {
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new Life_Potion());
         player.getInventory().addItem(new PurificationPotion());
-        player.add_state(new PiggyBanking());
+        player.addState(new PiggyBanking());
         PlayerInfo event = new PlayerInfo(player, new GamePanel());
         event.getWindow().setVisible(true);
-        event.run_event();
+        event.runEvent();
     }
 }

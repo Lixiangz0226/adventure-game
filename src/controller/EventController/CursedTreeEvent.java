@@ -60,7 +60,7 @@ public class CursedTreeEvent extends Event {
 
     public Window getWindow() {/* Get Game Window */return bossViewModel.getWindow();}
 
-    public void run_event(){////////////////////////////////////////////////////////////////////////////////////Run here
+    public void runEvent(){////////////////////////////////////////////////////////////////////////////////////Run here
         /*
           Run this event.
           If the player hasn't defeated the monster, fight the monster; if yes, then show the

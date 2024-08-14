@@ -22,6 +22,6 @@ public class TestBattle {
 
         battle.getWindow().setVisible(true);
 
-        battle.run_event();
+        battle.runEvent();
     }
 }

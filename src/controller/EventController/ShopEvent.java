@@ -39,7 +39,7 @@ public class ShopEvent extends Event {
         interacter = new ShopInteracter(mainTextArea,choice1,choice2,choice3,choice4,player);
     }
 
-    public void run_event(){///////////////////////////////////////////////////////////////////////////////Run shop here
+    public void runEvent(){///////////////////////////////////////////////////////////////////////////////Run shop here
         /*
         Run this event with the buying history saved.
          */

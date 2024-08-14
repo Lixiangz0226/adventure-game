@@ -206,7 +206,7 @@ public class MapPresenter {
     private void drawShopWindow() {
         gp.shop.shopping = true;
         gp.shop.getWindow().setVisible(true);
-        gp.shop.run_event();
+        gp.shop.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -227,7 +227,7 @@ public class MapPresenter {
     private void drawGoblinWindow() {
         gp.goblin.fighting = true;
         gp.goblin.getWindow().setVisible(true);
-        gp.goblin.run_event();
+        gp.goblin.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -247,7 +247,7 @@ public class MapPresenter {
 
     private void drawBossWindow() {
         gp.cursedTree.getWindow().setVisible(true);
-        gp.cursedTree.run_event();
+        gp.cursedTree.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -269,7 +269,7 @@ public class MapPresenter {
     private void drawBat1Window() {
         gp.bat1.fighting = true;
         gp.bat1.getWindow().setVisible(true);
-        gp.bat1.run_event();
+        gp.bat1.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -291,7 +291,7 @@ public class MapPresenter {
     private void drawBat2Window() {
         gp.bat2.fighting = true;
         gp.bat2.getWindow().setVisible(true);
-        gp.bat2.run_event();
+        gp.bat2.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -313,7 +313,7 @@ public class MapPresenter {
     private void drawBat3Window() {
         gp.bat3.fighting = true;
         gp.bat3.getWindow().setVisible(true);
-        gp.bat3.run_event();
+        gp.bat3.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {
@@ -334,7 +334,7 @@ public class MapPresenter {
 
     private void drawInfoWindow() {
         gp.playInfo.getWindow().setVisible(true);
-        gp.playInfo.run_event();
+        gp.playInfo.runEvent();
 
         // Create a Swing Timer to check the shopOpened state periodically
         Timer timer = new Timer(20, e -> {

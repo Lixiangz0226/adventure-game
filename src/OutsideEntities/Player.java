@@ -37,9 +37,9 @@ public class Player extends AbstractCharacter {
         skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
     }
 
-    public void add_state(State state){/* Add a state */states.add(state);}
+    public void addState(State state){/* Add a state */states.add(state);}
 
-    private void count_effects(){
+    private void countStates(){
         /* Counts all the states */
         dmgReceivedRatio = 1.0;
         dmgDealtRatio = 1.0;
@@ -49,13 +49,13 @@ public class Player extends AbstractCharacter {
             String name = state.getName();
             if (Objects.equals(name, "Defensive")) {
                 dmgReceivedRatio *= 0;}
-            else if (Objects.equals(name, "Charging") && state.getrounds() == 0) {
+            else if (Objects.equals(name, "Charging") && state.getRounds() == 0) {
                 dmgDealtRatio *= 2;}
             else if (Objects.equals(name, "Piggy Banking")) {
                 dmgDealtRatio *= (1 + (getMoney() * 0.01));}
             ///////////////////////////////////////////////////////////////////////////////////////////////////////State
 
-            if (state.getrounds() == 0){removing_states.add(state);}
+            if (state.getRounds() == 0){removing_states.add(state);}
             else{state.count();}
         }
         for (State state : removing_states) {states.remove(state);}
@@ -70,14 +70,16 @@ public class Player extends AbstractCharacter {
 
         if (Objects.equals(name, "Basic_Attack")){
             if (Objects.equals(getWeaponName(), "Flame Crossbow")){
-                monster.add_state(new Burning());
-            }dmg = weapon.get_damage();}
-        else if (Objects.equals(name, "Defend")){add_state(new Defensive());}
+                monster.addState(new Burning());
+            }dmg = weapon.getDamage();}
+        else if (Objects.equals(name, "Defend")){
+            addState(new Defensive());}
         else if (Objects.equals(name, "Double_Edge")){dmg += 30; dmg_received += 10;}
-        else if (Objects.equals(name, "Charge")){add_state(new Charging());}
+        else if (Objects.equals(name, "Charge")){
+            addState(new Charging());}
         //////////////////////////////////////////////////////////////////////////////////////////////////////////skills
         //state damage multiplier
-        count_effects();
+        countStates();
         dmg *= dmgDealtRatio;
 
         //flying bonus
@@ -119,7 +121,7 @@ public class Player extends AbstractCharacter {
             }
             else if (Objects.equals(inventory.getItem(index).getName(), "Piggy Bank")){
                 if (!piggyBankUsed){
-                    add_state(new PiggyBanking());
+                    addState(new PiggyBanking());
                     piggyBankUsed = true;
                 }
             }

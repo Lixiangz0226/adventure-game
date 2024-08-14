@@ -6,7 +6,7 @@ import view.EventView.EventViewModel;
 import java.awt.*;
 
 public abstract class Event{
-    /*
+    /**
       An event takes place in rooms, and can be
     encountered by Players.
     */
@@ -16,7 +16,7 @@ public abstract class Event{
     public Boolean opened = true;
     public boolean status;
 
-    public void run_event(){}
+    abstract public void runEvent();
 
-    public Window getWindow (){return null;}
+    abstract public Window getWindow ();
 }

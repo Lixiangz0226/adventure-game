@@ -35,7 +35,7 @@ public class SlotMachineEvent extends Event {
 
     public Window getWindow (){/* Get Game Window */return slotViewModel.getWindow();}
 
-    public void run_event(){
+    public void runEvent(){
         // Runs the event at the start or the place the player left
         if (times >= 10){position = interacter.finish();}
         else {position = interacter.play();}

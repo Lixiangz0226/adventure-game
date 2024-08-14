@@ -35,7 +35,7 @@ public class QueenSlimeEvent extends Event {
 
     public Window getWindow(){/* Get Game Window */return view.getWindow();}
 
-    public void run_event(){
+    public void runEvent(){
         switch (position){
             case "start":
                 position = interacter.start();
