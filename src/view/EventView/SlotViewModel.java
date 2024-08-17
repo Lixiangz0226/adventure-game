@@ -1,7 +1,9 @@
 package view.EventView;
 
 public class SlotViewModel extends EventViewModel {
-
+    /**
+     * The view model of slot machine event
+     */
     public SlotViewModel() {// Constructor
         super();
         getChoice1().setActionCommand("c1");

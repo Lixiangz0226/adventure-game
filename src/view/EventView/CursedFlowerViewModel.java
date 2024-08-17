@@ -1,6 +1,9 @@
 package view.EventView;
 
 public class CursedFlowerViewModel extends EventViewModel{
+    /**
+     * The view model of cursed flower event
+     */
     public CursedFlowerViewModel() {//Constructor
         super();
         getChoice1().setActionCommand("c1");

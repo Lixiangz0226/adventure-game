@@ -5,7 +5,9 @@ import OutsideEntities.Player;
 import javax.swing.*;
 
 public class MysteryBoxPresenter extends EventPresenter{
-
+    /**
+     * The presenter of mystery box event
+     */
     private JButton choice1, choice2, choice3, choice4;
     private JTextArea mainTextArea;
     private JLabel hpLabelNumber;

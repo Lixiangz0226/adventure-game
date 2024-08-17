@@ -5,6 +5,9 @@ import OutsideEntities.Items.Item;
 import javax.swing.*;
 
 public class ShopPresenter extends EventPresenter{
+    /**
+     * The presenter of shop event
+     */
     JTextArea mainTextArea;
     JButton choice1, choice2, choice3, choice4;
 

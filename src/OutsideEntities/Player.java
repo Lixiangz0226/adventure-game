@@ -24,7 +24,7 @@ public class Player extends AbstractCharacter {
     private Inventory inventory = new Inventory();
     private List<Skill> skills = new ArrayList<>();
     private int money = 0;
-    private int num_key = 0;
+    private int numKey = 0;
     private Weapon weapon = new Knife();
     private List<State> states = new ArrayList<>();
     public double dmgDealtRatio = 1;
@@ -83,19 +83,19 @@ public class Player extends AbstractCharacter {
         dmg *= dmgDealtRatio;
 
         //flying bonus
-        if (monster.getFlying() && weapon.flying_bonus()){dmg *= 1.5;}
+        if (monster.getFlying() && weapon.flyingBonus()){dmg *= 1.5;}
 
         //weapon physical or magical type bonus
-        if (weapon.physical_damage()){dmg *= 1/monster.getPhysicalDef();}
+        if (weapon.physicalDamage()){dmg *= 1/monster.getPhysicalDef();}
         else{dmg *= 1/monster.getMagicalDef();}
 
         //Critical Check
         double randnum_crit = Math.random();
-        if (randnum_crit < weapon.get_critical_rate()){dmg *= 1.5;}
+        if (randnum_crit < weapon.getCriticalRate()){dmg *= 1.5;}
 
         //Accuracy check
         double randnum_acc = Math.random();
-        if (randnum_acc > weapon.get_accuracy()){dmg *= 0;}
+        if (randnum_acc > weapon.getAccuracy()){dmg *= 0;}
 
         dmg_received = (int)(dmgReceivedRatio * (monster.hit()) + dmg_received);
         setHealth(getHealth() - (int)dmg_received);
@@ -131,26 +131,27 @@ public class Player extends AbstractCharacter {
         }
     }
 
-    public Inventory getInventory() {return inventory;}
+    public Inventory getInventory() {/* Return the inventory */return inventory;}
 
-    public List<Skill> getSkills() {return new ArrayList<>(List.copyOf(skills));}
+    public List<Skill> getSkills() {/* Return a copy of the list of skills */
+        return new ArrayList<>(List.copyOf(skills));}
 
-    public int getMoney() {return money;}
+    public int getMoney() {/* Return money */return money;}
 
-    public void setMoney(int money) {this.money = money;}
+    public void setMoney(int money) {/* Set money */this.money = money;}
 
-    public void add_key(){num_key += 1;}
+    public void add_key(){/* Add a key */numKey += 1;}
 
-    public int getKey(){return num_key;}
+    public int getKey(){/* Return the number of keys */return numKey;}
 
-    public void setKey(int num_key){this.num_key = num_key;}
+    public void setKey(int num_key){/* Set the number of keys */this.numKey = num_key;}
 
-    public void setWeapon(Weapon weapon){this.weapon = weapon;}
+    public void setWeapon(Weapon weapon){/* Set the weapon */this.weapon = weapon;}
 
-    public String getWeaponName(){return weapon.getName();}
+    public String getWeaponName(){/* Return the weapon's name */return weapon.getName();}
 
-    public Weapon getWeapon(){return weapon;}
+    public Weapon getWeapon(){/* Return the weapon */return weapon;}
 
-    public List<State> getStates(){return new ArrayList<>(List.copyOf(states));}
+    public List<State> getStates(){/* Return a copy of states */return new ArrayList<>(List.copyOf(states));}
 
 }

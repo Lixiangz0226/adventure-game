@@ -4,7 +4,6 @@ import OutsideEntities.Player;
 import OutsideEntities.Weapons.*;
 import data_access.LoadPlayer;
 import data_access.SavePlayer;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -25,6 +24,6 @@ class SavePlayerTest {
         savePlayer.save();
 
         LoadPlayer loadPlayer = new LoadPlayer();
-        loadPlayer.LoadPlayer();
+        loadPlayer.load();
     }
 }

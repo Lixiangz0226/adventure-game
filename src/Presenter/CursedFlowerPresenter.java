@@ -3,6 +3,9 @@ package Presenter;
 import javax.swing.*;
 
 public class CursedFlowerPresenter extends EventPresenter{
+    /**
+     * The presenter of Cursed flower event
+     */
     JTextArea mainTextArea;
     JButton choice1, choice2, choice3, choice4;
 

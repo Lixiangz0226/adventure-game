@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class MysteryBoxEvent extends Event{
+    /**
+     * The event that the player can choose presents.
+     */
     private JButton choice1, choice2, choice3, choice4;
     private MystereyViewModel mysteryView;
     private MysteryBoxInteracter interacter;

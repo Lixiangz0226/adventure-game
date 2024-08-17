@@ -2,6 +2,9 @@ package UseCaseInteracter;
 
 import Presenter.EventPresenter;
 
-public abstract class EventInteracter {// An abstract Event Interacter class
+public abstract class EventInteracter {
+    /**
+     * The abstract class of use case interacter of event
+     */
     EventPresenter presenter;
 }

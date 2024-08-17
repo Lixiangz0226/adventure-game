@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class EventViewModel {
+    /**
+     * The abstract class of view model of events
+     */
     JFrame window;
     Container con;
     JTextArea mainTextArea;

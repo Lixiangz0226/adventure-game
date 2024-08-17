@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class SlotMachineEvent extends Event {
+    /**
+     * The event that player can pay money to gamble.
+     */
     private SlotViewModel slotViewModel = new SlotViewModel();
     private SlotMachineInteracter interacter;
     private JButton choice1, choice2, choice3, choice4;

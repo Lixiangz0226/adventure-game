@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class QueenSlimeEvent extends Event {
+    /**
+     * The event that player can choose to kill the queen or to save the queen.
+     */
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
     private String position = "start";

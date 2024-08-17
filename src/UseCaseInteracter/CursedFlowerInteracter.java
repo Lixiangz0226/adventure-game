@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.util.Objects;
 
 public class CursedFlowerInteracter extends EventInteracter{
+    /**
+     * The use case interacter of cursed flower event
+     */
     private CursedFlowerPresenter presenter;
     private Player player;
 

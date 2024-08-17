@@ -9,7 +9,12 @@ import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class LoadPlayer {
+public class LoadPlayer{
+    /**
+     * The loader of player info.
+     * It Returns a player with the saved info in
+     * src\data_access\Player.txt
+     */
 
     File myObj = new File("src\\data_access\\Player.txt");
 
@@ -17,7 +22,7 @@ public class LoadPlayer {
     public LoadPlayer() {// Constructor
         }
 
-    public Player LoadPlayer() throws FileNotFoundException {
+    public Player load() throws FileNotFoundException {
         // Load the player's info from the file and return the player saved
         if (!myObj.exists()) {return new Player("Null", 10);}
         Scanner myReader = new Scanner(myObj);

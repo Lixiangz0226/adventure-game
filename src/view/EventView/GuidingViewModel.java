@@ -7,7 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GuidingViewModel extends EventViewModel{
-
+    /**
+     * The view model of guiding event
+     */
     private JPanel playerPanel;
     private JLabel hpLabelNumber;
     private JLabel enemyhp;

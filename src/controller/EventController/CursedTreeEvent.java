@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class CursedTreeEvent extends Event {
+    /**
+     * The final boss fight.
+     */
     private JTextArea mainTextArea;
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     private Cursed_Tree boss;

@@ -12,36 +12,36 @@ public abstract class Weapon extends Item {
 
     private int damage;
     private double accuracy;
-    private double critical_rate;
-    private double burn_rate;
-    private boolean physical_damage;
-    private boolean flying_bonus;
-    private int sell_value;
+    private double criticalRate;
+    private double burnRate;
+    private boolean physicalDamage;
+    private boolean flyingBonus;
+    private int sellValue;
 
-    public Weapon(String name, int damage, double accuracy, double critical_rate,double burn_rate,
-                  boolean physical_damage, boolean flying_bonus, int sell_value){
+    public Weapon(String name, int damage, double accuracy, double criticalRate, double burnRate,
+                  boolean physicalDamage, boolean flyingBonus, int sellValue){//Constructor
         super(name);
         this.damage = damage;
         this.accuracy = accuracy;
-        this.critical_rate = critical_rate;
-        this.burn_rate = burn_rate;
-        this.physical_damage = physical_damage;
-        this.flying_bonus = flying_bonus;
-        this.sell_value = sell_value;
+        this.criticalRate = criticalRate;
+        this.burnRate = burnRate;
+        this.physicalDamage = physicalDamage;
+        this.flyingBonus = flyingBonus;
+        this.sellValue = sellValue;
     }
 
-    public int getDamage(){return this.damage;}
+    public int getDamage(){/* Return the weapon damage */return this.damage;}
 
-    public double get_accuracy(){return this.accuracy;}
+    public double getAccuracy(){/* Return accuracy */return this.accuracy;}
 
-    public double get_critical_rate(){return this.critical_rate;}
+    public double getCriticalRate(){/* Return critical rate */return this.criticalRate;}
 
-    public double get_burn_rate(){return this.burn_rate;}
+    public double getBurnRate(){/* Return burn rate */return this.burnRate;}
 
-    public boolean physical_damage(){return this.physical_damage;}
+    public boolean physicalDamage(){/* Return physical damage */return this.physicalDamage;}
 
-    public boolean flying_bonus(){return this.flying_bonus;}
+    public boolean flyingBonus(){/* Return flying bonus */return this.flyingBonus;}
 
-    public int get_sell_value(){return this.sell_value;}
+    public int getSellValue(){/* Return sell value */return this.sellValue;}
 
 }

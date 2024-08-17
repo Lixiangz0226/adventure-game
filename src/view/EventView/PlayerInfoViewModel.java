@@ -6,7 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayerInfoViewModel extends EventViewModel{
-
+    /**
+     * The view model of Player info page
+     */
     private JLabel money;
     private JPanel playerPanel; JLabel hpLabelNumber;
     private JPanel backPanel;

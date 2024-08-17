@@ -5,9 +5,8 @@ import OutsideEntities.States.State;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Cursed_Tree extends Boss{
+public class Cursed_Tree extends Monster{
     // The Cursed Tree Boss class
-    private ArrayList<State> states = new ArrayList<>();
     private String message1 = "The Cursed Tree whipped you hard with the vines, dealt ";
     private String message2 = "The Cursed Tree binds your right arm with its roots, " +
             "making you unable to use items for 3 turns, dealt ";
@@ -30,6 +29,7 @@ public class Cursed_Tree extends Boss{
         else{return 20;}
     }
 
+    @Override
     public String getMessage() {// Return the string message wrt randint.
         if (randint <= 3 && randint >= 0){return message1;}
         else if (randint == 4 || randint == 5){return message2;}
@@ -37,6 +37,7 @@ public class Cursed_Tree extends Boss{
         else{return message4;}
     }
 
+    @Override
     public void addState(State state){
         /* Add a state */
         for(State s : states){
