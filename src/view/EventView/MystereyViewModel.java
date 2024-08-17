@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MystereyViewModel extends EventViewModel{
+    /**
+     * The view model of mystery box event
+     */
     private JPanel playerPanel;
     private JLabel hpLabelNumber;
     private JLabel moneyNumber;

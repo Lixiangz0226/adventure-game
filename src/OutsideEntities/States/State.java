@@ -12,9 +12,9 @@ public abstract class State{
     private int rounds;
     private String name;
     private String description;
-    private int maxrounds;
+    private final int maxrounds;
 
-    public State(int rounds, String name){
+    public State(int rounds, String name){//Constructor
         /* Initializer */
         this.name = name;
         this.rounds = rounds;
@@ -23,17 +23,17 @@ public abstract class State{
 
     public void count(){/* Count down the rounds. */this.rounds -= 1;}
 
-    public String getName(){return this.name;}
+    public String getName(){/* Return state name */return this.name;}
 
-    public int getRounds(){return this.rounds;}
+    public int getRounds(){/* Return state rounds */return this.rounds;}
 
-    public void renewRounds(){rounds = maxrounds;}
+    public void renewRounds(){/* Set rounds to maxrounds */rounds = maxrounds;}
 
-    public void setRounds(int rounds){this.rounds = rounds;}
+    public void setRounds(int rounds){/* Set rounds */this.rounds = rounds;}
 
-    public String getDescription(){return this.description;}
+    public String getDescription(){/* Return state description */return this.description;}
 
-    public void setDescription(String description){this.description = description;}
+    public void setDescription(String description){/* Set state description */this.description = description;}
 }
 
 

@@ -3,6 +3,9 @@ package Presenter;
 import javax.swing.*;
 
 public class QueenSlimePresenter extends EventPresenter{
+    /**
+     * The presenter of Queen slime event
+     */
     private JButton choice1, choice2, choice3, choice4;
     private JTextArea mainTextArea;
 

@@ -21,7 +21,7 @@ public abstract class Monster extends AbstractCharacter {
     private double magical_def;
     private boolean flying;
     private int gold_drop;
-    private ArrayList<State> states = new ArrayList<>();
+    public ArrayList<State> states = new ArrayList<>();
 
 
     public Monster(String name, int health, int damage, double physical_def, double magical_def, boolean flying, int gold_drop) {

@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BossViewModel extends BattleViewModel{
+    /**
+     * The view model of the boss fight
+     */
     private JPanel weaponPanel;
     private JLabel weaponLabel;
 

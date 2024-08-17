@@ -6,6 +6,9 @@ import Presenter.QueenSlimePresenter;
 import javax.swing.*;
 
 public class QueenSlimeInteracter extends EventInteracter{
+    /**
+     * The use case interacter of Queen slime event
+     */
     private Player player;
     private QueenSlimePresenter presenter;
 

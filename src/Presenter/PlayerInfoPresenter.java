@@ -3,6 +3,9 @@ package Presenter;
 import javax.swing.*;
 
 public class PlayerInfoPresenter extends EventPresenter{
+    /**
+     * The presenter of Player info page
+     */
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;
 

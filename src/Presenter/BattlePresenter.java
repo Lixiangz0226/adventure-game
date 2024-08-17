@@ -6,6 +6,9 @@ import OutsideEntities.Player;
 import javax.swing.*;
 
 public class BattlePresenter extends EventPresenter{
+    /**
+     * The presenter of battle event
+     */
 
     private JTextArea mainTextArea;
     private JButton choice1, choice2, choice3, choice4;

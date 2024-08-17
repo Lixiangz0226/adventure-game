@@ -12,15 +12,15 @@ public class Inventory {
 
     private List<Item> items;
 
-    public Inventory() {
+    public Inventory() {// Constructor
         this.items = new ArrayList<>();
     }
 
-    public List<Item> getItems() {
-        return new ArrayList<>(items); // Return a copy to protect encapsulation
+    public List<Item> getItems() {// Return a copy to protect encapsulation
+        return new ArrayList<>(items);
     }
 
-    public Item getItem(int id) {
+    public Item getItem(int id) {// Return the target item at index id
         if (id >= 0 && id < items.size()) {
             return items.get(id);
         } else {
@@ -28,15 +28,15 @@ public class Inventory {
         }
     }
 
-    public void addItem(Item item) {
+    public void addItem(Item item) {// Add an item
         this.items.add(item);
     }
 
-    public void removeItem(Item item) {
+    public void removeItem(Item item) {// Remove an item
         this.items.remove(item);
     }
 
-    public int getLength() {
+    public int getLength() {// Return the length of the inventory
         return this.items.size();
     }
 }

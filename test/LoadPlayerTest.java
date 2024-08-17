@@ -15,7 +15,7 @@ class LoadPlayerTest {
     Player player2;
 
     @Test
-    void loadPlayer() throws IOException {
+    void load() throws IOException {
         player.setKey(99);
         player.setMoney(888);
         player.setWeapon(new Spear());
@@ -29,7 +29,7 @@ class LoadPlayerTest {
 
         LoadPlayer loadPlayer = new LoadPlayer();
 
-        player2 = loadPlayer.LoadPlayer();
+        player2 = loadPlayer.load();
 
         assert Objects.equals(player2.getName(), "Testing");
         assert player2.getHealth() == 1234;

@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayerInfo extends Event {
+    /**
+     * The player info page and player can return to the title page.
+     */
     private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
     ChoiceHandler choiceHandler = new ChoiceHandler();
     private PlayerInfoViewModel view;

@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class PlayerInfoInteracter extends EventInteracter{
+    /**
+     * The use case interacter of Player info page
+     */
     private PlayerInfoPresenter presenter;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private int index = 0;

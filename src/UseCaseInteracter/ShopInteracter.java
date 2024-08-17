@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ShopInteracter extends EventInteracter{
-
+    /**
+     * The use case interacter of Shop event
+     */
     JButton choice1, choice3;
     Player player;
     ShopPresenter presenter;

@@ -12,6 +12,9 @@ import javax.swing.*;
 import java.util.Random;
 
 public class MysteryBoxInteracter extends EventInteracter{
+    /**
+     * The use case interacter of mystery box event
+     */
     private MysteryBoxPresenter presenter;
     private Player player;
     private Random rand = new Random();

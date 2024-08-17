@@ -7,6 +7,10 @@ import java.io.*;
 import java.lang.reflect.Constructor;
 
 public class SavePlayer {
+    /**
+     * The saver of player's info.
+     * It saves the player's info in src\data_access\Player.txt
+     */
     File file = new File("src\\data_access\\Player.txt");
     Player player;
 

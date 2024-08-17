@@ -1,6 +1,9 @@
 package view.EventView;
 
 public class QueenViewModel extends EventViewModel{
+    /**
+     * The view model of Queen slime event
+     */
     public QueenViewModel() {// Constructor
         super();
         getChoice1().setActionCommand("c1qs");

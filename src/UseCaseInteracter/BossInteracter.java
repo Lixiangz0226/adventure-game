@@ -11,12 +11,9 @@ import java.util.List;
 import java.util.Random;
 
 public class BossInteracter extends EventInteracter{
-
-    JLabel hpLabelNumber; JLabel enemyhp;
-    private JTextArea mainTextArea;
-    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
-    private JLabel weaponLabel;
-    private JPanel backPanel;
+    /**
+     * The use case interacter of the boss fight
+     */
     private Player player; Cursed_Tree boss;
     private BossPresenter presenter;
     private int m;
@@ -30,13 +27,6 @@ public class BossInteracter extends EventInteracter{
     public BossInteracter(JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3, JButton choice4,
                           JLabel hpLabelNumber, JLabel enemyhp, JLabel weaponLabel, JPanel backPanel, Player player,
                           Cursed_Tree boss) {// Constructor
-        this.mainTextArea = mainTextArea;
-        this.choice1 = choice1; this.choice2 = choice2; this.choice3 = choice3;
-        this.choice4 = choice4;
-        this.hpLabelNumber = hpLabelNumber;
-        this.enemyhp = enemyhp;
-        this.weaponLabel = weaponLabel;
-        this.backPanel = backPanel;
         this.player = player;
         this.boss = boss;
 
@@ -75,11 +65,11 @@ public class BossInteracter extends EventInteracter{
             else {
                 current = 0;
                 m = player.getInventory().getLength() / 2;
-                hpLabelNumber.setText("" + player.getHealth());
+                presenter.renewHP();
                 presenter.items(current,m);
                 return "items";}
         }
-        weaponLabel.setText("Weapon: " + player.getWeaponName());
+        presenter.renewWeapon();
         return "items";
     }
 
@@ -89,9 +79,9 @@ public class BossInteracter extends EventInteracter{
         else {
             current = 0;
             m = player.getInventory().getLength() / 2;
-            hpLabelNumber.setText("" + player.getHealth());
+            presenter.renewHP();
             presenter.items(current,m);}
-        weaponLabel.setText("Weapon: " + player.getWeaponName());
+        presenter.renewWeapon();
         return "items";
     }
 

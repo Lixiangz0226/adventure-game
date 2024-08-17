@@ -6,6 +6,9 @@ import OutsideEntities.Player;
 import javax.swing.*;
 
 public class BossPresenter extends EventPresenter{
+    /**
+     * The presenter of boss fight
+     */
 
     JLabel hpLabelNumber; JLabel enemyhp;
     private JTextArea mainTextArea;
@@ -107,6 +110,14 @@ public class BossPresenter extends EventPresenter{
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
         choice4.setText(player.getSkills().get(2).getName());
+    }
+
+    public void renewHP(){// Update HP number
+        hpLabelNumber.setText("" + player.getHealth());
+    }
+
+    public void renewWeapon(){// Update Weapon label
+        weaponLabel.setText("Weapon: " + player.getWeaponName());
     }
 
     public void player_message(String message){

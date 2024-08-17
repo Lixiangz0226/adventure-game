@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuidingInteracter extends EventInteracter{
+    /**
+     * The use case interacter of guiding event
+     */
     private Player player;
     private Monster monster;
     private int m; private int current, used1, used2, used3;

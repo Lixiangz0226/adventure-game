@@ -7,7 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BattleViewModel extends EventViewModel{
-
+    /**
+     * The view model of battle event
+     */
     private JPanel playerPanel;
     private JLabel hpLabelNumber;
     private JLabel enemyhp;
