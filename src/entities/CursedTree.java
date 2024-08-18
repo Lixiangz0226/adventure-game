@@ -1,6 +1,5 @@
 package entities;
 
-import Presenter.BattlePresenter;
 import UseCaseInteracter.BattleInteracter;
 import controller.GamePanel;
 
@@ -10,10 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-public class CursedTree extends AbstractEntity {
-
-    BattleInteracter battleInteracter;
-    public Rectangle solidArea;
+public class CursedTree extends Entity {
 
 
     public CursedTree(GamePanel gp) {
@@ -23,6 +19,10 @@ public class CursedTree extends AbstractEntity {
         speed = 0;
         isEnemy = true;
         name = "CursedTree";
+
+        solidAreaDefaultX = 50;
+        solidAreaDefaultY = 300;
+        solidArea = new Rectangle(0,0,310,60);
 
         setDialogue();
         getNPCImage();
@@ -69,37 +69,39 @@ public class CursedTree extends AbstractEntity {
 
             actionLockCounter++;
 
-            if (actionLockCounter == 120) {
+            if(actionLockCounter == 120) {
                 Random random = new Random();
-                int i = random.nextInt(100) + 1;
+                int i = random.nextInt(100)+1;
 
-                if (i <= 25) {
+                if(i <= 25) {
                     direction = "up";
 
                 }
 
-                if (i > 25 && i <= 50) {
+                if(i > 25 && i <= 50) {
                     direction = "down";
 
                 }
 
-                if (i > 50 && i <= 75) {
+                if(i > 50 && i <= 75) {
                     direction = "left";
 
                 }
 
-                if (i > 75 && i <= 100) {
+                if(i > 75 && i <= 100) {
                     direction = "right";
 
                 }
 
                 actionLockCounter = 0;
 
-
-            } else {
-
-                direction = "dead";
             }
+
+
+        }
+        else {
+
+            direction = "dead";
         }
 
     }
@@ -107,7 +109,7 @@ public class CursedTree extends AbstractEntity {
 
     public void speak() {
 
-        if(gp.goblin.status) {
+        if(gp.cursedTree.status) {
             if(dialogues[dialogueIndex] == null){
                 dialogueIndex = 0;
             }
@@ -141,7 +143,7 @@ public class CursedTree extends AbstractEntity {
 
     public void draw(Graphics2D g2) {
 
-        BufferedImage image = null;
+        BufferedImage image = up1;
 
 
         switch (direction) {
@@ -187,7 +189,7 @@ public class CursedTree extends AbstractEntity {
         }
 
 
-        g2.drawImage(image, x, y, gp.tileSize*10, gp.tileSize*10, null);
+        g2.drawImage(image, x, y, gp.tileSize*8, gp.tileSize*8, null);
 
     }
 

@@ -7,7 +7,7 @@ import java.security.Key;
 
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, IPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, loadPressed, IPressed;
 
     GamePanel gp;
 
@@ -42,12 +42,16 @@ public class KeyHandler implements KeyListener {
             }
 
             if(code == KeyEvent.VK_ENTER) {
+                //new game
                 if(gp.ui.commandNumber == 0) {
+                    loadPressed = false;
                     gp.gameState = gp.playState;
 
                 }
+                //load game
                 if(gp.ui.commandNumber == 1) {
-                    //load game
+                    loadPressed = true;
+                    gp.gameState = gp.playState;
                 }
 
                 if(gp.ui.commandNumber == 2) {
@@ -129,7 +133,6 @@ public class KeyHandler implements KeyListener {
             }
 
         }
-
 
         //PAUSE state
         else if(gp.gameState == gp.pauseState) {

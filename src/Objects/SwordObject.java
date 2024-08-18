@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 
 
-public class SwordObject extends AbstractObject{
+public class SwordObject extends Object {
 
     Weapon containedWeapon;
 

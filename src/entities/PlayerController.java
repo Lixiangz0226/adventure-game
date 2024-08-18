@@ -10,16 +10,8 @@ import controller.KeyHandler;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Objects;
 
-import Objects.*;
-import static controller.GamePanel.player;
-import OutsideEntities.Items.*;
-
-import static controller.GamePanel.player;
-import entities.*;
-
-public class PlayerController extends AbstractEntity {
+public class PlayerController extends Entity {
 
     //Player attributes
     KeyHandler keyH;
@@ -174,6 +166,7 @@ public class PlayerController extends AbstractEntity {
 
                     case "CursedTree":
                         gp.gameState = gp.bossState;
+                        break;
 
                     case "Bat1":
                         gp.gameState = gp.bat1State;
@@ -186,6 +179,8 @@ public class PlayerController extends AbstractEntity {
                     case "Bat3":
                         gp.gameState = gp.bat3State;
                         break;
+
+
                 }
 
             }

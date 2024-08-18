@@ -10,7 +10,7 @@ public abstract class EventViewModel {
     JFrame window;
     Container con;
     JTextArea mainTextArea;
-    JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+    JButton choice1; JButton choice2; JButton choice3; JButton choice4; JButton choice5;
     JPanel choiceButtonPanel;
 
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 24);
@@ -83,6 +83,8 @@ public abstract class EventViewModel {
         choice4.setFocusPainted(false);
         choice4.setActionCommand("c4se");
         choiceButtonPanel.add(choice4);
+
+
     }
 
     public JTextArea getMainTextArea() {/* Return the mainTextArea */return mainTextArea;}
@@ -94,6 +96,8 @@ public abstract class EventViewModel {
     public JButton getChoice3() {/* Return the choice3 */return choice3;}
 
     public JButton getChoice4() {/* Return the choice4 */return choice4;}
+
+    public JButton getChoice5() {/* Return the choice4 */return choice5;}
 
     public Container getCon(){/* Return the con */return con;}
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 //Door object prevents the player from going through, however it's collision can be turned off if the player's
 //hasKey attribute is > 0
-public class DoorObject extends AbstractObject {
+public class DoorObject extends Object {
 
     public DoorObject() {
 
