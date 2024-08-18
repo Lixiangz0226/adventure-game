@@ -60,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     static {
         try {
-            player = playerLoader.loadPlayer();
+            player = playerLoader.load();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

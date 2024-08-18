@@ -3,7 +3,7 @@ package Objects;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class GoalDoor extends AbstractObject {
+public class GoalDoor extends Object {
 
     public GoalDoor() {
 

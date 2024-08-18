@@ -13,24 +13,18 @@ public class PlayerInfoViewModel extends EventViewModel{
     private JPanel playerPanel; JLabel hpLabelNumber;
     private JPanel backPanel;
     private JButton backButton;
+    private JPanel homePanel;
+    private JButton homeButton;
 
     public PlayerInfoViewModel(Player player) {// Constructor
 
 
         super();
-        choice5 = new JButton("Choice 5");
-        choice5.setBackground(Color.black);
-        choice5.setForeground(Color.white);
-        choice5.setFont(normalFont);
-        choice5.setFocusPainted(false);
-        choice5.setActionCommand("c6");
-        choiceButtonPanel.add(choice5);
 
         getChoice1().setActionCommand("c1");
         getChoice2().setActionCommand("c2");
         getChoice3().setActionCommand("c3");
         getChoice4().setActionCommand("c4");
-        getChoice5().setActionCommand("c6");
 
         backPanel = new JPanel();
         backPanel.setBounds(100, 500, 100, 50);
@@ -44,6 +38,19 @@ public class PlayerInfoViewModel extends EventViewModel{
         backPanel.add(backButton);
         con.add(backPanel);
         backPanel.setVisible(true);
+
+        homePanel = new JPanel();
+        homePanel.setBounds(550, 500, 200, 50);
+        homePanel.setBackground(Color.black);
+        homeButton = new JButton("Main Menu");
+        homeButton.setBackground(Color.black);
+        homeButton.setForeground(Color.white);
+        homeButton.setFont(normalFont);
+        homeButton.setFocusPainted(false);
+        homeButton.setActionCommand("c6");
+        homePanel.add(homeButton);
+        con.add(homePanel);
+        homePanel.setVisible(true);
 
         this.playerPanel = new JPanel();
         playerPanel.setBounds(100, 15, 600, 50);
@@ -74,5 +81,7 @@ public class PlayerInfoViewModel extends EventViewModel{
 
     public JLabel getHpLabelNumber() {/* Return the hpLabelNumber */return hpLabelNumber;}
 
-    public JLabel getMoneyLabel() {/* Return the money */return money;}
+    public JButton getHomeButton(){/* Return home Button */return homeButton;}
+
+
 }

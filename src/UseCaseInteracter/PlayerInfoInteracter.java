@@ -14,22 +14,25 @@ public class PlayerInfoInteracter extends EventInteracter{
      * The use case interacter of Player info page
      */
     private PlayerInfoPresenter presenter;
-    private ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory;
     private int index = 0;
     private ArrayList<Skill> skills;
     private ArrayList<State> states;
+    private Player player;
 
     public PlayerInfoInteracter(Player player, JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
                                 JButton choice4) {// Constructor
-        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4, choice5);
-        inventory.addAll(player.getInventory().getItems());
-        inventory.add(player.getWeapon());
-        skills = (ArrayList) player.getSkills();
-        states = (ArrayList) player.getStates();
+        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4);
+        this.player = player;
     }
 
     public String start(){// The start use case
+        inventory = new ArrayList<Item>();
+        inventory.addAll(player.getInventory().getItems());
+        inventory.add(player.getWeapon());
         presenter.start();
+        skills = (ArrayList) player.getSkills();
+        states = (ArrayList) player.getStates();
         return "start";
     }
 
