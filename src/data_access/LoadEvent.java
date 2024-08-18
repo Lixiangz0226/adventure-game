@@ -2,36 +2,57 @@ package data_access;
 
 import OutsideEntities.Player;
 import controller.EventController.Event;
+import controller.GamePanel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class LoadEvent {
-
+    /**
+     *
+     */
+    GamePanel gp;
     File myEvent = new File("src\\data_access\\Events.txt");
 
 
-    public LoadEvent() {// Constructor
+    public LoadEvent(GamePanel gp) {// Constructor
+        this.gp = gp;
     }
 
-    public void loadEvent() throws FileNotFoundException {
-        // Load the player's info from the file and return the player saved
+    public void load() throws FileNotFoundException {
+        // Load the events' info from the file saved
         if (!myEvent.exists()) {
         }
         Scanner myReader = new Scanner(myEvent);
 
-        // flower
-        String name = myReader.nextLine();
-        //
-        int hp = Integer.parseInt(myReader.nextLine());
-        Player player = new Player(name, hp);
-        // Keys
-        player.setKey(Integer.parseInt(myReader.nextLine()));
-        // Money
-        player.setMoney(Integer.parseInt(myReader.nextLine()));
-        // Weapon
+        // Cursed Flower(string)
+        gp.cursedFlower.position = myReader.nextLine();
+        // Cursed Tree(boolean)
+        gp.cursedTree.status = myReader.nextLine().equals("true");
+        // MysteryBox(string)
+        gp.mystery.position = myReader.nextLine();
+        // Shop(two booleans)
+        List boughts = Arrays.stream(myReader.nextLine().split(",")).toList();
+        ArrayList result = new ArrayList();
+        result.add(boughts.getFirst().equals("true"));
+        result.add(boughts.getLast().equals("true"));
+        gp.shop.setBoughts(result);
+        // SlotMachine(int)
+        gp.machine.times = Integer.parseInt(myReader.nextLine());
+        // Bat1
+        gp.bat1.status = myReader.nextLine().equals("true");
+        // Bat2
+        gp.bat2.status = myReader.nextLine().equals("true");
+        // Bat3
+        gp.bat3.status = myReader.nextLine().equals("true");
+        // Goblin
+        gp.goblin.status = myReader.nextLine().equals("true");
 
+        myReader.close();
     }
 }
 
