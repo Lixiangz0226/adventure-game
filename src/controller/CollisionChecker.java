@@ -1,6 +1,6 @@
 package controller;
 
-import entities.AbstractEntity;
+import entities.Entity;
 
 public class CollisionChecker {
 
@@ -10,7 +10,7 @@ public class CollisionChecker {
         this.gp = gp;
     }
 
-    public void checkTile(AbstractEntity entity) {
+    public void checkTile(Entity entity) {
 
         //LeftX and RightX makes up the width of the solid rectangle of the player entity
         //TopY and BottomY makes up the length of the solid rectangle of the player entity
@@ -75,7 +75,7 @@ public class CollisionChecker {
 
     //Check if player is hitting any object, if true, we return the index of that object which corresponds to that
     //specific object's index in the array
-    public int checkObject(AbstractEntity entity, boolean player) {
+    public int checkObject(Entity entity, boolean player) {
 
         int index = 999;
 
@@ -152,7 +152,7 @@ public class CollisionChecker {
     }
 
     //Functions nearly identical to checkObject
-    public int checkEntity(AbstractEntity entity, AbstractEntity[][] target) {
+    public int checkEntity(Entity entity, Entity[][] target) {
         int index = 999;
 
         for(int i = 0; i < target[1].length; i++) {
@@ -213,7 +213,7 @@ public class CollisionChecker {
     }
 
     //Check if the entity is hitting the player, if true, turn on entity collision
-    public void checkPlayer(AbstractEntity entity) {
+    public void checkPlayer(Entity entity) {
 
         entity.solidArea.x = entity.x + entity.solidArea.x;
         entity.solidArea.y = entity.y + entity.solidArea.y;

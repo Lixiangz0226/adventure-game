@@ -6,9 +6,8 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Random;
 
-public class CursedFlower extends AbstractEntity {
+public class CursedFlower extends Entity {
 
 
 

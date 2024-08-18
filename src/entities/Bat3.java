@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
-public class Bat3 extends AbstractEntity {
+public class Bat3 extends Entity {
 
 
     public Bat3(GamePanel gp) {

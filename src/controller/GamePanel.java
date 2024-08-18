@@ -4,20 +4,25 @@ import OutsideEntities.Monsters.Bat;
 import OutsideEntities.Monsters.Goblin;
 import OutsideEntities.Player;
 import controller.EventController.*;
-import entities.AbstractEntity;
+import data_access.LoadPlayer;
+import data_access.SavePlayer;
+import entities.*;
 import entities.PlayerController;
-import Objects.AbstractObject;
-import view.TileManager;
+import Objects.Object;
+import view.TileViewManager;
 import Presenter.MapPresenter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable{
 
     //Attributes declare
     final int originalTilesSize = 16;
     final int scale = 3;
+    SavePlayer savePlayer;
 
     //Note the maxScreenCow/Row represents the number of tiles displayed on screen
     public final int tileSize = originalTilesSize * scale;
@@ -33,12 +38,13 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //System Manager
-    public TileManager tileA = new TileManager(this);
+    public TileViewManager tileA = new TileViewManager(this);
     public KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter setter = new AssetSetter(this);
     public EventHandler eHandler = new EventHandler(this);
+    public static LoadPlayer playerLoader = new LoadPlayer();
 
     //UI
     public MapPresenter ui = new MapPresenter(this);
@@ -46,9 +52,19 @@ public class GamePanel extends JPanel implements Runnable{
     //Entity and Object
     //Both object and entity are in an array of max 10 elements
     public PlayerController playerController = new PlayerController(this,keyH);
-    public AbstractObject[][] obj = new AbstractObject[maxMap][10];
-    public AbstractEntity[][] npc = new AbstractEntity[maxMap][10];
-    public static Player player = new Player("Steve", 50);
+    public Object[][] obj = new Object[maxMap][10];
+    public Entity[][] npc = new Entity[maxMap][10];
+
+    //add if statement to inject saved player
+    public static Player player;
+
+    static {
+        try {
+            player = playerLoader.loadPlayer();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     //Generate events
     public ShopEvent shop = new ShopEvent(player);
@@ -70,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
-    public final int eventState = 4;
+    //public final int eventState = 4;
     public final int shopState = 5;
     public final int battleState = 6;
     public final int bossState = 7;
@@ -82,13 +98,14 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     //Constructor method
-    public GamePanel() {
+    public GamePanel() throws IOException {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+
     }
 
     public void setUpGame() {
@@ -188,8 +205,6 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
 
-            //Draw player
-            playerController.draw(g2);
 
             //Draw each npc in the array
             for (int i = 0; i < npc[1].length; i++) {
@@ -198,6 +213,9 @@ public class GamePanel extends JPanel implements Runnable{
 
                 }
             }
+
+            //Draw player
+            playerController.draw(g2);
 
             //UI
             ui.draw(g2);

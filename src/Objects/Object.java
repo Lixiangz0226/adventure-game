@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 //Super class for all objects, can be over ride if necessary
-public class AbstractObject {
+public class Object {
 
     public BufferedImage image;
     public String name;

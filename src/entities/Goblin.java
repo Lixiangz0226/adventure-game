@@ -1,14 +1,12 @@
 package entities;
 
-import Presenter.BattlePresenter;
-import UseCaseInteracter.BattleInteracter;
 import controller.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
-public class Goblin extends AbstractEntity {
+public class Goblin extends Entity {
 
 
     public Goblin(GamePanel gp) {

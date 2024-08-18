@@ -119,6 +119,10 @@ public class MapPresenter {
             drawInfoWindow();
         }
 
+        if (gp.gameState == gp.bossState) {
+            drawBossWindow();
+        }
+
 
     }
 

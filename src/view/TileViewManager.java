@@ -2,6 +2,7 @@ package view;
 
 
 import controller.GamePanel;
+import entities.Tile;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,14 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class TileManager {
+public class TileViewManager {
 
     //Attributes
     GamePanel gp;
     public Tile[] tile;
     public int[][][] mapTileNumber;
 
-    public TileManager(GamePanel gp) {
+    public TileViewManager(GamePanel gp) {
         this.gp = gp;
 
         tile = new Tile[20];
@@ -27,6 +28,7 @@ public class TileManager {
         this.loadMap("/resource/maps/starting_forest.txt",0);
         this.loadMap("/resource/maps/dark_cavern.txt",1);
         this.loadMap("/resource/maps/dark_forest.txt",2);
+        this.loadMap("/resource/maps/boss_chamber.txt",3);
     }
 
     //Load the png files from resources
@@ -72,6 +74,7 @@ public class TileManager {
 
             tile[10] = new Tile ();
             tile[10].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Starting_Forest/Starting_Forest_Gate_2.png"));
+            tile[10].collision = true;
 
 
 

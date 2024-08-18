@@ -3,9 +3,15 @@ package app;
 import controller.GamePanel;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 public class Main2 {
-    public static void main(String[] args) {
+    JButton homeButton;
+    JPanel homePanel;
+    static Container con;
+
+    public static void main(String[] args) throws IOException {
 
         //Create game window
         JFrame window = new JFrame();
@@ -17,7 +23,6 @@ public class Main2 {
         window.add(gamePanel);
 
         window.pack();
-
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
