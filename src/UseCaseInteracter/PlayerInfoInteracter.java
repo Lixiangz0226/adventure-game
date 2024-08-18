@@ -21,7 +21,7 @@ public class PlayerInfoInteracter extends EventInteracter{
 
     public PlayerInfoInteracter(Player player, JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
                                 JButton choice4) {// Constructor
-        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4);
+        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4, choice5);
         inventory.addAll(player.getInventory().getItems());
         inventory.add(player.getWeapon());
         skills = (ArrayList) player.getSkills();

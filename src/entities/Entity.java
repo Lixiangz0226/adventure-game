@@ -4,13 +4,12 @@ import controller.GamePanel;
 import controller.UtilityTool;
 
 import javax.imageio.ImageIO;
-import javax.swing.text.Utilities;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 //Super class for all entity classes
-public class AbstractEntity {
+public class Entity {
     //Set up default attributes for all entities, override by subclasses if necessary
     GamePanel gp;
     public int x, y;
@@ -32,7 +31,7 @@ public class AbstractEntity {
     public boolean isEnemy;
     public String name;
 
-    public AbstractEntity(GamePanel gp) {
+    public Entity(GamePanel gp) {
         this.gp = gp;
     }
 

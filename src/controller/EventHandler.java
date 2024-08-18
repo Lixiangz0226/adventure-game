@@ -63,6 +63,12 @@ public class EventHandler {
             else if (hit(2, 0, 5,"any")) {
                 teleport(0, 15, 5);
             }
+            else if (hit(0, 7, 0,"any")) {
+                teleport(3, 7, 11);
+            }
+            else if (hit(3, 7, 11,"any")) {
+                teleport(0, 7, 0);
+            }
 
 
         }

@@ -15,11 +15,22 @@ public class PlayerInfoViewModel extends EventViewModel{
     private JButton backButton;
 
     public PlayerInfoViewModel(Player player) {// Constructor
+
+
         super();
+        choice5 = new JButton("Choice 5");
+        choice5.setBackground(Color.black);
+        choice5.setForeground(Color.white);
+        choice5.setFont(normalFont);
+        choice5.setFocusPainted(false);
+        choice5.setActionCommand("c6");
+        choiceButtonPanel.add(choice5);
+
         getChoice1().setActionCommand("c1");
         getChoice2().setActionCommand("c2");
         getChoice3().setActionCommand("c3");
         getChoice4().setActionCommand("c4");
+        getChoice5().setActionCommand("c6");
 
         backPanel = new JPanel();
         backPanel.setBounds(100, 500, 100, 50);
@@ -56,6 +67,7 @@ public class PlayerInfoViewModel extends EventViewModel{
         money.setFont(normalFont);
         money.setForeground(Color.white);
         playerPanel.add(money);
+
     }
 
     public JButton getBackButton() {/* Return the backButton */return backButton;}

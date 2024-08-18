@@ -4,7 +4,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 //Teleports the player to a set coordinates, can be used repeatedly and does not disappear from the map after use
-public class TeleporterObject extends AbstractObject {
+public class TeleporterObject extends Object {
 
     public TeleporterObject() {
 

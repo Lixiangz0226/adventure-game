@@ -5,7 +5,7 @@ import OutsideEntities.Items.*;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class ItemsChestObject extends AbstractObject {
+public class ItemsChestObject extends Object {
 
     Item containedItem;
 

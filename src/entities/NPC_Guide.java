@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
-public class NPC_Guide extends AbstractEntity {
+public class NPC_Guide extends Entity {
 
 
     public NPC_Guide(GamePanel gp) {
