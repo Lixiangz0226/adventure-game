@@ -3,38 +3,49 @@ package controller.EventController;
 import OutsideEntities.Player;
 import UseCaseInteracter.PlayerInfoInteracter;
 import controller.GamePanel;
+import data_access.SavePlayer;
 import view.EventView.PlayerInfoViewModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class PlayerInfo extends Event {
     /**
      * The player info page and player can return to the title page.
      */
-    private JButton choice1; JButton choice2; JButton choice3; JButton choice4;
+    private JButton choice1; JButton choice2; JButton choice3; JButton choice4; JButton choice5; JButton choice6;
     ChoiceHandler choiceHandler = new ChoiceHandler();
     private PlayerInfoViewModel view;
     private PlayerInfoInteracter interacter;
     private String position = "start";
     public Boolean opened = true;
     public GamePanel gp;
+    private Player player;
+    private SavePlayer savePlayer;
 
-    public PlayerInfo(Player player, GamePanel gp) {
+
+    public PlayerInfo(Player player, GamePanel gp) throws IOException {
         // Constructor
+        this.player = player;
+        savePlayer = new SavePlayer(player);
         this.gp = gp;
         view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
         choice2 = view.getChoice2();
         choice3 = view.getChoice3();
         choice4 = view.getChoice4();
+        choice5 = view.getBackButton();
+        choice6 = view.getHomeButton();
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
-        view.getBackButton().addActionListener(choiceHandler);
+        choice5.addActionListener(choiceHandler);
+        choice6.addActionListener(choiceHandler);
+
         interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
     }
 
@@ -55,29 +66,48 @@ public class PlayerInfo extends Event {
                         case "c2": position = interacter.skills(); break;
                         case "c3": position = interacter.states(); break;
                         case "c4":
-                            getWindow().setVisible(false);
-                            gp.gameState = gp.titleState;
-                            opened = false;
+                            try {
+                                savePlayer.save();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            /////////////////////////////////////////////////////////////////////////////////data_access
                             break;
                         case "c5": opened = false; break;
+                        case "c6":
+                            getWindow().setVisible(false);
+                            gp.gameState = gp.titleState;
+                            opened = false; break;
                     }break;
                 case "inventory":
                     switch (yourChoice) {
                         case "c1": position = interacter.upInv(); break;
                         case "c2": position = interacter.downInv(); break;
                         case "c5": position = interacter.start(); break;
+                        case "c6":
+                            getWindow().setVisible(false);
+                            gp.gameState = gp.titleState;
+                            opened = false; break;
                     }break;
                 case "skills":
                     switch (yourChoice) {
                         case "c1": position = interacter.upSkill(); break;
                         case "c2": position = interacter.downSkill(); break;
                         case "c5": position = interacter.start(); break;
+                        case "c6":
+                            getWindow().setVisible(false);
+                            gp.gameState = gp.titleState;
+                            opened = false; break;
                     }break;
                 case "states":
                     switch (yourChoice) {
                         case "c1": position = interacter.upState(); break;
                         case "c2": position = interacter.downState(); break;
                         case "c5": position = interacter.start(); break;
+                        case "c6":
+                            getWindow().setVisible(false);
+                            gp.gameState = gp.titleState;
+                            opened = false; break;
                     }break;
 
             }
