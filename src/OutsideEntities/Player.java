@@ -34,6 +34,7 @@ public class Player extends AbstractCharacter {
     public Player(String name, int health) {
         /* Initializer */
         super(name, health);
+        setMoney(100);
         skills.add(new Defend()); skills.add(new Double_Edge()); skills.add(new Charge());
     }
 

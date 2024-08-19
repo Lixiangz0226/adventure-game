@@ -34,6 +34,7 @@ public class GuidingEvent extends Event {
         viewModel = new GuidingViewModel(player, monster);
 
         status = true;
+        fighting = false;
 
         mainTextArea = viewModel.getMainTextArea();
         this.position = "";
@@ -137,7 +138,7 @@ public class GuidingEvent extends Event {
                     }break;
                 case "talk5":
                     if (Objects.equals(yourChoice, "c1be")){
-                        opened = false; break;/////////////////////////////////////////////////////////////////Leave
+                        opened = false; fighting = false; break;/////////////////////////////////////////////////////////////////Leave
                     }break;
 
 

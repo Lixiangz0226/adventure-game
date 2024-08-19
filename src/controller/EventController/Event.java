@@ -15,6 +15,7 @@ public abstract class Event{
 
     public Boolean opened = true;
     public boolean status;
+    public boolean fighting;
 
     abstract public void runEvent();
 

@@ -1,18 +1,24 @@
 package controller;
 
-import javax.swing.*;
+import OutsideEntities.Player;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Key;
+import java.io.FileNotFoundException;
+
+import static controller.GamePanel.playerLoader;
 
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, loadPressed, IPressed;
 
     GamePanel gp;
+    Player player;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
+        this.player = gp.player;
+
     }
 
     @Override
@@ -44,14 +50,20 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_ENTER) {
                 //new game
                 if(gp.ui.commandNumber == 0) {
-                    loadPressed = false;
-                    gp.gameState = gp.playState;
+                    gp.gameState = gp.guideState;
+                    //gp.gameState = gp.playState;
 
                 }
                 //load game
                 if(gp.ui.commandNumber == 1) {
-                    loadPressed = true;
                     gp.gameState = gp.playState;
+                    {
+                        try {
+                            player = playerLoader.load();
+                        } catch (FileNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
                 }
 
                 if(gp.ui.commandNumber == 2) {
