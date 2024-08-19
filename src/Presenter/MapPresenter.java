@@ -68,6 +68,11 @@ public class MapPresenter {
             drawTitleScreen();
         }
 
+        //guide state
+        if (gp.gameState == gp.guideState) {
+            drawGuideScreen();
+        }
+
         //play state
         if (gp.gameState == gp.playState) {
         }
@@ -117,6 +122,11 @@ public class MapPresenter {
         //info state
         if (gp.gameState == gp.infoState) {
             drawInfoWindow();
+        }
+
+        //flower state
+        if (gp.gameState == gp.flowerState) {
+            drawFlowerWindow();
         }
 
         if (gp.gameState == gp.bossState) {
@@ -177,6 +187,7 @@ public class MapPresenter {
 
 
     }
+
 
     private void drawDialogueScreen() {
 
@@ -246,6 +257,26 @@ public class MapPresenter {
         timer.start(); // Start the timer
 
         gp.goblin.opened = true;
+        gp.gameState = gp.playState;
+    }
+
+    private void drawFlowerWindow() {
+        gp.cursedFlower.getWindow().setVisible(true);
+        gp.cursedFlower.runEvent();
+
+        // Create a Swing Timer to check the shopOpened state periodically
+        Timer timer = new Timer(20, e -> {
+            if (!gp.cursedFlower.opened) {
+                ((Timer) e.getSource()).stop(); // Stop the timer
+                gp.cursedFlower.getWindow().setVisible(false);
+            }
+            else {
+                gp.cursedFlower.getWindow().setVisible(true);
+            }
+        });
+        timer.start(); // Start the timer
+
+        gp.cursedFlower.opened = true;
         gp.gameState = gp.playState;
     }
 
@@ -334,6 +365,27 @@ public class MapPresenter {
         gp.bat3.opened = true;
         gp.gameState = gp.playState;
 
+    }
+
+    private void drawGuideScreen() {
+        gp.guide.fighting = true;
+        gp.guide.getWindow().setVisible(true);
+        gp.guide.runEvent();
+
+        // Create a Swing Timer to check the shopOpened state periodically
+        Timer timer = new Timer(20, e -> {
+            if (!gp.guide.opened) {
+                ((Timer) e.getSource()).stop(); // Stop the timer
+                gp.guide.getWindow().setVisible(false);
+            }
+            else {
+                gp.guide.getWindow().setVisible(true);
+            }
+        });
+        timer.start(); // Start the timer
+
+        gp.guide.opened = true;
+        gp.gameState = gp.playState;
     }
 
     private void drawInfoWindow() {

@@ -180,6 +180,10 @@ public class PlayerController extends Entity {
                         gp.gameState = gp.bat3State;
                         break;
 
+                    case "CursedFlower":
+                        gp.gameState = gp.flowerState;
+                        break;
+
 
                 }
 

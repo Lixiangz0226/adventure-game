@@ -3,11 +3,13 @@ package data_access;
 import OutsideEntities.Player;
 import OutsideEntities.Weapons.*;
 import OutsideEntities.Items.*;
+import controller.KeyHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Scanner;
+
 
 public class LoadPlayer{
     /**
@@ -19,12 +21,13 @@ public class LoadPlayer{
     File myObj = new File("src\\data_access\\Player.txt");
 
 
+
     public LoadPlayer() {// Constructor
         }
 
     public Player load() throws FileNotFoundException {
         // Load the player's info from the file and return the player saved
-        if (!myObj.exists()) {return new Player("Null", 10);}
+        if (!myObj.exists()) {return new Player("Null", 50);}
         Scanner myReader = new Scanner(myObj);
         // name
         String name = myReader.nextLine();

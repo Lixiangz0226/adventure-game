@@ -23,13 +23,11 @@ public class PlayerInfo extends Event {
     private String position = "start";
     public Boolean opened = true;
     public GamePanel gp;
-    private Player player;
     private SavePlayer savePlayer;
 
 
     public PlayerInfo(Player player, GamePanel gp) throws IOException {
         // Constructor
-        this.player = player;
         savePlayer = new SavePlayer(player);
         this.gp = gp;
         view = new PlayerInfoViewModel(player);

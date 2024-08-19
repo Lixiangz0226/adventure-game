@@ -74,9 +74,9 @@ public class AssetSetter {
         gp.npc[mapNumber][4].y = gp.tileSize * 6;
 
         mapNumber = 2;
-        //gp.npc[mapNumber][5] = new CursedFlower(gp);
-        //gp.npc[mapNumber][5].x = gp.tileSize * 5;
-        //gp.npc[mapNumber][5].y = gp.tileSize * 6;
+        gp.npc[mapNumber][5] = new CursedFlower(gp);
+        gp.npc[mapNumber][5].x = gp.tileSize * 5;
+        gp.npc[mapNumber][5].y = gp.tileSize * 6;
 
         mapNumber = 3;
         gp.npc[mapNumber][5] = new CursedTree(gp);

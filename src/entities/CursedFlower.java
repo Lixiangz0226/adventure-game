@@ -6,27 +6,29 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class CursedFlower extends Entity {
 
 
 
-
-    public BufferedImage sp1, sp2, sp3;
-    int i = 0;
+    public BufferedImage sp1, sp2, sp3, sp4, sp5;
+    private int spriteIndex = 1; // Start with the first sprite (sp1)
 
 
 
     public CursedFlower(GamePanel gp) {
         super(gp);
 
-        speed = 1;
-        isEnemy = false;
+        direction = "sp1";
+        speed = 0;
+        isEnemy = true;
+        name = "CursedFlower";
 
         setDialogue();
         getNPCImage();
-
-
 
     }
 
@@ -34,8 +36,11 @@ public class CursedFlower extends Entity {
     public void getNPCImage () {
         try {
             sp1 = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Cursed_Flower/Cursed Flower-1.png"));
-            sp2 = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Cursed_Flower/Cursed Flower-2.png"));
-            sp3 = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Cursed_Flower/Cursed Flower-3.png"));
+            sp2 = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Cursed_Flower/Cursed Flower-3.png"));
+            sp3 = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Cursed_Flower/Cursed Flower-2.png"));
+
+            sp4 = ImageIO.read(getClass().getResourceAsStream("/resource/CursedFlower/Happy Flower-4.png.png"));
+            sp5 = ImageIO.read(getClass().getResourceAsStream("/resource/CursedFlower/Happy Flower-5.png.png"));
 
 
         }catch(IOException e) {
@@ -44,14 +49,12 @@ public class CursedFlower extends Entity {
     }
 
     public void setDialogue() {
-        dialogues[0] = "Hello kid";
-        dialogues[1] = "Bye kid";
-        dialogues[2] = "Go away kid";
-        dialogues[3] = "I SAID GO AWAY";
 
+        dialogues[0] = "SA...ve mE";
+        dialogues[1] = "geT Me the...the";
+        dialogues[2] = "...puRiFicATiOn pOwDEr";
 
     }
-
 
     //Similar to the player who acts based on keyboard inputs, the npc moves by recieving a direction input through
     //a random integer generator that gives each direction a 25%. The actionLockChecker allows a period of time
@@ -60,77 +63,78 @@ public class CursedFlower extends Entity {
     public void setAction() {
         actionLockCounter++;
 
-        if(actionLockCounter == 60) {
-            switch(i) {
-                case 0:
-                    direction = "sp1";
-                    break;
-                case 1:
-                    direction = "sp2";
-                    break;
-                case 2:
-                    direction = "sp3";
-                    break;
-            }
-            actionLockCounter = 0;
-            i = (i + 1) % 3;  // Reset i to 0 after it reaches 3
+        if (gp.cursedFlower.status) {
+            if (actionLockCounter >= 15) { // Switch sprite every 120 ticks
+                spriteIndex++; // Move to the next sprite
+                if (spriteIndex > 3) {
+                    spriteIndex = 1; // Reset to first sprite after the third one
+                }
 
+                switch (spriteIndex) {
+                    case 1:
+                        direction = "sp1";
+                        break;
+                    case 2:
+                        direction = "sp2";
+                        break;
+                    case 3:
+                        direction = "sp3";
+                        break;
+                }
+
+                actionLockCounter = 0; // Reset the counter
+            }
+        } else {
+            if (actionLockCounter >= 15) {
+                if (direction.equals("sp4")) {
+                    direction = "sp5";
+                } else {
+                    direction = "sp4";
+                }
+                actionLockCounter = 0;
+            }
         }
     }
 
-    public void update() {
-        setAction();
 
-        collisionOn = false;
 
-        gp.cChecker.checkTile(this);
-        gp.cChecker.checkObject(this,false);
-        gp.cChecker.checkPlayer(this);
+    public void speak() {
 
-        if (collisionOn == false) {
+        if(gp.cursedFlower.status) {
+            if(dialogues[dialogueIndex] == null){
+                dialogueIndex = 0;
+            }
+            gp.ui.currentDialogue = dialogues[dialogueIndex];
+            dialogueIndex++;
 
-            switch (direction) {
+            switch (gp.playerController.direction) {
                 case "up":
-                    y  -= speed;
+                    direction = "down";
                     break;
 
                 case "down":
-                    y += speed;
+                    direction = "up";
                     break;
 
                 case "left":
-                    x -= speed;
+                    direction = "right";
                     break;
 
                 case "right":
-                    x += speed;
+                    direction = "left";
                     break;
-            }
 
-        }
-        else {
-            collisionOn = true;
+
+            }
         }
 
-        spriteCounter++;
-        if(spriteCounter > 12) {
-            if(spriteNumber == 1) {
-                spriteNumber = 2;
-            }
-            else if(spriteNumber == 2) {
-                spriteNumber = 1;
-            }
-            spriteCounter = 0;
 
-        }
 
     }
 
-    //Depending on the entity direction and spriteCounter, update the sprite of the entity
     public void draw(Graphics2D g2) {
 
-        BufferedImage image = null;
-
+        BufferedImage image = sp1;
 
         switch (direction) {
             case "sp1":
@@ -140,15 +144,23 @@ public class CursedFlower extends Entity {
             case "sp2":
                 image = sp2;
                 break;
+
             case "sp3":
                 image = sp3;
+                break;
+
+            case "sp4":
+                image = sp4;
+                break;
+
+            case "sp5":
+                image = sp5;
                 break;
         }
 
 
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, x, y, gp.tileSize*2, gp.tileSize*2, null);
 
     }
-
 
 }

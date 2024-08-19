@@ -1,5 +1,6 @@
 package controller;
 
+import OutsideEntities.Items.PurificationPotion;
 import OutsideEntities.Monsters.Bat;
 import OutsideEntities.Monsters.Goblin;
 import OutsideEntities.Player;
@@ -17,6 +18,8 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
+
 public class GamePanel extends JPanel implements Runnable{
 
     //Attributes declare
@@ -25,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable{
     SavePlayer savePlayer;
 
     //Note the maxScreenCow/Row represents the number of tiles displayed on screen
-    public final int tileSize = originalTilesSize * scale;
+    public int tileSize = originalTilesSize * scale;
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol;
@@ -56,15 +59,8 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity[][] npc = new Entity[maxMap][10];
 
     //add if statement to inject saved player
-    public static Player player;
+    public Player player = new Player("Steve", 50);
 
-    static {
-        try {
-            player = playerLoader.load();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     //Generate events
     public ShopEvent shop = new ShopEvent(player);
@@ -94,6 +90,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int bat2State = 9;
     public final int bat3State = 10;
     public final int infoState = 11;
+    public final int flowerState = 12;
+    public final int guideState = 13;
 
 
 
@@ -105,13 +103,17 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        player.getInventory().addItem(new PurificationPotion());
+
+
+
+
 
     }
 
     public void setUpGame() {
         setter.setObject();
         setter.setNPC();
-        player.setMoney(999999999);
         gameState = titleState;
     }
 
@@ -164,7 +166,7 @@ public class GamePanel extends JPanel implements Runnable{
             //nothing
         }
 
-        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping) {
+        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping && !guide.fighting) {
             for(int i = 0; i < npc[1].length; i++) {
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();
@@ -224,5 +226,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         g2.dispose();
 
+    }
+
+    public KeyHandler getKeyH() {
+        return keyH;
     }
 }

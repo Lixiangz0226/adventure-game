@@ -4,13 +4,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AssetSetterTest {
+class KeyHandlerTest {
 
     @Test
-    void setObject() {
+    void keyTyped() {
     }
 
     @Test
-    void setNPC() {
+    void keyPressed() {
+    }
+
+    @Test
+    void keyReleased() {
     }
 }

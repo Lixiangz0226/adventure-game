@@ -126,6 +126,7 @@ public class BattleEvent extends Event {
                         opened = false;
                         status = false;
                         fighting = false;
+
                     }break;//////////////////////////////////////////////////////////////////////////////////Back to map
             }
         }

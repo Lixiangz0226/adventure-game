@@ -76,7 +76,7 @@ public class CursedFlowerEvent extends Event {
                     }break;
                 case "finish":
                     switch (yourChoice){
-                        case "c4": opened = false; break;
+                        case "c4": opened = false; status = false; break;
                     }
             }
         }
