@@ -8,9 +8,12 @@ import entities.stat_entities.Weapons.Staff;
 import entities.stat_entities.Player;
 
 import controller.EventController.*;
+import controller.GamePanel;
+
+import java.io.IOException;
 
 public class TestBattle {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Player player = new Player("Vergil", 50);
         player.getInventory().addItem(new Flame_Crossbow());
         player.getInventory().addItem(new Life_Potion());
@@ -23,7 +26,7 @@ public class TestBattle {
         player.getInventory().addItem(new Staff());
 
 //        BattleEvent battle = new BattleEvent(player, new Bat());
-        BattleEvent battle = new BattleEvent(player, new Goblin());
+        BattleEvent battle = new BattleEvent(player, new Goblin(), new GamePanel());
 
         battle.getWindow().setVisible(true);
 

@@ -36,6 +36,7 @@ public class BattlePresenter extends EventPresenter{
         /*
         The start scene.
          */
+        renewHP();
         backPanel.setVisible(false);
         mainTextArea.setText("Suddenly, a "+ monster.getName() +" leaped out from nowhere!");
         choice1.setText("Attack");
