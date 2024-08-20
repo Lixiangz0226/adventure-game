@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the EventHandler class.
+ * 
+ * This class tests the functionality of the EventHandler class, which is responsible 
+ * for handling events such as collisions, interactions, and teleportations in the game.
+ */
 class EventHandlerTest {
     private EventHandler eventHandler;
     private GamePanel mockGamePanel;
