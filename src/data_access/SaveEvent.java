@@ -10,11 +10,9 @@ public class SaveEvent {
      * Save all events to a file
      */
     File file = new File("src\\data_access\\Events.txt");
-    GamePanel gp;
 
-    public SaveEvent(GamePanel gp) {this.gp = gp;}
 
-    public void save() throws IOException {// Save events
+    public void save(GamePanel gp) throws IOException {// Save events
         file.delete();
         file.createNewFile();
 

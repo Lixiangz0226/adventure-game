@@ -2,6 +2,7 @@ package controller;
 
 import OutsideEntities.Player;
 import data_access.LoadEvent;
+import data_access.LoadPlayer;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,7 +14,8 @@ import static controller.GamePanel.playerLoader;
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, loadPressed, IPressed;
-    private LoadEvent loadEvent;
+    private LoadEvent loadEvent = new LoadEvent();
+    private LoadPlayer loadPlayer = new LoadPlayer();
 
     GamePanel gp;
     Player player;
@@ -21,7 +23,6 @@ public class KeyHandler implements KeyListener {
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
         this.player = gp.player;
-        loadEvent = new LoadEvent(gp);
 
     }
 
@@ -68,14 +69,11 @@ public class KeyHandler implements KeyListener {
                 //load game
                 if(gp.ui.commandNumber == 1) {
                     gp.gameState = gp.playState;
-                    {
-                        try {
-                            player = playerLoader.load();
-                            gp.player = player;
-                            loadEvent.load();
-                        } catch (FileNotFoundException ex) {
-                            throw new RuntimeException(ex);
-                        }
+                    try {
+                        loadPlayer.load(gp.player);
+                        loadEvent.load(gp);
+                    } catch (FileNotFoundException ex) {
+                        throw new RuntimeException(ex);
                     }
                 }
 

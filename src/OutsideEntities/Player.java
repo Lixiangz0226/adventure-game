@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Player extends AbstractCharacter {
+public class Player extends Character {
     /**
      * A Player is the controllable character for the user.
      *     A Player has a string name, int health, a list of State state_set,
@@ -133,6 +133,8 @@ public class Player extends AbstractCharacter {
     }
 
     public Inventory getInventory() {/* Return the inventory */return inventory;}
+
+    public void removeAllItems(){/* Remove all the items from the player */ inventory.removeAll();}
 
     public List<Skill> getSkills() {/* Return a copy of the list of skills */
         return new ArrayList<>(List.copyOf(skills));}

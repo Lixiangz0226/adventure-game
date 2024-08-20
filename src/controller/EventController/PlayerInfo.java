@@ -31,7 +31,7 @@ public class PlayerInfo extends Event {
     public PlayerInfo(Player player, GamePanel gp) throws IOException {
         // Constructor
         savePlayer = new SavePlayer(player);
-        saveEvent = new SaveEvent(gp);
+        saveEvent = new SaveEvent();
         this.gp = gp;
         view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
@@ -69,7 +69,7 @@ public class PlayerInfo extends Event {
                         case "c4":
                             try {
                                 savePlayer.save();
-                                saveEvent.save();
+                                saveEvent.save(gp);
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
