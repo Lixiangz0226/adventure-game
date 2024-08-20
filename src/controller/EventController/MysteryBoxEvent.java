@@ -1,7 +1,7 @@
 package controller.EventController;
 
 import entities.stat_entities.Player;
-import UseCaseInteracter.MysteryBoxInteracter;
+import use_case_interacter.MysteryBoxInteracter;
 import view.EventView.MystereyViewModel;
 
 import javax.swing.*;

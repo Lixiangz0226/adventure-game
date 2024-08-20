@@ -3,7 +3,7 @@ package controller.EventController;
 
 import entities.stat_entities.Monsters.Monster;
 import entities.stat_entities.Player;
-import UseCaseInteracter.BattleInteracter;
+import use_case_interacter.BattleInteracter;
 import controller.GamePanel;
 import view.EventView.BattleViewModel;
 

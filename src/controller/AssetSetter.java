@@ -37,12 +37,31 @@ public class AssetSetter {
         gp.obj[mapNumber][2].y = 0 * gp.tileSize;
 
         gp.obj[mapNumber][3] = new SuperKey();
-        gp.obj[mapNumber][3].x = 7 * gp.tileSize;
+        gp.obj[mapNumber][3].x = 6 * gp.tileSize;
         gp.obj[mapNumber][3].y = 8 * gp.tileSize;
 
         gp.obj[mapNumber][4] = new PurificationPowder();
         gp.obj[mapNumber][4].x = 9 * gp.tileSize;
         gp.obj[mapNumber][4].y = 8 * gp.tileSize;
+
+        gp.obj[mapNumber][5] = new ForestDoor1();
+        gp.obj[mapNumber][5].x = 0 * gp.tileSize;
+        gp.obj[mapNumber][5].y = 5 * gp.tileSize;
+
+        //gp.obj[mapNumber][6] = new ForestDoor2();
+        //gp.obj[mapNumber][6].x = 15 * gp.tileSize;
+        //gp.obj[mapNumber][6].y = 5 * gp.tileSize;
+
+        mapNumber = 1;
+        gp.obj[mapNumber][7] = new CavernDoor();
+        gp.obj[mapNumber][7].x = 6 * gp.tileSize;
+        gp.obj[mapNumber][7].y = 6 * gp.tileSize;
+
+        mapNumber = 2;
+        gp.obj[mapNumber][8] = new DoorObject();
+        gp.obj[mapNumber][8].x = 10 * gp.tileSize;
+        gp.obj[mapNumber][8].y = 5 * gp.tileSize;
+
 
 
     }
@@ -56,33 +75,42 @@ public class AssetSetter {
         gp.npc[mapNumber][0].x = gp.tileSize * 4;
         gp.npc[mapNumber][0].y = gp.tileSize * 4;
 
-        gp.npc[mapNumber][1] = new Goblin(gp);
-        gp.npc[mapNumber][1].x = gp.tileSize * 7;
-        gp.npc[mapNumber][1].y = gp.tileSize * 4;
+        gp.npc[mapNumber][8] = new YoungKid(gp);
+        gp.npc[mapNumber][8].x = gp.tileSize * 7;
+        gp.npc[mapNumber][8].y = gp.tileSize * 2;
 
 
         mapNumber = 1;
-        gp.npc[mapNumber][2] = new Bat1(gp);
-        gp.npc[mapNumber][2].x = gp.tileSize * 9;
-        gp.npc[mapNumber][2].y = gp.tileSize * 4;
+        gp.npc[mapNumber][1] = new Bat1(gp);
+        gp.npc[mapNumber][1].x = gp.tileSize * 9;
+        gp.npc[mapNumber][1].y = gp.tileSize * 4;
 
-        gp.npc[mapNumber][3] = new Bat2(gp);
-        gp.npc[mapNumber][3].x = gp.tileSize * 4;
-        gp.npc[mapNumber][3].y = gp.tileSize * 3;
+        gp.npc[mapNumber][2] = new Bat2(gp);
+        gp.npc[mapNumber][2].x = gp.tileSize * 7;
+        gp.npc[mapNumber][2].y = gp.tileSize * 7;
 
-        gp.npc[mapNumber][4] = new Bat3(gp);
-        gp.npc[mapNumber][4].x = gp.tileSize * 5;
-        gp.npc[mapNumber][4].y = gp.tileSize * 6;
+        gp.npc[mapNumber][3] = new Bat3(gp);
+        gp.npc[mapNumber][3].x = gp.tileSize * 10;
+        gp.npc[mapNumber][3].y = gp.tileSize * 6;
 
         mapNumber = 2;
-        gp.npc[mapNumber][5] = new CursedFlower(gp);
-        gp.npc[mapNumber][5].x = gp.tileSize * 5;
-        gp.npc[mapNumber][5].y = gp.tileSize * 6;
+        gp.npc[mapNumber][4] = new CursedFlower(gp);
+        gp.npc[mapNumber][4].x = gp.tileSize * 6;
+        gp.npc[mapNumber][4].y = gp.tileSize * 4;
+
+        gp.npc[mapNumber][5] = new Goblin(gp);
+        gp.npc[mapNumber][5].x = gp.tileSize * 3;
+        gp.npc[mapNumber][5].y = gp.tileSize * 4;
+
+        gp.npc[mapNumber][6] = new SlotMachine(gp);
+        gp.npc[mapNumber][6].x = gp.tileSize * 13;
+        gp.npc[mapNumber][6].y = gp.tileSize * 5;
+
 
         mapNumber = 3;
-        gp.npc[mapNumber][5] = new CursedTree(gp);
-        gp.npc[mapNumber][5].x = gp.tileSize * 4;
-        gp.npc[mapNumber][5].y = gp.tileSize;
+        gp.npc[mapNumber][7] = new CursedTree(gp);
+        gp.npc[mapNumber][7].x = gp.tileSize * 4;
+        gp.npc[mapNumber][7].y = gp.tileSize;
 
 
     }

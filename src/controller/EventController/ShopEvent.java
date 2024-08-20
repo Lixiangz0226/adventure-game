@@ -1,7 +1,7 @@
 package controller.EventController;
 
 import entities.stat_entities.Player;
-import UseCaseInteracter.ShopInteracter;
+import use_case_interacter.ShopInteracter;
 import view.EventView.ShopViewModel;
 
 import javax.swing.*;

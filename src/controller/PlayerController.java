@@ -43,11 +43,120 @@ public class PlayerController extends Entity {
         getPlayerImage();
     }
 
+    //Incomplete method, need to be integrated with other code
+    public void interactNPC(int i) {
+        if (i != 999) {
+            if (keyH.enterPressed) {
+                gp.gameState = gp.dialogueState;
+                gp.npc[gp.currentMap][i].speak();
+            }
+
+
+            if (keyH.FPressed) {
+                System.out.println("Part 2 check");
+                switch (gp.npc[gp.currentMap][i].name) {
+                    case "Guide":
+                        System.out.println("Shop active");
+                        gp.gameState = gp.shopState;
+                        break;
+
+                    case "Goblin":
+                        gp.gameState = gp.battleState;
+                        break;
+
+                    case "CursedTree":
+                        gp.gameState = gp.bossState;
+                        break;
+
+                    case "Bat1":
+                        gp.gameState = gp.bat1State;
+                        break;
+
+                    case "Bat2":
+                        gp.gameState = gp.bat2State;
+                        break;
+
+                    case "Bat3":
+                        gp.gameState = gp.bat3State;
+                        break;
+
+                    case "CursedFlower":
+                        gp.gameState = gp.flowerState;
+                        break;
+
+                    case "SlotMachine":
+                        gp.gameState = gp.slotState;
+                        break;
+                }
+
+            }
+            keyH.FPressed = false;
+        }
+        keyH.enterPressed = false;
+    }
+
+    //Depending on the name of the object, set object to null (to simulate pick up) and update the object's affect
+    public void pickUpObject(int i) {
+
+        if(i != 999) {
+
+            String objectName = gp.obj[gp.currentMap][i].name;
+
+            switch (objectName) {
+                case "Key":
+                    gp.obj[gp.currentMap][i] = null;
+                    hasKey++;
+                    break;
+
+                case "Door":
+                    if(hasKey > 0) {
+                        gp.obj[gp.currentMap][i] = null;
+                        hasKey--;
+                    }
+                    break;
+
+                case "Teleporter":
+                    System.out.println("You hit an object");
+
+                case "Super_Key":
+                    gp.obj[gp.currentMap][i] = null;
+                    hasSuperKey++;
+                    break;
+
+                case "Goal_Door":
+                    if(gp.player.getKey() > 5) {
+                        gp.obj[gp.currentMap][i] = null;
+                    }
+                    break;
+
+                case "ForestDoor1":
+                    if (gp.playerController.hasSuperKey > 0) {
+                        gp.obj[gp.currentMap][i] = null;
+                    }
+                    break;
+
+                case "ForestDoor2":
+                    if (gp.playerController.hasSuperKey > 0) {
+                        gp.obj[gp.currentMap][i] = null;
+                    }
+                    break;
+
+                case "Powder":
+                    gp.obj[gp.currentMap][i] = null;
+                    gp.player.getInventory().addItem(new PurificationPotion());
+
+                    break;
+
+            }
+        }
+
+    }
+
     public void setDefaultValue() {
-        x = 100;
-        y = 100;
+        x = 340;
+        y = 150;
         speed = 4;
-        direction = "down";
+        direction = "up";
     }
 
     //Load player sprites from the resource package
@@ -143,101 +252,6 @@ public class PlayerController extends Entity {
 
     }
 
-    //Incomplete method, need to be integrated with other code
-    public void interactNPC(int i) {
-        if (i != 999) {
-            if (keyH.enterPressed) {
-                gp.gameState = gp.dialogueState;
-                gp.npc[gp.currentMap][i].speak();
-            }
-
-
-            if (keyH.FPressed) {
-                System.out.println("Part 2 check");
-                switch (gp.npc[gp.currentMap][i].name) {
-                    case "Guide":
-                        System.out.println("Shop active");
-                        gp.gameState = gp.shopState;
-                        break;
-
-                    case "Goblin":
-                        gp.gameState = gp.battleState;
-                        break;
-
-                    case "CursedTree":
-                        gp.gameState = gp.bossState;
-                        break;
-
-                    case "Bat1":
-                        gp.gameState = gp.bat1State;
-                        break;
-
-                    case "Bat2":
-                        gp.gameState = gp.bat2State;
-                        break;
-
-                    case "Bat3":
-                        gp.gameState = gp.bat3State;
-                        break;
-
-                    case "CursedFlower":
-                        gp.gameState = gp.flowerState;
-                        break;
-
-
-                }
-
-            }
-            keyH.FPressed = false;
-        }
-        keyH.enterPressed = false;
-    }
-
-    //Depending on the name of the object, set object to null (to simulate pick up) and update the object's affect
-    public void pickUpObject(int i) {
-
-        if(i != 999) {
-
-            String objectName = gp.obj[gp.currentMap][i].name;
-
-            switch (objectName) {
-                case "Key":
-                    gp.obj[gp.currentMap][i] = null;
-                    hasKey++;
-                    break;
-
-                case "Door":
-                    if(hasKey > 0) {
-                        gp.obj[gp.currentMap][i] = null;
-                        hasKey--;
-                    }
-                    break;
-
-                case "Teleporter":
-                    System.out.println("You hit an object");
-
-                case "Super_Key":
-                    gp.obj[gp.currentMap][i] = null;
-                    hasSuperKey++;
-                    break;
-
-                case "Goal_Door":
-                    if(gp.player.getKey() > 5) {
-                       gp.obj[gp.currentMap][i] = null;
-                    }
-                    break;
-
-
-                case "Powder":
-                    gp.obj[gp.currentMap][i] = null;
-                    gp.player.getInventory().addItem(new PurificationPotion());
-
-                    break;
-
-            }
-        }
-
-    }
 
     //Update the player sprite depending on the direction
     //Alternate between spriteNumber 1 or 2 every 12 ticks to create animation

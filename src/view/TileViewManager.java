@@ -56,26 +56,12 @@ public class TileViewManager {
             tile[5] = new Tile ();
             tile[5].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Cavern/Cavern_Ground.png"));
 
-            tile[5] = new Tile ();
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Cavern/Cavern_Ground.png"));
-
             tile[6] = new Tile ();
-            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Starting_Forest/Starting_Forest_Gate.png"));
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Forest/Dark_Forest_Barrier.png"));
+            tile[6].collision = true;
 
             tile[7] = new Tile ();
-            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Cavern/Dark_Cavern_Gate.png"));
-
-            tile[8] = new Tile ();
-            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Forest/Dark_Forest_Barrier.png"));
-            tile[8].collision = true;
-
-            tile[9] = new Tile ();
-            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Forest/Dark_Forest_ground.png-1.png.png"));
-
-            tile[10] = new Tile ();
-            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Starting_Forest/Starting_Forest_Gate_2.png"));
-            tile[10].collision = true;
-
+            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/resource/tile/Dark_Forest/Dark_Forest_ground.png-1.png.png"));
 
 
         } catch(IOException e) {

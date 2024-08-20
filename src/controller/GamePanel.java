@@ -9,7 +9,7 @@ import data_access.SavePlayer;
 import entities.map_objects.Object;
 import entities.visual_entities.Entity;
 import view.TileViewManager;
-import Presenter.MapPresenter;
+import presenter.MapPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,6 +89,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int infoState = 11;
     public final int flowerState = 12;
     public final int guideState = 13;
+    public final int slotState = 14;
 
 
 
@@ -175,7 +176,7 @@ public class GamePanel extends JPanel implements Runnable{
             //nothing
         }
 
-        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping && !guide.fighting) {
+        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping && !guide.fighting && !machine.fighting) {
             for(int i = 0; i < npc[1].length; i++) {
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();

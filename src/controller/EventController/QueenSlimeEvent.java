@@ -1,7 +1,7 @@
 package controller.EventController;
 
 import entities.stat_entities.Player;
-import UseCaseInteracter.QueenSlimeInteracter;
+import use_case_interacter.QueenSlimeInteracter;
 import view.EventView.QueenViewModel;
 
 import javax.swing.*;

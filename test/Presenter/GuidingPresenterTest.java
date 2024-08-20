@@ -1,10 +1,11 @@
-package Presenter;
+package presenter;
 
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Monsters.Bat;
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
+
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.Monsters.Bat;
+import entities.stat_entities.Monsters.Monster;
+import entities.stat_entities.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

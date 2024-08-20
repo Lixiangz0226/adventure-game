@@ -1,9 +1,9 @@
-package Presenter;
+package presenter;
 
-import OutsideEntities.Items.Item;
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Weapons.Katana;
+import entities.stat_entities.Items.Item;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.Weapons.Katana;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

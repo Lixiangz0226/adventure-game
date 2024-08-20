@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Main2Test {
 
     @Test
-    void main() throws IOException {
+    void mainTest() throws IOException {
         // Run the main method
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,4 +45,5 @@ class Main2Test {
         gamePanel = (GamePanel) components[0];
         assertNotNull(gamePanel, "The GamePanel should not be null");
     }
+
 }
