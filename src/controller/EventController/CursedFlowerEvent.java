@@ -17,9 +17,10 @@ public class CursedFlowerEvent extends Event {
     private CursedFlowerViewModel view;
     private CursedFlowerInteracter interacter;
     private JButton choice1, choice2, choice3, choice4;
-    public String position;
+    public String position = "start";
     public Boolean opened = true;
     ChoiceHandler choiceHandler = new ChoiceHandler();
+    public Boolean status;
 
     public CursedFlowerEvent(Player player) {
         // Constructor

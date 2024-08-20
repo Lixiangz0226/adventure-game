@@ -3,6 +3,7 @@ package controller.EventController;
 import OutsideEntities.Player;
 import UseCaseInteracter.PlayerInfoInteracter;
 import controller.GamePanel;
+import data_access.SaveEvent;
 import data_access.SavePlayer;
 import view.EventView.PlayerInfoViewModel;
 
@@ -24,11 +25,13 @@ public class PlayerInfo extends Event {
     public Boolean opened = true;
     public GamePanel gp;
     private SavePlayer savePlayer;
+    private SaveEvent saveEvent;
 
 
     public PlayerInfo(Player player, GamePanel gp) throws IOException {
         // Constructor
         savePlayer = new SavePlayer(player);
+        saveEvent = new SaveEvent(gp);
         this.gp = gp;
         view = new PlayerInfoViewModel(player);
         choice1 = view.getChoice1();
@@ -66,6 +69,7 @@ public class PlayerInfo extends Event {
                         case "c4":
                             try {
                                 savePlayer.save();
+                                saveEvent.save();
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }

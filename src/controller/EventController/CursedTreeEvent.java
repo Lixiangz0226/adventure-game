@@ -3,6 +3,7 @@ package controller.EventController;
 import OutsideEntities.Monsters.Cursed_Tree;
 import OutsideEntities.Player;
 import UseCaseInteracter.BossInteracter;
+import controller.GamePanel;
 import view.EventView.BossViewModel;
 
 import javax.swing.*;
@@ -22,20 +23,21 @@ public class CursedTreeEvent extends Event {
     JLabel hpLabelNumber; JLabel enemyhp; JPanel backPanel; JButton backButton;
     private JLabel weaponLabel;
 
-
+    private GamePanel gp;
     private BossViewModel bossViewModel;
     private BossInteracter interacter;
+    public Boolean status;
 
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
-    public CursedTreeEvent(Player player) {///////////////////////////////////////////////////////Create here
+    public CursedTreeEvent(Player player, GamePanel gp) {///////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
         this.boss = new Cursed_Tree();
         this.position = "";
-
+        this.gp = gp;
         status = true;
 
         bossViewModel = new BossViewModel(player, boss);
@@ -114,6 +116,8 @@ public class CursedTreeEvent extends Event {
                     if (Objects.equals(yourChoice, "c1ce")){position = interacter.enemy_message();}
                     break;
                 case "lost":if (Objects.equals(yourChoice, "c4ce")){
+                    gp.gameState = gp.titleState;
+                    opened = false;
                     ///////////////////////////////////////////////////////////////////////////////////////////Game lost
                 }break;
                 case "won":
