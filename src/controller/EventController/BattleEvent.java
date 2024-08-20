@@ -4,12 +4,14 @@ package controller.EventController;
 import OutsideEntities.Monsters.Monster;
 import OutsideEntities.Player;
 import UseCaseInteracter.BattleInteracter;
+import controller.GamePanel;
 import view.EventView.BattleViewModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Objects;
 
 public class BattleEvent extends Event {
@@ -25,15 +27,16 @@ public class BattleEvent extends Event {
     private BattleInteracter battleInteracter;
     public boolean opened = true;
     public boolean fighting = false;
-
+    private GamePanel gp;
 
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
-    public BattleEvent(Player player, Monster monster) {////////////////////////////////////////////////////////////////////Create here
+    public BattleEvent(Player player, Monster monster, GamePanel gp) throws IOException {////////////////////////////////////////////////////////////////////Create here
         /*
         Initializer of the event.
          */
         status = true;
+        this.gp = gp;
 
         battleViewModel = new BattleViewModel(player, monster);
 
@@ -114,7 +117,10 @@ public class BattleEvent extends Event {
                 case "enemy_message":
                     if (Objects.equals(yourChoice, "c1be")){position = battleInteracter.enemyMessage();}
                     break;
-                case "lost":if (Objects.equals(yourChoice, "c4be")){}break;
+                case "lost":if (Objects.equals(yourChoice, "c4be")){
+                    gp.gameState = gp.titleState;
+                    opened = false;
+                }break;
                 ///////////////////////////////////////////////////////////////////////////////////////////////Lost here
                 case "won":
                     if (Objects.equals(yourChoice, "c4be")){
