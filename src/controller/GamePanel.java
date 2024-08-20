@@ -34,6 +34,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxMap = 10;
     public int currentMap = 0;
 
+    boolean leftHanded = true;
+
+
 
     int FPS = 60;
 

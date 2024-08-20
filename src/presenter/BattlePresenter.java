@@ -19,7 +19,7 @@ public class BattlePresenter extends EventPresenter{
 
     public BattlePresenter(JButton choice1, JButton choice2, JButton choice3, JButton choice4, JPanel backPanel,
                            JTextArea mainTextArea, JLabel hpLabelNumber, JLabel enemyhp, Player player,
-                           Monster monster) {// Battle Presenter
+                           Monster monster) {// Battle presenter
         this.mainTextArea = mainTextArea;
         this.choice1 = choice1;
         this.choice2 = choice2;
