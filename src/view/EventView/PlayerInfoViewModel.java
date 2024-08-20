@@ -75,6 +75,19 @@ public class PlayerInfoViewModel extends EventViewModel{
         money.setForeground(Color.white);
         playerPanel.add(money);
 
+        handSwitchPanel = new JPanel();
+        handSwitchPanel.setBounds(100, 500, 100, 50);
+        handSwitchPanel.setBackground(Color.black);
+        handSwitchButton = new JButton("Back");
+        handSwitchButton.setBackground(Color.black);
+        handSwitchButton.setForeground(Color.white);
+        handSwitchButton.setFont(normalFont);
+        handSwitchButton.setFocusPainted(false);
+        handSwitchButton.setActionCommand("c5");
+        handSwitchPanel.add(handSwitchButton);
+        con.add(handSwitchPanel);
+        handSwitchPanel.setVisible(true);
+
     }
 
     public JButton getBackButton() {/* Return the backButton */return backButton;}
