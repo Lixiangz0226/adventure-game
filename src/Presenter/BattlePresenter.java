@@ -137,7 +137,8 @@ public class BattlePresenter extends EventPresenter{
         /*
         The scene after the player has won.
          */
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        hpLabelNumber.setText("" + player.getHealth()); 
+        enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("You won! You found 50$ and a golden key!");
         choice1.setText("-");
         choice2.setText("-");
@@ -149,7 +150,8 @@ public class BattlePresenter extends EventPresenter{
         /*
         The scene after the player's lost.
          */
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        hpLabelNumber.setText("" + player.getHealth()); 
+        enemyhp.setText("" + monster.getHealth());
         mainTextArea.setText("YOU DIED");
         choice1.setText("-");
         choice2.setText("-");
