@@ -26,6 +26,7 @@ public class PlayerInfo extends Event {
     public GamePanel gp;
     private SavePlayer savePlayer;
     private SaveEvent saveEvent;
+    private JButton handSwitchButton;
 
 
     public PlayerInfo(Player player, GamePanel gp) throws IOException {
@@ -40,12 +41,14 @@ public class PlayerInfo extends Event {
         choice4 = view.getChoice4();
         choice5 = view.getBackButton();
         choice6 = view.getHomeButton();
+        handSwitchButton = view.getHandSwitchButton();
         choice1.addActionListener(choiceHandler);
         choice2.addActionListener(choiceHandler);
         choice3.addActionListener(choiceHandler);
         choice4.addActionListener(choiceHandler);
         choice5.addActionListener(choiceHandler);
         choice6.addActionListener(choiceHandler);
+        handSwitchButton.addActionListener(choiceHandler);
 
         interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
     }
@@ -80,6 +83,8 @@ public class PlayerInfo extends Event {
                             getWindow().setVisible(false);
                             gp.gameState = gp.titleState;
                             opened = false; break;
+                        case "c7":
+                            gp.leftHanded = !gp.leftHanded; break;
                     }break;
                 case "inventory":
                     switch (yourChoice) {
