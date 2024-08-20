@@ -130,15 +130,4 @@ public class ConvertTextToSpeech {
 
         return json.substring(startIndex, endIndex);
     }
-
-    public static void main(String[] args) {
-        ConvertTextToSpeech service = new ConvertTextToSpeech();
-        service.synthesizeTextToFileAsync("Any text you want to convert to speech!").thenAccept(filePath -> {
-            if (filePath != null) {
-                System.out.println("Audio content written to file \"" + filePath + "\"");
-            } else {
-                System.out.println("Failed to generate audio.");
-            }
-        });
-    }
 }
