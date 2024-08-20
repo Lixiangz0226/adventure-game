@@ -166,8 +166,6 @@ public class BattlePresenter extends EventPresenter{
         choice2.setText("-");
         choice3.setText("-");
         choice4.setText("Leave");
-
-
     }
 
     public void skill_not_available(){// The updated view of showing the unavailable skill

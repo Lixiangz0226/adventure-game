@@ -35,6 +35,7 @@ public class BossPresenter extends EventPresenter{
         /*
         The start scene.
          */
+        renewHP();
         backPanel.setVisible(false);
         mainTextArea.setText("You look up at it-the grey canopy of The Cursed Tree reaches 30 meters, " +
                 "and you understand the final battle has come.");
