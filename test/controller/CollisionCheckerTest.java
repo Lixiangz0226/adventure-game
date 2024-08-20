@@ -17,6 +17,16 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * Unit tests for the CollisionChecker class.
+ * 
+ * This class tests various collision scenarios in the game, including:
+ * - Tile collisions
+ * - Object collisions
+ * - Entity collisions
+ * - Player collisions
+ */
 class CollisionCheckerTest {
 
     private CollisionChecker collisionChecker;
