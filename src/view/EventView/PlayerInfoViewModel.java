@@ -15,6 +15,8 @@ public class PlayerInfoViewModel extends EventViewModel{
     private JButton backButton;
     private JPanel homePanel;
     private JButton homeButton;
+    private JPanel handSwitchPanel;
+    private JButton handSwitchButton;
 
     public PlayerInfoViewModel(Player player) {// Constructor
 
@@ -76,19 +78,23 @@ public class PlayerInfoViewModel extends EventViewModel{
         playerPanel.add(money);
 
         handSwitchPanel = new JPanel();
-        handSwitchPanel.setBounds(100, 500, 100, 50);
+        handSwitchPanel.setBounds(300, 500, 200, 50);
         handSwitchPanel.setBackground(Color.black);
-        handSwitchButton = new JButton("Back");
+        handSwitchButton = new JButton("Switch Hand");
         handSwitchButton.setBackground(Color.black);
         handSwitchButton.setForeground(Color.white);
         handSwitchButton.setFont(normalFont);
         handSwitchButton.setFocusPainted(false);
-        handSwitchButton.setActionCommand("c5");
+        handSwitchButton.setActionCommand("c7");
         handSwitchPanel.add(handSwitchButton);
         con.add(handSwitchPanel);
         handSwitchPanel.setVisible(true);
 
+
+
     }
+
+    public JButton getHandSwitchButton (){/* Return the handSwitchButton */ return handSwitchButton; }
 
     public JButton getBackButton() {/* Return the backButton */return backButton;}
 
