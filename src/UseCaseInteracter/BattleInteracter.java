@@ -35,6 +35,10 @@ public class BattleInteracter {
                 enemyhp, player, monster);
     }
 
+    public List<String> getMessage() {
+        return message;
+    }
+
     public String start(){// Start use case
         presenter.start(); return "start";}
 

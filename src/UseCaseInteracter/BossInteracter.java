@@ -167,4 +167,12 @@ public class BossInteracter extends EventInteracter{
         presenter.finished();
         return "finished";
     }
+
+    public void setBindingRounds(int rounds){
+        bindingRounds = rounds;
+    }
+
+    public int getBindingRounds(){
+        return bindingRounds;
+    }
 }
