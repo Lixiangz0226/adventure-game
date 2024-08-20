@@ -1,6 +1,6 @@
 package Presenter;
 
-import OutsideEntities.Items.Item;
+import entities.stat_entities.Items.Item;
 
 import javax.swing.*;
 

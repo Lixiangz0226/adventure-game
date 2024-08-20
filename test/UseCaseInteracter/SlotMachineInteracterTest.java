@@ -1,7 +1,6 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Player;
-import org.junit.jupiter.api.Test;
+import entities.stat_entities.Player;
 
 import javax.swing.*;
 

@@ -1,21 +1,18 @@
 package controller;
 
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Monsters.Bat;
-import OutsideEntities.Monsters.Goblin;
-import OutsideEntities.Player;
+import entities.stat_entities.Monsters.Bat;
+import entities.stat_entities.Monsters.Goblin;
+import entities.stat_entities.Player;
 import controller.EventController.*;
 import data_access.LoadPlayer;
 import data_access.SavePlayer;
-import entities.*;
-import entities.PlayerController;
-import Objects.Object;
+import entities.map_objects.Object;
+import entities.visual_entities.Entity;
 import view.TileViewManager;
 import Presenter.MapPresenter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 

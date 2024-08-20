@@ -1,7 +1,12 @@
-import OutsideEntities.Items.*;
-import OutsideEntities.Monsters.*;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
+
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Monsters.Goblin;
+import entities.stat_entities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Weapons.Knife;
+import entities.stat_entities.Weapons.Spear;
+import entities.stat_entities.Weapons.Staff;
+import entities.stat_entities.Player;
+
 import controller.EventController.*;
 
 public class TestBattle {

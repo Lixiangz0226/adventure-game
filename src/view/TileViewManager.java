@@ -2,7 +2,7 @@ package view;
 
 
 import controller.GamePanel;
-import entities.Tile;
+import entities.visual_entities.Tile;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

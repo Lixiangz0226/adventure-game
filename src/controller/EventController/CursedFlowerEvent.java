@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 import UseCaseInteracter.CursedFlowerInteracter;
 import view.EventView.CursedFlowerViewModel;
 

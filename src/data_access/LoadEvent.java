@@ -1,7 +1,5 @@
 package data_access;
 
-import OutsideEntities.Player;
-import controller.EventController.Event;
 import controller.GamePanel;
 
 import java.io.File;

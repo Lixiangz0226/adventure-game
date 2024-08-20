@@ -1,4 +1,4 @@
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 import controller.EventController.GuidingEvent;
 
 public class TestGuiding {

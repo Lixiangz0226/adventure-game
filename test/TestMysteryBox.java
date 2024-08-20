@@ -1,4 +1,4 @@
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 import controller.EventController.MysteryBoxEvent;
 
 public class TestMysteryBox {

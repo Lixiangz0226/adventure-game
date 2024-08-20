@@ -1,9 +1,9 @@
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Player;
+import entities.stat_entities.Weapons.Flame_Crossbow;
 import controller.EventController.PlayerInfo;
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.States.PiggyBanking;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.States.PiggyBanking;
 import controller.GamePanel;
 
 import java.io.IOException;

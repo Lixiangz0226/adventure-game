@@ -1,8 +1,8 @@
 
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Weapons.Flame_Crossbow;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

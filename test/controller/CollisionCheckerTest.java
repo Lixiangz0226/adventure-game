@@ -1,9 +1,9 @@
 package controller;
 
-import Objects.Object;
-import OutsideEntities.Player;
-import entities.Entity;
-import entities.Tile;
+import entities.map_objects.Object;
+import entities.stat_entities.Player;
+import entities.visual_entities.Entity;
+import entities.visual_entities.Tile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.TileViewManager;
@@ -14,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.*;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 /**

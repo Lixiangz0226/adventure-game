@@ -1,6 +1,10 @@
-import OutsideEntities.Items.*;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
+
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Weapons.Battle_Axe;
+import entities.stat_entities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Weapons.Spear;
+import entities.stat_entities.Player;
+
 import controller.EventController.CursedTreeEvent;
 import controller.GamePanel;
 

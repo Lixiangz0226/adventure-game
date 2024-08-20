@@ -1,13 +1,13 @@
 package controller;
 
-import Objects.DoorObject;
-import Objects.GoalDoor;
-import Objects.KeyObject;
-import Objects.Object;
-import Objects.SuperKey;
-import entities.Entity;
+import entities.map_objects.DoorObject;
+import entities.map_objects.GoalDoor;
+import entities.map_objects.KeyObject;
+import entities.map_objects.Object;
+import entities.map_objects.SuperKey;
+import entities.visual_entities.Entity;
 
-import entities.*;
+import entities.visual_entities.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

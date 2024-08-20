@@ -1,10 +1,9 @@
 package data_access;
 
-import OutsideEntities.Items.Item;
-import OutsideEntities.Player;
+import entities.stat_entities.Items.Item;
+import entities.stat_entities.Player;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
 
 public class SavePlayer {
     /**

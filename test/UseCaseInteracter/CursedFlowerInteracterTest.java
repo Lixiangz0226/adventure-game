@@ -1,8 +1,7 @@
 package UseCaseInteracter;
 
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.Player;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

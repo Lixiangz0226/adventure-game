@@ -1,14 +1,9 @@
 package controller;
 
-import Objects.DoorObject;
-import Objects.GoalDoor;
-import Objects.KeyObject;
-import Objects.SuperKey;
-import entities.*;
-import entities.Goblin;
-import entities.NPC_Guide;
-
-
+import entities.map_objects.*;
+import entities.visual_entities.Goblin;
+import entities.visual_entities.NPC_Guide;
+import entities.visual_entities.*;
 
 
 public class AssetSetter {
@@ -44,6 +39,12 @@ public class AssetSetter {
         gp.obj[mapNumber][3] = new SuperKey();
         gp.obj[mapNumber][3].x = 7 * gp.tileSize;
         gp.obj[mapNumber][3].y = 8 * gp.tileSize;
+
+        gp.obj[mapNumber][4] = new PurificationPowder();
+        gp.obj[mapNumber][4].x = 9 * gp.tileSize;
+        gp.obj[mapNumber][4].y = 8 * gp.tileSize;
+
+
     }
 
     //Create and ;oad in the npc entity into specific coordinates

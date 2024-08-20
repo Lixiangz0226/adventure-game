@@ -1,5 +1,5 @@
-import OutsideEntities.Items.PurificationPotion;
-import OutsideEntities.Player;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.Player;
 import controller.EventController.CursedFlowerEvent;
 
 public class TestCursedFlower {
