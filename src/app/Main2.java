@@ -6,8 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class
-Main2 {
+public class Main2 {
     JButton homeButton;
     JPanel homePanel;
     static Container con;

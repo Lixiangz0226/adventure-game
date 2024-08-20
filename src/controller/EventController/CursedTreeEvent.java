@@ -1,8 +1,8 @@
 package controller.EventController;
 
-import OutsideEntities.Monsters.Cursed_Tree;
-import OutsideEntities.Player;
-import UseCaseInteracter.BossInteracter;
+import entities.stat_entities.Monsters.Cursed_Tree;
+import entities.stat_entities.Player;
+import use_case_interacter.BossInteracter;
 import controller.GamePanel;
 import view.EventView.BossViewModel;
 

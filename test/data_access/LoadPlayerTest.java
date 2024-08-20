@@ -1,10 +1,10 @@
 package data_access;
 
-import OutsideEntities.Player;
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Items.PiggyBank;
-import OutsideEntities.Weapons.Flame_Crossbow;
-import OutsideEntities.Weapons.Spear;
+import entities.stat_entities.Player;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Items.PiggyBank;
+import entities.stat_entities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Weapons.Spear;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

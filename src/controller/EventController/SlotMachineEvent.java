@@ -1,7 +1,7 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
-import UseCaseInteracter.SlotMachineInteracter;
+import entities.stat_entities.Player;
+import use_case_interacter.SlotMachineInteracter;
 import view.EventView.SlotViewModel;
 
 import javax.swing.*;

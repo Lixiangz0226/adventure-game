@@ -1,6 +1,6 @@
 package controller;
 
-import entities.Entity;
+import entities.visual_entities.Entity;
 
 public class CollisionChecker {
 

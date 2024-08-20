@@ -1,6 +1,6 @@
 package view.EventView;
 
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 
 import javax.swing.*;
 import java.awt.*;

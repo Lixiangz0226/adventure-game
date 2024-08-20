@@ -1,7 +1,7 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
-import UseCaseInteracter.PlayerInfoInteracter;
+import entities.stat_entities.Player;
+import use_case_interacter.PlayerInfoInteracter;
 import controller.GamePanel;
 import data_access.SaveEvent;
 import data_access.SavePlayer;

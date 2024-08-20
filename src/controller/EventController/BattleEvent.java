@@ -1,9 +1,9 @@
 package controller.EventController;
 
 
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
-import UseCaseInteracter.BattleInteracter;
+import entities.stat_entities.Monsters.Monster;
+import entities.stat_entities.Player;
+import use_case_interacter.BattleInteracter;
 import controller.GamePanel;
 import view.EventView.BattleViewModel;
 

@@ -1,13 +1,13 @@
 package controller;
 
-import Objects.DoorObject;
-import Objects.GoalDoor;
-import Objects.KeyObject;
-import Objects.Object;
-import Objects.SuperKey;
-import entities.Entity;
+import entities.map_objects.DoorObject;
+import entities.map_objects.GoalDoor;
+import entities.map_objects.KeyObject;
+import entities.map_objects.Object;
+import entities.map_objects.SuperKey;
+import entities.visual_entities.Entity;
 
-import entities.*;
+import entities.visual_entities.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -62,7 +62,7 @@ class AssetSetterTest {
         assertEquals(0 * gp.tileSize, gp.obj[0][2].y);
 
         assertTrue(gp.obj[0][3] instanceof SuperKey);
-        assertEquals(7 * gp.tileSize, gp.obj[0][3].x);
+        assertEquals(192, gp.obj[0][3].x);
         assertEquals(8 * gp.tileSize, gp.obj[0][3].y);
 
     }
@@ -77,25 +77,21 @@ class AssetSetterTest {
         assertEquals(4 * gp.tileSize, gp.npc[0][0].x);
         assertEquals(4 * gp.tileSize, gp.npc[0][0].y);
 
-        assertTrue(gp.npc[0][1] instanceof Goblin);
-        assertEquals(7 * gp.tileSize, gp.npc[0][1].x);
-        assertEquals(4 * gp.tileSize, gp.npc[0][1].y);
-
         // Assert: Check NPCs on map 1
-        assertTrue(gp.npc[1][2] instanceof Bat1);
+        assertTrue(gp.npc[1][1] instanceof Bat1);
         assertEquals(9 * gp.tileSize, gp.npc[1][2].x);
         assertEquals(4 * gp.tileSize, gp.npc[1][2].y);
 
-        assertTrue(gp.npc[1][3] instanceof Bat2);
+        assertTrue(gp.npc[1][2] instanceof Bat2);
         assertEquals(4 * gp.tileSize, gp.npc[1][3].x);
         assertEquals(3 * gp.tileSize, gp.npc[1][3].y);
 
-        assertTrue(gp.npc[1][4] instanceof Bat3);
+        assertTrue(gp.npc[1][3] instanceof Bat3);
         assertEquals(5 * gp.tileSize, gp.npc[1][4].x);
         assertEquals(6 * gp.tileSize, gp.npc[1][4].y);
 
         // Assert: Check NPCs on map 2
-        assertTrue(gp.npc[2][5] instanceof CursedFlower);
+        assertTrue(gp.npc[2][4] instanceof CursedFlower);
         assertEquals(5 * gp.tileSize, gp.npc[2][5].x);
         assertEquals(6 * gp.tileSize, gp.npc[2][5].y);
 

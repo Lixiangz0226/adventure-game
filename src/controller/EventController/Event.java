@@ -1,6 +1,6 @@
 package controller.EventController;
 
-import UseCaseInteracter.EventInteracter;
+import use_case_interacter.EventInteracter;
 import view.EventView.EventViewModel;
 
 import java.awt.*;

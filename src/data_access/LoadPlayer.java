@@ -1,9 +1,11 @@
 package data_access;
 
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.*;
-import OutsideEntities.Items.*;
-import controller.KeyHandler;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Items.PiggyBank;
+import entities.stat_entities.Items.PurificationPotion;
+import entities.stat_entities.Player;
+import entities.stat_entities.Weapons.*;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;

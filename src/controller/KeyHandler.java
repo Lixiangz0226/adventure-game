@@ -1,6 +1,6 @@
 package controller;
 
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 import data_access.LoadEvent;
 import data_access.LoadPlayer;
 
@@ -8,8 +8,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static controller.GamePanel.playerLoader;
 
 public class KeyHandler implements KeyListener {
 

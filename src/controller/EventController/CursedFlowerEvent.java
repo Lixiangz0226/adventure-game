@@ -1,7 +1,7 @@
 package controller.EventController;
 
-import OutsideEntities.Player;
-import UseCaseInteracter.CursedFlowerInteracter;
+import entities.stat_entities.Player;
+import use_case_interacter.CursedFlowerInteracter;
 import view.EventView.CursedFlowerViewModel;
 
 import javax.swing.*;
