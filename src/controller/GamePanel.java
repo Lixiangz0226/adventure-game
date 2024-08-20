@@ -64,10 +64,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Generate events
     public ShopEvent shop = new ShopEvent(player);
-    public BattleEvent bat1 = new BattleEvent(player, new Bat());
-    public BattleEvent bat2 = new BattleEvent(player, new Bat());
-    public BattleEvent bat3 = new BattleEvent(player, new Bat());
-    public BattleEvent goblin = new BattleEvent(player, new Goblin());
+    public BattleEvent bat1 = new BattleEvent(player, new Bat(), this);
+    public BattleEvent bat2 = new BattleEvent(player, new Bat(), this);
+    public BattleEvent bat3 = new BattleEvent(player, new Bat(), this);
+    public BattleEvent goblin = new BattleEvent(player, new Goblin(), this);
     public CursedFlowerEvent cursedFlower = new CursedFlowerEvent(player);
     public CursedTreeEvent cursedTree = new CursedTreeEvent(player, this);
     public GuidingEvent guide = new GuidingEvent(player);
@@ -110,10 +110,10 @@ public class GamePanel extends JPanel implements Runnable{
     public void newGame() throws IOException {
         player = new Player("Steve", 50);
         shop = new ShopEvent(player);
-        bat1 = new BattleEvent(player, new Bat());
-        bat2 = new BattleEvent(player, new Bat());
-        bat3 = new BattleEvent(player, new Bat());
-        goblin = new BattleEvent(player, new Goblin());
+        bat1 = new BattleEvent(player, new Bat(), this);
+        bat2 = new BattleEvent(player, new Bat(), this);
+        bat3 = new BattleEvent(player, new Bat(), this);
+        goblin = new BattleEvent(player, new Goblin(), this);
         cursedFlower = new CursedFlowerEvent(player);
         cursedTree = new CursedTreeEvent(player, this);
         guide = new GuidingEvent(player);
