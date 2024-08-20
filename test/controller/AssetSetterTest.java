@@ -16,7 +16,12 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
+/**
+ * Unit tests for the AssetSetter class.
+ * 
+ * This class verifies that objects and NPCs are correctly instantiated and 
+ * placed on the game maps by the AssetSetter.
+ */
 class AssetSetterTest {
 
     GamePanel gp;
