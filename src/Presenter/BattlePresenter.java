@@ -105,7 +105,8 @@ public class BattlePresenter extends EventPresenter{
          */
         backPanel.setVisible(true);
         mainTextArea.setText("Continue your victorious pursuit!");
-        hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + monster.getHealth());
+        hpLabelNumber.setText("" + player.getHealth()); 
+        enemyhp.setText("" + monster.getHealth());
         choice1.setText("Basic attack");
         choice2.setText(player.getSkills().get(0).getName());
         choice3.setText(player.getSkills().get(1).getName());
