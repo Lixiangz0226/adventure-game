@@ -1,7 +1,8 @@
-package UseCaseInteracter;
+package use_case_interacter;
 
-import OutsideEntities.Player;
+import entities.stat_entities.Player;
 import org.junit.jupiter.api.Test;
+import use_case_interacter.QueenSlimeInteracter;
 
 import javax.swing.*;
 

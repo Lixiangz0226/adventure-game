@@ -1,13 +1,10 @@
-package UseCaseInteracter;
+package use_case_interacter;
 
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Monsters.Cursed_Tree;
-import OutsideEntities.Monsters.Goblin;
-import OutsideEntities.Monsters.Monster;
-import OutsideEntities.Player;
-import OutsideEntities.Weapons.Flame_Crossbow;
-import OutsideEntities.Weapons.Knife;
-import OutsideEntities.Weapons.Spear;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Monsters.Cursed_Tree;
+import entities.stat_entities.Player;
+import entities.stat_entities.Weapons.Flame_Crossbow;
+import entities.stat_entities.Weapons.Knife;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

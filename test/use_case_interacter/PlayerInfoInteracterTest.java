@@ -1,8 +1,9 @@
-package UseCaseInteracter;
+package use_case_interacter;
 
-import OutsideEntities.Items.Life_Potion;
-import OutsideEntities.Player;
+import entities.stat_entities.Items.Life_Potion;
+import entities.stat_entities.Player;
 import org.junit.jupiter.api.Test;
+import use_case_interacter.PlayerInfoInteracter;
 
 import javax.swing.*;
 
