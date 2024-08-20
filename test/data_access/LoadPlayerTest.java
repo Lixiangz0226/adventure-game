@@ -1,6 +1,6 @@
+package data_access;
+
 import OutsideEntities.Player;
-import data_access.LoadPlayer;
-import data_access.SavePlayer;
 import OutsideEntities.Items.Life_Potion;
 import OutsideEntities.Items.PiggyBank;
 import OutsideEntities.Weapons.Flame_Crossbow;
