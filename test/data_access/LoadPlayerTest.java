@@ -29,7 +29,8 @@ class LoadPlayerTest {
 
         LoadPlayer loadPlayer = new LoadPlayer();
 
-        player2 = loadPlayer.load();
+        player2 = new Player("Champ", 114514);
+        loadPlayer.load(player2);
 
         assert Objects.equals(player2.getName(), "Testing");
         assert player2.getHealth() == 1234;

@@ -36,6 +36,9 @@ public class Inventory {
         this.items.remove(item);
     }
 
+    public void removeAll(){// Removing all items
+        items.removeAll(this.items);}
+
     public int getLength() {// Return the length of the inventory
         return this.items.size();
     }

@@ -21,19 +21,14 @@ public class LoadPlayer{
     File myObj = new File("src\\data_access\\Player.txt");
 
 
-
-    public LoadPlayer() {// Constructor
-        }
-
-    public Player load() throws FileNotFoundException {
-        // Load the player's info from the file and return the player saved
-        if (!myObj.exists()) {return new Player("Null", 50);}
+    public void load(Player player) throws FileNotFoundException {
+        // Load the player's info from the file saved
+        if (!myObj.exists()) {return;}
         Scanner myReader = new Scanner(myObj);
         // name
-        String name = myReader.nextLine();
+        player.setName(myReader.nextLine());
         // HP
-        int hp = Integer.parseInt(myReader.nextLine());
-        Player player = new Player(name, hp);
+        player.setHealth(Integer.parseInt(myReader.nextLine()));
         // Keys
         player.setKey(Integer.parseInt(myReader.nextLine()));
         // Money
@@ -41,10 +36,10 @@ public class LoadPlayer{
         // Weapon
         weaponHelper(myReader.nextLine(), player);
         // Inventory
+        player.removeAllItems();
         inventoryHelper(myReader.nextLine(), player);
 
         myReader.close();
-        return player;
     }
 
     private void weaponHelper(String name, Player player){

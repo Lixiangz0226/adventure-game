@@ -15,15 +15,10 @@ public class LoadEvent {
     /**
      *
      */
-    GamePanel gp;
     File myEvent = new File("src\\data_access\\Events.txt");
 
 
-    public LoadEvent(GamePanel gp) {// Constructor
-        this.gp = gp;
-    }
-
-    public void load() throws FileNotFoundException {
+    public void load(GamePanel gp) throws FileNotFoundException {
         // Load the events' info from the file saved
         if (!myEvent.exists()) {
         }
