@@ -222,9 +222,8 @@ public class PlayerController extends Entity {
                     break;
 
                 case "Goal_Door":
-                    if(hasSuperKey > 0) {
+                    if(gp.player.getKey() > 5) {
                         gp.obj[gp.currentMap][i] = null;
-                        hasSuperKey--;
                         break;
                     }
 

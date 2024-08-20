@@ -58,9 +58,9 @@ public class EventHandler {
                 teleport(0, 1, 5);
             }
             else if (hit(0, 15, 5,"any")) {
-                teleport(2, 0, 5);
+                teleport(2, 1, 5);
             }
-            else if (hit(2, 0, 5,"any")) {
+            else if (hit(2, 1, 5,"any")) {
                 teleport(0, 15, 5);
             }
             else if (hit(0, 7, 0,"any")) {

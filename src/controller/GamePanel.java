@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable{
     public BattleEvent bat3 = new BattleEvent(player, new Bat());
     public BattleEvent goblin = new BattleEvent(player, new Goblin());
     public CursedFlowerEvent cursedFlower = new CursedFlowerEvent(player);
-    public CursedTreeEvent cursedTree = new CursedTreeEvent(player);
+    public CursedTreeEvent cursedTree = new CursedTreeEvent(player, this);
     public GuidingEvent guide = new GuidingEvent(player);
     public MysteryBoxEvent mystery = new MysteryBoxEvent(player);
     public QueenSlimeEvent slime = new QueenSlimeEvent(player);
@@ -103,12 +103,24 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        player.getInventory().addItem(new PurificationPotion());
 
+    }
 
-
-
-
+    // Make everything new
+    public void newGame() throws IOException {
+        player = new Player("Steve", 50);
+        shop = new ShopEvent(player);
+        bat1 = new BattleEvent(player, new Bat());
+        bat2 = new BattleEvent(player, new Bat());
+        bat3 = new BattleEvent(player, new Bat());
+        goblin = new BattleEvent(player, new Goblin());
+        cursedFlower = new CursedFlowerEvent(player);
+        cursedTree = new CursedTreeEvent(player, this);
+        guide = new GuidingEvent(player);
+        mystery = new MysteryBoxEvent(player);
+        slime = new QueenSlimeEvent(player);
+        machine = new SlotMachineEvent(player);
+        playInfo = new PlayerInfo(player, this);
     }
 
     public void setUpGame() {
