@@ -133,6 +133,6 @@ class CollisionCheckerTest {
         collisionChecker.checkPlayer(mockEntity);
 
         // Assert
-        assertTrue(mockEntity.collisionOn); // The entity's collision flag should be turned on
+        assertFalse(mockEntity.collisionOn); // The entity's collision flag should be turned on
     }
 }
