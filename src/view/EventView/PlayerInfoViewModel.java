@@ -102,5 +102,5 @@ public class PlayerInfoViewModel extends EventViewModel{
 
     public JButton getHomeButton(){/* Return home Button */return homeButton;}
 
-
+    public JLabel getMoney(){/* Return the money label */return money;}
 }
