@@ -55,6 +55,11 @@ public class AssetSetter {
         gp.obj[mapNumber][6] = new ItemsChestObject(new Life_Potion());
         gp.obj[mapNumber][6].x = 3 * gp.tileSize;
         gp.obj[mapNumber][6].y = 3 * gp.tileSize;
+
+        
+        gp.obj[mapNumber][9] = new SwordObject();
+        gp.obj[mapNumber][9].x = 3 * gp.tileSize;
+        gp.obj[mapNumber][9].y = 8 * gp.tileSize;
         
         //gp.obj[mapNumber][6] = new ForestDoor2();
         //gp.obj[mapNumber][6].x = 15 * gp.tileSize;
