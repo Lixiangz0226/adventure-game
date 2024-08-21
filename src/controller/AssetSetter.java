@@ -5,14 +5,17 @@ import entities.visual_entities.Goblin;
 import entities.visual_entities.NPC_Guide;
 import entities.visual_entities.*;
 
+/**
+ * The {@code AssetSetter} class is responsible for initializing and placing various objects and NPCs
+ * on the game map. This class uses defined coordinates to set the locations of these assets on
+ * different locations of different maps within the game.
+ */
 
 public class AssetSetter {
 
     GamePanel gp;
 
-    /**
-     * @param gp
-     */
+
     public AssetSetter(GamePanel gp) {
         this.gp = gp;
 

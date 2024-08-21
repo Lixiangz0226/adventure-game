@@ -15,7 +15,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-
+/**
+ * The GamePanel class is the main panel for the game, responsible for rendering the game world,
+ * managing game states, and handling the game loop. It extends JPanel and implements Runnable
+ * to support multi-threading for smooth gameplay.
+ */
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -94,7 +98,12 @@ public class GamePanel extends JPanel implements Runnable{
     public final int guideState = 13;
     public final int slotState = 14;
 
-
+    /**
+     * Constructs the GamePanel, initializing the panel's properties and setting up
+     * input handling and background color.
+     *
+     * @throws IOException if there is an error initializing game resources.
+     */
 
     //Constructor method
     public GamePanel() throws IOException {
@@ -106,6 +115,12 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
 
     }
+
+    /**
+     * Initializes a new game, resetting all events, entities, and player data.
+     *
+     * @throws IOException if there is an error resetting game resources.
+     */
 
     // Make everything new
     public void newGame() throws IOException {
@@ -124,6 +139,11 @@ public class GamePanel extends JPanel implements Runnable{
         playInfo = new PlayerInfo(player, this);
     }
 
+    /**
+     * Sets up the game by initializing objects, NPCs, and setting the game state
+     * to the title screen.
+     */
+
     public void setUpGame() {
         setter.setObject();
         setter.setNPC();
@@ -134,6 +154,11 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread = new Thread(this);
         gameThread.start();
     }
+
+    /**
+     * The main game loop, responsible for updating game logic and rendering the game screen
+     * at a consistent frame rate.
+     */
 
     @Override
     public void run() {
@@ -168,6 +193,11 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
 
+    /**
+     * Updates the game state and entities based on the current game state.
+     * Handles player and NPC updates during gameplay.
+     */
+
     //update each element of the list of entities(npc) as well as the player entity
     public void update() {
 
@@ -200,6 +230,12 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     }
+
+    /**
+     * Draws the game components in the correct order: tiles, objects, player, NPCs, and UI.
+     *
+     * @param g The Graphics object used for drawing.
+     */
 
     //Draw each component of the game in the order of tile > object > player > NPC
     public void paintComponent(Graphics g) {

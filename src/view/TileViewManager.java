@@ -11,12 +11,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * Manages the tiles and maps for the game, including loading tile images and map data.
+ */
+
 public class TileViewManager {
 
     //Attributes
     GamePanel gp;
     public Tile[] tile;
     public int[][][] mapTileNumber;
+
+    /**
+     * Constructs a TileViewManager instance and initializes tiles and map data.
+     *
+     * @param gp The GamePanel instance that this TileViewManager will interact with.
+     */
 
     public TileViewManager(GamePanel gp) {
         this.gp = gp;
@@ -30,6 +40,10 @@ public class TileViewManager {
         this.loadMap("/resource/maps/dark_forest.txt",2);
         this.loadMap("/resource/maps/boss_chamber.txt",3);
     }
+
+    /**
+     * Loads tile images from resources and initializes the Tile objects.
+     */
 
     //Load the png files from resources
     public void getTileImage() {
@@ -69,8 +83,14 @@ public class TileViewManager {
         }
     }
 
-    //Load the data from the map txt into the mapTileNumber array, which holds the where and what of each tiles in a
-    //nested array
+
+    /**
+     * Loads map data from a text file into the mapTileNumber array.
+     *
+     * @param filePath  The path to the map file.
+     * @param mapNumber The index of the map to load.
+     */
+
     public void loadMap (String filePath, int mapNumber) {
 
         try {
@@ -79,6 +99,9 @@ public class TileViewManager {
 
             int col = 0;
             int row = 0;
+
+            //Load the data from the map txt into the mapTileNumber array, which holds the where and what of each tiles in a
+            //nested array
 
             while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
 
@@ -106,7 +129,12 @@ public class TileViewManager {
         }
     }
 
-    //Using tile data provided by the mapTileNumber array, draw the map until it reaches the maxScreenCol/Row
+    /**
+     * Draws the tiles on the screen based on the mapTileNumber array.
+     *
+     * @param g2 The Graphics2D object used for drawing.
+     */
+
     public void draw(Graphics2D g2) {
 
         int col = 0;
@@ -114,6 +142,7 @@ public class TileViewManager {
         int x = 0;
         int y = 0;
 
+        //Using tile data provided by the mapTileNumber array, draw the map until it reaches the maxScreenCol/Row
         while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
 
             int tileNumber = mapTileNumber[gp.currentMap][col][row];

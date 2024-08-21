@@ -1,6 +1,12 @@
 package controller;
 
 //Tests the functionality of the battle or shop event in rooms
+/**
+ * The EventHandler class manages and checks the occurrence of specific events
+ * in rooms, such as battle or shop events. It is responsible for detecting
+ * player interactions with event tiles and handling the effects of these events.
+ */
+
 public class EventHandler {
 
     GamePanel gp;
@@ -8,6 +14,13 @@ public class EventHandler {
 
     int previousEventX, previousEventY;
     boolean canTouchEvent;
+
+    /**
+     * Constructs an EventHandler with a reference to the GamePanel.
+     * Initializes the event rectangles for all possible locations in the game.
+     *
+     * @param gp The game panel where all game elements are managed.
+     */
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
@@ -42,6 +55,12 @@ public class EventHandler {
 
     }
 
+    /**
+     * Checks for player interaction with any event in the current room.
+     * Triggers the event if conditions are met, such as the player being in
+     * the right location and having the correct direction.
+     */
+
     public void checkEvent() {
         int xDistance = Math.abs(gp.playerController.x - previousEventX);
         int yDistance = Math.abs(gp.playerController.y - previousEventY);
@@ -74,6 +93,16 @@ public class EventHandler {
         }
     }
 
+    /**
+     * Checks if the player has triggered an event at the specified map, column, and row.
+     *
+     * @param map          The map index where the event is being checked.
+     * @param col          The column index within the map where the event is being checked.
+     * @param row          The row index within the map where the event is being checked.
+     * @param reqDirection The required direction the player must be facing to trigger the event.
+     * @return true if the event is triggered; false otherwise.
+     */
+
     public boolean hit(int map, int col, int row, String reqDirection) {
 
         boolean hit = false;
@@ -103,6 +132,15 @@ public class EventHandler {
         return hit;
 
     }
+
+    /**
+     * Teleports the player to a specified location on the map.
+     * Updates the player's position and prevents immediate retriggering of the event.
+     *
+     * @param map The map index to teleport the player to.
+     * @param col The column index within the map where the player will be teleported.
+     * @param row The row index within the map where the player will be teleported.
+     */
 
     public void teleport(int map, int col, int row) {
 

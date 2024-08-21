@@ -9,6 +9,11 @@ import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * The KeyHandler class implements the KeyListener interface and handles all keyboard input
+ * for the game, managing different states such as playing, pausing, shopping, and more.
+ */
+
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, FPressed, loadPressed, IPressed;
@@ -17,6 +22,12 @@ public class KeyHandler implements KeyListener {
 
     GamePanel gp;
     Player player;
+
+    /**
+     * Constructor for the KeyHandler class.
+     *
+     * @param gp The GamePanel instance associated with this KeyHandler.
+     */
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
@@ -28,6 +39,12 @@ public class KeyHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
+
+    /**
+     * Invoked when a key has been pressed. Handles the logic for different game states and key presses.
+     *
+     * @param e The KeyEvent containing the information about the key press.
+     */
 
     //Senses when WASD keys are pressed are assign them to either up, down, left, and right
     @Override
@@ -188,6 +205,12 @@ public class KeyHandler implements KeyListener {
         }
 
     }
+
+    /**
+     * Invoked when a key has been released. Resets the direction keys when released.
+     *
+     * @param e The KeyEvent containing the information about the key release.
+     */
 
     //When no WASD keys are held/pressed, no direction is assigned
     @Override

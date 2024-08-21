@@ -2,6 +2,12 @@ package controller;
 
 import entities.visual_entities.Entity;
 
+/**
+ * The CollisionChecker class is responsible for handling all collision detections
+ * within the game, including collisions between entities and tiles, objects,
+ * other entities, and the player.
+ */
+
 public class CollisionChecker {
 
     GamePanel gp;
@@ -9,6 +15,13 @@ public class CollisionChecker {
     public CollisionChecker(GamePanel gp) {
         this.gp = gp;
     }
+
+    /**
+     * Checks if the specified entity collides with any tiles on the current map.
+     * Adjusts the entity's collision status based on its direction of movement.
+     *
+     * @param entity The entity whose tile collisions are being checked.
+     */
 
     public void checkTile(Entity entity) {
 
@@ -72,6 +85,16 @@ public class CollisionChecker {
         }
 
     }
+
+    /**
+     * Checks if the specified entity collides with any objects on the current map.
+     * If a collision occurs and the entity is the player, the method returns the index
+     * of the collided object in the object array.
+     *
+     * @param entity The entity whose object collisions are being checked.
+     * @param player True if the entity is the player; false otherwise.
+     * @return The index of the collided object, or 999 if no collision occurs.
+     */
 
     //Check if player is hitting any object, if true, we return the index of that object which corresponds to that
     //specific object's index in the array

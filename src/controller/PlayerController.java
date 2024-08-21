@@ -11,6 +11,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * The PlayerController class is responsible for managing the player's actions,
+ * movement, and interactions within the game world. It extends the Entity class.
+ */
+
 public class PlayerController extends Entity {
 
     //Player attributes
@@ -23,6 +28,13 @@ public class PlayerController extends Entity {
     Container con;
     JTextArea mainTextArea;
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
+
+    /**
+     * Constructor for the PlayerController class.
+     *
+     * @param gp   The GamePanel instance associated with this PlayerController.
+     * @param keyH The KeyHandler instance used for detecting key inputs.
+     */
 
     //Player constructor
     public PlayerController(GamePanel gp, KeyHandler keyH) {
@@ -42,6 +54,12 @@ public class PlayerController extends Entity {
         setDefaultValue();
         getPlayerImage();
     }
+
+    /**
+     * Handles interaction with NPCs based on the player's proximity and key presses.
+     *
+     * @param i The index of the NPC to interact with.
+     */
 
     //Incomplete method, need to be integrated with other code
     public void interactNPC(int i) {
@@ -94,6 +112,12 @@ public class PlayerController extends Entity {
         }
         keyH.enterPressed = false;
     }
+
+    /**
+     * Handles picking up objects and applying their effects based on the object's name.
+     *
+     * @param i The index of the object to pick up.
+     */
 
     //Depending on the name of the object, set object to null (to simulate pick up) and update the object's affect
     public void pickUpObject(int i) {
@@ -176,8 +200,11 @@ public class PlayerController extends Entity {
         }
     }
 
-    //Using the directPressed from the keyHandler, assign the position of the player
-    //If no collision if affecting the player, change the player's x,y coordinates to simulate movement
+    /**
+     * Updates the player's position and handles interactions based on the key inputs.
+     * The player's coordinates change to simulate movement when no collision is detected.
+     */
+
     public void update () {
 
         if(keyH.upPressed == true || keyH.downPressed == true ||
@@ -252,9 +279,13 @@ public class PlayerController extends Entity {
 
     }
 
+    /**
+     * Draws the player's sprite on the screen based on the direction and current animation frame.
+     * Alternates between spriteNumber 1 or 2 every 12 ticks to create animation.
+     *
+     * @param g2 The Graphics2D object used for drawing the sprite.
+     */
 
-    //Update the player sprite depending on the direction
-    //Alternate between spriteNumber 1 or 2 every 12 ticks to create animation
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
