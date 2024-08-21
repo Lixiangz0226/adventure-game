@@ -1,5 +1,6 @@
 package presenter;
 
+import entities.stat_entities.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,8 @@ class PlayerInfoPresenterTest {
         choice2 = new JButton();
         choice3 = new JButton();
         choice4 = new JButton();
-        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4);
+        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4, new JLabel(), new JLabel(),
+                new Player("..", 50));
     }
 
     @Test

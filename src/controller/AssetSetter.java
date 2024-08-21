@@ -1,6 +1,7 @@
 package controller;
 
 import entities.map_objects.*;
+import entities.stat_entities.Items.Life_Potion;
 import entities.visual_entities.Goblin;
 import entities.visual_entities.NPC_Guide;
 import entities.visual_entities.*;

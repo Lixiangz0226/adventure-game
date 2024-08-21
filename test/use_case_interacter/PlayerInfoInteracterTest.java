@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerInfoInteracterTest {
     Player player = new Player("Dante", 50);
     PlayerInfoInteracter Info = new PlayerInfoInteracter(player, new JTextArea(), new JButton(), new JButton(), new JButton(),
-            new JButton());
+            new JButton(), new JLabel(), new JLabel());
 
     @Test
     void start() {
