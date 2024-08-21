@@ -50,7 +50,8 @@ public class PlayerInfo extends Event {
         choice6.addActionListener(choiceHandler);
         handSwitchButton.addActionListener(choiceHandler);
 
-        interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4);
+        interacter = new PlayerInfoInteracter(player, view.getMainTextArea(), choice1, choice2, choice3, choice4,
+                view.getHpLabelNumber(), view.getMoney());
     }
 
     public Window getWindow() {/* Get Game Window */return view.getWindow();}

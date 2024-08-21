@@ -21,8 +21,8 @@ public class PlayerInfoInteracter extends EventInteracter{
     private Player player;
 
     public PlayerInfoInteracter(Player player, JTextArea mainTextArea, JButton choice1, JButton choice2, JButton choice3,
-                                JButton choice4) {// Constructor
-        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4);
+                                JButton choice4, JLabel hp, JLabel money) {// Constructor
+        presenter = new PlayerInfoPresenter(mainTextArea, choice1, choice2, choice3, choice4, hp, money, player);
         this.player = player;
     }
 
