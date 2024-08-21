@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import entities.map_objects.ItemsChestObject;
+import entities.map_objects.SwordObject;
 import entities.stat_entities.Items.PurificationPotion;
 import entities.visual_entities.Entity;
 
@@ -175,6 +176,17 @@ public class PlayerController extends Entity {
                 case "Item_Chest":
                     this.gp.player.getInventory().addItem(((ItemsChestObject) gp.obj[gp.currentMap][i]).getContainedItem());
                     this.gp.obj[this.gp.currentMap][i] = null;
+                    break;
+
+                    case "Sword":
+                    SwordObject sword = (SwordObject) gp.obj[gp.currentMap][i];
+                    if (sword.getContainedWeapon() == null) {
+                        this.gp.obj[this.gp.currentMap][i] = null;
+                    }
+                    else {
+                        gp.player.getInventory().addItem(((SwordObject) gp.obj[gp.currentMap][i]).getContainedWeapon());
+                        this.gp.obj[this.gp.currentMap][i] = null;
+                    }
                     break;
 
             }
