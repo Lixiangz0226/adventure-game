@@ -25,7 +25,7 @@ public class ShopPresenter extends EventPresenter{
         The scene of the shop.
          */
         mainTextArea.setText("Frank: Welcome to my store! I wish I have something you want:\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
+                "Break string on '\\n': 100$\nLife Potion: 40$\nGolden Key: 50$");
         choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.getName());}
         choice2.setText("Buy " + item2.getName());
         choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.getName());}
@@ -37,7 +37,7 @@ public class ShopPresenter extends EventPresenter{
         The scene that notices the player which has already bought the item player has chosen.
          */
         mainTextArea.setText("You've already bought this one.\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
+                 "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$");
     }
 
     public void lackofmoney(){
@@ -45,6 +45,6 @@ public class ShopPresenter extends EventPresenter{
         The scene that notices the player which is lack of money.
          */
         mainTextArea.setText("I'm afraid you don't have enough money.\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$");
+                "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$");
     }
 }
