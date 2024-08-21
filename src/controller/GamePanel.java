@@ -210,7 +210,7 @@ public class GamePanel extends JPanel implements Runnable{
             //nothing
         }
 
-        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping && !guide.fighting && !machine.fighting) {
+        if(gameState == playState && !goblin.fighting && !bat1.fighting && !bat2.fighting && !bat3.fighting && !shop.shopping && !guide.fighting) {
             for(int i = 0; i < npc[1].length; i++) {
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();

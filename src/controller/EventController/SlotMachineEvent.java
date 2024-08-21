@@ -69,7 +69,9 @@ public class SlotMachineEvent extends Event {
                     if (Objects.equals(yourChoice, "c1")){position = interacter.finish();}
                     break;
                 case "finish":
-                    opened = false; break;
+                    opened = false; fighting = false; break;
+
+
             }
         }
     }
