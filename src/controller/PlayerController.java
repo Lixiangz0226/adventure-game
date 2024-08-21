@@ -193,6 +193,11 @@ public class PlayerController extends Entity {
                     }
                     break;
 
+                case "CavernDoor":
+                    if (gp.playerController.hasSuperKey > 0) {
+                        gp.obj[gp.currentMap][i] = null;
+                    }
+                    break;
             }
         }
 

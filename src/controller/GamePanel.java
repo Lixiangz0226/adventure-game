@@ -59,8 +59,8 @@ public class GamePanel extends JPanel implements Runnable{
     //Entity and Object
     //Both object and entity are in an array of max 10 elements
     public PlayerController playerController = new PlayerController(this,keyH);
-    public Object[][] obj = new Object[maxMap][10];
-    public Entity[][] npc = new Entity[maxMap][10];
+    public Object[][] obj = new Object[maxMap][20];
+    public Entity[][] npc = new Entity[maxMap][20];
 
     //add if statement to inject saved player
     public Player player = new Player("Steve", 50);

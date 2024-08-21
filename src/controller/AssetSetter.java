@@ -56,14 +56,18 @@ public class AssetSetter {
         gp.obj[mapNumber][6].x = 3 * gp.tileSize;
         gp.obj[mapNumber][6].y = 3 * gp.tileSize;
 
-        
-        gp.obj[mapNumber][9] = new SwordObject();
-        gp.obj[mapNumber][9].x = 3 * gp.tileSize;
-        gp.obj[mapNumber][9].y = 8 * gp.tileSize;
-        
+
+        gp.obj[mapNumber][11] = new SwordObject();
+        gp.obj[mapNumber][11].x = 3 * gp.tileSize;
+        gp.obj[mapNumber][11].y = 8 * gp.tileSize;
+
         //gp.obj[mapNumber][6] = new ForestDoor2();
         //gp.obj[mapNumber][6].x = 15 * gp.tileSize;
         //gp.obj[mapNumber][6].y = 5 * gp.tileSize;
+
+        gp.obj[mapNumber][9] = new KeyObject();
+        gp.obj[mapNumber][9].x = 7 * gp.tileSize;
+        gp.obj[mapNumber][9].y = 8 * gp.tileSize;
 
         mapNumber = 1;
         gp.obj[mapNumber][7] = new CavernDoor();
@@ -74,6 +78,10 @@ public class AssetSetter {
         gp.obj[mapNumber][8] = new DoorObject();
         gp.obj[mapNumber][8].x = 10 * gp.tileSize;
         gp.obj[mapNumber][8].y = 5 * gp.tileSize;
+
+        gp.obj[mapNumber][10] = new SuperKey();
+        gp.obj[mapNumber][10].x = 14 * gp.tileSize;
+        gp.obj[mapNumber][10].y = 9 * gp.tileSize;
 
 
 
@@ -106,6 +114,10 @@ public class AssetSetter {
         gp.npc[mapNumber][3].x = gp.tileSize * 10;
         gp.npc[mapNumber][3].y = gp.tileSize * 6;
 
+        gp.npc[mapNumber][8] = new MysteryBox(gp);
+        gp.npc[mapNumber][8].x = gp.tileSize * 2;
+        gp.npc[mapNumber][8].y = gp.tileSize * 6;
+
         mapNumber = 2;
         gp.npc[mapNumber][4] = new CursedFlower(gp);
         gp.npc[mapNumber][4].x = gp.tileSize * 6;
@@ -119,9 +131,6 @@ public class AssetSetter {
         gp.npc[mapNumber][6].x = gp.tileSize * 12;
         gp.npc[mapNumber][6].y = gp.tileSize * 5;
 
-        gp.npc[mapNumber][8] = new MysteryBox(gp);
-        gp.npc[mapNumber][8].x = gp.tileSize * 14;
-        gp.npc[mapNumber][8].y = gp.tileSize * 5;
 
 
         mapNumber = 3;
