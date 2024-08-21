@@ -48,7 +48,7 @@ class GuidingPresenterTest {
 
         assertEquals("A Goblin is chasing a ten-year-old kid!", mainTextArea.getText());
         assertEquals("Fight", choice1.getText());
-        assertEquals("-", choice2.getText());
+        assertEquals("Items", choice2.getText());
         assertEquals("-", choice3.getText());
         assertEquals("-", choice4.getText());
     }
@@ -216,7 +216,7 @@ class GuidingPresenterTest {
 
         assertEquals("50" ,hpLabelNumber.getText());
         assertEquals("50" ,enemyhp.getText());
-        assertEquals("You won! You found 20$ and a golden key!", mainTextArea.getText());
+        assertEquals("You won! You found 30$ and a golden key!", mainTextArea.getText());
         assertEquals("-", choice1.getText());
         assertEquals("-", choice2.getText());
         assertEquals("-", choice3.getText());

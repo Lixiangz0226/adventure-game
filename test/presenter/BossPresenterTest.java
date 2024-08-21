@@ -49,8 +49,8 @@ class BossPresenterTest {
         presenter.start(6);
 
         assertFalse(backPanel.isVisible());
-        assertEquals("You look up at it-the grey canopy of The Cursed Tree reaches 30 meters, "  +
-                "and you understand the final battle has come.", mainTextArea.getText());
+        assertEquals("You look up at the Cursed Tree that reaches over 30 meters. " +
+                "As you sense its wicked presence, you understand the final battle has come.", mainTextArea.getText());
         assertEquals("Attack", choice1.getText());
         assertEquals("/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\", choice2.getText());
         assertEquals("-", choice3.getText());
@@ -167,7 +167,7 @@ class BossPresenterTest {
 
         assertEquals("50" ,hpLabelNumber.getText());
         assertEquals("1000" ,enemyhp.getText());
-        assertEquals("You won! The Cursed Tree was turned to ashes and fell to the ground.", mainTextArea.getText());
+        assertEquals("You won! The Cursed Tree turned to ashes and fell to the ground.", mainTextArea.getText());
         assertEquals("-", choice1.getText());
         assertEquals("-", choice2.getText());
         assertEquals("-", choice3.getText());
