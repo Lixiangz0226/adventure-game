@@ -116,8 +116,12 @@ public class AssetSetter {
         gp.npc[mapNumber][5].y = gp.tileSize * 4;
 
         gp.npc[mapNumber][6] = new SlotMachine(gp);
-        gp.npc[mapNumber][6].x = gp.tileSize * 13;
+        gp.npc[mapNumber][6].x = gp.tileSize * 12;
         gp.npc[mapNumber][6].y = gp.tileSize * 5;
+
+        gp.npc[mapNumber][8] = new MysteryBox(gp);
+        gp.npc[mapNumber][8].x = gp.tileSize * 14;
+        gp.npc[mapNumber][8].y = gp.tileSize * 5;
 
 
         mapNumber = 3;

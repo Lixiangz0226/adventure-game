@@ -97,6 +97,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int flowerState = 12;
     public final int guideState = 13;
     public final int slotState = 14;
+    public final int boxState = 15;
 
     /**
      * Constructs the GamePanel, initializing the panel's properties and setting up

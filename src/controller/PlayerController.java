@@ -107,6 +107,10 @@ public class PlayerController extends Entity {
                     case "SlotMachine":
                         gp.gameState = gp.slotState;
                         break;
+
+                    case "MysteryBox":
+                        gp.gameState = gp.boxState;
+                        break;
                 }
 
             }

@@ -137,6 +137,10 @@ public class MapPresenter {
             drawSlotWindow();
         }
 
+        if (gp.gameState == gp.boxState) {
+            drawBoxWindow();
+        }
+
 
     }
 
@@ -262,6 +266,27 @@ public class MapPresenter {
         gp.goblin.opened = true;
         gp.gameState = gp.playState;
     }
+
+    private void drawBoxWindow() {
+        gp.mystery.getWindow().setVisible(true);
+        gp.mystery.runEvent();
+
+        // Create a Swing Timer to check the shopOpened state periodically
+        Timer timer = new Timer(20, e -> {
+            if (!gp.mystery.opened) {
+                ((Timer) e.getSource()).stop(); // Stop the timer
+                gp.mystery.getWindow().setVisible(false);
+            }
+            else {
+                gp.mystery.getWindow().setVisible(true);
+            }
+        });
+        timer.start(); // Start the timer
+
+        gp.mystery.opened = true;
+        gp.gameState = gp.playState;
+    }
+
 
     private void drawFlowerWindow() {
         gp.cursedFlower.getWindow().setVisible(true);
