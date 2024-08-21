@@ -34,7 +34,7 @@ public class GuidingPresenter extends EventPresenter{
     public void chasing(){// Update the start view
         mainTextArea.setText("A Goblin is chasing a ten-year-old kid!");
         choice1.setText("Fight");
-        choice2.setText("items");
+        choice2.setText("Items");
         choice3.setText("-");
         choice4.setText("-");
     }
