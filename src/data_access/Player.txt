@@ -1,6 +1,6 @@
-Steve
-41
-6
-30
-Flame Crossbow
-Life Potion,Knife,Life Potion,Life Potion,Life Potion,
+Testing
+1234
+99
+888
+Spear
+Life Potion,Piggy Bank,Life Potion,Flame Crossbow,

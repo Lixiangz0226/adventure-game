@@ -42,7 +42,7 @@ class ShopPresenterTest {
 
 
         assertEquals("Frank: Welcome to my store! I wish I have something you want:\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$", mainTextArea.getText());
+                "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$", mainTextArea.getText());
         assertEquals("-", choice1.getText());
         assertEquals("Buy Katana", choice2.getText());
         assertEquals("-", choice3.getText());
@@ -56,7 +56,7 @@ class ShopPresenterTest {
         presenter.rebuy();
 
         assertEquals("You've already bought this one.\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$", mainTextArea.getText());
+                "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$", mainTextArea.getText());
     }
 
     @Test
@@ -64,6 +64,6 @@ class ShopPresenterTest {
         presenter.lackofmoney();
 
         assertEquals("I'm afraid you don't have enough money.\n" +
-                "Flame crossbow: 40$\nLife Potion: 15$\nGolden Key: 30$", mainTextArea.getText());
+                "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$", mainTextArea.getText());
     }
 }
