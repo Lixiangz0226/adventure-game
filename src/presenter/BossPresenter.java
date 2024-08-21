@@ -146,7 +146,7 @@ public class BossPresenter extends EventPresenter{
         The scene after the player has won.
          */
         hpLabelNumber.setText("" + player.getHealth()); enemyhp.setText("" + boss.getHealth());
-        mainTextArea.setText("You won! The Cursed Tree was turned to ashes and fell to the ground.");
+        mainTextArea.setText("You won! The Cursed Tree turned to ashes and fell to the ground.");
         choice1.setText("-");
         choice2.setText("-");
         choice3.setText("-");

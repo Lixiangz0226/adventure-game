@@ -6,13 +6,13 @@ import java.util.Objects;
 
 public class Cursed_Tree extends Monster{
     // The Cursed Tree Boss class
-    private String message1 = "The Cursed Tree whipped you hard with the vines, dealt ";
+    private String message1 = "The Cursed Tree whipped you hard with its vines, dealt ";
     private String message2 = "The Cursed Tree binds your right arm with its roots, " +
             "making you unable to use items for 3 turns, dealt ";
-    private String message3 = "The Cursed Tree raises a big branch over its head," +
-            " and then hits it hard at you, dealt ";
-    private String message4 = "The Cursed Tree's branches grow hundreds of razor-sharp gray leaves " +
-            "in a very short period of time, and then shoot at you at once, dealt ";
+    private String message3 = "The Cursed Tree raises a big branch over its head" +
+            " and hits it hard at you, dealt ";
+    private String message4 = "The Cursed Tree grows hundreds of razor-sharp leaves " +
+            "and shoots them all at once, dealt ";
     private int randint = 0;
 
     public Cursed_Tree(){// Constructor
