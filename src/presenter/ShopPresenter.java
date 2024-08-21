@@ -25,7 +25,7 @@ public class ShopPresenter extends EventPresenter{
         The scene of the shop.
          */
         mainTextArea.setText("Frank: Welcome to my store! I wish I have something you want:\n" +
-                "Break string on '\\n': 100$\nLife Potion: 40$\nGolden Key: 50$");
+                "Battle Axe: 100$\nLife Potion: 40$\nGolden Key: 50$");
         choice1.setText("-");if (!bought1){choice1.setText("Buy " + item1.getName());}
         choice2.setText("Buy " + item2.getName());
         choice3.setText("-");if (!bought3){choice3.setText("Buy " + item3.getName());}
