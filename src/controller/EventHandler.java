@@ -96,9 +96,9 @@ public class EventHandler {
     /**
      * Checks if the player has triggered an event at the specified map, column, and row.
      *
-     * @param map          The map index where the event is being checked.
-     * @param col          The column index within the map where the event is being checked.
-     * @param row          The row index within the map where the event is being checked.
+     * @param map The map index where the event is being checked.
+     * @param col The column index within the map where the event is being checked.
+     * @param row The row index within the map where the event is being checked.
      * @param reqDirection The required direction the player must be facing to trigger the event.
      * @return true if the event is triggered; false otherwise.
      */

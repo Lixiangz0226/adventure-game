@@ -15,7 +15,7 @@ public class ItemsChestObject extends Object {
         containedItem = i;
 
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/resource/objects/Chest.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/resource/objects/HP_Chest.png"));
 
 
         } catch(IOException e) {
