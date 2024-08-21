@@ -3,6 +3,7 @@ package controller;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import entities.map_objects.ItemsChestObject;
 import entities.stat_entities.Items.PurificationPotion;
 import entities.visual_entities.Entity;
 
@@ -169,6 +170,11 @@ public class PlayerController extends Entity {
                     gp.obj[gp.currentMap][i] = null;
                     gp.player.getInventory().addItem(new PurificationPotion());
 
+                    break;
+                
+                case "Item_Chest":
+                    this.gp.player.getInventory().addItem(((ItemsChestObject) gp.obj[gp.currentMap][i]).getContainedItem());
+                    this.gp.obj[this.gp.currentMap][i] = null;
                     break;
 
             }
