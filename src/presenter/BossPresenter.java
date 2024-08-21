@@ -37,7 +37,7 @@ public class BossPresenter extends EventPresenter{
          */
         renewHP();
         backPanel.setVisible(false);
-        mainTextArea.setText("You look up at the Cursed Tree reaching over 30 meters. " +
+        mainTextArea.setText("You look up at the Cursed Tree that reaches over 30 meters. " +
                 "As you sense its wicked presence, you understand the final battle has come.");
         choice1.setText("Attack");
         choice2.setText("Items");if (bindingRounds > 0){choice2.setText("/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\");}
